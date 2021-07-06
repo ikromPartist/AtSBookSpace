@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Providers;
+use App\Models\User;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -23,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*', function($view){
+            if (session()->has('LoggedUser')) {
+                $user = User::where('id', session()->has('LoggedUser'))->first();
+                return $view->with('user', $user);
+            }
+        });
     }
 }

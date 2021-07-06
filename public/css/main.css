@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
 /* variables start */
 html {
-   --main-color: #00275f;
+   --main-color: #293449;
    --secondary-color: #f3c600;
    --font-family: 'PT Sans';
    --font-size: 18px;
@@ -40,13 +40,13 @@ input[type="radio"].visually-hidden {
 }
 .main-logo {
    display: inline-block;
-   width: 60px;
-   height: 60px;
+   width: 40px;
+   height: 40px;
 }
 .koinot-logo {
    display: inline-block;
-   height: 60px;
-   width: 340px;
+   height: 40px;
+   width: 250px;
    padding: 2px;
 }
 img {

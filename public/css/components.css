@@ -1,0 +1,26 @@
+/* ! main-header start */
+.main-header-top {
+   background-color: var(--main-color);
+}
+.main-header-top__container {
+   
+}
+.logos-wrapper {
+   background-color: #f2f6f8;
+}
+.main-search {
+
+}
+.main-search__label {
+
+}
+.main-search__input {
+
+}
+.taken-book__title {
+
+}
+.taken-book__deadline {
+
+}
+/* ! main-header end */

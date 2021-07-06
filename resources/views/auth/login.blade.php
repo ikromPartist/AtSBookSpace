@@ -21,13 +21,18 @@
             
             <section class="auth">
                <img class="main-logo" src="{{asset('images/main-logo.png')}}" alt="AtS Book Space" width="60" height="60">
-               <img class="koinot-logo auth__koinot-logo" src="{{asset('images/koinot-logo.png')}}" alt="{{__('Коиноти нав')}}" width="340px" height="60px">
+               <img class="koinot-logo auth__koinot-logo" src="{{asset('images/koinot-logo.png')}}" alt="Коиноти Нав" width="340px" height="60px">
                <h2 class="auth-title">{{__('Вход')}}</h2>
                <form class="login" action="{{route('auth.check')}}" method="POST">
+                  
+                  @if (Session::get('fail'))
+                     <p>{{Session::get('fail')}}</p>
+                  @endif
+
                   @csrf
                   <p class="login__items">
                      <label class="login__label" for="login-login">{{__('Логин')}}</label>
-                     <input type="text" name="login" class="login__input" id="login-login" placeholder="Login" value="{{old('login') ? old('login') : ''}}">
+                     <input type="text" name="login" class="login__input" id="login-login" placeholder="Login" value="{{old('login')}}">
                      <span class="error-text login__error-text">@error('login'){{$message}}@enderror</span>
                   </p>
                   <p class="login__items">
@@ -43,6 +48,7 @@
                   </p>
                   <button class="login__submit-button" type="submit">{{__('Вход')}}</button>
                </form>
+
             </section>
             
             <section class="welcome">

@@ -7,5 +7,5 @@
 @endsection
 {{-- page scripts --}}
 @section('scripts')
-   <script></script>
+   {{-- scripts --}}
 @endsection
