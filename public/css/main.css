@@ -1,0 +1,63 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+/* variables start */
+html {
+   --main-color: #00275f;
+   --secondary-color: #f3c600;
+   --font-family: 'PT Sans';
+   --font-size: 18px;
+   --font-lvl2: 30px; 
+}
+/* variables end */
+*, *::before, *::after {
+   box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
+}
+body {
+   margin: 0px;
+   font-family: 'PT Sans', serif;
+   font-size: var(--font-size);
+} 
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   white-space: nowrap;
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+}
+.container {
+   width: 1400px;
+   padding: 0px 30px;
+   margin: 0 auto;
+}
+.main-logo {
+   display: inline-block;
+   width: 60px;
+   height: 60px;
+}
+.koinot-logo {
+   display: inline-block;
+   height: 60px;
+   width: 340px;
+   padding: 2px;
+}
+img {
+   width: 100%;
+}
+p {
+   margin: 0px;
+}
+.error-text {
+   display: block;
+   color: red;
+   font-weight: bold;
+   font-size: 15px;
+}

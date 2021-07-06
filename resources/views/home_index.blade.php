@@ -1,9 +1,4 @@
 @extends('layouts.master')
-{{-- page styles --}}
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/home.css')}}">
-   <link rel="stylesheet" href="{{asset('css/media/home.css')}}">
-@endsection
 {{-- page content --}}
 @section('content')
    <main class="home-page">
