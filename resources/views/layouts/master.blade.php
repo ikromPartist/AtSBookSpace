@@ -13,17 +13,18 @@
    </head>
    <body>
    
-      {{-- header component --}}
       <x-main_header/>
-      {{-- sidebar component --}}
-      <x-main_sidebar/>
-      {{-- pages content --}}
+
       @yield('content')
-      {{-- footer component --}}
+
       <x-main_footer/>
-      {{-- main scripts --}}
+
+      <button type="button" class="scroll-top-button">
+         <span class="material-icons scroll-top-button__icon">arrow_upward</span>
+      </button>
+
       <script src="{{asset('js/main.js')}}"></script>
-      {{-- page scripts --}}
+
       @yield('scripts')
    
    </body>

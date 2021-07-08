@@ -1,12 +1,9 @@
 /* google fonts */
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400;700&display=swap');
 /* variables start */
 html {
    --main-color: #293449;
    --secondary-color: #f3c600;
-   --font-family: 'PT Sans';
-   --font-size: 18px;
-   --font-lvl2: 30px; 
 }
 /* variables end */
 *, *::before, *::after {
@@ -16,8 +13,8 @@ html {
 }
 body {
    margin: 0px;
-   font-family: 'PT Sans', serif;
-   font-size: var(--font-size);
+   font-family: 'Cuprum', sans-serif;
+   font-size: 18px;
 } 
 .visually-hidden:not(:focus):not(:active),
 input[type="checkbox"].visually-hidden,
@@ -60,4 +57,34 @@ p {
    color: red;
    font-weight: bold;
    font-size: 15px;
+}
+.scroll-top-button {
+   border: none;
+   background-color: #63a63e;
+   border-radius: 50px;
+   width: 60px;
+   height: 60px;
+   transition: 1s;
+   cursor: pointer;
+   position: fixed;
+   right: 30px;
+   bottom: 30px;
+   pointer-events: none;
+   opacity: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.scroll-top-button.active {
+   pointer-events: auto;
+   opacity: 1;
+}
+.scroll-top-button:hover {
+   background-color: rgba(124, 82, 158, 1);
+}
+.scroll-top-button__icon {
+   font-weight: bold;
+   font-size: 33px;
+   display: block;
+   color: white;
 }

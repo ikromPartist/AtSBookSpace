@@ -30,5 +30,8 @@ class AppServiceProvider extends ServiceProvider
                 return $view->with('user', $user);
             }
         });
+        view()->composer('*', function($view){
+            return $view->with('route', \Route::currentRouteName());
+        });
     }
 }
