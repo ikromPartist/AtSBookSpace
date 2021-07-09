@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Providers;
-use App\Models\User;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\Paginator;
+use App\Models\User;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Paginator::useBootstrap();
+        
         view()->composer('*', function($view){
             if (session()->has('LoggedUser')) {
                 $user = User::where('id', session()->has('LoggedUser'))->first();

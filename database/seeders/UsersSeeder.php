@@ -23,7 +23,6 @@ class UsersSeeder extends Seeder
         $user->email = 'user@gmail.com';
             $password = 'user';
             $user->password = Hash::make($password);
-        $user->taken_book = false;
         $user->company = 'Имя компании';
         $user->phone_numbers = 918130439;
         $user->save();

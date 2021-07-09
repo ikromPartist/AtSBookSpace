@@ -18,6 +18,6 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/', [HomeController::class, 'index'])->name('home_index');
 
    Route::get('/books', [BooksController::class, 'index'])->name('books.index');
-
+   Route::get('/pagination/fetch_data', [BooksController::class, 'fetch_data']);
 
 });
