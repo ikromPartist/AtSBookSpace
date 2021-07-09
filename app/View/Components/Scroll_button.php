@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Main_footer extends Component
+class Scroll_button extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class Main_footer extends Component
      */
     public function render()
     {
-        return view('components.main_footer');
+        return view('components.scroll_button');
     }
 }

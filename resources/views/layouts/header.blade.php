@@ -1,72 +1,54 @@
-<header class="main-header">
+<header class="header">
 
-   <div class="main-header-top">
-      <div class="container main-header-top__container">
+   <div class="header-top">
+      <div class="container header-top__container">
+
          <a class="ats-link" href="https://ats.tj/">
             <img class="main-logo" src="{{asset('images/main-logo.png')}}" alt="AtS Book Space">
          </a>
-         <a class="koinot-link" href="#">
+
+         <a class="koinot-link">
             <img class="koinot-logo" src="{{asset('images/koinot-logo.png')}}" alt="Коиноти Нав">
          </a>
+
          <div class="catalog">
             <button type="button" class="catalog__button">
                {{__('Каталог')}}
                <span class="material-icons-outlined catalog__dropdown-icon">arrow_drop_down</span>
             </button>
-            <ul class="catalog__list visually-hidden">
+            <ul class="catalog__list hidden">
                <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Softskills')}}</a>
+                  <a class="catalog__links" href="{{route('books.index')}}">{{__('Все')}}</a>
                </li>
                <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Hardskills')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Маркетинг')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Менеджмент')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Финансы')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Staff менеджмент')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Продажи и переговоры')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Сервис')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('ИТ')}}</a>
-               </li>
-               <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Художественная литература')}}</a>
+                  <a class="catalog__links" href="#">{{__('Доступные')}}</a>
                </li>
             </ul>
          </div>
-         <form class="main-search">
+
+         <form class="search hidden">
             @csrf
-            <label class="main-search__label" for="main-search__input">
-               <span class="material-icons-outlined main-search__icon">search</span>
-               <span class="visually-hidden">{{__('Поиск')}}</span>
-            </label>
-            <input type="search" class="main-search__input" id="main-search__input" name="keyword" list="tables" placeholder="{{__('Поиск')}}:">
+            <label class="visually-hidden" for="search__input">{{__('Поиск')}}</label>
+            <input type="search" class="search__input" id="search__input" name="keyword" list="tables" placeholder="{{__('Поиск')}}:">
+            
             <datalist id="tables">
                <option value="name"></option>
             </datalist>
-            <button class="visually-hidden" type="submit" tabindex="-1">{{__('Поиск')}}</button>
+            
+            <button type="button" class="search__button">
+               <span class="visually-hidden">{{__('Поиск')}}</span>
+            <span class="material-icons-outlined search__icon">search</span></button>
          </form>
-         <div class="main-header-top__user-info">
-            <a class="notification-link" href="#">
-               <span class="material-icons notification-link__icon">notifications</span>
-               <span class="visually-hidden">{{__('Уведомления')}}</span>
-            </a>
-            <a class="viber-link" href="#">
-               <img src="{{asset('images/viber.png')}}" alt="{{__('Вайбер')}}" class="viber-link__icon">
-            </a>
-         </div>
+
+         <a class="notification-link" href="#">
+            <span class="material-icons notification-link__icon">notifications</span>
+            <span class="visually-hidden">{{__('Уведомления')}}</span>
+         </a>
+
+         <a class="viber-link" href="#">
+            <img src="{{asset('images/viber.png')}}" alt="{{__('Вайбер')}}" class="viber-link__icon">
+         </a>
+
          <dl class="taken-book">
             <dt class="taken-book__title" title="{{__('Взятая книга')}}">
                <a class="taken-book__link" href="#">
@@ -81,15 +63,19 @@
                </a>
             </dd>
          </dl>
+
       </div>
    </div>
 
-   <div class="main-header-bottom">
-      <div class="container main-header-bottom__container">
+   <div class="header-bottom">
+
+      <div class="container header-bottom__container">
+
          <blockquote class="quote">
             <span>{{__('Быть')}}</span> {{__('умным модно!!')}} <br>
             {{__('Профессионалом своего дела-гордо!!!')}} 
          </blockquote>
+
          <address class="user-address">
             <p class="phone-numbers">
                <span class="material-icons phone-numbers__icon">call</span>
@@ -97,6 +83,7 @@
             </p>
             <p class="company-name">{{__('Название компании')}}</p>
          </address>
+
          <div class="user-info">            
             <div class="user-wrapper">
                <span class="material-icons user-icon">person</span>
@@ -108,10 +95,17 @@
             </div>
             <a class="profile-link" href="#">{{__('Управление профилем')}}</a>
          </div>
+
       </div>   
-      <nav class="main-navigation main-header__main-navigation">
-         <div class="container">
+
+      <div class="container">
+         <nav class="main-navigation header__main-navigation">
             <ul class="site-navigation">
+               <li class="site-navigation__items">
+                  <a @if($route != 'home_index') href="{{route('home_index')}}" @endif class="site-navigation__links">
+                     {{__('Главная')}}
+                  </a>
+               </li>
                <li class="site-navigation__items">
                   <a href="#" class="site-navigation__links">
                      {{__('О клубе')}}
@@ -142,9 +136,10 @@
                      {{__('Обратная связь')}}
                   </a>
                </li>   
-            </ul>   
-         </div>
-      </nav>
+            </ul>  
+         </nav>
+      </div>
+
    </div>
 
 </header>

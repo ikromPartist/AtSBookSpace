@@ -8,23 +8,22 @@
       {{-- material icons --}}
       <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
       {{-- main styles --}}
-      <link rel="stylesheet" href="{{asset('css/styles.css')}}">
-      <link rel="stylesheet" href="{{asset('css/media/styles.css')}}">
+      <link rel="stylesheet" href="{{asset('css/main.css')}}">
+      {{-- page styles --}}
+      @yield('styles')
    </head>
    <body>
    
-      <x-main_header/>
+      @include('layouts.header')
 
       @yield('content')
 
-      <x-main_footer/>
+      @include('layouts.footer')
 
-      <button type="button" class="scroll-top-button">
-         <span class="material-icons scroll-top-button__icon">arrow_upward</span>
-      </button>
-
+      <x-scroll_button/>
+      {{-- main scripts --}}
       <script src="{{asset('js/main.js')}}"></script>
-
+      {{-- page scripts --}}
       @yield('scripts')
    
    </body>
