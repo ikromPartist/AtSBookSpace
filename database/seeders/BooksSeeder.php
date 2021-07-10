@@ -21,6 +21,9 @@ class BooksSeeder extends Seeder
             Book::insert([
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
+                'image' => $faker-> numberBetween($min = 1, $max = 10),
+                'rating' => $faker->numberBetween($min = 1, $max = 5),
+                'available' => $faker->boolean(),
             ]);
         }
         

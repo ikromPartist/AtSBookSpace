@@ -98,8 +98,8 @@
 
       </div>   
 
-      <div class="container">
-         <nav class="main-navigation header__main-navigation">
+      <nav class="main-navigation header__main-navigation">
+         <div class="container">
             <ul class="site-navigation">
                <li class="site-navigation__items">
                   <a @if($route != 'home_index') href="{{route('home_index')}}" @endif class="site-navigation__links">
@@ -137,8 +137,8 @@
                   </a>
                </li>   
             </ul>  
-         </nav>
-      </div>
+         </div>
+      </nav>
 
    </div>
 

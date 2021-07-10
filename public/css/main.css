@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400;700&display=swap');
 
 html {
-   --main-color: #293449;
-   --secondary-color: #f3c600;
+   --blue-scheme: #293449;
+   --yellow-scheme: #f3c600;
+   --red-scheme: #ee3643;
+   --green-scheme: #63a63e;
+   --green-scheme_dark: #518534;
 }
 
 *, *::before, *::after {
@@ -59,7 +62,7 @@ p {
 }
 .scroll-top-button {
    border: none;
-   background-color: #63a63e;
+   background-color: var(--green-scheme);
    border-radius: 50px;
    width: 60px;
    height: 60px;
@@ -94,7 +97,7 @@ p {
 }
 /** header-top start*/
 .header-top {
-   background-color: var(--main-color);
+   background-color: var(--blue-scheme);
    width: 100%;
    position: sticky;
    top: 0px;
@@ -127,7 +130,7 @@ p {
 .catalog__button {
    border: none;
    color: #fff;
-   background-color: var(--main-color);
+   background-color: var(--blue-scheme);
    font-family: inherit;
    font-size: inherit;
    display: flex;
@@ -141,7 +144,7 @@ p {
 .catalog__links:focus {
    outline: none;
    background-color: #fff;
-   color: var(--main-color);
+   color: var(--blue-scheme);
 }
 .catalog__dropdown-icon {
    font-size: 30px;
@@ -163,7 +166,7 @@ p {
    text-decoration: none;
    color: #fff;
    font-size: 20px;
-   background-color: var(--main-color);
+   background-color: var(--blue-scheme);
    height: 0px;
    padding: 0px 15px;
    height: 40px;
@@ -186,13 +189,13 @@ p {
    display: flex;
    height: 50px;
    align-items: center;
-   color: #ee3643;
+   color: var(--red-scheme);
    padding: 10px;
    cursor: pointer;
 }
 .search__button:focus {
    outline: 0px;
-   background-color: var(--main-color);
+   background-color: var(--blue-scheme);
    color: #fff;
 }
 .search__icon {
@@ -205,7 +208,7 @@ p {
    background-color: transparent;
    width: 100%;
    padding-left: 10px;
-   color: var(--main-color);
+   color: var(--blue-scheme);
    font-size: inherit;
    font-family: inherit;
    font-weight: bold;
@@ -217,11 +220,11 @@ p {
 .search__input:focus,
 .search__input:active {
    outline: none;
-   color: var(--main-color);
+   color: var(--blue-scheme);
    font-weight: bold;
 }
 .search.hidden {
-   background-color: var(--main-color);
+   background-color: var(--blue-scheme);
 }
 .search.hidden .search__input {
    width: 0px;
@@ -234,7 +237,7 @@ p {
 .search.hidden .search__button:hover {
    outline: none;
    background-color: #fff;
-   color: #ee3643;
+   color: var(--red-scheme);
 }
 /* search end */
 .notification-link {
@@ -250,7 +253,7 @@ p {
 .notification-link:focus {
    outline: none;
    background-color: #fff;
-   color: var(--main-color);
+   color: var(--blue-scheme);
 }
 .viber-link:hover,
 .viber-link:focus {
@@ -295,25 +298,25 @@ p {
    display: flex;
    align-items: center;
    padding: 10px;
-   background-color: #63a63e;
+   background-color: var(--green-scheme);
    text-decoration: none;
    color: #fff;
 }
 .taken-book__link:hover,
 .taken-book__link:focus {
    outline: none;
-   background-color: #3c6526;
+   background-color: var(--green-scheme_dark);
 }
 .taken-book__deadline {
    display: flex;
 }
 .taken-book__deadline-link {
-   background-color: #ee3643; 
+   background-color: var(--red-scheme); 
 }
 .taken-book__deadline-link:hover,
 .taken-book__deadline-link:focus {
    outline: none; 
-   background-color: #b51c27;
+   background-color: var(--red-scheme);
 }
 /* taken-book end */
 /** header-top end */
@@ -332,7 +335,7 @@ p {
    display: flex;
    align-items: center;
    font-family: serif;
-   color: #ee3643;
+   color: var(--red-scheme);
    font-weight: bold;
    font-size: 18px;
    line-height: 25px;
@@ -363,7 +366,7 @@ p {
    height: 45px;
    border: 3px solid #fff;
    font-weight: bold;
-   color: #ee3643;
+   color: var(--red-scheme);
    font-size: 20px;
    position: relative;
    justify-content: center;
@@ -451,7 +454,7 @@ p {
    top: 50px;
 }
 .site-navigation {
-   background-color: var(--secondary-color);
+   background-color: var(--yellow-scheme);
    width: 100%;
    display: flex;
    justify-content: center;
@@ -467,7 +470,7 @@ p {
    justify-content: center;
    align-items: center;
    text-decoration: none;
-   color: var(--main-color);
+   color: var(--blue-scheme);
    font-weight: bold;
    padding: 12px;
    font-size: 22px;
@@ -479,15 +482,76 @@ p {
 }
 .site-navigation__items.active .site-navigation__links {
    background-color: #cca600;
-   color: var(--main-color);
+   color: var(--blue-scheme);
 }
 /* main-navigation end  */
 /** header-bottom end */
-/* ! header end */
+/*! header end */
 
-/* ! main-footer start */
+/*! global style start */
+/** breadcrumbs start */
+.breadcrumbs {
+   list-style: none;
+   display: flex;
+   flex-wrap: wrap;
+   padding: 24px 0px;
+}
+.breadcrumbs__item {
+   display: flex;
+   padding: 0 8px;
+}
+.breadcrumbs__item:first-child {
+   padding-left: 0px;
+}
+.breadcrumbs__link {
+   display: flex;
+   text-decoration: none;
+   color: black;
+   font-weight: bold;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   align-items: center;
+   cursor: pointer;
+}
+.breadcrumbs__link--home {
+   display: flex;
+   text-decoration: none;
+   color: #c1c6ce;
+   font-weight: bold;
+}
+.breadcrumbs__link--home:hover,
+.breadcrumbs__link--home:focus {
+   outline: none;
+   color: var(--blue-scheme);
+}
+.breadcrumbs__icon {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #c1c6ce;
+   padding-right: 16px;
+}
+.breadcrumbs__icon--home {
+   display: flex;
+   font-size: 30px;
+   justify-content: center;
+   align-items: center;
+}
+/** breadcrumbs end */
+.page-title {
+   font-size: 30px;
+   color: var(--blue);
+   line-height: 30px;
+   margin: 0px;
+   padding: 35px 30px;
+   text-transform: uppercase;
+   background-color: #f2f6f8;
+}
+/*! global style end */
+
+/*! main-footer start */
 .footer {
-   background-color: var(--main-color);
+   background-color: var(--blue-scheme);
 }
 .footer__copyright {
    color: #fff;
@@ -495,4 +559,4 @@ p {
    padding: 15px;
    text-align: center;
 }
-/* ! main-footer end */
+/*! main-footer end */

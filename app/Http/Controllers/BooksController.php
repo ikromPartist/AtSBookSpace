@@ -17,12 +17,12 @@ class BooksController extends Controller
     public function fetch_data(Request $request)
     {
         if ($request->ajax()) {
-            $sortBy = $request->get('sortby');
-            $sortType =$request->get('sorttype');
-            $books = Book::orderBy($sortBy, $sortType)
+            $orderBy = $request->get('orderby');
+            $orderType =$request->get('ordertype');
+            $books = Book::orderBy($orderBy, $orderType)
                             ->paginate(10);
 
-            return view('pagination_data', compact('books'))->render();
+            return view('books_data', compact('books'))->render();
         }
     }
 }

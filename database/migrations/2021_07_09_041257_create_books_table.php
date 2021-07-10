@@ -17,7 +17,8 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->bigInteger('rating_id')->nullable();
+            $table->string('image')->nullable()->default('default.jpg');
+            $table->bigInteger('rating')->nullable();
             $table->boolean('available')->default(true);
             $table->timestamps();
         });

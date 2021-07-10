@@ -6,7 +6,8 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>AtS Book Space</title>
       {{-- material icons --}}
-      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
       {{-- main styles --}}
       <link rel="stylesheet" href="{{asset('css/main.css')}}">
       {{-- page styles --}}

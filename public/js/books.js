@@ -1,44 +1,49 @@
-document.addEventListener("DOMContentLoaded", function () {
-   function fetch_data(page, sortBy, sortType) {
-      $.ajax({
-         url: "/pagination/fetch_data?page="+page+"&sortby="+sortBy+"&sorttype="+sortType,
+//! books ordering start
+let request = {
+   page: 1,
+   orderBy: 'title',
+   orderType: 'asc',
+};
 
-         success:function(response) {
-            $('tbody').html('');
-            $('tbody').html(response);
-         }
-      })
-   }
+function fetch_data(page, orderBy, orderType) {
+   $.ajax({
+      url: "/books/fetch_data?page="+page+"&orderby="+orderBy+"&ordertype="+orderType,
 
-   document.querySelector('#table').addEventListener('click', (evt) => {
-      if (evt.target.className == 'sorting') {
-         var columnName =  evt.target.dataset.columnName;
-         var orderType = evt.target.dataset.sortingType;
-         var reversOrder = '';
-         if (orderType == 'asc') {
-            evt.target.dataset.sortingType = 'desc';
-            reversOrder = 'desc';
-            evt.target.querySelector('span').textContent = 'arrow_drop_down';
-         }
-         if (orderType == 'desc') {
-            evt.target.dataset.sortingType = 'asc';
-            reversOrder = 'asc';
-            evt.target.querySelector('span').textContent = 'arrow_drop_up';
-         }
-         document.querySelector('#hidden-column-name').value = columnName;
-         document.querySelector('#hidden-sort-type').value = reversOrder;
-         const page = document.querySelector('#hidden-page').value;
-         fetch_data(page, columnName, reversOrder);
+      success:function(response) {
+         $('tbody').html(response);
       }
-   });
+   })
+}
 
-   $(document).on('click', '.pagination a', function(evt){
+document.querySelector('main').addEventListener('click', (evt) => {
+   if (evt.target.className == 'sorting') {
+      const orderBy =  evt.target.dataset.orderName;
+      const orderType = evt.target.dataset.orderType;
+      let reverseOrder = '';
+      if (orderType == 'asc') {
+         evt.target.dataset.orderType = 'desc';
+         reverseOrder = 'desc';
+         evt.target.querySelector('span').textContent = 'arrow_drop_down';
+      }
+      if (orderType == 'desc') {
+         evt.target.dataset.orderType = 'asc';
+         reverseOrder = 'asc';
+         evt.target.querySelector('span').textContent = 'arrow_drop_up';
+      }
+      const page = request.page;
+      request.orderBy = orderBy;
+      request.orderType = reverseOrder;
+      fetch_data(page, orderBy, reverseOrder);
+   }
+   if (evt.target.className == 'page-link') {
       evt.preventDefault();
-      const page = $(this).attr('href').split("page=")[1];
-      $('#hidden-page').val(page);
-      const columnName = document.querySelector('#hidden-column-name').value;
-      const sortType = document.querySelector('#hidden-sort-type').value;
-      fetch_data(page, columnName, sortType);
-   });
 
+      const page = evt.target.href.split('page=')[1];
+      request.page = page;
+      const orderBy = request.orderBy;
+      const orderType = request.orderType;
+      fetch_data(page, orderBy, orderType);
+   }
 });
+//! books ordering end
+
