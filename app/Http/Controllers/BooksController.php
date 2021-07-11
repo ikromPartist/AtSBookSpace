@@ -9,8 +9,9 @@ class BooksController extends Controller
 {
     public function index() 
     {
-        $books = Book::orderBy('id', 'asc')
-                        ->paginate(10);
+
+        $books = Book::orderBy('title', 'asc')
+                        ->paginate(12);
 
         return view('books_index', compact('books'));
     }
@@ -20,7 +21,7 @@ class BooksController extends Controller
             $orderBy = $request->get('orderby');
             $orderType =$request->get('ordertype');
             $books = Book::orderBy($orderBy, $orderType)
-                            ->paginate(10);
+                            ->paginate(12);
 
             return view('books_data', compact('books'))->render();
         }

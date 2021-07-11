@@ -24,6 +24,8 @@ class BooksSeeder extends Seeder
                 'image' => $faker-> numberBetween($min = 1, $max = 10),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'available' => $faker->boolean(),
+                'created_at' => $faker->dateTime(),
+                'updated_at' => $faker->dateTime(),
             ]);
         }
         

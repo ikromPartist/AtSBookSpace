@@ -29,7 +29,7 @@
          <form class="search hidden">
             @csrf
             <label class="visually-hidden" for="search__input">{{__('Поиск')}}</label>
-            <input type="search" class="search__input" id="search__input" name="keyword" list="tables" placeholder="{{__('Поиск')}}:">
+            <input type="search" class="search__input" id="search__input" name="keyword" list="tables" placeholder="{{__('Поиск')}}:" tabindex="-1">
             
             <datalist id="tables">
                <option value="name"></option>
@@ -87,7 +87,7 @@
          <div class="user-info">            
             <div class="user-wrapper">
                <span class="material-icons user-icon">person</span>
-               <p class="user-name">{{$user->name}} {{$user->surname}}</p>
+               <p class="user-name">{{$loggedUser->name}} {{$loggedUser->surname}}</p>
                <a class="logout-link" href="{{route('auth.logout')}}">
                   <span class="material-icons logout-link__icon">logout</span>
                   <span class="visually-hidden">{{__('Выйти')}}</span>
@@ -102,7 +102,7 @@
          <div class="container">
             <ul class="site-navigation">
                <li class="site-navigation__items">
-                  <a @if($route != 'home_index') href="{{route('home_index')}}" @endif class="site-navigation__links">
+                  <a @if($route != 'home_index') href="{{route('home_index')}}"@endif class="site-navigation__links">
                      {{__('Главная')}}
                   </a>
                </li>
