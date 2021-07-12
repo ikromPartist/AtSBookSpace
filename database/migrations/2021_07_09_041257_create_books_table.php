@@ -19,8 +19,11 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->integer('pages');
+            $table->string('category')->nullable();
             $table->bigInteger('rating')->nullable();
+            $table->bigInteger('comments')->nullable()->default(0);
             $table->boolean('available')->default(true);
+            $table->date('available_date')->nullable();
             $table->timestamps();
         });
     }

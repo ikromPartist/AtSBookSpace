@@ -227,9 +227,20 @@
    display: flex;
    margin-bottom: 5px;
 }
+.books-list__links {
+   display: flex;
+   color: inherit;
+   text-decoration: none;
+   width: 100%;
+   background-color: #f7f3ec;
+}
+.books-list__links:focus,
+.books-list__links:hover {
+   outline: none;
+   background-color: #ded6c8;
+}
 .books-list__item h3,
 .books-list__item p {
-   background-color: #f7f3ec;
    display: flex;
    align-items: center;
    padding: 0 20px;
@@ -250,15 +261,20 @@
    justify-content: center;
    width: 12%;
 }
+.books-list__available  {
+   font-weight: bold;
+   color: var(--green-scheme);
+}
+.books-list__unavailable {
+   font-weight: bold;
+   color: var(--red-scheme);
+}
 .books-list__item:first-child {
    font-weight: bold;
    text-transform: uppercase;
    font-size: 20px;
    margin-bottom: 10px;
    height: 50px;
-}
-.books-list__item:first-child h3,
-.books-list__item:first-child p {
    background-color: #f2f6f8;
 }
 /** books-list end */

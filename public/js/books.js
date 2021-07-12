@@ -35,6 +35,12 @@ booksViewEl.addEventListener('click', (evt) => {
    }
 });
 
+const ratingIconEl = document.querySelectorAll('[data-id="rating-icon"]');
+ratingIconEl.forEach(icon => {
+   if (icon.classList.contains('filled')) {
+      icon.textContent = 'star';
+   }
+});
 //! books view end
 
 //! books ordering start
@@ -46,12 +52,18 @@ let request = {
 
 const booksSort = document.querySelector('[data-id="books-navbar__sort"]');
 
-function fetch_data(page, orderBy, orderType) {
+function fetch_data(page, orderBy, orderType, category) {
    $.ajax({
-      url: "/books/fetch_data?page="+page+"&orderby="+orderBy+"&ordertype="+orderType,
+      url: "/books/fetch_data?page="+page+"&orderby="+orderBy+"&ordertype="+orderType+"&category="+category,
 
       success:function(response) {
          document.querySelector('.books').innerHTML = response;
+         const ratingIconEl = document.querySelectorAll('[data-id="rating-icon"]');
+         ratingIconEl.forEach(icon => {
+            if (icon.classList.contains('filled')) {
+               icon.textContent = 'star';
+            }
+         });
       }
    })
 }
@@ -80,9 +92,11 @@ booksSort.addEventListener('click', (evt) => {
          booksSort.querySelector('[data-id="arrow-up"]').classList.add('active');
       }
       const page = request.page;
+      const category = document.querySelector('[data-id="books-category"]').value;
       request.orderBy = orderBy;
       request.orderType = reverseOrder;
-      fetch_data(page, orderBy, reverseOrder);
+      console.log(category);
+      fetch_data(page, orderBy, reverseOrder, category);
    }
 
 });
@@ -94,7 +108,8 @@ document.querySelector('.books').addEventListener('click', (evt) => {
       request.page = page;
       const orderBy = request.orderBy;
       const orderType = request.orderType;
-      fetch_data(page, orderBy, orderType);
+      const category = document.querySelector('[data-id="books-category"]').value;
+      fetch_data(page, orderBy, orderType, category);
    }
 
 })

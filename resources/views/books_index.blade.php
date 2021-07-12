@@ -49,6 +49,7 @@
                   <span class="material-icons-outlined books-navbar__icon books-navbar__icon--down" data-id="arrow-down">arrow_drop_down</span>
                </dd>
             </dl>
+            <input type="hidden" data-id="books-category" value="{{$category}}">
          </section>
          
          <section class="books">

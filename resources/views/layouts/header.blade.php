@@ -21,7 +21,7 @@
                   <a class="catalog__links" href="{{route('books.index')}}">{{__('Все')}}</a>
                </li>
                <li class="catalog__items">
-                  <a class="catalog__links" href="#">{{__('Доступные')}}</a>
+                  <a class="catalog__links" href="{{route('books.index')}}?category=available">{{__('Доступные')}}</a>
                </li>
             </ul>
          </div>

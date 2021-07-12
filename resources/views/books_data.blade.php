@@ -4,9 +4,9 @@
       <li class="book-cards__item">
          <figure class="books-card">
             <div class="books-card__image-wrapper">
-               <img class="books-card__image" src="{{asset('images/books/book1.jpg')}}" alt="booktitle">
+               <img class="books-card__image" src="{{asset('images/books/' . $book->image)}}" alt="{{__('Название книги')}}">
                <div class="books-card__overlay">
-                  <a class="books-card__links books-card__links--more" href="#">{{__('Подробнее')}}</a>
+                  <a class="books-card__links books-card__links--more" href="{{route('books.index')}}?id={{$book->id}}">{{__('Подробнее')}}</a>
                   <a class="books-card__links books-card__links--order" href="#">{{__('Забронировать')}}</a>
                </div>
             </div>
@@ -17,17 +17,29 @@
             </h3>
             <div class="books-card__rating-wrapper">
                <div>
-                  <span class="material-icons-outlined books-card__rating-icons">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 1 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 2 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 3 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 4 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
                </div>
-               <output class="books-card__comments-quantity">{{__('Нет отзывов')}}</output>
+               <output class="books-card__comments-quantity">
+                  @if ($book->comments == 0)
+                     {{__('Нет')}}
+                  @else
+                     {{$book->comments}}
+                  @endif 
+                  {{__('отзывов')}}
+               </output>
             </div>
             <div class="books-card__status-wrapper">
-               {{-- <p class="books-card__status books-card__status--available">{{__('Доступна')}}</p> --}}
-               <p class="books-card__status books-card__status--unavailable">{{__('Занято примерно до')}}: <time datetime="2021-09-27">27/09</time></p>
+               @if ($book->available)
+                  <p class="books-card__status books-card__status--available">{{__('Доступна')}}</p>
+               @else
+                  <p class="books-card__status books-card__status--unavailable">
+                     {{__('Занято примерно до')}}: <time datetime="{{$book->available_date}}">{{ \Carbon\Carbon::parse($book->available_date)->format('d/m')}}</time>
+                  </p>
+               @endif
             </div>
          </figure>
       </li>
@@ -44,15 +56,17 @@
       </li> 
       @foreach ($books as $book)
       <li class="books-list__item">
-         <h3 class="books-list__title">{{$book->title}}</h3>
-         <p class="books-list__author">{{$book->author}}</p>
-         <p class="books-list__pages">{{$book->pages}} {{__('стр.')}}</p>
-         <p class="books-list__rating">{{$book->rating}}</p>
-         @if ($book->available)
-         <p class="books-list__available">{{__('Доступна')}}</p>
-         @else
-         <p class="books-list__unavailable">{{__('Занято')}}</p>
-         @endif
+         <a class="books-list__links" href="{{route('books.index')}}?id={{$book->id}}">
+            <h3 class="books-list__title">{{$book->title}}</h3>
+            <p class="books-list__author">{{$book->author}}</p>
+            <p class="books-list__pages">{{$book->pages}} {{__('стр.')}}</p>
+            <p class="books-list__rating">{{$book->rating}}</p>
+            @if ($book->available)
+            <p class="books-list__available">{{__('Доступна')}}</p>
+            @else
+            <p class="books-list__unavailable">{{__('Занято')}}</p>
+            @endif
+         </a>
       </li> 
       @endforeach
    </ul>

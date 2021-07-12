@@ -7,23 +7,60 @@ use App\Models\Book;
 
 class BooksController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
+        if ($request->id) {
+            dd($request->id);
 
-        $books = Book::orderBy('title', 'asc')
-                        ->paginate(12);
+        } else if ($request->category == 'available') {
+            $books = Book::where('available', true)
+                            ->orderBy('title', 'asc')
+                            ->paginate(12);
+    
+            $category = 'available';
+            return view('books_index', compact('books', 'category'));
 
-        return view('books_index', compact('books'));
+        } else if ($request->category == 'all' || $request->category == null) {
+            $books = Book::orderBy('title', 'asc')
+                            ->paginate(12);
+    
+            $category = 'all';
+            return view('books_index', compact('books', 'category'));
+        } else {
+            $books = Book::where('category', $request->category)
+                            ->orderBy('title', 'asc')
+                            ->paginate(12);
+    
+            $category = $request->category;
+            return view('books_index', compact('books', 'category'));
+        }
+
     }
     public function fetch_data(Request $request)
     {
         if ($request->ajax()) {
             $orderBy = $request->get('orderby');
-            $orderType =$request->get('ordertype');
-            $books = Book::orderBy($orderBy, $orderType)
-                            ->paginate(12);
+            $orderType = $request->get('ordertype');
+            $category = $request->get('category');
+            if ($category == 'available') {
+                $books = Book::where('available', true)
+                                ->orderBy($orderBy, $orderType)
+                                ->paginate(12);
+        
+                return view('books_data', compact('books'))->render();
 
-            return view('books_data', compact('books'))->render();
+            } else if ($category == 'all') {
+                $books = Book::orderBy($orderBy, $orderType)
+                                ->paginate(12);
+        
+                return view('books_data', compact('books'))->render();
+            } else {
+                $books = Book::where('category', $category)
+                                ->orderBy($orderBy, $orderType)
+                                ->paginate(12);
+        
+                return view('books_data', compact('books'))->render();
+            } 
         }
     }
     public function books_view(Request $request)
