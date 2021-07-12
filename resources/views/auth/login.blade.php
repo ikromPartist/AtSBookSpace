@@ -6,10 +6,10 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>{{__('Login')}}</title>
    {{-- material icons --}}
-   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
    {{-- main styles --}}
    <link rel="stylesheet" href="{{asset('css/auth.css')}}">
-   <link rel="stylesheet" href="{{asset('css/media/auth.css')}}">
 </head>
 <body>
 

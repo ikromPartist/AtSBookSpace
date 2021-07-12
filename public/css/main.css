@@ -81,7 +81,9 @@ p {
    pointer-events: auto;
    opacity: 1;
 }
-.scroll-top-button:hover {
+.scroll-top-button:hover,
+.scroll-top-button:focus {
+   outline: none;
    background-color: rgba(124, 82, 158, 1);
 }
 .scroll-top-button__icon {

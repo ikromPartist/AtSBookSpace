@@ -19,9 +19,10 @@ class BooksSeeder extends Seeder
 
         foreach (range(1, 100) as $value) {
             Book::insert([
+                'image' => $faker->numberBetween($min = 1, $max = 10),
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
-                'image' => $faker-> numberBetween($min = 1, $max = 10),
+                'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'available' => $faker->boolean(),
                 'created_at' => $faker->dateTime(),

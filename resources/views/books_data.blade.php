@@ -1,5 +1,5 @@
    <h2 class="visually-hidden">{{__('Список книг')}}</h2>
-   <ul class="book-cards">
+   <ul class="book-cards {{session('book_cards') == 'hidden' ? 'hidden' : '' }}" data-id="book-cards-list">
       @foreach ($books as $book)
       <li class="book-cards__item">
          <figure class="books-card">
@@ -10,7 +10,11 @@
                   <a class="books-card__links books-card__links--order" href="#">{{__('Забронировать')}}</a>
                </div>
             </div>
-            <h3 class="books-card__title">{{$book->title}} <br> <span class="books-card__author">({{$book->author}})</span></h3>
+            <h3 class="books-card__title">
+               {{$book->title}} 
+               <br><strong class="books-card__author">({{$book->author}})</strong>
+               <p class="books-card__pages">{{$book->pages}} {{__('стр.')}}</p>
+            </h3>
             <div class="books-card__rating-wrapper">
                <div>
                   <span class="material-icons-outlined books-card__rating-icons">star_border</span>
@@ -27,6 +31,29 @@
             </div>
          </figure>
       </li>
+      @endforeach
+   </ul>
+
+   <ul class="books-list {{session('books_list') == 'show' ? 'show' : ''}}" data-id="books-list">
+      <li class="books-list__item">
+         <h3 class="books-list__title">{{__('Название')}}</h3>
+         <p class="books-list__author">{{__('Автор')}}</p>
+         <p class="books-list__pages">{{__('Страницы')}}</p>
+         <p class="books-list__rating">{{__('Рейтинг')}}</p>
+         <p class="books-list__availablity">{{__('Доступность')}}</p>
+      </li> 
+      @foreach ($books as $book)
+      <li class="books-list__item">
+         <h3 class="books-list__title">{{$book->title}}</h3>
+         <p class="books-list__author">{{$book->author}}</p>
+         <p class="books-list__pages">{{$book->pages}} {{__('стр.')}}</p>
+         <p class="books-list__rating">{{$book->rating}}</p>
+         @if ($book->available)
+         <p class="books-list__available">{{__('Доступна')}}</p>
+         @else
+         <p class="books-list__unavailable">{{__('Занято')}}</p>
+         @endif
+      </li> 
       @endforeach
    </ul>
 

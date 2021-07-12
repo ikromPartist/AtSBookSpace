@@ -15,9 +15,10 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->string('image')->nullable()->default('default.jpg');
             $table->string('title');
             $table->string('author');
-            $table->string('image')->nullable()->default('default.jpg');
+            $table->integer('pages');
             $table->bigInteger('rating')->nullable();
             $table->boolean('available')->default(true);
             $table->timestamps();

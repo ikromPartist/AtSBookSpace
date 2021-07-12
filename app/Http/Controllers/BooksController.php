@@ -26,4 +26,17 @@ class BooksController extends Controller
             return view('books_data', compact('books'))->render();
         }
     }
+    public function books_view(Request $request)
+    {
+        if ($request->get('show') == 'standart') {
+            session(['book_cards' => 'show']);
+            session(['books_list' => 'hidden']);
+            return 'standart';
+        } else if ($request->get('show') == 'list') {
+            session(['book_cards' => 'hidden']);
+            session(['books_list' => 'show']);
+            return 'list';
+        }
+    }
+
 }

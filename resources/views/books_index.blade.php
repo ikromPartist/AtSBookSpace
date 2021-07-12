@@ -24,19 +24,29 @@
 
          <section class="books-navbar">
             <h2 class="visually-hidden">{{__('Вид и сортировка книг')}}</h2>
-            <dl class="books-navbar__view">
+            <dl class="books-navbar__view" data-id="books-navbar__view">
                <dt class="books-navbar__title">{{__('Вид')}}:</dt>
-               <dd class="books-navbar__links " tabindex="0">{{__('Список')}}</dd>
-               <dd class="books-navbar__links active" tabindex="0">{{__('Стандарт')}}</dd>
+               <dd>
+                  <a class="books-navbar__links {{session('books_list') == 'show' ? 'active' : ''}}" data-id="view-list-btn" href="#">{{__('Список')}}</a>
+               </dd>
+               <dd>
+                  <a class="books-navbar__links {{session('books_list') == 'show' ? '' : 'active'}}" data-id="view-standart-btn" href="#">{{__('Стандарт')}}</a>
+               </dd>
             </dl>
-            <dl class="books-navbar__sort">
+            <dl class="books-navbar__sort" data-id="books-navbar__sort">
                <dt class="books-navbar__title">{{__('Сортировка')}}:</dt>
-               <dd class="books-navbar__links active" tabindex="0" data-id="sorting" data-order-name="title" data-order-type="asc">{{__('По названию')}}</dd>
-               <dd class="books-navbar__links" tabindex="0" data-id="sorting" data-order-name="created_at" data-order-type="asc">{{__('По новшеству')}}</dd>
-               <dd class="books-navbar__links" tabindex="0" data-id="sorting" data-order-name="rating" data-order-type="asc">{{__('По рейтингу')}}</dd>
+               <dd>
+                  <a class="books-navbar__links active" data-id="sorting" data-order-name="title" data-order-type="asc" href="#">{{__('По названию')}}</a>
+               </dd>
+               <dd>
+                  <a class="books-navbar__links" data-id="sorting" data-order-name="created_at" data-order-type="asc" href="#">{{__('По новшеству')}}</a>
+               </dd>
+               <dd>
+                  <a class="books-navbar__links" data-id="sorting" data-order-name="rating" data-order-type="asc" href="#">{{__('По рейтингу')}}</a>
+               </dd>
                <dd class="books-navbar__icons">
-                  <span class="material-icons-outlined books-navbar__icon books-navbar__icon--up active">arrow_drop_up</span>
-                  <span class="material-icons-outlined books-navbar__icon books-navbar__icon--down">arrow_drop_down</span>
+                  <span class="material-icons-outlined books-navbar__icon books-navbar__icon--up active" data-id="arrow-up">arrow_drop_up</span>
+                  <span class="material-icons-outlined books-navbar__icon books-navbar__icon--down" data-id="arrow-down">arrow_drop_down</span>
                </dd>
             </dl>
          </section>

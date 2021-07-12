@@ -1,10 +1,50 @@
+//! books view start
+const booksViewEl = document.querySelector('[data-id="books-navbar__view"]');
+
+booksViewEl.addEventListener('click', (evt) => {
+   if (evt.target.dataset.id == 'view-standart-btn') {
+      evt.preventDefault();
+      booksViewEl.querySelector('[data-id="view-list-btn"]').classList.remove('active');
+      evt.target.classList.add('active');
+      document.querySelector('[data-id="book-cards-list"]').classList.remove('hidden');
+      document.querySelector('[data-id="books-list"]').classList.remove('show');
+
+      const view = 'standart';
+      $.ajax({
+         url: "/books/view?show=" + view,
+
+         success: function (response) {
+            console.log(response);
+         }
+      })
+   } else if (evt.target.dataset.id == 'view-list-btn') {
+      evt.preventDefault();
+      booksViewEl.querySelector('[data-id="view-standart-btn"]').classList.remove('active');
+      evt.target.classList.add('active');
+      document.querySelector('[data-id="book-cards-list"]').classList.add('hidden');
+      document.querySelector('[data-id="books-list"]').classList.add('show');
+
+      const view = 'list';
+      $.ajax({
+         url: "/books/view?show=" + view,
+
+         success: function (response) {
+            console.log(response);
+         }
+      })
+   }
+});
+
+//! books view end
+
 //! books ordering start
 let request = {
    page: 1,
    orderBy: 'title',
    orderType: 'asc',
 };
-const booksSort = document.querySelector('.books-navbar__sort');
+
+const booksSort = document.querySelector('[data-id="books-navbar__sort"]');
 
 function fetch_data(page, orderBy, orderType) {
    $.ajax({
@@ -22,6 +62,7 @@ booksSort.addEventListener('click', (evt) => {
       link.classList.remove('active');
    });
    if (evt.target.dataset.id == 'sorting') {
+      evt.preventDefault();
       evt.target.classList.add('active');
       const orderBy =  evt.target.dataset.orderName;
       const orderType = evt.target.dataset.orderType;
@@ -29,14 +70,14 @@ booksSort.addEventListener('click', (evt) => {
       if (orderType == 'asc') {
          evt.target.dataset.orderType = 'desc';
          reverseOrder = 'desc';
-         booksSort.querySelector('.books-navbar__icon--up').classList.remove('active');
-         booksSort.querySelector('.books-navbar__icon--down').classList.add('active');
-      }
-      if (orderType == 'desc') {
+         booksSort.querySelector('[data-id="arrow-up"]').classList.remove('active');
+         booksSort.querySelector('[data-id="arrow-down"]').classList.add('active');
+      } else if (orderType == 'desc') {
+         evt.preventDefault();
          evt.target.dataset.orderType = 'asc';
          reverseOrder = 'asc';
-         booksSort.querySelector('.books-navbar__icon--down').classList.remove('active');
-         booksSort.querySelector('.books-navbar__icon--up').classList.add('active');
+         booksSort.querySelector('[data-id="arrow-down"]').classList.remove('active');
+         booksSort.querySelector('[data-id="arrow-up"]').classList.add('active');
       }
       const page = request.page;
       request.orderBy = orderBy;
