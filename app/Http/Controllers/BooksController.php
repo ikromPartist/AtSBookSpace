@@ -10,7 +10,10 @@ class BooksController extends Controller
     public function index(Request $request) 
     {
         if ($request->id) {
-            dd($request->id);
+            $book = Book::where('id', $request->id)
+                            ->first();
+
+            return view('books_single', compact('book'));
 
         } else if ($request->category == 'available') {
             $books = Book::where('available', true)

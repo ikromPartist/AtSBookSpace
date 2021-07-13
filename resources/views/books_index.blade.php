@@ -20,7 +20,16 @@
             </li>
          </ul>
          
-         <h1 class="page-title">{{__('Все книги')}}</h1>
+         <h1 class="page-title">
+            @if ($category == 'all')
+            {{__('Все книги')}}
+            @endif
+            @if ($category == 'available') 
+            {{__('Доступные книги')}}
+            @else 
+            {{__($category)}}
+            @endif
+         </h1>
 
          <section class="books-navbar">
             <h2 class="visually-hidden">{{__('Вид и сортировка книг')}}</h2>

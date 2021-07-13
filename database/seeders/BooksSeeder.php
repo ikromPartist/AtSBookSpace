@@ -23,12 +23,15 @@ class BooksSeeder extends Seeder
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -38,12 +41,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Softskills',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -53,12 +59,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Hardskills',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -68,12 +77,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Маркетинг',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -83,12 +95,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Менеджмент',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -98,12 +113,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Финансы',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -113,12 +131,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Staff менеджмент',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -128,12 +149,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Продажи и переговоры',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -142,13 +166,16 @@ class BooksSeeder extends Seeder
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Сервис ',
+                'category' => 'Сервис',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -158,12 +185,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'ИТ',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         foreach (range(1, 20) as $value) {
@@ -173,12 +203,15 @@ class BooksSeeder extends Seeder
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
                 'category' => 'Художественная Литература',
+                'code' => $faker->numberBetween($min = 50000, $max = 99999),
+                'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
                 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                'likes' => $faker->numberBetween($min = 0, $max = 500),
                 'available' => $faker->boolean(),
-                'available_date' => $faker->dateTime(), 
-                'created_at' => $faker->dateTime(),
-                'updated_at' => $faker->dateTime(),
+                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
         

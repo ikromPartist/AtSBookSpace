@@ -162,6 +162,14 @@
    border-top-color: var(--green-scheme_dark);
    background-color: var(--green-scheme_dark);
 }
+.books-card__new-flag {
+   display: block;
+   width: 60px;
+   height: 60px;
+   position: absolute;
+   top: -2px;
+   right: -2px;
+}
 .books-card__title {
    text-align: center;
    margin: 10px 20px;
@@ -172,6 +180,7 @@
 .books-card__author {
    font-weight: normal;
 }
+
 .books-card__rating-wrapper {
    display: flex;
    justify-content: center;

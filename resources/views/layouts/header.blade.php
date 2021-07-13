@@ -76,9 +76,9 @@
             {{__('Профессионалом своего дела-гордо!!!')}} 
          </blockquote>
 
-         <address class="user-address">
-            <p class="phone-numbers">
-               <span class="material-icons phone-numbers__icon">call</span>
+         <address class="company">
+            <p class="company__phone">
+               <span class="material-icons company__phone-icon">call</span>
                (+992) 918-13-04-39
             </p>
             <p class="company-name">{{__('Название компании')}}</p>
@@ -101,38 +101,38 @@
       <nav class="main-navigation header__main-navigation">
          <div class="container">
             <ul class="site-navigation">
-               <li class="site-navigation__items">
-                  <a @if($route != 'home_index') href="{{route('home_index')}}"@endif class="site-navigation__links">
+               <li class="site-navigation__item">
+                  <a class="site-navigation__link" @if($route != 'home_index') href="{{route('home_index')}}"@endif>
                      {{__('Главная')}}
                   </a>
                </li>
-               <li class="site-navigation__items">
-                  <a href="#" class="site-navigation__links">
+               <li class="site-navigation__item">
+                  <a class="site-navigation__link" href="#">
                      {{__('О клубе')}}
                   </a>
                </li>
-               <li class="site-navigation__items">
-                  <a href="#" class="site-navigation__links">
+               <li class="site-navigation__item">
+                  <a class="site-navigation__link" href="#">
                      {{__('Рейтинги')}}
                   </a>
                </li>
-               <li class="site-navigation__items">
-                  <a href="#" class="site-navigation__links">
+               <li class="site-navigation__item">
+                  <a class="site-navigation__link" href="#">
                      {{__('Презентация книг')}}
                   </a>
                </li>
-               <li class="site-navigation__items">
-                  <a href="#" class="site-navigation__links">
+               <li class="site-navigation__item">
+                  <a class="site-navigation__link" href="#">
                      {{__('Мероприятия клуба')}}
                   </a>
                </li>
-               <li class="site-navigation__items">
-                  <a href="#" class="site-navigation__links">
+               <li class="site-navigation__item">
+                  <a class="site-navigation__link" href="#">
                      {{__('Правила пользования библиотекой')}}
                   </a>
                </li>
-               <li class="site-navigation__items">
-                  <a href="#" class="site-navigation__links">
+               <li class="site-navigation__item">
+                  <a class="site-navigation__link" href="#">
                      {{__('Обратная связь')}}
                   </a>
                </li>   
