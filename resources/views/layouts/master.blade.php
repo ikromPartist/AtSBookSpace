@@ -14,20 +14,22 @@
       @yield('styles')
    </head>
    <body>
-   
       @include('layouts.header')
-
+      
       @yield('content')
-
+      
       @include('layouts.footer')
-
+      
       <x-scroll_button/>
+      
+      <div class="cursor-wrapper">
+         <div id="cursor"></div>
+      </div>
       {{-- JQuery 3.6 --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
       {{-- main scripts --}}
       <script src="{{asset('js/main.js')}}"></script>
       {{-- page scripts --}}
       @yield('scripts')
-   
    </body>
 </html>

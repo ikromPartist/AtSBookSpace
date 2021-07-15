@@ -16,16 +16,30 @@
             </li>
             <li class="breadcrumbs__item">
                <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
-               <a @if($route != 'books.index')href="{{route('books.index')}}"@endif tabindex="0" class="breadcrumbs__link">{{__('Книги')}}</a>
+               <a @if($category != 'all')href="{{route('books.index')}}"@endif tabindex="0" class="breadcrumbs__link">{{__('Книги')}}</a>
             </li>
+            @if ($category != 'all')
+            <li class="breadcrumbs__item">
+               <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
+               <a class="breadcrumbs__link" tabindex="0">
+                  @if ($category == 'available')
+                     {{__('Доступные книги')}}
+                  @else
+                     {{__($category)}}
+                  @endif
+               </a>
+            </li>
+            @endif
          </ul>
          
          <h1 class="page-title">
-            @if ($category == 'all')
-            {{__('Все книги')}}
-            @endif
-            @if ($category == 'available') 
-            {{__('Доступные книги')}}
+            
+            @if ($category == 'available' || $category == 'all')
+               @if ($category == 'all')
+               {{__('Все книги')}}
+               @else 
+               {{__('Доступные книги')}}
+               @endif
             @else 
             {{__($category)}}
             @endif
@@ -64,8 +78,24 @@
          <section class="books">
             @include('books_data')
          </section>
-      
+         
       </div>
+
+      <section class="about-books">
+         <div class="container">
+            <h2 class="page-title about-books__title">{{__('Пара слов о книгах')}}</h2>
+            <p class="about-books__text">
+               <strong>Книга</strong> — один из видов печатной продукции: непериодическое издание, состоящее из сброшюрованных или отдельных бумажных листов (страниц) или тетрадей, на которых нанесена типографским или рукописным способом текстовая и графическая (иллюстрации) информация, имеющее, как правило, твёрдый переплёт.
+            </p>
+            <p class="about-books__text">
+               Также книгой может называться литературное или научное произведение, предназначенное для печати в виде отдельного сброшюрованного издания.
+            </p>
+            <p class="about-books__text">
+               С развитием информационных технологий всё более широкое распространение получают электронные книги — электронные версии печатных книг, которые можно читать на компьютерах или специальных устройствах.
+            </p>
+         </div>
+      </section>
+   
    </main>
 @endsection
 

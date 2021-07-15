@@ -4,7 +4,7 @@
       <li class="book-cards__item">
          <figure class="books-card">
             <div class="books-card__image-wrapper">
-               <img class="books-card__image" src="{{asset('images/books/' . $book->image)}}" alt="{{__('Название книги')}}">
+               <img class="books-card__image" src="{{asset('images/books/' . $book->img)}}" alt="{{__('Название книги')}}">
                <div class="books-card__overlay">
                   <a class="books-card__links books-card__links--more" href="{{route('books.index')}}?id={{$book->id}}">{{__('Подробнее')}}</a>
                   <a class="books-card__links books-card__links--order" href="#">{{__('Забронировать')}}</a>

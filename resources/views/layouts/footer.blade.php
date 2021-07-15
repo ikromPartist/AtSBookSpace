@@ -107,10 +107,9 @@
    <div class="footer__bottom">
       <div class="container footer__bottom-container">
          
-         <p class="footer__copyright">
-            {{__('Группа Компаний "КОИНОТИ НАВ"')}}.
-            {{__('Бизнес Тренинг Центр «AtS»')}}.
-            <small class="footer__rights">2021 {{__('Все права защищены')}}.</small>
+         <p class="footer__rights">
+            {{__('Группа Компаний "КОИНОТИ НАВ"')}}
+            <br>{{__('Бизнес Тренинг Центр «AtS»')}}
          </p>
          <ul class="socials">
             <li class="socials__item" title="{{__('Вайбер')}}">
@@ -129,7 +128,7 @@
                </a>
             </li>
          </ul>
-         <p class="feedback">Ats Book Space</p>
+         <small class="footer__copyright">2021 {{__('Все права защищены')}}.</small>
          
       </div>
    </div>

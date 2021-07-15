@@ -18,11 +18,16 @@ class BooksSeeder extends Seeder
         $faker = Faker::create('ru_RU');
 
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
+                'category' => 'all',
                 'code' => $faker->numberBetween($min = 50000, $max = 99999),
                 'description' => $faker->realText($maxNbChars = 400),
                 'rating' => $faker->numberBetween($min = 1, $max = 5),
@@ -35,8 +40,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -53,8 +62,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -71,8 +84,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -89,8 +106,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -107,8 +128,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -125,8 +150,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -143,8 +172,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -161,8 +194,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -179,8 +216,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),
@@ -197,8 +238,12 @@ class BooksSeeder extends Seeder
             ]);
         }
         foreach (range(1, 20) as $value) {
+            $img = $faker->numberBetween($min = 1, $max = 5);
             Book::insert([
-                'image' => 'book' . $faker->numberBetween($min = 1, $max = 10) . '.jpg',
+                'img' => 'img' . $img . '.jpg',
+                'img_front' => 'img_front' . $img . '.jpg',
+                'img_side' => 'img_side' . $img . '.jpg',
+                'img_back' => 'img_back' . $img . '.jpg',
                 'title' => $faker->realText($maxNbChars = 25),
                 'author' => $faker->name,
                 'pages' => $faker->numberBetween($min = 100, $max = 1000),

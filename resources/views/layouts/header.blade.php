@@ -3,7 +3,7 @@
    <div class="header-top">
       <div class="container header-top__container">
 
-         <a class="ats-link" href="https://ats.tj/">
+         <a class="ats-link" href="https://ats.tj/" target="_blank">
             <img class="main-logo" src="{{asset('images/main-logo.png')}}" alt="AtS Book Space">
          </a>
 
