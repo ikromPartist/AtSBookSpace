@@ -16,7 +16,7 @@
             <h3 class="books-card__title">
                {{$book->title}} 
                <br><strong class="books-card__author">({{$book->author}})</strong>
-               <p class="books-card__pages">{{$book->pages}} {{__('стр.')}}</p>
+               <b class="books-card__pages">{{$book->pages}} {{__('стр.')}}</b>
             </h3>
             <div class="books-card__rating-wrapper">
                <div>
@@ -36,7 +36,7 @@
                </output>
             </div>
             <div class="books-card__status-wrapper">
-               @if ($book->available)
+               @if (!$book->user)
                   <p class="books-card__status books-card__status--available">{{__('Доступна')}}</p>
                @else
                   <p class="books-card__status books-card__status--unavailable">

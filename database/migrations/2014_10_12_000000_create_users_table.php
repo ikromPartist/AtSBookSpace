@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('login')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->bigInteger('taken_book_id')->nullable();
             $table->string('company');
             $table->integer('phone_numbers');
             $table->rememberToken();

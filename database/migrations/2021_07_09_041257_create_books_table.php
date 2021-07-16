@@ -15,6 +15,9 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->nullable();
+            $table->date('taken_date')->nullable();
+            $table->date('return_date')->nullable();
             $table->string('img')->default('default.jpg');
             $table->string('img_front')->default('front.jpg');
             $table->string('img_back')->default('back.jpg');
@@ -23,12 +26,11 @@ class CreateBooksTable extends Migration
             $table->string('author');
             $table->integer('pages');
             $table->string('category');
-            $table->bigInteger('code');
+            $table->bigInteger('code')->unique();
             $table->text('description');
             $table->bigInteger('rating')->nullable();
             $table->bigInteger('comments')->default(0);
             $table->bigInteger('likes')->default(0);
-            $table->boolean('available')->default(true);
             $table->date('available_date')->nullable();
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class BooksController extends Controller
             return view('books_single', compact('book'));
 
         } else if ($request->category == 'available') {
-            $books = Book::where('available', true)
+            $books = Book::where('user_id', null)
                             ->orderBy('title', 'asc')
                             ->paginate(12);
     
@@ -46,7 +46,7 @@ class BooksController extends Controller
             $orderType = $request->get('ordertype');
             $category = $request->get('category');
             if ($category == 'available') {
-                $books = Book::where('available', true)
+                $books = Book::where('user_id', null)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         

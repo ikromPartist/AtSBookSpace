@@ -71,18 +71,18 @@
                <p class="book-info__description">{{$book->description}}</p>
                <ul class="book-info__list">
                   <li class="book-info__item">
-                     <dt class="book-info__dt">{{__('Автор')}}</dt>
-                     <dd class="book-info__dd">
+                     <div class="book-info__dt">{{__('Автор')}}</div>
+                     <div class="book-info__dd">
                         <span class="material-icons-outlined book-info__arrow-icon">arrow_forward_ios</span>
                         {{$book->author}}
-                     </dd>
+                     </div>
                   </li>
                   <li class="book-info__item">
-                     <dt class="book-info__dt">{{__('Страницы')}}</dt>
-                     <dd class="book-info__dd">
+                     <div class="book-info__dt">{{__('Страницы')}}</div>
+                     <div class="book-info__dd">
                         <span class="material-icons-outlined book-info__arrow-icon">arrow_forward_ios</span>
                         {{$book->pages}}
-                     </dd>
+                     </div>
                   </li>
                </ul>
                <div class="book-info__rating-wrapper">
@@ -118,7 +118,7 @@
                @csrf
                <div class="comment-form__top-wrapper">
                   <img class="comment__user-avatar" src="#" alt="#">
-                  <textarea class="comment__text" type="text" data-id="comment-text" spellcheck="false" aria-label="{{__('Оставить комментарий')}}" placeholder="{{__('Оставить комментарий')}}..."></textarea>
+                  <textarea class="comment__text" data-id="comment-text" spellcheck="false" aria-label="{{__('Оставить комментарий')}}" placeholder="{{__('Оставить комментарий')}}..."></textarea>
                </div>
                <div class="comment__buttons-wrapper" data-id="buttons-wrapper">
                   <button class="button--red" type="reset" data-id="cancel-comment">{{__('Отмена')}}</button>

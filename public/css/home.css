@@ -1,0 +1,182 @@
+@keyframes banner {
+   0% {
+      background-position: 0px 0px;
+   }
+   100% {
+      background-position: 0px 600px;
+   }
+}
+.banner {
+   width: 100%;
+   display: flex;
+   position: sticky;
+   top: 102px;
+   z-index: -2;
+   align-items: flex-end;
+   background: url('../images/banner.jpg');
+   background-position: 0px 0px;
+   animation-name: banner;
+   animation-duration: 40s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear;  
+   height: calc(100vh - 102px);
+}
+.banner__image {
+   display: block;
+   width: 100%;
+   padding-top: 100px;
+}
+/*! categories section start */
+.categories {
+   display: flex;
+   justify-content: center;
+   padding: 80px;
+}
+.categories__list {
+   list-style: none;
+   display: flex;
+   gap: 20px;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+.categories__item {
+   width: 350px;
+   color: #fff;
+   padding: 20px;
+   box-shadow: 0px 0px 10px var(--yellow-scheme) inset;
+}
+.categories__item:first-child,
+.categories__item:nth-child(9) {
+   background-color: #ffbf47;
+}
+.categories__item:nth-child(2),
+.categories__item:nth-child(7) {
+   background-color: #3bbce3;
+}
+.categories__item:nth-child(3),
+.categories__item:nth-child(8) {
+   background-color: #dc91d8;
+}
+.categories__item:nth-child(4),
+.categories__item:nth-child(6) {
+   background-color: #8ed78f;
+}
+.categories__item:nth-child(5),
+.categories__item:last-child {
+   background-color: #ffc047;
+}
+.categories__title {
+   cursor: context-menu;
+   font-size: 25px;
+   text-shadow: 0px 0px 3px black;
+}
+.categories__link {
+   background-color: rgba(0,0,0,0.1);
+   text-decoration: none;
+   color: #fff;
+   display: block;
+   padding: 10px;
+   border-radius: 3px;
+   margin: 15px 0px 0px auto;
+   width: 170px;
+   text-align: center;
+}
+.categories__link:hover,
+.categories__link:focus {
+   outline: none;
+   background-color: rgba(0,0,0,0.2);
+}
+.categories__link:active {
+   background-color: rgba(0,0,0,0.3);
+}
+/*! categories section end */
+/*! popular-books section start */
+.popular-books {
+   padding-bottom: 80px;
+}
+.cat-title__container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: var(--milk-scheme);
+   padding: 25px;
+}
+.cat-title {
+   font-size: 25px;
+   color: var(--blue-scheme);
+   text-transform: uppercase;
+}
+.cat-title__link {
+   color: #fff;
+   text-decoration: none;
+   background-color: var(--red-scheme);
+   padding: 8px 70px;
+   font-size: 20px;
+   border-radius: 3px;
+   text-shadow: 0 1px 5px black;
+}
+.cat-title__link:hover,
+.cat-title__link:focus {
+   outline: none;
+   background-color: var(--red-scheme_light);
+}
+.cat-title__link:active {
+   background-color: var(--red-scheme_dark);
+}
+/** owl carousel start */
+.no-js .owl-carousel, .owl-carousel.owl-loaded {
+   z-index: 0;
+}
+.owl-carousel .owl-stage {
+   display: flex;
+}
+.owl-carousel.owl-drag .owl-item {
+   padding: 20px 0px;
+   display: flex;
+   justify-content: center;
+}
+.books-card__rating-wrapper {
+   padding-bottom: 20px;
+}
+.owl-nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.owl-carousel .owl-nav button.owl-next, .owl-carousel .owl-nav button.owl-prev {
+   width: 30px;
+   height: 30px;
+   display: flex;
+   align-items: center;
+}
+.owl-carousel .owl-nav button.owl-prev {
+   justify-content: flex-start;
+}
+.owl-carousel .owl-nav button.owl-next {
+   justify-content: flex-end;
+}
+.owl-carousel .owl-nav span {
+   color: #fff;
+   font-size: 50px;
+}
+.owl-dots {
+   display: flex;
+   position: absolute;
+   bottom: 5px;
+   left: 0;
+   justify-content: center;
+   width: 100%;
+}
+.owl-carousel button.owl-dot {
+   width: 12px;
+   height: 12px;
+   background-color: transparent !important;
+   border-radius: 50%;
+   border: 2px solid #fff !important;
+   margin: 0 3px;
+}
+.owl-carousel button.owl-dot.active {
+   background-color: var(--red-scheme) !important;
+}
+/** owl carousel end */
+/*! popular-books section end */

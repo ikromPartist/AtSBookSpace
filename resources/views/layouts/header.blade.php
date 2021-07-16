@@ -1,5 +1,5 @@
 <header class="header">
-
+   
    <div class="header-top">
       <div class="container header-top__container">
 
@@ -50,18 +50,28 @@
          </a>
 
          <dl class="taken-book">
+            @if ($loggedUser->book)
             <dt class="taken-book__title" title="{{__('Взятая книга')}}">
-               <a class="taken-book__link" href="#">
-                  {{__('Взятая книга')}}
+               <a class="taken-book__link" href="{{route('books.index')}}?id={{$loggedUser->book->id}}">
+                  {{$loggedUser->book->title}}
                </a>
             </dt>
             <dd class="taken-book__deadline">
-               <a class="taken-book__deadline-link" href="#">
-                  <time title="{{__('Дедлайн')}}" datetime="2005-10-05">
-                     2 <small>д.</small> 15 <small>ч.</small> 52 <small>мин.</small>
-                  </time>
+               <input data-id="year" type="text" value="{{ \Carbon\Carbon::parse($loggedUser->book->return_date)->format('Y')}}" class="visually-hidden">
+               <input data-id="month" type="text" value="{{ \Carbon\Carbon::parse($loggedUser->book->return_date)->format('m')}}" class="visually-hidden">
+               <input data-id="day" type="text" value="{{ \Carbon\Carbon::parse($loggedUser->book->return_date)->format('d')}}" class="visually-hidden">
+               <a class="taken-book__deadline-link" data-id="times-left" href="#">
+                  <span data-id="days"></span><small>д</small>
+                  <span data-id="hours"></span><b>:</b>
+                  <span data-id="minutes"></span><b>:</b>
+                  <span class="taken-book__seconds" data-id="seconds"></span>
                </a>
             </dd>
+            @else
+            <p class="taken-book__message">
+               {{__('Вы не читаете книг')}}
+            </p>
+            @endif
          </dl>
 
       </div>
@@ -81,7 +91,7 @@
                <span class="material-icons company__phone-icon">call</span>
                (+992) 918-13-04-39
             </p>
-            <p class="company-name">{{__('Название компании')}}</p>
+            <p class="company-name">{{$loggedUser->company}}</p>
          </address>
 
          <div class="user-info">            
