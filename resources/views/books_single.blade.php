@@ -16,12 +16,12 @@
             </li>
             <li class="breadcrumbs__item">
                <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
-               <a class="breadcrumbs__link" href="{{route('books.index')}}">{{__('Книги')}}</a>
+               <a class="breadcrumbs__link" href="{{route('books_index')}}">{{__('Книги')}}</a>
             </li>
             @if ($book->category != 'all')
             <li class="breadcrumbs__item">
                <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
-               <a class="breadcrumbs__link" href="{{route('books.index')}}?category={{$book->category}}">{{$book->category}}</a>
+               <a class="breadcrumbs__link" href="{{route('books_index')}}?category={{$book->category}}">{{$book->category}}</a>
             </li>
             @endif
             <li class="breadcrumbs__item">

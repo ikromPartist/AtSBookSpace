@@ -8,7 +8,7 @@
          </div>
          <address class="footer__company">
             <p class="footer__company-address">
-               г. Душанбе, ул. А. Каххоров, д. 19/8
+               {{__('г. Душанбе, ул. А. Каххоров, д. 19/8')}}
             </p>
             <p class="footer__company-phone">
                (+992) 918-13-04-39
@@ -17,32 +17,32 @@
 
          <ul class="footer-navigation">
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="#">
+               <a class="footer-navigation__link" href="{{route('about_index')}}">
                   {{__('О клубе')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="#">
+               <a class="footer-navigation__link" href="{{route('rating_index')}}">
                   {{__('Рейтинги')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="#">
+               <a class="footer-navigation__link" href="{{route('presentation_index')}}">
                   {{__('Презентация книг')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="#">
+               <a class="footer-navigation__link" href="{{route('activities_index')}}">
                   {{__('Мероприятия клуба')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="#">
+               <a class="footer-navigation__link" href="{{route('rules_index')}}">
                   {{__('Правила пользования библиотекой')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="#">
+               <a class="footer-navigation__link" href="{{route('feedback_index')}}">
                   {{__('Обратная связь')}}
                </a>
             </li>
@@ -50,52 +50,52 @@
 
          <ul class="category-navigation">
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Soft%20skills">
                   {{__('Softskills')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Hard%20skills">
                   {{__('Hardskills')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Маркетинг">
                   {{__('Маркетинг ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Менеджмент">
                   {{__('Менеджмент ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Финансы">
                   {{__('Финансы ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Staff%20менеджмент">
                   {{__('Staff менеджмент ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Продажи%20и%20переговоры">
                   {{__('Продажи и переговоры')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Сервис">
                   {{__('Сервис ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=ИТ">
                   {{__('ИТ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="#">
+               <a class="category-navigation__link" href="{{route('books_index')}}?category=Художественная%20литература">
                   {{__('Художественная Литература')}}
                </a>
             </li>

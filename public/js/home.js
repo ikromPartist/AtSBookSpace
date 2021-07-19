@@ -1,3 +1,4 @@
+//! owl carousel start
 $(document).ready(function () {
    $(".owl-carousel").owlCarousel({
       loop: true,
@@ -18,3 +19,17 @@ $(document).ready(function () {
       }
    });
 });
+//! owl carousel end
+//! modal map section start
+const showMapEl = document.querySelector('[data-id="show-map"]');
+const modalMapEl = document.querySelector('[data-id="modal-map"]');
+const closeMapEl = modalMapEl.querySelector('[data-id="close-map"]');
+showMapEl.onclick = (e) => {
+   e.preventDefault();
+   modalMapEl.classList.remove('hidden');
+}
+closeMapEl.onclick = (e) => {
+   e.preventDefault();
+   modalMapEl.classList.add('hidden');
+}
+//! modal map section end

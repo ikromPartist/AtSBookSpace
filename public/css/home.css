@@ -26,7 +26,7 @@
    width: 100%;
    padding-top: 100px;
 }
-/*! categories section start */
+/*! categories (section) start */
 .categories {
    display: flex;
    justify-content: center;
@@ -89,9 +89,10 @@
 .categories__link:active {
    background-color: rgba(0,0,0,0.3);
 }
-/*! categories section end */
-/*! popular-books section start */
-.popular-books {
+/*! categories (section) end */
+/*! popular-books (section) start */
+.popular-books,
+.new-books {
    padding-bottom: 80px;
 }
 .cat-title__container {
@@ -107,21 +108,7 @@
    text-transform: uppercase;
 }
 .cat-title__link {
-   color: #fff;
-   text-decoration: none;
-   background-color: var(--red-scheme);
    padding: 8px 70px;
-   font-size: 20px;
-   border-radius: 3px;
-   text-shadow: 0 1px 5px black;
-}
-.cat-title__link:hover,
-.cat-title__link:focus {
-   outline: none;
-   background-color: var(--red-scheme_light);
-}
-.cat-title__link:active {
-   background-color: var(--red-scheme_dark);
 }
 /** owl carousel start */
 .no-js .owl-carousel, .owl-carousel.owl-loaded {
@@ -134,9 +121,6 @@
    padding: 20px 0px;
    display: flex;
    justify-content: center;
-}
-.books-card__rating-wrapper {
-   padding-bottom: 20px;
 }
 .owl-nav {
    display: flex;
@@ -179,4 +163,76 @@
    background-color: var(--red-scheme) !important;
 }
 /** owl carousel end */
-/*! popular-books section end */
+/*! popular-books (section) end */
+/*! about (article) start */
+.about {
+   background-color: var(--grey-scheme);
+   padding: 80px 100px;
+   margin-top: 80px;
+   position: relative;
+   top: -80px;
+   display: flex;
+}
+.about__intro {
+   width: 55%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.about__title {
+   font-size: 30px;
+   text-transform: uppercase;
+}
+.about__text {
+   padding-top: 20px;
+   line-height: 1.4;
+   text-align: justify;
+}
+.about__strategy {
+   list-style: none;
+   margin: 20px 0px 30px 0px;
+}
+.about__strategy-item {
+   display: flex;
+   align-items: center;
+   font-weight: bold;
+   font-size: 20px;
+   margin: 10px 0px;
+   gap: 10px;
+}
+.about__strategy-icon {
+   color: var(--red-scheme);
+}
+.about__contacts {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 45%;
+   padding-left: 100px;
+}
+.about__map-btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 260px;
+   margin: 20px 0px;
+   border: none;
+   border-radius: 0px;
+   cursor: pointer;
+}
+.about__map-btn:hover,
+.about__map-btn:focus {
+   outline: none;
+   box-shadow: 0 0 10px var(--yellow-scheme);
+}
+.about__map-img {
+   display: block;
+   width: 100%;
+   height: 100%;
+}
+/*! about (article) end */
+/*! modal map section start */
+.modal-map {
+   background-color: rgba(0,0,0, 0.8);
+}
+/*! modal map section end */

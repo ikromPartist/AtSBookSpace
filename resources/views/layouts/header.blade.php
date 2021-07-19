@@ -18,10 +18,10 @@
             </button>
             <ul class="catalog__list hidden">
                <li class="catalog__items">
-                  <a class="catalog__links" href="{{route('books.index')}}">{{__('Все')}}</a>
+                  <a class="catalog__links" href="{{route('books_index')}}">{{__('Все')}}</a>
                </li>
                <li class="catalog__items">
-                  <a class="catalog__links" href="{{route('books.index')}}?category=available">{{__('Доступные')}}</a>
+                  <a class="catalog__links" href="{{route('books_index')}}?category=available">{{__('Доступные')}}</a>
                </li>
             </ul>
          </div>
@@ -52,7 +52,7 @@
          <dl class="taken-book">
             @if ($loggedUser->book)
             <dt class="taken-book__title" title="{{__('Взятая книга')}}">
-               <a class="taken-book__link" href="{{route('books.index')}}?id={{$loggedUser->book->id}}">
+               <a class="taken-book__link" href="{{route('books_index')}}?id={{$loggedUser->book->id}}">
                   {{$loggedUser->book->title}}
                </a>
             </dt>
@@ -111,38 +111,38 @@
       <nav class="main-navigation header__main-navigation">
          <div class="container">
             <ul class="site-navigation">
-               <li class="site-navigation__item">
+               <li class="site-navigation__item {{$route == 'home_index' ? 'active' : ''}}">
                   <a class="site-navigation__link" @if($route != 'home_index') href="{{route('home_index')}}"@endif>
                      {{__('Главная')}}
                   </a>
                </li>
-               <li class="site-navigation__item">
-                  <a class="site-navigation__link" href="#">
+               <li class="site-navigation__item {{$route == 'about_index' ? 'active' : ''}}">
+                  <a class="site-navigation__link" href="{{route('about_index')}}">
                      {{__('О клубе')}}
                   </a>
                </li>
-               <li class="site-navigation__item">
-                  <a class="site-navigation__link" href="#">
+               <li class="site-navigation__item {{$route == 'rating_index' ? 'active' : ''}}">
+                  <a class="site-navigation__link" href="{{route('rating_index')}}">
                      {{__('Рейтинги')}}
                   </a>
                </li>
-               <li class="site-navigation__item">
-                  <a class="site-navigation__link" href="#">
+               <li class="site-navigation__item {{$route == 'presentation_index' ? 'active' : ''}}">
+                  <a class="site-navigation__link" href="{{route('presentation_index')}}">
                      {{__('Презентация книг')}}
                   </a>
                </li>
-               <li class="site-navigation__item">
-                  <a class="site-navigation__link" href="#">
+               <li class="site-navigation__item {{$route == 'activities_index' ? 'active' : ''}}">
+                  <a class="site-navigation__link" href="{{route('activities_index')}}">
                      {{__('Мероприятия клуба')}}
                   </a>
                </li>
-               <li class="site-navigation__item">
-                  <a class="site-navigation__link" href="#">
+               <li class="site-navigation__item {{$route == 'rules_index' ? 'active' : ''}}">
+                  <a class="site-navigation__link" href="{{route('rules_index')}}">
                      {{__('Правила пользования библиотекой')}}
                   </a>
                </li>
-               <li class="site-navigation__item">
-                  <a class="site-navigation__link" href="#">
+               <li class="site-navigation__item {{$route == 'feedback_index' ? 'active' : ''}}">
+                  <a class="site-navigation__link" href="{{route('feedback_index')}}">
                      {{__('Обратная связь')}}
                   </a>
                </li>   

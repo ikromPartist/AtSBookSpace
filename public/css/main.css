@@ -67,6 +67,7 @@ p {
    font-weight: bold;
    font-size: 15px;
 }
+/*! buttons start */
 .button,
 .button--red {
    display: inline-block;
@@ -129,6 +130,28 @@ p {
    display: block;
    color: var(--red-scheme);
 }
+/*! buttons end */
+/*! link start */
+.link {
+   display: inline-block;
+   color: #fff;
+   text-decoration: none;
+   background-color: var(--red-scheme);
+   padding: 8px 20px;
+   font-size: 18px;
+   border-radius: 3px;
+   text-shadow: 0 1px 5px black;
+   text-transform: uppercase;
+}
+.link:hover,
+.link:focus {
+   outline: none;
+   background-color: var(--red-scheme_light);
+}
+.link:active {
+   background-color: var(--red-scheme_dark);
+}
+/*! link end */
 /*! header start */
 .header {
    position: sticky;
@@ -558,7 +581,41 @@ p {
 }
 .site-navigation__item.active .site-navigation__link {
    background-color: #cca600;
-   color: var(--blue-scheme);
+   color: #fff;
+   user-select: none;
+}
+.close-btn {
+   position: absolute;
+   top: 0;
+   right: 0;
+   border: none;
+   background-color: transparent;
+   margin: 20px 30px 0 0;
+   cursor: pointer;
+}
+.close-icon {
+   color: #fff;
+   display: block;
+   font-weight: bold;
+   font-size: 30px;
+}
+.modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden;
+   opacity: 1;
+   transition: 1s;
+}
+.modal.hidden {
+   height: 0px;
+   opacity: 0;
 }
 /* main-navigation end  */
 /** header-bottom end */
@@ -638,6 +695,7 @@ p {
    flex-direction: column;
    background-color: #fff;
    transition: 0.5s;
+   padding-bottom: 20px;
 }
 .books-card:hover {
    box-shadow: 0 0 20px #ccced3;
@@ -649,6 +707,9 @@ p {
 .books-card__image {
    width: 100%;
    object-fit: cover;
+}
+.books-card__new-flag {
+   width: 60px !important;
 }
 .books-card__overlay {
    position: absolute;
@@ -747,7 +808,7 @@ p {
    max-width: 125px;
 }
 .books-card__status-wrapper {
-   margin: 10px 20px 20px 20px;
+   margin: 10px 20px 0px 20px;
    display: flex;
    justify-content: center;
 }

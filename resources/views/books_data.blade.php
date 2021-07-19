@@ -6,7 +6,7 @@
             <div class="books-card__image-wrapper">
                <img class="books-card__image" src="{{asset('images/books/' . $book->img)}}" alt="{{__('Название книги')}}">
                <div class="books-card__overlay">
-                  <a class="books-card__links books-card__links--more" href="{{route('books.index')}}?id={{$book->id}}">{{__('Подробнее')}}</a>
+                  <a class="books-card__links books-card__links--more" href="{{route('books_index')}}?id={{$book->id}}">{{__('Подробнее')}}</a>
                   <a class="books-card__links books-card__links--order" href="#">{{__('Забронировать')}}</a>
                </div>
                @if (Carbon\Carbon::now()->diffInDays($book->created_at) < 100)
@@ -59,7 +59,7 @@
       </li> 
       @foreach ($books as $book)
       <li class="books-list__item">
-         <a class="books-list__links" href="{{route('books.index')}}?id={{$book->id}}">
+         <a class="books-list__links" href="{{route('books_index')}}?id={{$book->id}}">
             <h3 class="books-list__title">{{$book->title}}</h3>
             <p class="books-list__author">{{$book->author}}</p>
             <p class="books-list__pages">{{$book->pages}} {{__('стр.')}}</p>

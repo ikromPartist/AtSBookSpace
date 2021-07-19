@@ -93,3 +93,13 @@ function countdown() {
 
 }
 //! header end
+//! global scripts start
+const ratingIconEls = document.querySelectorAll('[data-id="rating-icon"]');
+if (ratingIconEls) {
+   ratingIconEls.forEach(icon => {
+      if (icon.classList.contains('filled')) {
+         icon.textContent = 'star';
+      }
+   });
+}
+//! global scripts end

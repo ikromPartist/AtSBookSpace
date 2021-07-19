@@ -16,7 +16,7 @@
             </li>
             <li class="breadcrumbs__item">
                <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
-               <a @if($category != 'all')href="{{route('books.index')}}"@endif tabindex="0" class="breadcrumbs__link">{{__('Книги')}}</a>
+               <a @if($category != 'all')href="{{route('books_index')}}"@endif tabindex="0" class="breadcrumbs__link">{{__('Книги')}}</a>
             </li>
             @if ($category != 'all')
             <li class="breadcrumbs__item">
