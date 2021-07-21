@@ -9,7 +9,7 @@
    <main class="home-page">
       <h1 class="visually-hidden">{{__('Главная Страница Портала «AtS Book Space»')}}</h1>
       <div class="banner" data-id="banner">
-         <img class="banner__image" src="{{asset('images/banner.png')}}" alt="{{__('Библиотека')}}">
+         <img class="banner__image" src="{{asset('img/banner.png')}}" alt="{{__('Библиотека')}}">
       </div>
 
       <div class="container">
@@ -68,7 +68,7 @@
                @foreach ($popularBooks as $book)
                <figure class="books-card">
                   <div class="books-card__image-wrapper">
-                     <img class="books-card__image" src="{{asset('images/books/' . $book->img)}}" alt="{{__('Название книги')}}">
+                     <img class="books-card__image" src="{{asset('img/books/' . $book->img)}}" alt="{{__('Название книги')}}">
                      <div class="books-card__overlay">
                         <a class="books-card__links books-card__links--more" href="{{route('books_index')}}?id={{$book->id}}">{{__('Подробнее')}}</a>
                         <a class="books-card__links books-card__links--order" href="#">{{__('Забронировать')}}</a>
@@ -93,12 +93,12 @@
                @foreach ($newBooks as $book)
                <figure class="books-card">
                   <div class="books-card__image-wrapper">
-                     <img class="books-card__image" src="{{asset('images/books/' . $book->img)}}" alt="{{__('Название книги')}}">
+                     <img class="books-card__image" src="{{asset('img/books/' . $book->img)}}" alt="{{__('Название книги')}}">
                      <div class="books-card__overlay">
                         <a class="books-card__links books-card__links--more" href="{{route('books_index')}}?id={{$book->id}}">{{__('Подробнее')}}</a>
                         <a class="books-card__links books-card__links--order" href="#">{{__('Забронировать')}}</a>
                      </div>
-                     <img class="books-card__new-flag" src="{{asset('images/books/new.png')}}" alt="{{__('Новый продукт')}}">
+                     <img class="books-card__new-flag" src="{{asset('img/books/new.png')}}" alt="{{__('Новый продукт')}}">
                   </div>
                   <h3 class="books-card__title">
                      {{$book->title}} 
@@ -141,7 +141,6 @@
                <h2 class="about__title">AtS Book Space</h2>
                <p class="about__text">
                   <strong>AtS Book Space</strong> является структурным подразделением Группы Компаний ‹‹КОИНОТИ НАВ›› и сформирован на базе корпоративного учебного центра, который эффективно функционировал с 2016 г.
-                  Cегодня это центр повышение интеллектуального и образовательного уровня сотрудников и подготовки нужных профессиональных кадров.
                </p>
                <p class="about__text">
                   Наши цели и планы построены на нашей амбициозности, проактивности, креативности, настойчивости и смелости бросить вызов и реализовать:
@@ -177,7 +176,7 @@
                </div>
                <button class="about__map-btn" data-id="show-map" type="button">
                   <span class="visually-hidden">{{__('Открыть карту')}}</span>
-                  <img class="about__map-img" src="{{asset('images/map.png')}}" alt="{{__('г. Душанбе, ул. А. Каххоров, д. 19/8')}}">
+                  <img class="about__map-img" src="{{asset('img/map.png')}}" alt="{{__('г. Душанбе, ул. А. Каххоров, д. 19/8')}}">
                </button>
                <div>
                   <a class="link" href="#">{{__('Заблудились? Напишите нам!')}}</a>
@@ -189,7 +188,7 @@
             <button class="close-btn" type="button" data-id="close-map" aria-label="{{__('Закрыть')}}">
                <span class="material-icons-outlined close-icon">close</span>
             </button>
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab6a11e248184e1e8233fac796f5daf22e1c6480f77c9d4f8f37d8f34d69fba87&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Acb8f065da5e4b10ffb7d4569410a4591062b8c635c418fbaf4789e131f23da25&amp;width=1280&amp;height=720&amp;lang=ru_RU&amp;scroll=true"></script>
          </section>
       </div>
 

@@ -42,7 +42,7 @@ class User extends Authenticatable
 
     public function book() 
     {
-        return $this->hasOne(\App\Models\Book::class); 
+        return $this->hasOne(Book::class); 
     }
 
 }

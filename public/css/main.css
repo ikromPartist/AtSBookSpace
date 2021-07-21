@@ -67,6 +67,15 @@ p {
    font-weight: bold;
    font-size: 15px;
 }
+.title {
+   display: flex;
+   align-items: center;
+   background-color: var(--milk-scheme);
+   padding: 25px;
+   text-transform: uppercase;
+   font-size: 25px;
+   color: var(--blue-scheme);
+}
 /*! buttons start */
 .button,
 .button--red {
@@ -371,6 +380,7 @@ p {
    background-color: var(--green-scheme);
    text-decoration: none;
    color: #fff;
+   position: relative;
 }
 .taken-book__deadline-link.award {
    background-color: transparent;
@@ -394,6 +404,7 @@ p {
    justify-content: center;
    align-items: center;
    padding: 0px 10px;
+   cursor: pointer;
 }
 .taken-book__deadline-link small {
    position: relative;
@@ -405,10 +416,22 @@ p {
 .taken-book__seconds {
    min-width: 30px;
 }
-.taken-book__deadline-link:hover,
-.taken-book__deadline-link:focus {
-   outline: none; 
-   background-color: var(--red-scheme_light);
+.taken-book__renew {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--red-scheme);
+   opacity: 0;
+   transition: .2s;
+}
+.taken-book__deadline-link:hover .taken-book__renew,
+.taken-book__deadline-link:focus .taken-book__renew {
+   opacity: 1;
 }
 .taken-book__deadline-link:active {
    background-color: var(--red-scheme);
@@ -924,6 +947,8 @@ p {
    text-decoration: none;
    color: #fff;
    font-size: 20px;
+   cursor: pointer;
+   user-select: none;
 }
 .footer-navigation__link:hover,
 .footer-navigation__link:focus {

@@ -46,13 +46,12 @@ if (timesLeftEl) {
 }
 function countdown() {
    const year = document.querySelector('[data-id="year"]').value;
-   const month = document.querySelector('[data-id="month"]').value;
+   const month = (+document.querySelector('[data-id="month"]').value - 1);
    const day = document.querySelector('[data-id="day"]').value;
    const daysEl = timesLeftEl.querySelector('[data-id="days"]');
    const hoursEl = timesLeftEl.querySelector('[data-id="hours"]');
    const minutesEl = timesLeftEl.querySelector('[data-id="minutes"]');
    const secondsEl = timesLeftEl.querySelector('[data-id="seconds"]');
-
 
    const now = new Date();
    const eventDate = new Date(year, month, day);
@@ -64,10 +63,10 @@ function countdown() {
 
    if (remTime < 0) {
       timesLeftEl.classList.toggle('award');
-      daysEl.textContent = '00д';
-      hoursEl.textContent = '00ч';
-      minutesEl.textContent = '00м'
-      secondsEl.textContent = '00c';
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00'
+      secondsEl.textContent = '00';
       setTimeout(countdown, 200);
    } else {
       let sec = Math.floor(remTime / 1000);

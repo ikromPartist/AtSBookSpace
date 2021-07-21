@@ -3,7 +3,7 @@
    <div class="footer__top">
       <div class="container footer__top-container">
          <div class="footer__logo-wrapper">
-            <img class="main-logo footer__main-logo" src="{{asset('images/main-logo.png')}}" alt="AtS Book Space">
+            <img class="main-logo footer__main-logo" src="{{asset('img/main-logo.png')}}" alt="AtS Book Space">
             <h2 class="footer__title">Ats Book Space</>
          </div>
          <address class="footer__company">
@@ -17,32 +17,32 @@
 
          <ul class="footer-navigation">
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="{{route('about_index')}}">
+               <a class="footer-navigation__link" @if($route != 'about_index')href="{{route('about_index')}}"@endif>
                   {{__('О клубе')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="{{route('rating_index')}}">
+               <a class="footer-navigation__link" @if($route != 'rating_index')href="{{route('rating_index')}}"@endif>
                   {{__('Рейтинги')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="{{route('presentation_index')}}">
+               <a class="footer-navigation__link" @if($route != 'presentation_index')href="{{route('presentation_index')}}"@endif>
                   {{__('Презентация книг')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="{{route('activities_index')}}">
+               <a class="footer-navigation__link" @if($route != 'activities_index')href="{{route('activities_index')}}"@endif>
                   {{__('Мероприятия клуба')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="{{route('rules_index')}}">
+               <a class="footer-navigation__link" @if($route != 'rules_index')href="{{route('rules_index')}}"@endif>
                   {{__('Правила пользования библиотекой')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" href="{{route('feedback_index')}}">
+               <a class="footer-navigation__link" @if($route != 'feedback_index')href="{{route('feedback_index')}}"@endif>
                   {{__('Обратная связь')}}
                </a>
             </li>
@@ -114,17 +114,17 @@
          <ul class="socials">
             <li class="socials__item" title="{{__('Вайбер')}}">
                <a class="socials__link">
-                  <img class="socials__icon" src="{{asset('images/viber-icon.png')}}" alt="{{__('Вайбер')}}">
+                  <img class="socials__icon" src="{{asset('img/viber-icon.png')}}" alt="{{__('Вайбер')}}">
                </a>
             </li>
             <li class="socials__item" title="{{__('Фейсбук')}}">
                <a class="socials__link">
-                  <img class="socials__icon" src="{{asset('images/fb-icon.png')}}" alt="{{__('Фейсбук')}}">
+                  <img class="socials__icon" src="{{asset('img/fb-icon.png')}}" alt="{{__('Фейсбук')}}">
                </a>
             </li>
             <li class="socials__item" title="{{__('Инстаграм')}}">
                <a class="socials__link">
-                  <img class="socials__icon" src="{{asset('images/insta-icon.png')}}" alt="{{__('Инстаграм')}}">
+                  <img class="socials__icon" src="{{asset('img/insta-icon.png')}}" alt="{{__('Инстаграм')}}">
                </a>
             </li>
          </ul>

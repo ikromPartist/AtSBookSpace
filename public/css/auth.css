@@ -1,7 +1,7 @@
 @import 'main.css';
 
 .auth-page {
-   background-image: url('../images/auth/auth-bg.jpg');
+   background-image: url('../img/auth/auth-bg.jpg');
    background-repeat: no-repeat;
    object-fit: cover;
    min-height: 100vh;
@@ -102,7 +102,7 @@
 
 .welcome {
    width: 440px;
-   background-image: url(../images/auth/side-bg.jpg);
+   background-image: url('../img/auth/side-bg.jpg');
    background-size: cover;
    height: 721px;
    color: #fff;

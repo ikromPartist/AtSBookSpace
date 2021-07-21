@@ -38,20 +38,20 @@
                <h2 class="visually-hidden">{{__('Изображения книги')}}</h2>
                <ul class="book-photos">
                   <li class="book-photos__item active">
-                     <img class="book-photos__image active" data-name="book-photos-img" data-id="main-img" src="{{asset('images/books/' . $book->img)}}" alt="Главное фото">
-                     <img class="book-photos__image big" data-name="book-photos" data-id="main" src="{{asset('images/books/' . $book->img)}}" alt="Главное фото">
+                     <img class="book-photos__image active" data-name="book-photos-img" data-id="main-img" src="{{asset('img/books/' . $book->img)}}" alt="Главное фото">
+                     <img class="book-photos__image big" data-name="book-photos" data-id="main" src="{{asset('img/books/' . $book->img)}}" alt="Главное фото">
                   </li>
                   <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos-img" data-id="front-img" src="{{asset('images/books/' . $book->img_front)}}" alt="Фото фронтальной части">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos" data-id="front" src="{{asset('images/books/' . $book->img_front)}}" alt="Фото фронтальной части">
+                     <img class="book-photos__image book-photos__image--front" data-name="book-photos-img" data-id="front-img" src="{{asset('img/books/' . $book->img_front)}}" alt="Фото фронтальной части">
+                     <img class="book-photos__image book-photos__image--front" data-name="book-photos" data-id="front" src="{{asset('img/books/' . $book->img_front)}}" alt="Фото фронтальной части">
                   </li>
                   <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos-img" data-id="back-img" src="{{asset('images/books/' . $book->img_back)}}" alt="Фото задней части">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos" data-id="back" src="{{asset('images/books/' . $book->img_back)}}" alt="Фото задней части">
+                     <img class="book-photos__image book-photos__image--back" data-name="book-photos-img" data-id="back-img" src="{{asset('img/books/' . $book->img_back)}}" alt="Фото задней части">
+                     <img class="book-photos__image book-photos__image--back" data-name="book-photos" data-id="back" src="{{asset('img/books/' . $book->img_back)}}" alt="Фото задней части">
                   </li>
                   <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos-img" data-id="side-img" src="{{asset('images/books/' . $book->img_side)}}" alt="Фото боковой части">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos" data-id="side" src="{{asset('images/books/' . $book->img_side)}}" alt="Фото боковой части">
+                     <img class="book-photos__image book-photos__image--side" data-name="book-photos-img" data-id="side-img" src="{{asset('img/books/' . $book->img_side)}}" alt="Фото боковой части">
+                     <img class="book-photos__image book-photos__image--side" data-name="book-photos" data-id="side" src="{{asset('img/books/' . $book->img_side)}}" alt="Фото боковой части">
                   </li>
                </ul>
             </section>

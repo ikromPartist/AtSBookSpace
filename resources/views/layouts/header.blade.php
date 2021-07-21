@@ -4,11 +4,11 @@
       <div class="container header-top__container">
 
          <a class="ats-link" href="https://ats.tj/" target="_blank">
-            <img class="main-logo" src="{{asset('images/main-logo.png')}}" alt="AtS Book Space">
+            <img class="main-logo" src="{{asset('img/main-logo.png')}}" alt="AtS Book Space">
          </a>
 
          <a class="koinot-link">
-            <img class="koinot-logo" src="{{asset('images/koinot-logo.png')}}" alt="Коиноти Нав">
+            <img class="koinot-logo" src="{{asset('img/koinot-logo.png')}}" alt="Коиноти Нав">
          </a>
 
          <div class="catalog">
@@ -46,7 +46,7 @@
          </a>
 
          <a class="viber-link" href="#">
-            <img src="{{asset('images/viber.png')}}" alt="{{__('Вайбер')}}" class="viber-link__icon">
+            <img src="{{asset('img/viber.png')}}" alt="{{__('Вайбер')}}" class="viber-link__icon">
          </a>
 
          <dl class="taken-book">
@@ -57,14 +57,17 @@
                </a>
             </dt>
             <dd class="taken-book__deadline">
-               <input data-id="year" type="text" value="{{ \Carbon\Carbon::parse($loggedUser->book->return_date)->format('Y')}}" class="visually-hidden">
-               <input data-id="month" type="text" value="{{ \Carbon\Carbon::parse($loggedUser->book->return_date)->format('m')}}" class="visually-hidden">
-               <input data-id="day" type="text" value="{{ \Carbon\Carbon::parse($loggedUser->book->return_date)->format('d')}}" class="visually-hidden">
-               <a class="taken-book__deadline-link" data-id="times-left" href="#">
+               <input data-id="year" type="text" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('Y')}}" class="visually-hidden">
+               <input data-id="month" type="text" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('m')}}" class="visually-hidden">
+               <input data-id="day" type="text" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('d')}}" class="visually-hidden">
+               <a class="taken-book__deadline-link" data-id="times-left" @if(Carbon\Carbon::now() < $loggedUser->book->return_date)href="#"@endif>
                   <span data-id="days"></span><small>д</small>
                   <span data-id="hours"></span><b>:</b>
                   <span data-id="minutes"></span><b>:</b>
                   <span class="taken-book__seconds" data-id="seconds"></span>
+                  @if(Carbon\Carbon::now() < $loggedUser->book->return_date)
+                  <p class="taken-book__renew">{{__('Продлить')}}</p>
+                  @endif
                </a>
             </dd>
             @else
@@ -112,37 +115,37 @@
          <div class="container">
             <ul class="site-navigation">
                <li class="site-navigation__item {{$route == 'home_index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" @if($route != 'home_index') href="{{route('home_index')}}"@endif>
+                  <a class="site-navigation__link" @if($route != 'home_index')href="{{route('home_index')}}"@endif>
                      {{__('Главная')}}
                   </a>
                </li>
                <li class="site-navigation__item {{$route == 'about_index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" href="{{route('about_index')}}">
+                  <a class="site-navigation__link" @if($route != 'about_index')href="{{route('about_index')}}"@endif>
                      {{__('О клубе')}}
                   </a>
                </li>
                <li class="site-navigation__item {{$route == 'rating_index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" href="{{route('rating_index')}}">
+                  <a class="site-navigation__link" @if($route != 'rating_index')href="{{route('rating_index')}}"@endif>
                      {{__('Рейтинги')}}
                   </a>
                </li>
                <li class="site-navigation__item {{$route == 'presentation_index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" href="{{route('presentation_index')}}">
+                  <a class="site-navigation__link" @if($route != 'presentation_index')href="{{route('presentation_index')}}"@endif>
                      {{__('Презентация книг')}}
                   </a>
                </li>
                <li class="site-navigation__item {{$route == 'activities_index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" href="{{route('activities_index')}}">
+                  <a class="site-navigation__link" @if($route != 'activities_index')href="{{route('activities_index')}}"@endif>
                      {{__('Мероприятия клуба')}}
                   </a>
                </li>
                <li class="site-navigation__item {{$route == 'rules_index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" href="{{route('rules_index')}}">
+                  <a class="site-navigation__link" @if($route != 'rules_index')href="{{route('rules_index')}}"@endif>
                      {{__('Правила пользования библиотекой')}}
                   </a>
                </li>
                <li class="site-navigation__item {{$route == 'feedback_index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" href="{{route('feedback_index')}}">
+                  <a class="site-navigation__link" @if($route != 'feedback_index')href="{{route('feedback_index')}}"@endif>
                      {{__('Обратная связь')}}
                   </a>
                </li>   
