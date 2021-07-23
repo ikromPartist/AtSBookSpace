@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->bigInteger('user_id')->nullable();
             $table->date('taken_date')->nullable();
             $table->date('return_date')->nullable();
+            $table->boolean('deadline_renewed')->nullable()->default(false);
             $table->string('img')->default('default.jpg');
             $table->string('img_front')->default('front.jpg');
             $table->string('img_back')->default('back.jpg');

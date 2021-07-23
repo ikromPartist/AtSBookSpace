@@ -232,7 +232,23 @@
 }
 /*! about (article) end */
 /*! modal map section start */
-.modal-map {
+.map-popup {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   width: 100vw;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden;
    background-color: rgba(0,0,0, 0.8);
+   opacity: 1;
+   transition: 1s;
+}
+.map-popup.hidden {
+   height: 0px;
+   opacity: 0;
 }
 /*! modal map section end */

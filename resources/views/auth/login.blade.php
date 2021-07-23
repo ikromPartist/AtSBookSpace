@@ -20,10 +20,10 @@
             <h1 class="visually-hidden">{{__('Аутентификация')}}</h1>
             
             <section class="auth">
-               <img class="main-logo" src="{{asset('images/main-logo.png')}}" alt="AtS Book Space" width="60" height="60">
-               <img class="koinot-logo auth__koinot-logo" src="{{asset('images/koinot-logo.png')}}" alt="Коиноти Нав" width="340px" height="60px">
+               <img class="main-logo" src="{{asset('img/main-logo.png')}}" alt="AtS Book Space" width="60" height="60">
+               <img class="koinot-logo auth__koinot-logo" src="{{asset('img/koinot-logo.png')}}" alt="Коиноти Нав" width="340px" height="60px">
                <h2 class="auth-title">{{__('Вход')}}</h2>
-               <form class="login" action="{{route('auth.check')}}" method="POST">
+               <form class="login" action="{{route('auth_check')}}" method="POST">
                   
                   @if (Session::get('fail'))
                      <p>{{Session::get('fail')}}</p>

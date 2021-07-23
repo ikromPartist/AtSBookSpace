@@ -183,7 +183,7 @@
                </div>
             </section>
          </article>
-         <section class="modal modal-map hidden" data-id="modal-map">
+         <section class="map-popup hidden" data-id="modal-map">
             <h2 class="visually-hidden">{{__('Адрес компании')}}:</h2>
             <button class="close-btn" type="button" data-id="close-map" aria-label="{{__('Закрыть')}}">
                <span class="material-icons-outlined close-icon">close</span>

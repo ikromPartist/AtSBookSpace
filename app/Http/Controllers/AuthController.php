@@ -56,15 +56,14 @@ class AuthController extends Controller
             'login' => 'required|min:3',
             'password' => 'required|min:4'
         ]);
-
         $user = User::where('login', '=', $request->login)->first();
-
+        
         if (!$user) {
             return back()->with('fail', 'We do not recognize your login address');
         } else {
             // check password
             if (Hash::check($request->password, $user->password)) {
-                $request->session()->put('LoggedUser', $user->id);
+                $request->session()->put('loggedUser', $user->id);
                 return redirect(route('home_index'));
             } else {
                 return back()->with('fail', 'Incorrect password');
@@ -73,8 +72,8 @@ class AuthController extends Controller
     }
     public function logout() 
     {
-        if (session()->has('LoggedUser')) {
-            session()->pull('LoggedUser');
+        if (session()->has('loggedUser')) {
+            session()->pull('loggedUser');
             return redirect(route('auth.login'));
         }
     } 

@@ -13,15 +13,15 @@ use App\Http\Controllers\FeedbackController;
 
 
 
-Route::post('/auth/store', [AuthController::class, 'store'])->name('auth.store');
-Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
-Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::post('/auth/store', [AuthController::class, 'store'])->name('auth_store');
+Route::post('/auth/check', [AuthController::class, 'check'])->name('auth_check');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth_logout');
 
 
 Route::group(['middleware'=>['AuthCheck']], function(){
 
-   Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
-   Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
+   Route::get('/auth/login', [AuthController::class, 'login'])->name('auth_login');
+   Route::get('/auth/register', [AuthController::class, 'register'])->name('auth_register');
    
    Route::get('/', [HomeController::class, 'index'])->name('home_index');
 
@@ -32,6 +32,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/about', [AboutController::class, 'index'])->name('about_index');
 
    Route::get('/rating', [RatingController::class, 'index'])->name('rating_index');
+   Route::get('/rating/fetch_data', [RatingController::class, 'fetch_data']);
 
    Route::get('/presentation', [PresentationController::class, 'index'])->name('presentation_index');
 

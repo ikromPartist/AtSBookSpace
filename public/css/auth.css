@@ -31,7 +31,7 @@
    font-size: 30px;
    text-transform: uppercase;
    text-align: center;
-   color: var(--main-color);
+   color: var(--blue-scheme);
 }
 .login {
    display: flex;
@@ -86,7 +86,7 @@
 .login__submit-button {
    border: none;
    border-radius: 50px;
-   background-color: var(--main-color);
+   background-color: var(--blue-scheme);
    color: #fff;
    font-size: 18px;
    padding: 12px 24px;

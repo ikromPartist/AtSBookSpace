@@ -92,7 +92,7 @@
          <address class="company">
             <p class="company__phone">
                <span class="material-icons company__phone-icon">call</span>
-               (+992) 918-13-04-39
+               {{$loggedUser->phone_numbers}}
             </p>
             <p class="company-name">{{$loggedUser->company}}</p>
          </address>
@@ -101,7 +101,7 @@
             <div class="user-wrapper">
                <span class="material-icons user-icon">person</span>
                <p class="user-name">{{$loggedUser->name}} {{$loggedUser->surname}}</p>
-               <a class="logout-link" href="{{route('auth.logout')}}">
+               <a class="logout-link" href="{{route('auth_logout')}}">
                   <span class="material-icons logout-link__icon">logout</span>
                   <span class="visually-hidden">{{__('Выйти')}}</span>
                </a>
@@ -156,3 +156,48 @@
    </div>
 
 </header>
+
+{{-- modals start --}}
+<div class="modal hidden" data-id="confirm-modal">
+   <div class="modal__msg-wrapper">
+      <p class="modal__msg">{{__('Вы уверены что хотите продлить дедлайн')}}?</p>
+   </div>
+   <div class="modal__btn-wrapper">
+      <button class="button" type="button" data-id="confirm-modal__confirm-btn">{{__('Продлить')}}</button>
+      <button class="button--red" type="button" data-id="confirm-modal__cancel-btn">{{__('Отмена')}}</button>
+   </div>
+   <button class="modal__close-btn" aria-label="{{__('Закрыть')}}">
+      <span class="material-icons modal__close-icon" data-id="confirm-modal__close-btn">close</span>
+   </button>
+</div>
+
+<div class="modal hidden" data-id="success-modal">
+   <div class="modal__msg-wrapper">
+      <p class="modal__msg">{{__('Ваш дедлайн успешно продлен ещё на 15 дней')}}!</p>
+   </div>
+   <div class="modal__btn-wrapper">
+      <button class="button" type="button" data-id="success-modal__ok-btn">{{__('OK')}}</button>
+   </div>
+   <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+      <span class="material-icons modal__close-icon" data-id="success-modal__close-btn">close</span>
+   </button>
+</div>
+
+<div class="modal hidden" data-id="fail-modal">
+   <div class="modal__msg-wrapper">
+      <p class="modal__msg modal__msg--red">
+         {{'Операция невозможна'}}!
+         @if ($loggedUser->book && $loggedUser->book->deadline_renewed)
+         {{__('Вы уже продлили дедлайн')}}.
+         @endif
+      </p>
+   </div>
+   <div class="modal__btn-wrapper">
+      <button class="button" type="button" data-id="fail-modal__ok-btn">{{__('OK')}}</button>
+   </div>
+   <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+      <span class="material-icons modal__close-icon" data-id="fail-modal__close-btn">close</span>
+   </button>
+</div>
+{{-- modals end --}}
+

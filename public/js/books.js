@@ -2,11 +2,11 @@
 const booksViewEl = document.querySelector('[data-id="books-navbar__view"]');
 
 if (booksViewEl) {
-   booksViewEl.addEventListener('click', (evt) => {
-      if (evt.target.dataset.id == 'view-standart-btn') {
-         evt.preventDefault();
+   booksViewEl.addEventListener('click', (e) => {
+      if (e.target.dataset.id == 'view-standart-btn') {
+         e.preventDefault();
          booksViewEl.querySelector('[data-id="view-list-btn"]').classList.remove('active');
-         evt.target.classList.add('active');
+         e.target.classList.add('active');
          document.querySelector('[data-id="book-cards-list"]').classList.remove('hidden');
          document.querySelector('[data-id="books-list"]').classList.remove('show');
    
@@ -18,10 +18,10 @@ if (booksViewEl) {
                console.log(response);
             }
          })
-      } else if (evt.target.dataset.id == 'view-list-btn') {
-         evt.preventDefault();
+      } else if (e.target.dataset.id == 'view-list-btn') {
+         e.preventDefault();
          booksViewEl.querySelector('[data-id="view-standart-btn"]').classList.remove('active');
-         evt.target.classList.add('active');
+         e.target.classList.add('active');
          document.querySelector('[data-id="book-cards-list"]').classList.add('hidden');
          document.querySelector('[data-id="books-list"]').classList.add('show');
    
@@ -64,25 +64,25 @@ function fetch_data(page, orderBy, orderType, category) {
 }
 
 if (booksSort) {
-   booksSort.addEventListener('click', (evt) => {
+   booksSort.addEventListener('click', (e) => {
       const links = booksSort.querySelectorAll('[data-id="sorting"]');
       links.forEach(link => {
          link.classList.remove('active');
       });
-      if (evt.target.dataset.id == 'sorting') {
-         evt.preventDefault();
-         evt.target.classList.add('active');
-         const orderBy =  evt.target.dataset.orderName;
-         const orderType = evt.target.dataset.orderType;
+      if (e.target.dataset.id == 'sorting') {
+         e.preventDefault();
+         e.target.classList.add('active');
+         const orderBy =  e.target.dataset.orderName;
+         const orderType = e.target.dataset.orderType;
          let reverseOrder = '';
          if (orderType == 'asc') {
-            evt.target.dataset.orderType = 'desc';
+            e.target.dataset.orderType = 'desc';
             reverseOrder = 'desc';
             booksSort.querySelector('[data-id="arrow-up"]').classList.remove('active');
             booksSort.querySelector('[data-id="arrow-down"]').classList.add('active');
          } else if (orderType == 'desc') {
-            evt.preventDefault();
-            evt.target.dataset.orderType = 'asc';
+            e.preventDefault();
+            e.target.dataset.orderType = 'asc';
             reverseOrder = 'asc';
             booksSort.querySelector('[data-id="arrow-down"]').classList.remove('active');
             booksSort.querySelector('[data-id="arrow-up"]').classList.add('active');
@@ -99,10 +99,10 @@ if (booksSort) {
 
 const booksEl = document.querySelector('.books');
 if (booksEl) {
-   booksEl.addEventListener('click', (evt) => {
-      if (evt.target.className == 'page-link') {
-         evt.preventDefault();
-         const page = evt.target.href.split('page=')[1];
+   booksEl.addEventListener('click', (e) => {
+      if (e.target.className == 'page-link') {
+         e.preventDefault();
+         const page = e.target.href.split('page=')[1];
          request.page = page;
          const orderBy = request.orderBy;
          const orderType = request.orderType;
@@ -116,14 +116,14 @@ if (booksEl) {
 //! books single page start
 const bookPreviewEl = document.querySelector('[data-id="book-preview"]');
 if (bookPreviewEl) {
-   bookPreviewEl.addEventListener('click', (evt) => {
+   bookPreviewEl.addEventListener('click', (e) => {
       // book-photos
-      if (evt.target.dataset.name == 'book-photos') {
+      if (e.target.dataset.name == 'book-photos') {
          const allPhotosEl = bookPreviewEl.querySelectorAll('[data-name="book-photos"]');
          allPhotosEl.forEach(element => {
             if (element.classList.contains('big')) {
                element.classList.remove('big');
-               evt.target.classList.add('big');
+               e.target.classList.add('big');
             }
          });
          const photosEl = bookPreviewEl.querySelectorAll('[data-name="book-photos-img"]');
@@ -132,13 +132,13 @@ if (bookPreviewEl) {
                element.classList.remove('active');
             }
          });
-         if (evt.target.dataset.id == 'main') {
+         if (e.target.dataset.id == 'main') {
             bookPreviewEl.querySelector('[data-id="main-img"]').classList.add('active');
-         } else if (evt.target.dataset.id == 'front') {
+         } else if (e.target.dataset.id == 'front') {
             bookPreviewEl.querySelector('[data-id="front-img"]').classList.add('active');
-         } else if (evt.target.dataset.id == 'back') {
+         } else if (e.target.dataset.id == 'back') {
             bookPreviewEl.querySelector('[data-id="back-img"]').classList.add('active');
-         } else if (evt.target.dataset.id == 'side') {
+         } else if (e.target.dataset.id == 'side') {
             bookPreviewEl.querySelector('[data-id="side-img"]').classList.add('active');
          }
       }
@@ -147,20 +147,20 @@ if (bookPreviewEl) {
 
 //* cursor
 const cursorEl = document.querySelector('#cursor');
-document.addEventListener('mousemove', (evt) => {
-   const x = evt.clientX;
-   const y = evt.clientY;
+document.addEventListener('mousemove', (e) => {
+   const x = e.clientX;
+   const y = e.clientY;
    cursorEl.style.left = x + 'px';
    cursorEl.style.top = y + 'px';
-   if (evt.target.dataset.id == 'like-button') {
+   if (e.target.dataset.id == 'like-button') {
       cursorEl.textContent = '😍';
-      evt.target.addEventListener('mouseleave', () => {
+      e.target.addEventListener('mouseleave', () => {
          cursorEl.textContent = '';
       })
    }
-   if (evt.target.dataset.id == 'dislike-button') {
+   if (e.target.dataset.id == 'dislike-button') {
       cursorEl.textContent = '😡';
-      evt.target.addEventListener('mouseleave', () => {
+      e.target.addEventListener('mouseleave', () => {
          cursorEl.textContent = '';
       })
    }
@@ -169,9 +169,9 @@ document.addEventListener('mousemove', (evt) => {
 const commentInputEl = document.querySelector('[data-id="comment-text"]');
 if (commentInputEl) {
    const buttonsEl = document.querySelector('[data-id="buttons-wrapper"]');
-   commentInputEl.addEventListener('keydown', (evt) => {
-      evt.target.style.height = "1px";
-      evt.target.style.height = (5 + evt.target.scrollHeight) + "px";
+   commentInputEl.addEventListener('keydown', (e) => {
+      e.target.style.height = "1px";
+      e.target.style.height = (5 + e.target.scrollHeight) + "px";
       if (commentInputEl.value.length > 1) {
          buttonsEl.style.height = '50px';
       } else {

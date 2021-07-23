@@ -8,7 +8,7 @@
 </head>
 <body>
    
-   <form action="{{route('auth.store')}}" method="POST">
+   <form action="{{route('auth_store')}}" method="POST">
 
       @if (Session::get('success'))
          <p>{{Session::get('success')}}</p>

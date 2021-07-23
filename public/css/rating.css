@@ -1,0 +1,108 @@
+.rating-page__content-wrapper {
+   display: flex;
+   justify-content: space-between;
+   margin: 20px 0px 80px 0px;
+}
+/*! rating tabs (aside) start */
+.rating-types {
+   width: 25%;
+   background-color: var(--yellow-scheme);
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+   margin: 100px 0px 106px 0px;
+}
+.ratings__wrapper {
+   height: 301px;
+   width: 335px; 
+   position: sticky;
+   top: calc(50% - 150px);
+}
+.ratings {
+   list-style: none;
+   padding: 43px 0px;
+}
+.ratings__link {
+   display: flex;
+   text-decoration: none;
+   color: var(--blue-scheme);
+   font-size: 20px;
+   padding: 10px 0px 10px 20px;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+   cursor: pointer;
+   user-select: none;
+   position: relative;
+   z-index: 1;
+}
+.ratings__link:hover,
+.ratings__link:focus {
+   outline: none;
+   color: var(--red-scheme);
+}
+.ratings__link.active {
+   color: var(--red-scheme);
+}
+.active-link {
+   display: flex;
+   flex-direction: column;
+   width: 325px;
+   height: 63px;
+   position: absolute;
+   top: 33px;
+   right: 0;
+   transform: translate(0px, 0px);
+   transition: .8s;
+}
+.active-link__top {
+   height: 10px;
+   border-bottom-right-radius: 10px;
+   background-color: var(--yellow-scheme);
+   z-index: 1;
+}
+.active-link__middle {
+   flex-grow: 1;
+   background-color: #fff;
+   border-radius: 10px;
+   position: relative;
+}
+.active-link__inner {
+   position: absolute;
+   top: -10px;
+   right: 0;
+   height: 63px;
+   width: 10px;
+   background-color: #fff;
+}
+.active-link__bottom {
+   height: 10px;
+   border-top-right-radius: 10px;
+   background-color: var(--yellow-scheme);
+   z-index: 1;
+}
+/*! rating tabs (aside) end */
+/*! rating view (section) start */
+.rating-view {
+   width: 75%;
+   padding-left: 20px;
+}
+.rating-view__list {
+   margin-top: 20px;
+}
+.rating-view__name {
+   width: 30%;
+}
+.rating-view__company {
+   width: 30%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-box-orient: vertical;
+}
+.rating-view__books {
+   width: 20%;
+}
+.rating-view__pages {
+   width: 20%;
+}
+/*! rating view (section) end */

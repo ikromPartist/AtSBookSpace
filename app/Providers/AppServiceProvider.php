@@ -29,8 +29,8 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         
         view()->composer('*', function($view){
-            if (session()->has('LoggedUser')) {
-                $loggedUser = User::where('id', session()->has('LoggedUser'))->first();
+            if (session()->has('loggedUser')) {
+                $loggedUser = User::where('id', session()->get('loggedUser'))->first();
                 return $view->with('loggedUser', $loggedUser);
             }
         });

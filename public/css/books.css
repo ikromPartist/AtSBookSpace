@@ -154,50 +154,6 @@
    background-color: var(--grey-scheme);
 }
 /* books-list end */
-/* pagination start */
-.pagination {
-   list-style: none;
-   display: flex;
-   justify-content: center;
-   margin: 30px 0px;
-   gap: 10px;
-   flex-wrap: wrap;
-   padding: 0px 200px;
-}
-.page-item {
-   border: 3px solid var(--milk-scheme);
-   border-radius: 3px;
-}
-.page-item.active {
-   cursor: pointer;
-   color: #fff;
-   background-color: var(--red-scheme);
-   border-color: var(--red-scheme);
-}
-.page-link {
-   display: flex;
-   height: 40px;
-   width: 40px;
-   justify-content: center;
-   align-items: center;
-   color: var(--blue-scheme);
-   text-decoration: none;
-   font-weight: bold;
-   font-size: 20px;
-}
-.page-item:first-child .page-link,
-.page-item:last-child .page-link {
-   font-size: 28px;
-   margin-top: -1px;
-}
-.page-item.active .page-link {
-   color: #fff;  
-}
-.page-item.disabled .page-link {
-   color: var(--milk-scheme);
-   cursor: pointer;
-}
-/* pagination end */
 /** books section end */
 /** about-books section start */
 .about-books {
