@@ -103,9 +103,19 @@ if (timesLeftEl) {
 
    confirmModalEl.addEventListener('click', e => {
       if (e.target.dataset.id == 'confirm-modal__confirm-btn') {
-         // ajax_renew_deadline();
-         console.log('confirm');
+         const book = document.querySelector('[data-id="book"]').value;
          confirmModalEl.classList.add('hidden');
+         $.ajax({
+            url: "/books/deadline_renewed?book=" + book,
+
+            success: function (response) {
+               if (response == true) {
+                  failModalEl.classList.remove('hidden');
+               } else {
+                  successModalEl.classList.remove('hidden');
+               }
+            }
+         })
       } 
       else if (e.target.dataset.id == 'confirm-modal__cancel-btn' || e.target.dataset.id == 'confirm-modal__close-btn') {
          confirmModalEl.classList.add('hidden');
@@ -114,7 +124,7 @@ if (timesLeftEl) {
 
    successModalEl.addEventListener('click', (e) => {
       if (e.target.dataset.id == 'success-modal__ok-btn' || e.target.dataset.id == 'success-modal__close-btn') {
-         successModalEl.classList.add('hidden');
+         location.reload();
       }
    });
 
@@ -139,19 +149,5 @@ if (ratingIconEls) {
 //! global scripts end
 
 //! ajax functions start
-// function ajax_renew_deadline(page, orderBy, orderType, category) {
-//    $.ajax({
-//       url: "/books/fetch_data?page=" + page + "&orderby=" + orderBy + "&ordertype=" + orderType + "&category=" + category,
 
-//       success: function (response) {
-//          document.querySelector('.books').innerHTML = response;
-//          const ratingIconEl = document.querySelectorAll('[data-id="rating-icon"]');
-//          ratingIconEl.forEach(icon => {
-//             if (icon.classList.contains('filled')) {
-//                icon.textContent = 'star';
-//             }
-//          });
-//       }
-//    })
-// }
-//! ajax functions ens
+//! ajax functions end

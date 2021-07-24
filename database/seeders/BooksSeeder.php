@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Book;
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 
 class BooksSeeder extends Seeder
@@ -17,236 +18,81 @@ class BooksSeeder extends Seeder
     {
         $faker = Faker::create('ru_RU');
 
-        foreach (range(1, 20) as $value) {
+        foreach (range(1, 220) as $v) {
+            if ($v < 20) {
+                $cat = 'all';
+            } else if ($v < 40) {
+                $cat = 'Soft Skills';
+            } else if ($v < 60) {
+                $cat = 'Hard Skills';
+            } else if ($v < 80) {
+                $cat = 'Маркетинг';
+            } else if ($v < 100) {
+                $cat = 'Менеджмент';
+            } else if ($v < 120) {
+                $cat = 'Финансы';
+            } else if ($v < 140) {
+                $cat = 'Staff менеджмент';
+            } else if ($v < 160) {
+                $cat = 'Продажи и переговоры';
+            } else if ($v < 180) {
+                $cat = 'Сервис';
+            } else if ($v < 200) {
+                $cat = 'ИТ';
+            } else if ($v < 220) {
+                $cat = 'Художественная литература';
+            }
             $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'all',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Soft Skills',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Hard Skills',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Маркетинг',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Менеджмент',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Финансы',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Staff менеджмент',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Продажи и переговоры',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Сервис',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'ИТ',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
-        }
-        foreach (range(1, 20) as $value) {
-            $img = $faker->numberBetween($min = 1, $max = 5);
-            Book::insert([
-                'img' => 'img' . $img . '.jpg',
-                'img_front' => 'img_front' . $img . '.jpg',
-                'img_side' => 'img_side' . $img . '.jpg',
-                'img_back' => 'img_back' . $img . '.jpg',
-                'title' => $faker->realText($maxNbChars = 25),
-                'author' => $faker->name,
-                'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                'category' => 'Художественная литература',
-                'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                'description' => $faker->realText($maxNbChars = 400),
-                'rating' => $faker->numberBetween($min = 1, $max = 5),
-                'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                'likes' => $faker->numberBetween($min = 0, $max = 500),
-                'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-                'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
+            $days = $faker->numberBetween($min = 15, $max = 30);
+            $day = $faker->numberBetween($min = 15, $max = 30);
+            $renew = $days % 2;
+
+            $book = new Book;
+            if ($v < 51) {
+                $book->user_id = $v;
+                $book->taken_date = Carbon::now()->subDays($days);
+                $book->return_date = Carbon::now()->addDays($day);
+                $book->deadline_renewed = $renew; 
+            }
+                $book->img = 'img' . $img . '.jpg';
+                $book->img_front = 'img_front' . $img . '.jpg';
+                $book->img_side = 'img_side' . $img . '.jpg';
+                $book->img_back = 'img_back' . $img . '.jpg';
+                $book->title = $faker->realText($maxNbChars = 25);
+                $book->author = $faker->name;
+                $book->pages = $faker->numberBetween($min = 100, $max = 1000);
+                $book->category = $cat;
+                $book->code = $faker->unique()->numberBetween($min = 50000, $max = 99999);
+                $book->description = $faker->realText($maxNbChars = 400);
+                $book->rating = $faker->numberBetween($min = 1, $max = 5);
+                $book->comments = $faker->numberBetween($min = 0, $max = 1000);
+                $book->likes = $faker->numberBetween($min = 0, $max = 500);
+            if ($v < 51) {
+                $book->available_date = Carbon::now()->subDays($day); 
+            } else {
+                $book->available_date = null; 
+            }
+                $book->save();
+
+            
+            // Book::insert([
+                // 'img' => 'img' . $img . '.jpg',
+                // 'img_front' => 'img_front' . $img . '.jpg',
+                // 'img_side' => 'img_side' . $img . '.jpg',
+                // 'img_back' => 'img_back' . $img . '.jpg',
+                // 'title' => $faker->realText($maxNbChars = 25),
+                // 'author' => $faker->name,
+                // 'pages' => $faker->numberBetween($min = 100, $max = 1000),
+                // 'category' => $cat,
+                // 'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
+                // 'description' => $faker->realText($maxNbChars = 400),
+                // 'rating' => $faker->numberBetween($min = 1, $max = 5),
+                // 'comments' => $faker->numberBetween($min = 0, $max = 1000),
+                // 'likes' => $faker->numberBetween($min = 0, $max = 500),
+                // 'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
+            //     'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+            //     'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+            // ]);
         }
         
     }

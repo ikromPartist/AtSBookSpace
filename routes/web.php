@@ -28,6 +28,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/books', [BooksController::class, 'index'])->name('books_index');
    Route::get('/books/fetch_data', [BooksController::class, 'fetch_data']);
    Route::get('/books/view', [BooksController::class, 'books_view']);
+   Route::get('/books/deadline_renewed', [BooksController::class, 'deadline_renewed'])->name('books_deadline_renew');
 
    Route::get('/about', [AboutController::class, 'index'])->name('about_index');
 

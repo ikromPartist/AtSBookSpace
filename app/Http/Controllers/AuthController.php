@@ -74,7 +74,7 @@ class AuthController extends Controller
     {
         if (session()->has('loggedUser')) {
             session()->pull('loggedUser');
-            return redirect(route('auth.login'));
+            return redirect(route('auth_login'));
         }
     } 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use Carbon\Carbon;
 
 class BooksController extends Controller
 {
@@ -76,6 +77,22 @@ class BooksController extends Controller
             session(['book_cards' => 'hidden']);
             session(['books_list' => 'show']);
             return 'list';
+        }
+    }
+    public function deadline_renewed(Request $request) 
+    {
+        $book = Book::find($request->book);
+
+        if ($book->deadline_renewed) {
+            return true;
+        } else {
+
+            $book->deadline_renewed = true;
+            $book->return_date = Carbon::parse($book->return_date)->addDays(15);
+            $book->available_date = Carbon::parse($book->available_date)->addDays(15);
+            $book->save();
+            
+            return false;
         }
     }
 

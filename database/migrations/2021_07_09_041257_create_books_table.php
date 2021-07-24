@@ -25,7 +25,7 @@ class CreateBooksTable extends Migration
             $table->string('img_side')->default('side.jpg');
             $table->string('title');
             $table->string('author');
-            $table->integer('pages');
+            $table->bigInteger('pages');
             $table->string('category');
             $table->bigInteger('code')->unique();
             $table->text('description');

@@ -57,9 +57,10 @@
                </a>
             </dt>
             <dd class="taken-book__deadline">
-               <input data-id="year" type="text" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('Y')}}" class="visually-hidden">
-               <input data-id="month" type="text" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('m')}}" class="visually-hidden">
-               <input data-id="day" type="text" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('d')}}" class="visually-hidden">
+               <input data-id="book" type="hidden" value="{{$loggedUser->book->id}}">
+               <input data-id="year" type="hidden" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('Y')}}">
+               <input data-id="month" type="hidden" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('m')}}">
+               <input data-id="day" type="hidden" value="{{\Carbon\Carbon::parse($loggedUser->book->return_date)->format('d')}}">
                <a class="taken-book__deadline-link" data-id="times-left" @if(Carbon\Carbon::now() < $loggedUser->book->return_date)href="#"@endif>
                   <span data-id="days"></span><small>д</small>
                   <span data-id="hours"></span><b>:</b>
@@ -94,7 +95,7 @@
                <span class="material-icons company__phone-icon">call</span>
                {{$loggedUser->phone_numbers}}
             </p>
-            <p class="company-name">{{$loggedUser->company}}</p>
+            <p class="company-name">{{$loggedUser->company->name}}</p>
          </address>
 
          <div class="user-info">            
