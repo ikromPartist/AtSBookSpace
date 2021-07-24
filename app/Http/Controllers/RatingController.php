@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Company;
 
 class RatingController extends Controller
 {
     public function index()
     {
-        $mstActRdrs = User::orderBy('read_pages', 'desc')
+        $mstActRdrs = User::withCount('taken_books')
+                                    ->orderBy('read_pages', 'desc')
                                     ->paginate(12);
 
-        return view('rating_index', compact('mstActRdrs'));
+        $mstRdngCmpny = null;
+
+        return view('rating_index', compact('mstActRdrs', 'mstRdngCmpny'));
     }
     public function fetch_data(Request $request)
     {
@@ -20,16 +24,22 @@ class RatingController extends Controller
             $type = $request->type;
 
             if ($type == 'most_active_reader') {
-                $mstActRdrs = User::orderBy('read_pages', 'desc')
+                $mstActRdrs = User::withCount('taken_books')
+                                    ->orderBy('read_pages', 'desc')
                                     ->paginate(12);
+
+                $mstRdngCmpny = null;
                 
-                return view('rating_data', compact('mstActRdrs'))->render();
+                return view('rating_data', compact('mstActRdrs', 'mstRdngCmpny'))->render();
             }
             else if ($type == 'most_reading_company') {
-                $mstRdngCmpny = User::orderBy('read_pages', 'desc')
-                                    ->paginate(12);
+                $mstActRdrs = null;
                 
-                return view('rating_data', compact('mstActRdrs'))->render();
+                $mstRdngCmpny = Company::withCount('employees')
+                                ->orderBy('read_pages', 'desc')
+                                ->paginate(12);
+
+                return view('rating_data', compact('mstActRdrs', 'mstRdngCmpny'))->render();
             }
         } 
     }

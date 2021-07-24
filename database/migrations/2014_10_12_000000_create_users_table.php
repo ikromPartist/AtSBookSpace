@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('phone_numbers');
-            $table->bigInteger('read_books')->default(0);
             $table->bigInteger('read_pages')->default(0);
+            $table->bigInteger('company_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

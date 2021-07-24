@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+    public function employees()
+    {
+        return $this->hasMany(User::class);
+    }
+
 }

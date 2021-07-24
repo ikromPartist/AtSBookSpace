@@ -30,7 +30,6 @@
    border-top-left-radius: 10px;
    border-bottom-left-radius: 10px;
    cursor: pointer;
-   user-select: none;
    position: relative;
    z-index: 1;
 }
@@ -88,21 +87,29 @@
 .rating-view__list {
    margin-top: 20px;
 }
-.rating-view__name {
-   width: 30%;
-}
-.rating-view__company {
-   width: 30%;
+.rating-view__item p {
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
-   -webkit-line-clamp: 1; /* number of lines to show */
+   -webkit-line-clamp: 1; 
    -webkit-box-orient: vertical;
+   cursor: pointer;
 }
-.rating-view__books {
-   width: 20%;
+.active-reader__name {
+   width: 30%;
 }
-.rating-view__pages {
+.active-reader__company {
+   width: 30%;
+}
+.active-reader__books,
+.active-reader__pages,
+.company__employees,
+.company__read-books,
+.company__read-pages {
    width: 20%;
+   text-align: center;
+}
+.company__name {
+   width: 40%;
 }
 /*! rating view (section) end */

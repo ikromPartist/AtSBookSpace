@@ -18,8 +18,8 @@ class CreateTakenBooksTable extends Migration
             $table->bigInteger('user_id');
             $table->string('title');
             $table->string('author');
-            $table->integer('pages');
-            $table->bigInteger('code')->unique();
+            $table->bigInteger('pages');
+            $table->bigInteger('code');
             $table->text('description');
             $table->date('taken_date');
             $table->date('deadline');
