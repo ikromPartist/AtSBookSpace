@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
             TakenBooksSeeder::class,
             UsersSeeder::class,
             CompaniesSeeder::class,
+            CommentsSeeder::class,
+            LikesSeeder::class,
+            DislikesSeeder::class,
         ]);
     }
 }

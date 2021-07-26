@@ -65,8 +65,6 @@ class BooksSeeder extends Seeder
                 $book->code = $faker->unique()->numberBetween($min = 50000, $max = 99999);
                 $book->description = $faker->realText($maxNbChars = 400);
                 $book->rating = $faker->numberBetween($min = 1, $max = 5);
-                $book->comments = $faker->numberBetween($min = 0, $max = 1000);
-                $book->likes = $faker->numberBetween($min = 0, $max = 500);
             if ($v < 51) {
                 $book->available_date = Carbon::now()->subDays($day); 
             } else {
@@ -74,25 +72,6 @@ class BooksSeeder extends Seeder
             }
                 $book->save();
 
-            
-            // Book::insert([
-                // 'img' => 'img' . $img . '.jpg',
-                // 'img_front' => 'img_front' . $img . '.jpg',
-                // 'img_side' => 'img_side' . $img . '.jpg',
-                // 'img_back' => 'img_back' . $img . '.jpg',
-                // 'title' => $faker->realText($maxNbChars = 25),
-                // 'author' => $faker->name,
-                // 'pages' => $faker->numberBetween($min = 100, $max = 1000),
-                // 'category' => $cat,
-                // 'code' => $faker->unique()->numberBetween($min = 50000, $max = 99999),
-                // 'description' => $faker->realText($maxNbChars = 400),
-                // 'rating' => $faker->numberBetween($min = 1, $max = 5),
-                // 'comments' => $faker->numberBetween($min = 0, $max = 1000),
-                // 'likes' => $faker->numberBetween($min = 0, $max = 500),
-                // 'available_date' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+2 years', $timezone = null), 
-            //     'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            //     'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            // ]);
         }
         
     }

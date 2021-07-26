@@ -27,10 +27,10 @@
                   <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
                </div>
                <output class="books-card__comments-quantity">
-                  @if ($book->comments == 0)
+                  @if (!$book->comments)
                      {{__('Нет')}}
                   @else
-                     {{$book->comments}}
+                     {{$book->comments_count}}
                   @endif 
                   {{__('отзывов')}}
                </output>

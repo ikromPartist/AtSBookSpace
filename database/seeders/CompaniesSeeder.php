@@ -20,23 +20,23 @@ class CompaniesSeeder extends Seeder
 
       foreach (range(1, 20) as $val) {
 
-            $users = User::withCount('taken_books')->where('company_id', $val)->get();
-            $books = 0;
-            foreach ($users as $user) {
-               $books = $books + $user->taken_books_count;
-            }  
-            $pages = 0;
-            foreach ($users as $user) {
-               $pages = $pages + $user->read_pages;
-            }  
+         $users = User::withCount('taken_books')->where('company_id', $val)->get();
+         $books = 0;
+         foreach ($users as $user) {
+            $books = $books + $user->taken_books_count;
+         }  
+         $pages = 0;
+         foreach ($users as $user) {
+            $pages = $pages + $user->read_pages;
+         }  
 
-            Company::insert([
-               'name' => $faker->company,
-               'read_books' => $books,
-               'read_pages' => $pages,
-               'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-               'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
-            ]);
+         Company::insert([
+            'name' => $faker->company,
+            'read_books' => $books,
+            'read_pages' => $pages,
+            'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+            'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+         ]);
       }
       
    }

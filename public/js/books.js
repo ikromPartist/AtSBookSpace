@@ -167,6 +167,7 @@ document.addEventListener('mousemove', (e) => {
 })
 //* comment textarea
 const commentInputEl = document.querySelector('[data-id="comment-text"]');
+// textarea
 if (commentInputEl) {
    const buttonsEl = document.querySelector('[data-id="buttons-wrapper"]');
    commentInputEl.addEventListener('keydown', (e) => {
@@ -176,12 +177,58 @@ if (commentInputEl) {
          buttonsEl.style.height = '50px';
       } else {
          buttonsEl.style.height = '0px';
+         e.target.style.height = "45px";
       }
    })
+// reset button 
    document.querySelector('[data-id="cancel-comment"]').onclick = () => {
       buttonsEl.style.height = '0px';
       commentInputEl.style.height = "45px";
    }
-}
+// submit button
+   const submitCommentEl = document.querySelector('[data-id="submit-comment"]');
 
+   submitCommentEl.onclick = (e) => {
+      e.preventDefault();
+      const comment = commentInputEl.value;
+      const book = e.target.dataset.book;
+      $.ajax({
+         url: "/books/comments?comment=" + comment + "&book=" + book,
+
+         success: function (response) {
+            console.log(response);
+            location.reload();
+         }
+      })
+   }
+}
+//* books likes & dislikes systems start 
+const likesContainerEl = document.querySelector('[data-id="likes-container"]');
+if (likesContainerEl) {
+   likesContainerEl.addEventListener('click', (e) => {
+      if (e.target.dataset.type == 'not-liked') {
+         const like = 'not-liked';
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/likes?like=" + like + "&book=" + book,
+   
+            success: function (response) {
+               console.log(response);
+               location.reload();
+            }
+         })
+      } else if (e.target.dataset.type == 'not-disliked') {
+         const like = 'not-disliked';
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/likes?like=" + like + "&book=" + book,
+   
+            success: function (response) {
+               console.log(response);
+               location.reload();
+            }
+         })
+      }
+   });
+}
 //! books single page end 

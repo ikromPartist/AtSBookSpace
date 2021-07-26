@@ -59,7 +59,7 @@
             <section class="book-info">
                <h2 class="visually-hidden">{{__("Описание книги")}}</h2>
                <div class="book-info__status-wrapper">
-                  @if ($book->available)
+                  @if (!$book->user)
                   <p class="book-info__status book-info__status--available">{{__('Доступна')}}</p>
                   @else
                   <p class="book-info__status book-info__status--unavailable">
@@ -95,17 +95,44 @@
                   </div>
                   <a class="book-info__rating-link" href="#">{{__('Оценить')}}</a>
                </div>
-               <div class="likes-container">
-                  <button class="likes-button" type="button" data-id="like-button" aria-label="{{__('Нравится')}}">
-                     {{-- <span class="material-icons likes-icon">thumb_up</span>    --}}
-                     <span class="material-icons-outlined likes-icon">thumb_up</span>   
-                     <output>132</output>
-                  </button>
-                  <button class="likes-button" type="button" data-id="dislike-button" aria-label="{{__('Не нравится')}}">
-                     {{-- <span class="material-icons likes-icon">thumb_down</span>                      --}}
-                     <span class="material-icons-outlined likes-icon">thumb_down</span>                     
-                     <output>12</output>
-                  </button>
+               <div class="likes-container" data-id="likes-container">
+                  @php $liked = false;
+                     foreach ($loggedUser->likes as $like) {
+                        if ($like->book_id == $book->id) {
+                           $liked = true;
+                        } 
+                     }
+                  @endphp
+                  @if ($liked)
+                     <button class="likes-button" type="button" data-id="like-button" data-type="liked" aria-label="{{__('Нравится')}}">
+                        <span class="material-icons likes-icon">thumb_up</span>
+                        <output>{{$book->likes_count}}</output>
+                     </button>
+                  @else
+                     <button class="likes-button" type="button" data-id="like-button" data-type="not-liked" data-book="{{$book->id}}" aria-label="{{__('Нравится')}}">
+                        <span class="material-icons-outlined likes-icon">thumb_up</span>   
+                        <output>{{$book->likes_count}}</output>
+                     </button>
+                  @endif
+
+                  @php $disliked = false;
+                     foreach ($loggedUser->dislikes as $dislike) {
+                        if ($dislike->book_id == $book->id) {
+                           $disliked = true;
+                        } 
+                     }
+                  @endphp
+                  @if ($disliked)
+                     <button class="likes-button" type="button" data-id="dislike-button" data-type="disliked" aria-label="{{__('Не нравится')}}">
+                        <span class="material-icons likes-icon">thumb_down</span>
+                        <output>{{$book->dislikes_count}}</output>
+                     </button>
+                  @else
+                     <button class="likes-button" type="button" data-id="dislike-button" data-type="not-disliked" data-book="{{$book->id}}" aria-label="{{__('Не нравится')}}">
+                        <span class="material-icons-outlined likes-icon">thumb_down</span>   
+                        <output>{{$book->dislikes_count}}</output>
+                     </button>
+                  @endif  
                </div>
                <a class="button book-info__book-link" href="#">{{__('Забронировать')}}</a>
             </section>
@@ -113,53 +140,30 @@
          </div>{{-- book-info wrapper end --}}
          
          <section class="comment">
-            <h2 class="comment__title"><output>43</output> {{__('Коментарий')}}</h2>
+            <h2 class="comment__title"><output>{{$book->comments_count}}</output> {{__('Коментарий')}}</h2>
             <form class="comment-form">
                @csrf
                <div class="comment-form__top-wrapper">
-                  <img class="comment__user-avatar" src="#" alt="#">
+                  <img class="comment__user-avatar" src="{{asset('img/users/' . $loggedUser->avatar)}}" alt="Комментарий от {{$loggedUser->name}}">
                   <textarea class="comment__text" data-id="comment-text" spellcheck="false" aria-label="{{__('Оставить комментарий')}}" placeholder="{{__('Оставить комментарий')}}..."></textarea>
                </div>
                <div class="comment__buttons-wrapper" data-id="buttons-wrapper">
                   <button class="button--red" type="reset" data-id="cancel-comment">{{__('Отмена')}}</button>
-                  <button class="button" type="submit">{{__('Комментировать')}}</button>
+                  <button class="button" type="submit" data-id="submit-comment" data-book="{{$book->id}}">{{__('Комментировать')}}</button>
                </div>
             </form>
             <ul class="comments">
-               <li class="comments__item">
-                  <a class="comments__link" href="#">
-                     <img class="comments__avatar" src="#" alt="#">
-                  </a>
-                  <div class="comments__wrapper">
-                     <p class="comments__title">Username Usersurname <time datetime="2021-05-25">25 мая 22:45</time></p>
-                     <p class="comments__text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quos sequi mollitia voluptatibus nesciunt cumque, minima quas quam sunt consequuntur, obcaecati dolore numquam.
-                     </p>
-                  </div>
-               </li>
-               <li class="comments__item">
-                  <a class="comments__avatar" href="#">
-                     <img src="#" alt="#">
-                  </a>
-                  <div class="comments__wrapper">
-                     <p class="comments__title">Pfser Surnamurname <time datetime="2021-05-25">25 мая 22:45</time></p>
-                     <p class="comments__text">
-                        Lorem ipsum dol mo sunt conseqore numquam.
-                     </p>
-                  </div>
-               </li>
-               <li class="comments__item">
-                  <a class="comments__avatar" href="#">
-                     <img src="#" alt="#">
-                  </a>
-                  <div class="comments__wrapper">
-                     <p class="comments__title">Gdffername Usnme <time datetime="2021-05-25">25 мая 22:45</time></p>
-                     <p class="comments__text">
-                        Lorem ipsum dolor sit ametuos sequi mollitia voluptatibus nesciunt cumque, minima quas quam sunt consequuntur, obcaecati dolore numquam.
-                        Lorem ipsum dolor sit ametuos sequi mollitia voluptatibus nesciunt cumque, minima quas quam sunt consequuntur, obcaecati dolore numquam.
-                     </p>
-                  </div>
-               </li>
+               @foreach ($comments as $comment)
+                  <li class="comments__item">
+                     <a class="comments__link" href="#">
+                        <img class="comments__avatar" src="{{asset('img/users/' . $comment->user->avatar)}}" alt="Комментарий от {{$comment->user->name}}">
+                     </a>
+                     <div class="comments__wrapper">
+                        <p class="comments__title">{{$comment->user->name}} {{$comment->user->surname}} <time datetime="2021-05-25">{{\Carbon\Carbon::parse($comment->created_at)->isoFormat('DD MMMM YYYY, HH:00')}}</time></p>
+                        <p class="comments__text">{{$comment->comment}}</p>
+                     </div>
+                  </li>
+               @endforeach
             </ul>
          </section>
          

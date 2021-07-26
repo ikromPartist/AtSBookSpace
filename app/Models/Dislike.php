@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Book extends Model
+class Dislike extends Model
 {
     use HasFactory;
 
@@ -15,16 +15,8 @@ class Book extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function comments()
+    public function book()
     {
-        return $this->hasMany(Comment::class);
-    }
-    public function likes()
-    {
-        return $this->hasMany(Like::class);
-    }
-    public function dislikes()
-    {
-        return $this->hasMany(Dislike::class);
+        return $this->belongsTo(Book::class);
     }
 }

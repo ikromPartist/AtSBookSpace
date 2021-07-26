@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\User;
+use App\Models\Like;
+use App\Models\Dislike;
+use App\Models\Comment;
 use Carbon\Carbon;
 
 class BooksController extends Controller
@@ -11,13 +15,23 @@ class BooksController extends Controller
     public function index(Request $request) 
     {
         if ($request->id) {
-            $book = Book::where('id', $request->id)
+            $book = Book::withCount('comments')
+                            ->withCount('likes')
+                            ->withCount('dislikes')
+                            ->where('id', $request->id)
                             ->first();
+            
+            $comments = Comment::where('book_id', $request->id)
+                                    ->latest()
+                                    ->get();
 
-            return view('books_single', compact('book'));
+            return view('books_single', compact('book', 'comments'));
 
         } else if ($request->category == 'available') {
-            $books = Book::where('user_id', null)
+            $books = Book::withCount('comments')
+                            ->withCount('likes')
+                            ->withCount('dislikes')
+                            ->where('user_id', null)
                             ->orderBy('title', 'asc')
                             ->paginate(12);
     
@@ -25,13 +39,19 @@ class BooksController extends Controller
             return view('books_index', compact('books', 'category'));
 
         } else if ($request->category == 'all' || $request->category == null) {
-            $books = Book::orderBy('title', 'asc')
+            $books = Book::withCount('comments')
+                            ->withCount('likes')
+                            ->withCount('dislikes')
+                            ->orderBy('title', 'asc')
                             ->paginate(12);
     
             $category = 'all';
             return view('books_index', compact('books', 'category'));
         } else {
-            $books = Book::where('category', $request->category)
+            $books = Book::withCount('comments')
+                            ->withCount('likes')
+                            ->withCount('dislikes')
+                            ->where('category', $request->category)
                             ->orderBy('title', 'asc')
                             ->paginate(12);
     
@@ -47,19 +67,28 @@ class BooksController extends Controller
             $orderType = $request->get('ordertype');
             $category = $request->get('category');
             if ($category == 'available') {
-                $books = Book::where('user_id', null)
+                $books = Book::withCount('comments')
+                                ->withCount('likes')
+                                ->withCount('dislikes')
+                                ->where('user_id', null)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         
                 return view('books_data', compact('books'))->render();
 
             } else if ($category == 'all') {
-                $books = Book::orderBy($orderBy, $orderType)
+                $books = Book::withCount('comments')
+                                ->withCount('likes')
+                                ->withCount('dislikes')
+                                ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         
                 return view('books_data', compact('books'))->render();
             } else {
-                $books = Book::where('category', $category)
+                $books = Book::withCount('comments')
+                                ->withCount('likes')
+                                ->withCount('dislikes')
+                                ->where('category', $category)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         
@@ -94,6 +123,47 @@ class BooksController extends Controller
             
             return false;
         }
+    }
+    public function likes(Request $request)
+    {
+        $userId = session()->get('loggedUser');
+        if ($request->like == 'not-liked') {
+            // save like
+            $like = new Like;
+            $like->user_id = $userId;
+            $like->book_id = $request->book;
+            $like->save();
+            // delete dislike if exist
+            Dislike::where('user_id', $userId)
+                        ->where('book_id', $request->book)
+                        ->delete();
+
+            return 'liked';
+        } 
+        else if ($request->like == 'not-disliked') {
+            // save dislike
+            $dislike = new Dislike;
+            $dislike->user_id = $userId;
+            $dislike->book_id = $request->book;
+            $dislike->save();
+            // delete like if exists 
+            Like::where('user_id', $userId)
+                        ->where('book_id', $request->book)
+                        ->delete();
+
+            return 'disliked';
+        }
+    }
+    public function comments(Request $request)
+    {
+        $userId = session()->get('loggedUser');
+
+        $comment = new Comment;
+        $comment->user_id = $userId;
+        $comment->book_id = $request->book;
+        $comment->comment = $request->comment;
+        $comment->save();
+        return 'comment added successfully';
     }
 
 }

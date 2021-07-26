@@ -22,7 +22,7 @@ class UsersSeeder extends Seeder
         $faker = Faker::create('ru_RU');
 
         foreach (range(1, 90) as $v) {
-            $img = $faker->numberBetween($min = 1, $max = 10);
+            $img = $faker->numberBetween($min = 1, $max = 16);
             // $pages = $books * $faker->numberBetween($min = 100, $max = 500);
             $password = 'user';
 
