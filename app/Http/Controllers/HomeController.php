@@ -15,6 +15,7 @@ class HomeController extends Controller
                                 ->paginate(32);
 
         $newBooks = Book::withcount('comments')
+                            ->withCount('ratings')
                             ->latest()
                             ->paginate(48);
 

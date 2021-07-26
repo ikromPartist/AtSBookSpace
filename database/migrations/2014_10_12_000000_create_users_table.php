@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('phone_numbers');
             $table->bigInteger('read_pages')->default(0);
             $table->bigInteger('company_id')->nullable();
+            $table->integer('renewed_deadlines')->nullable()->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

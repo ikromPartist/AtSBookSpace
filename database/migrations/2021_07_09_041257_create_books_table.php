@@ -29,7 +29,6 @@ class CreateBooksTable extends Migration
             $table->string('category');
             $table->bigInteger('code')->unique();
             $table->text('description');
-            $table->bigInteger('rating')->nullable();
             $table->date('available_date')->nullable();
             $table->timestamps();
         });

@@ -64,7 +64,6 @@ class BooksSeeder extends Seeder
                 $book->category = $cat;
                 $book->code = $faker->unique()->numberBetween($min = 50000, $max = 99999);
                 $book->description = $faker->realText($maxNbChars = 400);
-                $book->rating = $faker->numberBetween($min = 1, $max = 5);
             if ($v < 51) {
                 $book->available_date = Carbon::now()->subDays($day); 
             } else {

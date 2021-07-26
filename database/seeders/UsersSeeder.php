@@ -46,6 +46,7 @@ class UsersSeeder extends Seeder
                 'phone_numbers' => '(+992) ' . $faker->numberBetween($min = 900, $max = 999) . '-' . $faker->numberBetween($min = 10, $max = 99) . '-' . $faker->numberBetween($min = 10, $max = 99) . '-' . $faker->numberBetween($min = 10, $max = 99),
                 'read_pages' => $pages,
                 'company_id' => $faker->numberBetween($min = 1, $max = 20),
+                'renewed_deadlines' => $faker->numberBetween($min = 0, $max = 9),
                 'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
                 'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);

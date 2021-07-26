@@ -31,6 +31,8 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/books/view', [BooksController::class, 'books_view']);
    Route::get('/books/likes', [BooksController::class, 'likes']);
    Route::get('/books/comments', [BooksController::class, 'comments']);
+   Route::get('/books/ratings', [BooksController::class, 'ratings']);
+
    // about routes
    Route::get('/about', [AboutController::class, 'index'])->name('about_index');
    // rating routes

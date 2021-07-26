@@ -87,13 +87,20 @@
                </ul>
                <div class="book-info__rating-wrapper">
                   <div class="book-info__stars-wrapper">
-                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 1 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 2 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 3 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 4 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     @php
+                        $rates = 0;
+                        foreach ($book->ratings as $rating) {
+                           $rates = $rates + $rating->rate;
+                        }
+                        $rating = $rates / $book->ratings_count;
+                     @endphp
+                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 1 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 2 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 3 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 4 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
                   </div>
-                  <a class="book-info__rating-link" href="#">{{__('Оценить')}}</a>
+                  <button class="book-info__rating-link" type="button" data-id="show-rating-modal">{{__('Оценить')}}</button>
                </div>
                <div class="likes-container" data-id="likes-container">
                   @php $liked = false;
@@ -159,15 +166,49 @@
                         <img class="comments__avatar" src="{{asset('img/users/' . $comment->user->avatar)}}" alt="Комментарий от {{$comment->user->name}}">
                      </a>
                      <div class="comments__wrapper">
-                        <p class="comments__title">{{$comment->user->name}} {{$comment->user->surname}} <time datetime="2021-05-25">{{\Carbon\Carbon::parse($comment->created_at)->isoFormat('DD MMMM YYYY, HH:00')}}</time></p>
+                        <p class="comments__title">{{$comment->user->name}} {{$comment->user->surname}} <time datetime="2021-05-25">{{\Carbon\Carbon::parse($comment->created_at)->isoFormat('DD MMMM YYYY, HH:mm')}}</time></p>
                         <p class="comments__text">{{$comment->comment}}</p>
                      </div>
                   </li>
                @endforeach
             </ul>
          </section>
-         
-      </div>{{-- container end --}}
+
+         {{-- ratings modal --}}
+         <div class="modal hidden" data-id="rating-modal">
+            <div class="rating__stars-wrapper">
+               @php
+                  $rating = App\Models\Rating::where('user_id', $loggedUser->id)->where('book_id', $book->id)->first();
+                  $rate = 0;
+                  if ($rating) {
+                     $rate = $rating->rate;
+                  }
+               @endphp
+               <span class="material-icons book-info__rating-icons book-info__rating-icons--white {{$rate >= 5 ? 'grey' : ''}}" data-id="rating-icon-1" data-book="{{$book->id}}">star</span>
+               <span class="material-icons book-info__rating-icons book-info__rating-icons--white {{$rate >= 4 ? 'grey' : ''}}" data-id="rating-icon-2" data-book="{{$book->id}}">star</span>
+               <span class="material-icons book-info__rating-icons book-info__rating-icons--white {{$rate >= 3 ? 'grey' : ''}}" data-id="rating-icon-3" data-book="{{$book->id}}">star</span>
+               <span class="material-icons book-info__rating-icons book-info__rating-icons--white {{$rate >= 2 ? 'grey' : ''}}" data-id="rating-icon-4" data-book="{{$book->id}}">star</span>
+               <span class="material-icons book-info__rating-icons book-info__rating-icons--white {{$rate >= 1 ? 'grey' : ''}}" data-id="rating-icon-5" data-book="{{$book->id}}">star</span>
+            </div>
+            <div class="modal__btn-wrapper">
+               <button class="button--red" type="button" data-id="rating__cancel-btn">{{__('Отмена')}}</button>
+            </div>
+            <button class="modal__close-btn" aria-label="{{__('Закрыть')}}">
+               <span class="material-icons modal__close-icon" data-id="rating__close-btn">close</span>
+            </button>
+         </div>
+         {{-- rating success modal --}}
+         <div class="modal hidden" data-id="rating-success">
+            <div class="modal__msg-wrapper">
+               <p class="modal__msg">{{__('Спасибо за отзыв')}}!</p>
+            </div>
+            <div class="modal__btn-wrapper">
+               <button class="button" type="button" data-id="rating__ok-btn">{{__('OK')}}</button>
+            </div>
+            <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+               <span class="material-icons modal__close-icon" data-id="rating__close-btn">close</span>
+            </button>
+         </div>
    </main>
 @endsection
 

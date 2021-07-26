@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Like;
 use App\Models\Dislike;
 use App\Models\Comment;
+use App\Models\Rating;
 use Carbon\Carbon;
 
 class BooksController extends Controller
@@ -18,6 +19,7 @@ class BooksController extends Controller
             $book = Book::withCount('comments')
                             ->withCount('likes')
                             ->withCount('dislikes')
+                            ->withCount('ratings')
                             ->where('id', $request->id)
                             ->first();
             
@@ -31,6 +33,7 @@ class BooksController extends Controller
             $books = Book::withCount('comments')
                             ->withCount('likes')
                             ->withCount('dislikes')
+                            ->withCount('ratings')
                             ->where('user_id', null)
                             ->orderBy('title', 'asc')
                             ->paginate(12);
@@ -42,6 +45,7 @@ class BooksController extends Controller
             $books = Book::withCount('comments')
                             ->withCount('likes')
                             ->withCount('dislikes')
+                            ->withCount('ratings')
                             ->orderBy('title', 'asc')
                             ->paginate(12);
     
@@ -51,6 +55,7 @@ class BooksController extends Controller
             $books = Book::withCount('comments')
                             ->withCount('likes')
                             ->withCount('dislikes')
+                            ->withCount('ratings')
                             ->where('category', $request->category)
                             ->orderBy('title', 'asc')
                             ->paginate(12);
@@ -70,6 +75,7 @@ class BooksController extends Controller
                 $books = Book::withCount('comments')
                                 ->withCount('likes')
                                 ->withCount('dislikes')
+                                ->withCount('ratings')
                                 ->where('user_id', null)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
@@ -80,6 +86,7 @@ class BooksController extends Controller
                 $books = Book::withCount('comments')
                                 ->withCount('likes')
                                 ->withCount('dislikes')
+                                ->withCount('ratings')
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         
@@ -88,6 +95,7 @@ class BooksController extends Controller
                 $books = Book::withCount('comments')
                                 ->withCount('likes')
                                 ->withCount('dislikes')
+                                ->withCount('ratings')
                                 ->where('category', $category)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
@@ -164,6 +172,22 @@ class BooksController extends Controller
         $comment->comment = $request->comment;
         $comment->save();
         return 'comment added successfully';
+    }
+    public function ratings(Request $request) 
+    {
+        $userId = session()->get('loggedUser');
+        // delete previous rating
+        Rating::where('user_id', $userId)
+            ->where('book_id', $request->book)
+            ->delete();
+        // save new rating rate
+        $rating = new Rating;
+        $rating->user_id = $userId;
+        $rating->book_id = $request->book;
+        $rating->rate = $request->rate;
+        $rating->save();
+
+        return 'rate saved';
     }
 
 }

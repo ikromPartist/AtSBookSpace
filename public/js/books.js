@@ -172,7 +172,7 @@ if (commentInputEl) {
    const buttonsEl = document.querySelector('[data-id="buttons-wrapper"]');
    commentInputEl.addEventListener('keydown', (e) => {
       e.target.style.height = "1px";
-      e.target.style.height = (5 + e.target.scrollHeight) + "px";
+      e.target.style.height = (2 + e.target.scrollHeight) + "px";
       if (commentInputEl.value.length > 1) {
          buttonsEl.style.height = '50px';
       } else {
@@ -231,4 +231,86 @@ if (likesContainerEl) {
       }
    });
 }
+//* rating modals start
+const showRatingModalEl = document.querySelector('[data-id="show-rating-modal"]');
+const ratingModalEl = document.querySelector('[data-id="rating-modal"]');
+const closeRatingModalEl = document.querySelector('[data-id="rating__cancel-btn"]');
+const ratingSuccessModalEl = document.querySelector('[data-id="rating-success"]');
+if (ratingModalEl) {
+   showRatingModalEl.onclick = (e) => {
+      e.preventDefault();
+      ratingModalEl.classList.remove('hidden');
+   }
+   ratingSuccessModalEl.addEventListener('click', e => {
+      if (e.target.dataset.id == 'rating__ok-btn' || e.target.dataset.id == 'rating__close-btn') {
+         location.reload();
+      }
+   });
+   ratingModalEl.addEventListener('click', e => {
+      if (e.target.dataset.id == 'rating__cancel-btn' || e.target.dataset.id == 'rating__close-btn') {
+         ratingModalEl.classList.add('hidden');
+      } else if (e.target.dataset.id == 'rating-icon-1') {
+         const rate = 5;
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/ratings?rate=" + rate + "&book=" + book,
+            success: function (response) {
+               if (response == 'rate saved') {
+                  ratingModalEl.classList.add('hidden');
+                  ratingSuccessModalEl.classList.remove('hidden');
+               }
+            }
+         })
+      } else if (e.target.dataset.id == 'rating-icon-2') {
+         const rate = 4;
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/ratings?rate=" + rate + "&book=" + book,
+            success: function (response) {
+               if (response == 'rate saved') {
+                  ratingModalEl.classList.add('hidden');
+                  ratingSuccessModalEl.classList.remove('hidden');
+               }
+            }
+         })
+      } else if (e.target.dataset.id == 'rating-icon-3') {
+         const rate = 3;
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/ratings?rate=" + rate + "&book=" + book,
+            success: function (response) {
+               if (response == 'rate saved') {
+                  ratingModalEl.classList.add('hidden');
+                  ratingSuccessModalEl.classList.remove('hidden');
+               }
+            }
+         })
+      } else if (e.target.dataset.id == 'rating-icon-4') {
+         const rate = 2;
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/ratings?rate=" + rate + "&book=" + book,
+            success: function (response) {
+               if (response == 'rate saved') {
+                  ratingModalEl.classList.add('hidden');
+                  ratingSuccessModalEl.classList.remove('hidden');
+               }
+            }
+         })
+      } else if (e.target.dataset.id == 'rating-icon-5') {
+         const rate = 1;
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/ratings?rate=" + rate + "&book=" + book,
+            success: function (response) {
+               if (response == 'rate saved') {
+                  ratingModalEl.classList.add('hidden');
+                  ratingSuccessModalEl.classList.remove('hidden');
+               }
+            }
+         })
+      }
+   });
+}
+//* rating modals end
 //! books single page end 
