@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Book;
+use App\Models\Rating;
 use Carbon\Carbon;
 use Faker\Factory as Faker;
 
@@ -47,6 +48,16 @@ class BooksSeeder extends Seeder
             $day = $faker->numberBetween($min = 15, $max = 30);
             $renew = $days % 2;
 
+            $ratings = Rating::where('book_id', $v)->get();
+            $rate = 0;
+            $rating =0;
+            foreach ($ratings as $r) {
+                $rate = $rate + $r->rate;
+            }
+            if (count($ratings) != 0) {
+                $rating = $rate / count($ratings);
+            }
+
             $book = new Book;
             if ($v < 51) {
                 $book->user_id = $v;
@@ -61,6 +72,7 @@ class BooksSeeder extends Seeder
                 $book->title = $faker->realText($maxNbChars = 25);
                 $book->author = $faker->name;
                 $book->pages = $faker->numberBetween($min = 100, $max = 1000);
+                $book->rating = $rating;
                 $book->category = $cat;
                 $book->code = $faker->unique()->numberBetween($min = 50000, $max = 99999);
                 $book->description = $faker->realText($maxNbChars = 400);

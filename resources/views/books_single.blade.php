@@ -87,18 +87,11 @@
                </ul>
                <div class="book-info__rating-wrapper">
                   <div class="book-info__stars-wrapper">
-                     @php
-                        $rates = 0;
-                        foreach ($book->ratings as $rating) {
-                           $rates = $rates + $rating->rate;
-                        }
-                        $rating = $rates / $book->ratings_count;
-                     @endphp
-                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 1 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 2 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 3 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 4 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                     <span class="material-icons-outlined book-info__rating-icons {{$rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 1 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 2 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 3 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 4 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                     <span class="material-icons-outlined book-info__rating-icons {{$book->rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
                   </div>
                   <button class="book-info__rating-link" type="button" data-id="show-rating-modal">{{__('Оценить')}}</button>
                </div>

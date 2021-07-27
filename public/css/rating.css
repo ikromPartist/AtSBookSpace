@@ -95,21 +95,34 @@
    -webkit-box-orient: vertical;
    cursor: pointer;
 }
-.active-reader__name {
-   width: 30%;
+.rating-view__item--user {
+   background-color: var(--yellow-scheme);
 }
-.active-reader__company {
+.active-reader__name,
+.active-reader__company,
+.disciplined-reader__name,
+.disciplined-reader__company,
+.popular-book__title,
+.popular-book__author {
    width: 30%;
 }
 .active-reader__books,
 .active-reader__pages,
 .company__employees,
 .company__read-books,
-.company__read-pages {
+.company__read-pages,
+.disciplined-reader__renewed-deadlines,
+.disciplined-reader__blacklist-value,
+.popular-book__likes,
+.popular-book__comments {
    width: 20%;
    text-align: center;
 }
 .company__name {
    width: 40%;
+}
+.company__employees,
+.disciplined-reader__renewed-deadlines {
+   -webkit-line-clamp: 2 !important; 
 }
 /*! rating view (section) end */

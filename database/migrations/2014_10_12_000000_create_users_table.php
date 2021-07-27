@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('avatar')->nullable()->default('default.jpg');
+            $table->string('avatar')->default('default.jpg');
             $table->string('name');
             $table->string('surname');
             $table->string('last_name');
@@ -26,7 +26,9 @@ class CreateUsersTable extends Migration
             $table->string('phone_numbers');
             $table->bigInteger('read_pages')->default(0);
             $table->bigInteger('company_id')->nullable();
-            $table->integer('renewed_deadlines')->nullable()->default(0);
+            $table->integer('renewed_deadlines')->default(0);
+            $table->boolean('blacklist')->default(false);
+            $table->integer('blacklist_value')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

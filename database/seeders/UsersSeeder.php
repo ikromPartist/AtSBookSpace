@@ -21,7 +21,7 @@ class UsersSeeder extends Seeder
 
         $faker = Faker::create('ru_RU');
 
-        foreach (range(1, 90) as $v) {
+        foreach (range(1, 91) as $v) {
             $img = $faker->numberBetween($min = 1, $max = 16);
             // $pages = $books * $faker->numberBetween($min = 100, $max = 500);
             $password = 'user';
@@ -33,6 +33,13 @@ class UsersSeeder extends Seeder
                     $pages = $pages + $book->pages;
                 }
             }
+
+            $blackV = $faker->numberBetween($min = 0, $max = 9);
+            $blackL = 0;
+            if ($blackV >= 3) {
+                $blackL = $faker->numberBetween($min = 0, $max = 1);
+            }
+
 
             User::insert([
                 'avatar' => 'avatar' . $img . '.jpg',
@@ -47,22 +54,12 @@ class UsersSeeder extends Seeder
                 'read_pages' => $pages,
                 'company_id' => $faker->numberBetween($min = 1, $max = 20),
                 'renewed_deadlines' => $faker->numberBetween($min = 0, $max = 9),
+                'blacklist' => $blackL,
+                'blacklist_value' => $blackV,
                 'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
                 'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
         }
-
-        $user = new User;
-        $user->name = 'Имя';
-        $user->surname = 'Фамилия';
-        $user->last_name = 'Отчество';
-        $user->role = 'user';
-        $user->login = 'user';
-        $user->email = 'user@gmail.com';
-            $password = 'user';
-            $user->password = Hash::make($password);
-        $user->phone_numbers = '(+992) 918-13-04-39';
-        $user->save();
 
     }
 }

@@ -180,12 +180,25 @@ class BooksController extends Controller
         Rating::where('user_id', $userId)
             ->where('book_id', $request->book)
             ->delete();
-        // save new rating rate
+        // save new rating table
         $rating = new Rating;
         $rating->user_id = $userId;
         $rating->book_id = $request->book;
         $rating->rate = $request->rate;
         $rating->save();
+        // update book's rating
+        $ratings = Rating::where('book_id', $request->book)
+                            ->get();
+        $rates = 0;
+        $bookRating = 0;
+        foreach ($ratings as $rating) {
+            $rates = $rates + $rating->rate;
+        }
+        $bookRating = $rates / count($ratings);
+
+        $book = Book::find($request->book);
+        $book->rating = $bookRating;
+        $book->save();
 
         return 'rate saved';
     }

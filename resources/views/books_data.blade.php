@@ -20,18 +20,11 @@
             </h3>
             <div class="books-card__rating-wrapper">
                <div>
-                  @php
-                     $rates = 0;
-                     foreach ($book->ratings as $rating) {
-                        $rates = $rates + $rating->rate;
-                     }
-                     $rating = round($rates / $book->ratings_count);
-                  @endphp
-                  <span class="material-icons-outlined books-card__rating-icons {{$rating >= 1 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons {{$rating >= 2 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons {{$rating >= 3 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons {{$rating >= 4 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
-                  <span class="material-icons-outlined books-card__rating-icons {{$rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 1 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 2 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 3 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 4 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
+                  <span class="material-icons-outlined books-card__rating-icons {{$book->rating >= 5 ? 'filled' : ''}}" data-id="rating-icon">star_border</span>
                </div>
                <output class="books-card__comments-quantity">
                   @if (!$book->comments)
@@ -70,7 +63,7 @@
             <h3 class="books-list__title">{{$book->title}}</h3>
             <p class="books-list__author">{{$book->author}}</p>
             <p class="books-list__pages">{{$book->pages}} {{__('стр.')}}</p>
-            <p class="books-list__rating">{{$rating}}</p>
+            <p class="books-list__rating">{{$book->rating}}</p>
             @if (!$book->user_id)
             <p class="books-list__available">{{__('Доступна')}}</p>
             @else

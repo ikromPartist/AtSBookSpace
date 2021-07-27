@@ -26,6 +26,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->bigInteger('pages');
+            $table->integer('rating')->nullable();
             $table->string('category');
             $table->bigInteger('code')->unique();
             $table->text('description');
