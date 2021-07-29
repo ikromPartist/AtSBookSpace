@@ -1,4 +1,4 @@
-//! owl carousel start
+//! Owl carousel start
 $(document).ready(function () {
    $(".owl-carousel").owlCarousel({
       loop: true,
@@ -19,8 +19,8 @@ $(document).ready(function () {
       }
    });
 });
-//! owl carousel end
-//! modal map section start
+//! Owl carousel end
+//! Modal map start
 const showMapEl = document.querySelector('[data-id="show-map"]');
 const modalMapEl = document.querySelector('[data-id="modal-map"]');
 const closeMapEl = modalMapEl.querySelector('[data-id="close-map"]');
@@ -32,4 +32,4 @@ closeMapEl.onclick = (e) => {
    e.preventDefault();
    modalMapEl.classList.add('hidden');
 }
-//! modal map section end
+//! Modal map end

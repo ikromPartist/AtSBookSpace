@@ -15,21 +15,8 @@ class BooksController extends Controller
 {
     public function index(Request $request) 
     {
-        if ($request->id) {
-            $book = Book::withCount('comments')
-                            ->withCount('likes')
-                            ->withCount('dislikes')
-                            ->withCount('ratings')
-                            ->where('id', $request->id)
-                            ->first();
-            
-            $comments = Comment::where('book_id', $request->id)
-                                    ->latest()
-                                    ->get();
-
-            return view('books_single', compact('book', 'comments'));
-
-        } else if ($request->category == 'available') {
+        if ($request->category == 'available') 
+        {
             $books = Book::withCount('comments')
                             ->withCount('likes')
                             ->withCount('dislikes')
@@ -39,9 +26,11 @@ class BooksController extends Controller
                             ->paginate(12);
     
             $category = 'available';
-            return view('books_index', compact('books', 'category'));
 
-        } else if ($request->category == 'all' || $request->category == null) {
+            return view('books.index', compact('books', 'category'));
+        } 
+        else if ($request->category == 'all' || $request->category == null) 
+        {
             $books = Book::withCount('comments')
                             ->withCount('likes')
                             ->withCount('dislikes')
@@ -50,8 +39,11 @@ class BooksController extends Controller
                             ->paginate(12);
     
             $category = 'all';
-            return view('books_index', compact('books', 'category'));
-        } else {
+
+            return view('books.index', compact('books', 'category'));
+        } 
+        else 
+        {
             $books = Book::withCount('comments')
                             ->withCount('likes')
                             ->withCount('dislikes')
@@ -61,17 +53,38 @@ class BooksController extends Controller
                             ->paginate(12);
     
             $category = $request->category;
-            return view('books_index', compact('books', 'category'));
+
+            return view('books.index', compact('books', 'category'));
         }
 
     }
-    public function fetch_data(Request $request)
+
+    public function single($id)
     {
-        if ($request->ajax()) {
+        $book = Book::withCount('comments')
+                        ->withCount('likes')
+                        ->withCount('dislikes')
+                        ->withCount('ratings')
+                        ->where('id', $id)
+                        ->first();
+            
+        $comments = Comment::where('book_id', $id)
+                                ->latest()
+                                ->get();
+
+        return view('books.single', compact('book', 'comments'));
+    }
+
+    public function fetchData(Request $request)
+    {
+        if ($request->ajax()) 
+        {
             $orderBy = $request->get('orderby');
             $orderType = $request->get('ordertype');
             $category = $request->get('category');
-            if ($category == 'available') {
+
+            if ($category == 'available') 
+            {
                 $books = Book::withCount('comments')
                                 ->withCount('likes')
                                 ->withCount('dislikes')
@@ -80,9 +93,11 @@ class BooksController extends Controller
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         
-                return view('books_data', compact('books'))->render();
+                return view('books.data', compact('books'))->render();
 
-            } else if ($category == 'all') {
+            } 
+            else if ($category == 'all') 
+            {
                 $books = Book::withCount('comments')
                                 ->withCount('likes')
                                 ->withCount('dislikes')
@@ -90,8 +105,10 @@ class BooksController extends Controller
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         
-                return view('books_data', compact('books'))->render();
-            } else {
+                return view('books.data', compact('books'))->render();
+            } 
+            else 
+            {
                 $books = Book::withCount('comments')
                                 ->withCount('likes')
                                 ->withCount('dislikes')
@@ -100,30 +117,37 @@ class BooksController extends Controller
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
         
-                return view('books_data', compact('books'))->render();
+                return view('books.data', compact('books'))->render();
             } 
         }
     }
-    public function books_view(Request $request)
+
+    public function viewType(Request $request)
     {
-        if ($request->get('show') == 'standart') {
+        if ($request->get('show') == 'standart') 
+        {
             session(['book_cards' => 'show']);
             session(['books_list' => 'hidden']);
             return 'standart';
-        } else if ($request->get('show') == 'list') {
+        } 
+        else if ($request->get('show') == 'list') 
+        {
             session(['book_cards' => 'hidden']);
             session(['books_list' => 'show']);
             return 'list';
         }
     }
-    public function deadline_renewed(Request $request) 
+
+    public function extendDeadline(Request $request) 
     {
         $book = Book::find($request->book);
-
-        if ($book->deadline_renewed) {
+        
+        if ($book->deadline_renewed) 
+        {
             return true;
-        } else {
-
+        } 
+        else 
+        {
             $book->deadline_renewed = true;
             $book->return_date = Carbon::parse($book->return_date)->addDays(15);
             $book->available_date = Carbon::parse($book->available_date)->addDays(15);
@@ -132,29 +156,34 @@ class BooksController extends Controller
             return false;
         }
     }
+
     public function likes(Request $request)
     {
         $userId = session()->get('loggedUser');
-        if ($request->like == 'not-liked') {
-            // save like
+        // Store user's like when user has not liked before
+        if ($request->like == 'not-liked') 
+        {
+            // Store like
             $like = new Like;
             $like->user_id = $userId;
             $like->book_id = $request->book;
             $like->save();
-            // delete dislike if exist
+            // Delete dislike if exists
             Dislike::where('user_id', $userId)
                         ->where('book_id', $request->book)
                         ->delete();
 
             return 'liked';
-        } 
-        else if ($request->like == 'not-disliked') {
-            // save dislike
+        }
+        // Store user's dislike when user has not disliked before 
+        else if ($request->like == 'not-disliked') 
+        {
+            // Store dislike
             $dislike = new Dislike;
             $dislike->user_id = $userId;
             $dislike->book_id = $request->book;
             $dislike->save();
-            // delete like if exists 
+            // Delete like if exists 
             Like::where('user_id', $userId)
                         ->where('book_id', $request->book)
                         ->delete();
@@ -162,38 +191,44 @@ class BooksController extends Controller
             return 'disliked';
         }
     }
+
     public function comments(Request $request)
     {
         $userId = session()->get('loggedUser');
-
+        // Store user's comment
         $comment = new Comment;
         $comment->user_id = $userId;
         $comment->book_id = $request->book;
         $comment->comment = $request->comment;
         $comment->save();
+
         return 'comment added successfully';
     }
+
     public function ratings(Request $request) 
     {
         $userId = session()->get('loggedUser');
-        // delete previous rating
+        // Delete previous rating if exists
         Rating::where('user_id', $userId)
             ->where('book_id', $request->book)
             ->delete();
-        // save new rating table
+        // Store new rating table
         $rating = new Rating;
         $rating->user_id = $userId;
         $rating->book_id = $request->book;
         $rating->rate = $request->rate;
         $rating->save();
-        // update book's rating
+        // Update book's rating
         $ratings = Rating::where('book_id', $request->book)
                             ->get();
+
         $rates = 0;
         $bookRating = 0;
+
         foreach ($ratings as $rating) {
             $rates = $rates + $rating->rate;
         }
+
         $bookRating = $rates / count($ratings);
 
         $book = Book::find($request->book);
@@ -202,5 +237,4 @@ class BooksController extends Controller
 
         return 'rate saved';
     }
-
 }

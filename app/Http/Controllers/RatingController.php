@@ -16,23 +16,22 @@ class RatingController extends Controller
                                     ->paginate(12);
 
         $mstRdngCmpnys = null;
-
         $mstDscplndRdrs = null;
-
         $mstPplrBooks = null;
-
         $mstPrctvMmbrs = null;
-
         $rank = $mstActRdrs->firstItem();
 
-        return view('rating_index', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'));
+        return view('rating.index', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'));
     }
-    public function fetch_data(Request $request)
+
+    public function fetchData(Request $request)
     {
-        if ($request->ajax()) {
+        if ($request->ajax()) 
+        {
             $type = $request->type;
-            //! the most popular reader
-            if ($type == 'most_active_reader') {
+            // The most popular reader
+            if ($type == 'most_active_reader') 
+            {
                 $mstActRdrs = User::withCount('taken_books')
                                     ->orderBy('read_pages', 'desc')
                                     ->paginate(12);
@@ -47,10 +46,11 @@ class RatingController extends Controller
 
                 $rank = $mstActRdrs->firstItem();
 
-                return view('rating_data', compact('rank','mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
+                return view('rating.data', compact('rank','mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
             }
-            //! the most reading company
-            else if ($type == 'most_reading_company') {
+            // The most reading company
+            else if ($type == 'most_reading_company') 
+            {
                 $mstActRdrs = null;
                 
                 $mstRdngCmpnys = Company::withCount('employees')
@@ -58,19 +58,16 @@ class RatingController extends Controller
                                 ->paginate(12);
 
                 $mstDscplndRdrs = null;
-
                 $mstPplrBooks = null;
-
                 $mstPrctvMmbrs = null;
-
                 $rank = $mstRdngCmpnys->firstItem();
 
-                return view('rating_data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
+                return view('rating.data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
             }
-            //! the most disciplined reader 
-            else if ($type == 'most_disciplined_reader') {
+            // The most disciplined reader 
+            else if ($type == 'most_disciplined_reader') 
+            {
                 $mstActRdrs = null;
-                
                 $mstRdngCmpnys = null;
 
                 $mstDscplndRdrs = User::orderBy('blacklist_value', 'asc')
@@ -78,19 +75,16 @@ class RatingController extends Controller
                                         ->paginate(12);
 
                 $mstPplrBooks = null;
-
                 $mstPrctvMmbrs = null;
-
                 $rank = $mstDscplndRdrs->firstItem();
 
-                return view('rating_data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
+                return view('rating.data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
             }
-            //! the most popular book
-            else if ($type == 'most_popular_book') {
+            // The most popular book
+            else if ($type == 'most_popular_book') 
+            {
                 $mstActRdrs = null;
-                
                 $mstRdngCmpnys = null;
-
                 $mstDscplndRdrs = null;
 
                 $mstPplrBooks = Book::withCount('likes')
@@ -100,26 +94,23 @@ class RatingController extends Controller
                                         ->paginate(12);
 
                 $mstPrctvMmbrs = null;
-
                 $rank = $mstPplrBooks->firstItem();
 
-                return view('rating_data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
+                return view('rating.data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
             }
-            //! the most proactive member
-            else if ($type == 'most_proactive_member') {
+            // The most proactive member
+            else if ($type == 'most_proactive_member') 
+            {
                 $mstActRdrs = null;
-                
                 $mstRdngCmpnys = null;
-
                 $mstDscplndRdrs = null;
-
                 $mstPplrBooks = null;
 
                 $mstPrctvMmbrs = User::paginate(12);
 
                 $rank = $mstPrctvMmbrs->firstItem();
 
-                return view('rating_data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
+                return view('rating.data', compact('rank', 'mstActRdrs', 'mstRdngCmpnys', 'mstDscplndRdrs', 'mstPplrBooks', 'mstPrctvMmbrs'))->render();
             }
         } 
     }

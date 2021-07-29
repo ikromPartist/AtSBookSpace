@@ -8,6 +8,6 @@ class ActivitiesController extends Controller
 {
     public function index() 
     {
-        return view('activities_index');
+        return view('activities.index');
     }
 }

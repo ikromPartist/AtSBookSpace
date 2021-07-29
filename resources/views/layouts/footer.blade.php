@@ -17,32 +17,32 @@
 
          <ul class="footer-navigation">
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" @if($route != 'about_index')href="{{route('about_index')}}"@endif>
+               <a class="footer-navigation__link" @if($route != 'about.index')href="{{route('about.index')}}"@endif>
                   {{__('О клубе')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" @if($route != 'rating_index')href="{{route('rating_index')}}"@endif>
+               <a class="footer-navigation__link" @if($route != 'rating.index')href="{{route('rating.index')}}"@endif>
                   {{__('Рейтинги')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" @if($route != 'presentation_index')href="{{route('presentation_index')}}"@endif>
+               <a class="footer-navigation__link" @if($route != 'presentation.index')href="{{route('presentation.index')}}"@endif>
                   {{__('Презентация книг')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" @if($route != 'activities_index')href="{{route('activities_index')}}"@endif>
+               <a class="footer-navigation__link" @if($route != 'activities.index')href="{{route('activities.index')}}"@endif>
                   {{__('Мероприятия клуба')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" @if($route != 'rules_index')href="{{route('rules_index')}}"@endif>
+               <a class="footer-navigation__link" @if($route != 'rules.index')href="{{route('rules.index')}}"@endif>
                   {{__('Правила пользования библиотекой')}}
                </a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" @if($route != 'feedback_index')href="{{route('feedback_index')}}"@endif>
+               <a class="footer-navigation__link" @if($route != 'feedback.index')href="{{route('feedback.index')}}"@endif>
                   {{__('Обратная связь')}}
                </a>
             </li>
@@ -50,52 +50,52 @@
 
          <ul class="category-navigation">
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Soft%20skills">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Soft%20skills">
                   {{__('Softskills')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Hard%20skills">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Hard%20skills">
                   {{__('Hardskills')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Маркетинг">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Маркетинг">
                   {{__('Маркетинг ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Менеджмент">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Менеджмент">
                   {{__('Менеджмент ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Финансы">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Финансы">
                   {{__('Финансы ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Staff%20менеджмент">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Staff%20менеджмент">
                   {{__('Staff менеджмент ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Продажи%20и%20переговоры">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Продажи%20и%20переговоры">
                   {{__('Продажи и переговоры')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Сервис">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Сервис">
                   {{__('Сервис ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=ИТ">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=ИТ">
                   {{__('ИТ')}}
                </a>
             </li>
             <li class="category-navigation__item">
-               <a class="category-navigation__link" href="{{route('books_index')}}?category=Художественная%20литература">
+               <a class="category-navigation__link" href="{{route('books.index')}}?category=Художественная%20литература">
                   {{__('Художественная Литература')}}
                </a>
             </li>

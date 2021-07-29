@@ -8,6 +8,6 @@ class RulesController extends Controller
 {
     public function index()
     {
-        return view('rules_index');
+        return view('rules.index');
     }
 }

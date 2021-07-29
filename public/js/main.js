@@ -1,45 +1,49 @@
-const scrollTopBtn = document.querySelector('.scroll-top-button');
+//! Scroll top btn start
+const scrollTopBtnEl = document.querySelector('[data-id="scroll-top-btn"]');
 window.addEventListener('scroll', () => {
    if (window.pageYOffset > 200) {
-      scrollTopBtn.classList.add('active');
+      scrollTopBtnEl.classList.add('active');
    } else {
-      scrollTopBtn.classList.remove('active');
-      scrollTopBtn.classList.remove('click');
+      scrollTopBtnEl.classList.remove('active');
+      scrollTopBtnEl.classList.remove('click');
    }
 })
-scrollTopBtn.addEventListener('click', () => {
-   scrollTopBtn.classList.add('click');
+scrollTopBtnEl.addEventListener('click', () => {
+   scrollTopBtnEl.classList.add('click');
    window.scrollTo({ top: 0, behavior: 'smooth' });
 })
-//! header start
-//* catalog 
-const catalogBtn = document.querySelector('.catalog__button');
-const catalogList = document.querySelector('.catalog__list');
-const catalogIcon = catalogBtn.querySelector('.catalog__dropdown-icon');
-catalogBtn.onclick = (e) => {
+//! Scroll top btn end
+//! Header start
+//* Catalog start
+const catalogBtnEl = document.querySelector('.catalog__button');
+const catalogListEl = document.querySelector('.catalog__list');
+const catalogIconEl = catalogBtnEl.querySelector('.catalog__dropdown-icon');
+catalogBtnEl.onclick = (e) => {
    e.preventDefault();
   
-   catalogList.classList.toggle('hidden');
+   catalogListEl.classList.toggle('hidden');
    
-   if (catalogIcon.textContent == 'arrow_drop_down') {
-      catalogIcon.textContent = 'arrow_drop_up';
+   if (catalogIconEl.textContent == 'arrow_drop_down') {
+      catalogIconEl.textContent = 'arrow_drop_up';
    } else {
-      catalogIcon.textContent = 'arrow_drop_down';
+      catalogIconEl.textContent = 'arrow_drop_down';
    }
 }
-//* search
-const searchForm = document.querySelector('.search');
-const searchBtn = searchForm.querySelector('.search__button');
-const searchInput = searchForm.querySelector('.search__input');
-searchBtn.addEventListener('click', (e) => {
-   searchForm.classList.remove('hidden');
-   if (searchBtn.type == 'button') {
+//* Catalog end
+//* Search start
+const searchFormEl = document.querySelector('.search');
+const searchBtnEl = searchFormEl.querySelector('.search__button');
+const searchInputEl = searchFormEl.querySelector('.search__input');
+searchBtnEl.addEventListener('click', (e) => {
+   searchFormEl.classList.remove('hidden');
+   if (searchBtnEl.type == 'button') {
       e.preventDefault();
-      searchBtn.type = 'submit';
-      searchInput.focus();
+      searchBtnEl.type = 'submit';
+      searchInputEl.focus();
    } 
 })
-//* countdown time
+//* Search end
+//* Countdown time start 
 const timesLeftEl = document.querySelector('[data-id="times-left"]');
 function countdown() {
    const year = document.querySelector('[data-id="year"]').value;
@@ -106,7 +110,7 @@ if (timesLeftEl) {
          const book = document.querySelector('[data-id="book"]').value;
          confirmModalEl.classList.add('hidden');
          $.ajax({
-            url: "/books/deadline_renewed?book=" + book,
+            url: "/books/extend_deadline?book=" + book,
 
             success: function (response) {
                if (response == true) {
@@ -135,9 +139,10 @@ if (timesLeftEl) {
    });
 
 }
-
-//! header end
-//! global scripts start
+//* Countdown time end 
+//! Header end
+//! Global scripts start
+//* Rating stars fill start
 const ratingIconEls = document.querySelectorAll('[data-id="rating-icon"]');
 if (ratingIconEls) {
    ratingIconEls.forEach(icon => {
@@ -146,7 +151,8 @@ if (ratingIconEls) {
       }
    });
 }
-//! global scripts end
+//* Rating stars fill end
+//! Global scripts end
 
 //! ajax functions start
 

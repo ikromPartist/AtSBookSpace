@@ -8,6 +8,6 @@ class FeedbackController extends Controller
 {
     public function index()
     {
-        return view('feedback_index');
+        return view('feedback.index');
     }
 }

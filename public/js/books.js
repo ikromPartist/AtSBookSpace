@@ -12,7 +12,7 @@ if (booksViewEl) {
    
          const view = 'standart';
          $.ajax({
-            url: "/books/view?show=" + view,
+            url: "/books/view_type?show=" + view,
    
             success: function (response) {
                console.log(response);
@@ -27,7 +27,7 @@ if (booksViewEl) {
    
          const view = 'list';
          $.ajax({
-            url: "/books/view?show=" + view,
+            url: "/books/view_type?show=" + view,
    
             success: function (response) {
                console.log(response);

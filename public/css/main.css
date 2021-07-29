@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cuprum:wght@400;700&display=swap');
-
+/*! Specification start */
+*, *::before, *::after {
+   box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
+}
 html {
    scroll-behavior: smooth;
    --blue-scheme: #293449;
@@ -13,12 +18,6 @@ html {
    --green-scheme_light: #5fbb2d;
    --grey-scheme: #f2f6f8;
    --milk-scheme: #f7f3ec;
-}
-
-*, *::before, *::after {
-   box-sizing: border-box;
-   margin: 0px;
-   padding: 0px;
 }
 body {
    margin: 0px;
@@ -58,15 +57,6 @@ input[type="radio"].visually-hidden {
 img {
    max-width: 100%;
 }
-p {
-   margin: 0px;
-}
-.error-text {
-   display: block;
-   color: var(--red-scheme);
-   font-weight: bold;
-   font-size: 15px;
-}
 .title {
    display: flex;
    align-items: center;
@@ -76,9 +66,8 @@ p {
    font-size: 25px;
    color: var(--blue-scheme);
 }
-/*! buttons start */
-.button,
-.button--red {
+/** Buttons start */
+.button {
    display: inline-block;
    text-decoration: none;
    font-family: inherit;
@@ -112,7 +101,7 @@ p {
 .button--red:active {
    background-color: var(--red-scheme_dark);
 }
-.scroll-top-button {
+.scroll-top-btn {
    border: none;
    background-color: var(--yellow-scheme);
    border-radius: 50px;
@@ -129,21 +118,21 @@ p {
    justify-content: center;
    align-items: center;
 }
-.scroll-top-button.active {
+.scroll-top-btn.active {
    pointer-events: auto;
    opacity: 1;
 }
-.scroll-top-button:hover {
+.scroll-top-btn:hover {
    background-color: var(--green-scheme);
 }
-.scroll-top-button__icon {
+.scroll-top-btn__icon {
    font-weight: bold;
    font-size: 33px;
    display: block;
    color: var(--red-scheme);
 }
-/*! buttons end */
-/*! link start */
+/** Buttons end */
+/** Link start */
 .link {
    display: inline-block;
    color: #fff;
@@ -163,14 +152,15 @@ p {
 .link:active {
    background-color: var(--red-scheme_dark);
 }
-/*! link end */
-/*! header start */
+/** Link end */
+/*! Specification end */
+/*! Header start */
 .header {
    position: sticky;
    top: -218px;
    z-index: 1;
 }
-/** header-top start*/
+/** Header-top start*/
 .header-top {
    background-color: var(--blue-scheme);
    width: 100%;
@@ -197,7 +187,7 @@ p {
    outline: none;
    background-color: #b3b3b3;
 }
-/* catalog start */
+/* Catalog start */
 .catalog {
    display: flex;
    position: relative;
@@ -213,9 +203,6 @@ p {
    cursor: pointer;
    padding: 0 0 0 15px;
 }
-/* .catalog__button:focus + .catalog__list.hidden .catalog__links {
-   height: 40px;
-} */
 .catalog__button:hover,
 .catalog__button:focus,
 .catalog__links:hover,
@@ -256,8 +243,8 @@ p {
 .catalog__list.hidden .catalog__links {
    height: 0px;
 }
-/* catalog end */
-/* search start */
+/* Catalog end */
+/* Search start */
 .search {
    display: flex;
    flex-grow: 1;
@@ -320,7 +307,7 @@ p {
    background-color: #fff;
    color: var(--red-scheme);
 }
-/* search end */
+/* Search end */
 .notification-link {
    position: relative;
    display: flex;
@@ -367,7 +354,7 @@ p {
    display: block;
    width: 36px;
 }
-/* taken-book start */
+/* Taken book start */
 .taken-book {
    display: flex;
 }
@@ -443,9 +430,9 @@ p {
    background-color: var(--red-scheme); 
    cursor: default;
 }
-/* taken-book end */
-/** header-top end */
-/** header-bottom start */
+/* Taken book end */
+/** Header-top end */
+/** Header-bottom start */
 .header-bottom {
    background-color: var(--grey-scheme);
    height: 270px;
@@ -511,7 +498,7 @@ p {
    font-weight: bold;
    margin-top: 5px;
 }
-/* user-info start */
+/* User info start */
 .user-info {
    display: flex;
    flex-direction: column;
@@ -572,8 +559,8 @@ p {
    color: #fff;
    background-color: gainsboro;
 }
-/* user-info end */
-/* main-navigation start */
+/* User info end */
+/* Main navigation start */
 .main-navigation {
    position: sticky;
    top: 50px;
@@ -626,9 +613,9 @@ p {
    font-size: 30px;
 }
 
-/* main-navigation end  */
-/** header-bottom end */
-/** modal start */
+/* Main navigation end  */
+/** Header bottom end */
+/** Modal start */
 .modal {
    width: 600px;
    border-top: 7px solid var(--red-scheme);
@@ -680,11 +667,11 @@ p {
    font-weight: bold;
    font-size: 30px;
 }
-/** modal end */
-/*! header end */
+/** Modal end */
+/*! Header end */
 
-/*! global style start */
-/** breadcrumbs start */
+/*! Global styles start */
+/** Breadcrumbs start */
 .breadcrumbs {
    list-style: none;
    display: flex;
@@ -737,7 +724,7 @@ p {
    justify-content: center;
    align-items: center;
 }
-/** breadcrumbs end */
+/** Breadcrumbs end */
 .page-title {
    font-size: 30px;
    color: var(--blue);
@@ -747,7 +734,7 @@ p {
    text-transform: uppercase;
    background-color: var(--grey-scheme);
 }
-/** books-card start */
+/** Books-card start */
 .books-card {
    width: 310px;
    border: 2px solid var(--milk-scheme);
@@ -887,8 +874,8 @@ p {
 .books-card__status--unavailable {
    background-color: var(--red-scheme);
 }
-/** books-card end */
-/** list start */
+/** Books-card end */
+/** List start */
 .list {
    list-style: none;
 }
@@ -914,8 +901,8 @@ p {
    height: 50px;
    background-color: var(--grey-scheme);
 }
-/** list end */
-/** pagination start */
+/** List end */
+/** Pagination start */
 .pagination {
    list-style: none;
    display: flex;
@@ -958,14 +945,14 @@ p {
    color: var(--milk-scheme);
    cursor: pointer;
 }
-/** pagination end */
-/*! global style end */
+/** Pagination end */
+/*! Global style end */
 
-/*! main-footer start */
+/*! Footer start */
 .footer {
    color: #fff;
 }
-/** footer__top start */
+/** Footer__top start */
 .footer__top {
    background-color: var(--blue-scheme_light);
 }
@@ -1063,8 +1050,8 @@ p {
    outline: none;
    border-bottom: 1px solid #ffd180;
 }
-/** footer__top end */
-/** footer__bottom start */
+/** Footer__top end */
+/** Footer__bottom start */
 .footer__bottom {
    background-color: var(--blue-scheme);
    position: sticky;
@@ -1115,8 +1102,8 @@ p {
    width: 40%;
    font-size: 20px;
 }
-/** footer__bottom end */
-/** cursor start */
+/** Footer__bottom end */
+/** Cursor start */
 .cursor-wrapper {
    position: fixed;
    top: 0px;
@@ -1130,5 +1117,5 @@ p {
    transform: translate(-50%, -50%);
    z-index: 999;
 }
-/** cursor end */
-/*! main-footer end */
+/** Cursor end */
+/*! Footer end */

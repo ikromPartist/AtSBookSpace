@@ -19,6 +19,6 @@ class HomeController extends Controller
                             ->latest()
                             ->paginate(48);
 
-        return view('home_index', compact('popularBooks','newBooks'));
+        return view('home.index', compact('popularBooks','newBooks'));
     }
 }

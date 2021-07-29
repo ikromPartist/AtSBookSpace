@@ -13,13 +13,15 @@ class AuthController extends Controller
     {
         return view('auth.login'); 
     }
+
     public function register() 
     {
         return view('auth.register');
     }
+
     public function store(Request $request) 
     {
-        // validate requests
+        // Validate user's fields
         $request->validate([
             'name' => 'required|min:3',
             'surname' => 'required|min:3',
@@ -29,7 +31,7 @@ class AuthController extends Controller
             'company' => 'required|min:3',
             'phone_numbers' => 'required|min:9|numeric'
         ]);
-        // insert data into database
+        // Store user
         $user = new User;
         $user->name = $request->name;
         $user->surname = $request->surname;
@@ -42,39 +44,57 @@ class AuthController extends Controller
         $user->company = $request->company;
         $user->phone_numbers = $request->phone_numbers;
         $save = $user->save();
-
-        if ($save) {
-            return  back()->with('success', 'New User has been successfuly added to database');
-        } else {
-            return back()->with('failed', 'Something went wrong, try again later');
+        // Show success when user is stored
+        if ($save) 
+        {
+            return  back()->with('success', 'Новый пользователь успешно добавлен в базу данных');
+        } 
+        // Show fail when user is not stored
+        else 
+        {
+            return back()->with('failed', 'Что-то пошло не так, попробуйте позже');
         }
     }
+    
     public function check(Request $request) 
     {
-        // validate requests
+        // Validate user's fields
         $request->validate([
             'login' => 'required|min:3',
             'password' => 'required|min:4'
         ]);
+        // Find user by login
         $user = User::where('login', '=', $request->login)->first();
-        
-        if (!$user) {
-            return back()->with('fail', 'We do not recognize your login address');
-        } else {
-            // check password
-            if (Hash::check($request->password, $user->password)) {
-                $request->session()->put('loggedUser', $user->id);
-                return redirect(route('home_index'));
-            } else {
-                return back()->with('fail', 'Incorrect password');
+        // Show fail when user is not founded
+        if (!$user) 
+        {
+            return back()->with('fail', 'Мы не узнаем ваш адрес для входа');
+        } 
+        // Match the passwords
+        if (Hash::check($request->password, $user->password)) 
+        {
+            // Don't allow to enter if user is in blacklist
+            if ($user->blacklist) 
+            {
+                return back()->with('fail', 'Вы заблокированы! Обратитесь в администрацию');
             }
+            else 
+            {
+                $request->session()->put('loggedUser', $user->id);
+                return redirect(route('home.index'));
+            }  
+        } 
+        // Show fail when password is not matched
+        else {
+            return back()->with('fail', 'Неверный пароль');
         }
     }
+
     public function logout() 
     {
         if (session()->has('loggedUser')) {
             session()->pull('loggedUser');
-            return redirect(route('auth_login'));
+            return redirect(route('auth.login'));
         }
     } 
 

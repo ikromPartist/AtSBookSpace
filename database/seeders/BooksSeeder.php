@@ -81,6 +81,8 @@ class BooksSeeder extends Seeder
             } else {
                 $book->available_date = null; 
             }
+                $book->created_at = $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null);
+                $book->updated_at = $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null);
                 $book->save();
 
         }
