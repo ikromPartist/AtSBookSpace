@@ -26,7 +26,7 @@
                </small>
             </p>
          </li>
-
+          
          @foreach ($mstActRdrs as $reader)
 
             <li class="list__item rating-view__item {{$reader->id == $loggedUser->id ? 'rating-view__item--user' : ''}}">

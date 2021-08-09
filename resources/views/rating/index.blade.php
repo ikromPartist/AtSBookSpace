@@ -8,7 +8,7 @@
 
 @section('content')
 
-   <main class="rating-page">
+   <main class="rating__page">
 
       <div class="container">
       
@@ -34,9 +34,9 @@
             {{__('Рейтинг')}}
          </h1>
 
-         <div class="rating-page__content-wrapper">
+         <div class="rating__content-wrapper">
 
-            <aside class="rating-types" data-id="rating-types">
+            <aside class="rating__types" data-id="rating-types">
                <div class="ratings__wrapper">
                   <ul class="ratings">
                      <li class="ratings__item">

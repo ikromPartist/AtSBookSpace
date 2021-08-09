@@ -4,23 +4,23 @@
    width: 100%;
    display: flex;
    justify-content: space-between;
-   margin: 20px 0px 80px 0px;
+   align-items: center;
 }
 .about__wrapper {
-   width: 50%;
+   width: 790px;
+   padding: 0px var(--p-normal);
 }
 .about__title {
    font-size: 30px;
    text-transform: uppercase;
 }
 .about__text {
-   padding-top: 20px;
    line-height: 1.4;
    text-align: justify;
 }
 .about__strategy {
    list-style: none;
-   margin: 20px 0px 30px 30px;
+   margin-left: var(--p-small);
 }
 .about__strategy-item {
    display: flex;
@@ -28,10 +28,14 @@
    font-weight: bold;
    font-size: 20px;
    margin: 10px 0px;
-   gap: 10px;
+   gap: var(--p-small);
 }
 .about__strategy-icon {
    color: var(--red-scheme);
+}
+.about__image-wrapper {
+   width: 550px;
+   margin: var(--p-normal) 0px var(--p-big) 0px; 
 }
 .about__image {
    display: block;
@@ -39,44 +43,49 @@
 /*! about (section) end */
 /*! plan (section) start */
 .plan {
-   margin-bottom: 80px;
    display: flex;
    flex-wrap: wrap;
    align-items: center;
 }
 .plan__title {
-   margin-bottom: 20px;
    width: 100%;
 }
 .plan__image-wrapper {
-   width: 50%;
+   margin: var(--p-normal) 0px var(--p-big) 0px; 
 }
 .plan__image {
    display: block;
 }
 .plans__wrapper {
-   width: 50%;
+   width: 790px;
+   padding: 0px var(--p-normal);
 }
 .plans {
    list-style: none;
 }
 .plans__item {
    display: flex;
-   margin: 20px 0px;
+   margin: var(--p-small) 0px;
    align-items: center;
    text-align: justify;
+}
+.plans__item:first-child {
+   margin-top: 0px;
+}
+.plans__item:last-child {
+   margin-bottom: 0px;
 }
 .plans__icon {
    display: flex;
    color: var(--red-scheme);
-   margin-right: 10px;
+   margin-right: var(--p-small);
    align-items: center;
 }
 /*! plan (section) end */
 /*! training (section) start */
 .training {
    background-color: var(--grey-scheme);
-   padding: 80px 0px;
+   padding: var(--p-normal) 0px var(--p-big) 0px;
 }
 .training__container {
    display: flex;
@@ -84,7 +93,8 @@
    align-items: center;
 }
 .training__wrapper {
-   width: 50%;
+   width: 790px;
+   padding: 0px var(--p-normal) 0px 0px;
 }
 .training__quote {
    color: var(--blue-scheme_light);
@@ -93,7 +103,7 @@
    font-size: 25px;
 }
 .training__text {
-   margin: 20px 0px;
+   margin: var(--p-small) 0px;
    text-align: justify;
 }
 .training__image {

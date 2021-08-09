@@ -8,7 +8,7 @@
 
 @section('content')
 
-   <main class="presentation-page">
+   <main class="presentation__page">
 
       <h1>Presentation page</h1>  
 

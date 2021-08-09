@@ -8,7 +8,7 @@
 
 @section('content')
 
-   <main class="feedback-page">
+   <main class="feedback__page">
 
       <h1>Feedback page</h1> 
 

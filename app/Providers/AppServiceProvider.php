@@ -30,7 +30,8 @@ class AppServiceProvider extends ServiceProvider
         
         view()->composer('*', function($view){
             if (session()->has('loggedUser')) {
-                $loggedUser = User::where('id', session()->get('loggedUser'))->first();
+                $loggedUser = User::withCount('taken_books')
+                                    ->where('id', session()->get('loggedUser'))->first();
                 return $view->with('loggedUser', $loggedUser);
             }
         });

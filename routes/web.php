@@ -10,8 +10,7 @@ use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\FeedbackController;
-
-
+use App\Http\Controllers\ProfileController;
 
 Route::post('/auth/store', [AuthController::class, 'store'])->name('auth.store');
 Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
@@ -21,9 +20,9 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    
    Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
    Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
-   // home routes
+   //! Home routes
    Route::get('/', [HomeController::class, 'index'])->name('home.index');
-   // books routes 
+   //! Books routes 
    Route::get('/books', [BooksController::class, 'index'])->name('books.index');
    Route::get('/books/single/{id}', [BooksController::class, 'single'])->name('books.single');
    Route::get('/books/fetch_data', [BooksController::class, 'fetchData']);
@@ -32,19 +31,22 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/books/likes', [BooksController::class, 'likes']);
    Route::get('/books/comments', [BooksController::class, 'comments']);
    Route::get('/books/ratings', [BooksController::class, 'ratings']);
-
-   // about routes
+   //! About routes
    Route::get('/about', [AboutController::class, 'index'])->name('about.index');
-   // rating routes
+   //! Rating routes
    Route::get('/rating', [RatingController::class, 'index'])->name('rating.index');
    Route::get('/rating/fetch_data', [RatingController::class, 'fetchData']);
-   // presentation routes
+   //! Presentation routes
    Route::get('/presentation', [PresentationController::class, 'index'])->name('presentation.index');
-   // activities routes
+   //! Activities routes
    Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities.index');
-   // rules routes
+   //! Rules routes
    Route::get('/rules', [RulesController::class, 'index'])->name('rules.index');
-   // feedback routes
+   //! Feedback routes
    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
-
+   //! Profile routes
+   Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+   Route::post('/profile/update_avatar', [ProfileController::class, 'avatarUpdate'])->name('avatar.update');
+   Route::post('/profile/update_userinfo', [ProfileController::class, 'userinfoUpdate'])->name('userinfo.update');
+   Route::get('/profile/update_password', [ProfileController::class, 'passwordUpdate']);
 });

@@ -71,6 +71,9 @@
                <dt class="taken-book__title" title="{{__('Взятая книга')}}">
                   <a class="taken-book__link" href="{{route('books.single', $loggedUser->book->id)}}">
                      {{$loggedUser->book->title}}
+                     <p class="taken-book__see-txt">
+                        {{__('Посмотреть')}}
+                     </p>
                   </a>
                </dt>
                <dd class="taken-book__deadline">
@@ -91,6 +94,7 @@
                         <p class="taken-book__renew">{{__('Продлить')}}</p>
                      
                      @endif
+                     
                   </a>
 
                </dd>
@@ -126,7 +130,7 @@
                <span class="material-icons company__phone-icon">
                   call
                </span>
-               {{$loggedUser->phone_numbers}}
+               (+992) {{$loggedUser->phone_numbers}}
             </p>
             <p class="company-name">
                {{$loggedUser->company->name}}
@@ -148,7 +152,7 @@
                   </span>
                </a>
             </div>
-            <a class="profile-link" href="#">
+            <a class="profile-link" href="{{route('profile.index')}}">
                {{__('Управление профилем')}}
             </a>
          </div>

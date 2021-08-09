@@ -8,7 +8,7 @@
 
 @section('content')
 
-   <main class="rules-page">
+   <main class="rules__page">
 
       <h1>Rules page</h1>  
 

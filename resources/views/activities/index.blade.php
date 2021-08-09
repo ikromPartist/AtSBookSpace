@@ -8,7 +8,7 @@
 
 @section('content')
 
-   <main class="activities-page">
+   <main class="activities__page">
 
       <h1>Activities page</h1>  
 

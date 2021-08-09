@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
-use App\Models\User;
 use App\Models\Like;
 use App\Models\Dislike;
 use App\Models\Comment;
@@ -152,7 +151,7 @@ class BooksController extends Controller
             $book->return_date = Carbon::parse($book->return_date)->addDays(15);
             $book->available_date = Carbon::parse($book->available_date)->addDays(15);
             $book->save();
-            
+             
             return false;
         }
     }

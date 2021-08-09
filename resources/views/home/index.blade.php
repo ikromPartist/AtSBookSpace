@@ -9,7 +9,7 @@
 
 @section('content')
 
-   <main class="home-page">
+   <main class="home__page">
 
       <div class="banner" data-id="banner">
          <img class="banner__image" src="{{asset('img/banner.png')}}" alt="{{__('Библиотека')}}">

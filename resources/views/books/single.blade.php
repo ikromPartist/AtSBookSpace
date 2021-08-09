@@ -8,7 +8,7 @@
 
 @section('content')
 
-   <main class="books-single-page">
+   <main class="single__page">
 
       <div class="container">
    

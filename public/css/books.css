@@ -22,7 +22,7 @@
    display: flex;
    align-items: center;
    flex-grow: 1;
-   padding: 15px 20px;
+   padding: var(--p-small) 20px;
 }
 .books-navbar__links {
    display: block;
@@ -158,7 +158,7 @@
 /** about-books section start */
 .about-books {
    background-color: var(--grey-scheme);
-   padding: 30px 0px 80px 0px;
+   padding: var(--p-normal) 0px var(--p-big) 0px;
 }
 .about-books__title {
    padding-left: 0px;
@@ -270,7 +270,7 @@
    text-shadow: 0 0 10px var(--blue-scheme);
 }
 .book-info__description {
-   margin: 30px 20px;
+   margin: var(--p-normal) var(--p-small);
    font-size: 24px;
    overflow: hidden;
    text-overflow: ellipsis;
@@ -283,7 +283,7 @@
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-   margin: 20px;
+   margin: var(--p-small);
 }
 .book-info__item {
    display: flex;
@@ -341,7 +341,7 @@
    padding: 5px 25px;
    border-radius: 3px;
    color: #fff;
-   margin: 0 0 0 30px;
+   margin: 0 0 0 var(--p-normal);
    border: none;
    cursor: pointer;
 }
@@ -359,7 +359,7 @@
    position: absolute;
    bottom: 0;
    left: 0;
-   margin: 30px;
+   margin: var(--p-normal);
 }
 .likes-button {
    position: relative;
@@ -388,13 +388,13 @@
    position: absolute;
    bottom: 0;
    right: 0;
-   margin: 30px 0px;
+   margin: var(--p-normal) 0px;
 }
 /** book-info end */
 /** comment start */
 .comment {
    background-color: var(--grey-scheme);
-   padding: 20px 30px;
+   padding: var(--p-small) var(--p-normal);
 }
 .comment__title {
    font-weight: normal;
@@ -403,7 +403,7 @@
    display: flex;
    flex-direction: column;
    width: 100%;
-   margin: 40px 0px 60px 0px;
+   margin: var(--p-normal) 0px var(--p-big) 0px;
 }
 .comment-form__top-wrapper {
    display: flex;
@@ -452,7 +452,7 @@
    justify-content: space-between;
 }
 .comments__item:not(:last-child) {
-   margin-bottom: 30px;
+   margin-bottom: var(--p-normal);
 }
 .comments__link {
    display: flex;
@@ -485,7 +485,7 @@
 .rating__stars-wrapper {
    display: flex;
    justify-content: center;
-   padding: 60px;
+   padding: var(--p-big);
    gap: 10px;
 }
 [data-id="rating-icon-1"] {

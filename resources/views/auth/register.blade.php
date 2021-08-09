@@ -10,17 +10,23 @@
    
    <form action="{{route('auth_store')}}" method="POST">
 
+      @csrf
+      
       @if (Session::get('success'))
+
          <p>{{Session::get('success')}}</p>
+
       @endif
 
       @if (Session::get('failed'))
+
          <p>{{Session::get('failed')}}</p>
+
       @endif
 
-      @csrf
       <p>
-         <label>name
+         <label>
+            name
             <input type="text" name="name" value="{{old('name')}}">
          </label>
          <span>@error('name'){{$message}}@enderror</span>
