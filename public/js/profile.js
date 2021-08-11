@@ -1,3 +1,186 @@
+//! Navigation start
+let request = {
+   page: 1,
+   type: 'profile',
+};
+
+function fetch_data(page, type) {
+   $.ajax({
+      url: "/profile/fetch_data?page=" + page + "&type=" + type,
+
+      success: function (response) {
+         profileContentEl.innerHTML = response;
+         window.scroll(0, 310);
+      }
+   })
+}
+
+const sidebarEl = document.querySelector('[data-id="profile-sidebar"]');
+const profileContentEl = document.querySelector('[data-id="profile-content"]');
+if (sidebarEl) {
+   const linkEls = sidebarEl.querySelectorAll('[data-type="link"]');
+   sidebarEl.addEventListener('click', e => {
+      if (e.target.dataset.id == 'profile') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'members') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'read_books') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'activities') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'presentation') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'booked_books') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'liked_books') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'settings') {
+         e.preventDefault();
+         // Remove active
+         linkEls.forEach(linkEl => {
+            if (linkEl.classList.contains('active')) {
+               linkEl.classList.remove('active');
+               return;
+            }
+         });
+         // Add active
+         e.target.classList.add('active');
+         // Send ajax
+         const type = e.target.dataset.id;
+         request.type = type;
+         const page = request.page;
+         fetch_data(page, type);
+      }
+   });
+   profileContentEl.addEventListener('click', e => {
+      if (e.target.className == 'page-link') {
+         e.preventDefault();
+         const page = e.target.href.split('page=')[1];
+         request.page = page;
+         const type = request.type;
+         fetch_data(page, type);
+      }
+      else if (e.target.dataset.id == 'member_link') {
+         e.preventDefault();
+
+         const id = e.target.dataset.memberId;
+         $.ajax({
+            url: "/profile/member?id=" + id,
+
+            success: function (response) {
+               profileContentEl.innerHTML = response;
+               window.scroll(0, 310);
+            }
+         })
+      }
+   });
+}
+//! Navigation end
 //! Avatar change form start
 const avatarFormEl = document.querySelector('[data-id="avatar-form"]');
 if (avatarFormEl) {

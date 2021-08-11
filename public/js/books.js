@@ -109,7 +109,6 @@ if (booksEl) {
          const category = document.querySelector('[data-id="books-category"]').value;
          fetch_data(page, orderBy, orderType, category);
       }
-   
    })
 }
 //! books ordering end

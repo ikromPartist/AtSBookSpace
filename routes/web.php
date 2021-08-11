@@ -46,7 +46,10 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
    //! Profile routes
    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+   Route::get('/profile/single/{id}', [ProfileController::class, 'single'])->name('profile.single');
    Route::post('/profile/update_avatar', [ProfileController::class, 'avatarUpdate'])->name('avatar.update');
    Route::post('/profile/update_userinfo', [ProfileController::class, 'userinfoUpdate'])->name('userinfo.update');
    Route::get('/profile/update_password', [ProfileController::class, 'passwordUpdate']);
+   Route::get('/profile/fetch_data', [ProfileController::class, 'fetchData']);
+   Route::get('/profile/member', [ProfileController::class, 'member'])->name('profile.member');
 });

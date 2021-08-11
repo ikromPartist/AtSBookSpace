@@ -10,7 +10,8 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('profile.index');
+        $membersCount = User::get()->count();
+        return view('profile.index', compact('membersCount'));
     }    
 
     public function single($id)
@@ -94,5 +95,62 @@ class ProfileController extends Controller
         }
 
         return 'passwordNotMatched';
+    }
+
+    public function fetchData(Request $request)
+    {
+        if ($request->ajax())
+        {
+            $type = $request->get('type');
+
+            if ($type == 'profile')
+            {
+                return view('profile.data.profile');
+            }
+            else if ($type == 'members')
+            {
+                $members = User::orderBy('surname', 'asc')
+                                ->paginate(9);
+
+                return view('profile.data.members', compact('members'))->render();
+            } 
+            else if ($type == 'read_books') 
+            {
+                return view('profile.data.read_books');
+            }
+            else if ($type == 'activities')
+            {
+                return view('profile.data.activities');
+            } 
+            else if ($type == 'presentation') 
+            {
+                return view('profile.data.presentation');
+            } 
+            else if ($type == 'booked_books') 
+            {
+                return view('profile.data.booked_books');
+            } 
+            else if ($type == 'liked_books') 
+            {
+                return view('profile.data.liked_books');
+            } 
+            else if ($type == 'settings') 
+            {
+                return view('profile.data.settings');
+            }
+        }
+    }
+
+    public function member(Request $request)
+    {
+        if ($request->ajax())
+        {
+            $id = $request->get('id');
+            $user = User::withCount('taken_books')
+                            ->withCount('presentation')
+                            ->find($id);
+
+            return view('profile.data.member', compact('user'));
+        }
     }
 }

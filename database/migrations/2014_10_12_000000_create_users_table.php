@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->integer('renewed_deadlines')->default(0);
             $table->boolean('blacklist')->default(false);
             $table->integer('blacklist_value')->default(0);
+            $table->text('description')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

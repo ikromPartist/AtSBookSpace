@@ -56,6 +56,7 @@ class UsersSeeder extends Seeder
                 'renewed_deadlines' => $faker->numberBetween($min = 0, $max = 9),
                 'blacklist' => $blackL,
                 'blacklist_value' => $blackV,
+                'description' => $faker->realText($maxNbChars = 400),
                 'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
                 'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);

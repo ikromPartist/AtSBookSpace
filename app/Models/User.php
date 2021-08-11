@@ -68,4 +68,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rating::class);
     }
+    public function presentation()
+    {
+        return $this->hasMany(Presentation::class);
+    }
 }

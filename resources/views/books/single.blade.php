@@ -226,7 +226,7 @@
                <output>
                   {{$book->comments_count}}
                </output> 
-               {{__('Коментарий')}}
+               {{__('Коментария')}}
             </h2>
 
             <form class="comment-form">
@@ -256,8 +256,16 @@
                         <img class="comments__avatar" src="{{asset('img/users/' . $comment->user->avatar)}}" alt="Комментарий от {{$comment->user->name}}">
                      </a>
                      <div class="comments__wrapper">
-                        <p class="comments__title">{{$comment->user->name}} {{$comment->user->surname}} <time datetime="2021-05-25">{{\Carbon\Carbon::parse($comment->created_at)->isoFormat('DD MMMM YYYY, HH:mm')}}</time></p>
-                        <p class="comments__text">{{$comment->comment}}</p>
+                        <p class="comments__title">
+                           {{$comment->user->name}}            
+                           {{$comment->user->surname}} 
+                           <time datetime="2021-05-25">
+                              {{\Carbon\Carbon::parse($comment->created_at)->isoFormat('DD MMMM YYYY, HH:mm')}}
+                           </time>
+                        </p>
+                        <p class="comments__text">
+                           {{$comment->comment}}
+                        </p>
                      </div>
                   </li>
 

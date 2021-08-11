@@ -130,10 +130,10 @@
                <span class="material-icons company__phone-icon">
                   call
                </span>
-               (+992) {{$loggedUser->phone_numbers}}
+               (+992) 918130439
             </p>
             <p class="company-name">
-               {{$loggedUser->company->name}}
+               AtS Book Space 
             </p>
          </address>
 
