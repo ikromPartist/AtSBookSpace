@@ -154,6 +154,4 @@ if (ratingIconEls) {
 //* Rating stars fill end
 //! Global scripts end
 
-//! ajax functions start
 
-//! ajax functions end

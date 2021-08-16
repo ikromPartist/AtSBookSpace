@@ -1143,6 +1143,108 @@ img {
    cursor: pointer;
 }
 /** Pagination end */
+/** Form start */
+.form__title {
+   font-size: 26px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   color: var(--yellow-scheme);
+   margin-bottom: var(--p-small);
+   text-shadow: 0px 0px 1px black;
+}
+.form__error-list {
+   position: fixed;
+   top: 200px;
+   left: calc(50% - 300px);
+   width: 600px;
+   background-color: #ffe5e5;
+   border-radius: 8px;
+   box-shadow: 0 0 4px red;
+   padding-top: 15px;
+   color: red;
+   z-index: 10;
+   cursor: pointer;
+}
+.form__error-item {
+   width: 70%;
+   margin: 0px auto;
+   margin-bottom: var(--p-small);
+   position: relative;
+   top: 0px;
+   left: 0px;
+}  
+.form__item {
+   width: 70%;
+   margin: 0px auto var(--p-small) auto;
+   position: relative;
+   top: 0px;
+   left: 0px;
+}
+.form__label {
+   font-size: 20px;
+   height: 24px;
+   display: block;
+   color: var(--blue-scheme);
+   cursor: pointer;
+}
+.form__icon {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 24px;
+   left: 0px;
+   height: 50px;
+   width: 50px;
+   font-size: 28px;
+   color: #9a8a6d;
+   background-color: #e8e1d4;
+   cursor: pointer;
+}
+.form__input {
+   display: flex;
+   align-items: center;
+   border: none;
+   color: #9a8a6d;
+   background-color: var(--milk-scheme);
+   box-shadow: 0px 0px 1px black;
+   height: 50px;
+   font-size: 20px;
+   padding: 0px 60px;
+   width: 100%;
+}
+.form__input:focus {
+   background-color: #fff;
+   outline: none;
+   box-shadow: none;
+}
+.form__btn-wrapper {
+   display: flex;
+   justify-content: flex-end;
+   margin-top: var(--p-normal);
+   gap: var(--p-small);
+}
+.form__visibility {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 24px;
+   right: 0px;
+   height: 50px;
+   width: 50px;
+   font-size: 28px;
+   color: #9a8a6d;
+   background-color: #e8e1d4;
+   cursor: pointer;
+}
+.error-msg {
+   width: 70%;
+   margin: -10px auto 5px auto;
+   color: red;
+   font-weight: bold;
+}
+/** Form end */
 /*! Global style end */
 
 /*! Typical page start */

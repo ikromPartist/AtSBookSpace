@@ -172,7 +172,7 @@ if (sidebarEl) {
 const avatarFormEl = document.querySelector('[data-id="avatar-form"]');
 if (avatarFormEl) {
    const avatarInputEl = avatarFormEl.querySelector('#avatar');
-   const avatarModalEl = avatarFormEl.querySelector('[data-id="avatar-modal"]');
+   const avatarModalEl = document.querySelector('[data-id="avatar-modal"]');
 
    avatarInputEl.onchange = () => {
       avatarModalEl.classList.remove('hidden');
@@ -186,6 +186,14 @@ if (avatarFormEl) {
    });
 }
 //! Avatar change form end
+//! Edit form start
+const errorListEl = document.querySelector('[data-id="error_list"]');
+if (errorListEl) {
+   errorListEl.onclick = () => {
+      errorListEl.classList.add('visually-hidden');
+   }
+}
+//! Edit form start
 //! Password form start
 const passwordFormEl = document.querySelector('[data-id="password-form"]');
 if (passwordFormEl) {
