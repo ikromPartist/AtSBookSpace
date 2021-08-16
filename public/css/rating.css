@@ -1,93 +1,5 @@
-.rating__content-wrapper {
-   display: flex;
-   justify-content: space-between;
-   margin: var(--p-normal) 0px;
-}
-/*! rating tabs (aside) start */
-.rating__types {
-   width: 25%;
-   background-color: var(--yellow-scheme);
-   border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
-   margin: 100px 0px 106px 0px;
-}
-.ratings__wrapper {
-   height: 301px;
-   width: 335px; 
-   position: sticky;
-   top: calc(50% - 150px);
-}
-.ratings {
-   list-style: none;
-   padding: 43px 0px;
-}
-.ratings__link {
-   display: flex;
-   text-decoration: none;
-   color: var(--blue-scheme);
-   font-size: 20px;
-   padding: 10px 0px 10px 20px;
-   border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
-   cursor: pointer;
-   position: relative;
-   z-index: 1;
-}
-.ratings__link:hover,
-.ratings__link:focus {
-   outline: none;
-   color: var(--red-scheme);
-}
-.ratings__link.active {
-   color: var(--red-scheme);
-}
-.active-link {
-   display: flex;
-   flex-direction: column;
-   width: 325px;
-   height: 63px;
-   position: absolute;
-   top: 33px;
-   right: 0;
-   transform: translate(0px, 0px);
-   transition: .8s;
-}
-.active-link__top {
-   height: 10px;
-   border-bottom-right-radius: 10px;
-   background-color: var(--yellow-scheme);
-   z-index: 1;
-}
-.active-link__middle {
-   flex-grow: 1;
-   background-color: #fff;
-   border-radius: 10px;
-   position: relative;
-}
-.active-link__inner {
-   position: absolute;
-   top: -10px;
-   right: 0;
-   height: 63px;
-   width: 10px;
-   background-color: #fff;
-}
-.active-link__bottom {
-   height: 10px;
-   border-top-right-radius: 10px;
-   background-color: var(--yellow-scheme);
-   z-index: 1;
-}
-/*! rating tabs (aside) end */
 /*! rating view (section) start */
-.rating-view {
-   width: 75%;
-   padding-left: var(--p-small);
-}
-.rating-view__list {
-   margin-top: var(--p-small);
-}
-.rating-view__item p {
+.list__item span {
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
@@ -95,34 +7,15 @@
    -webkit-box-orient: vertical;
    cursor: pointer;
 }
-.rating-view__item--user {
-   background-color: var(--yellow-scheme);
+.list__item span:not(:last-child) {
+   padding-right: 10px;
 }
-.active-reader__name,
-.active-reader__company,
-.disciplined-reader__name,
-.disciplined-reader__company,
-.popular-book__title,
-.popular-book__author {
-   width: 30%;
-}
-.active-reader__books,
-.active-reader__pages,
-.company__employees,
-.company__read-books,
-.company__read-pages,
-.disciplined-reader__renewed-deadlines,
-.disciplined-reader__blacklist-value,
-.popular-book__likes,
-.popular-book__comments {
-   width: 20%;
-   text-align: center;
-}
-.company__name {
-   width: 40%;
-}
-.company__employees,
-.disciplined-reader__renewed-deadlines {
-   -webkit-line-clamp: 2 !important; 
+.list__link {
+   display: block;
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0px;
+   left: 0px;
 }
 /*! rating view (section) end */

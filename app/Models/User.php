@@ -44,32 +44,44 @@ class User extends Authenticatable
     {
         return $this->hasOne(Book::class); 
     }
+
     public function company()
     {
         return $this->belongsTo(Company::class);
     }
+
     public function taken_books()
     {
         return $this->hasMany(TakenBook::class);
     }
+
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
+
     public function likes()
     {
         return $this->hasMany(Like::class);
     }
+
     public function dislikes()
     {
         return $this->hasMany(Dislike::class);
     }
+
     public function ratings()
     {
         return $this->hasMany(Rating::class);
     }
-    public function presentation()
+
+    public function presentations()
     {
         return $this->hasMany(Presentation::class);
+    }
+
+    public function participations()
+    {
+        return $this->belongsToMany(Presentation::class);
     }
 }

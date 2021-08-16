@@ -1,7 +1,4 @@
-
-   <h1 class="title profile-content__title">
-      {{__('Читатели')}}
-   </h1>
+<h1 class="title profile-content__title">{{__('Читатели')}}</h1>
 
    <ul class="members">
 
@@ -31,7 +28,6 @@
                   {{__('Посмотреть')}}
                </p>
             </div>
-            <a class="members__link" data-id="member_link" data-member-id="{{$member->id}}" href="#"></a>
          </li>
 
       @endforeach

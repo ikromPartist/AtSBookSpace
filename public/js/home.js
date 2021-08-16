@@ -1,6 +1,18 @@
 //! Owl carousel start
 $(document).ready(function () {
-   $(".owl-carousel").owlCarousel({
+   $(".owl-news").owlCarousel({
+      loop: true,
+      nav: true,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      responsive: {
+         0: {
+            items: 1
+         }
+      }
+   });
+   $(".owl-books").owlCarousel({
       loop: true,
       nav: true,
       autoplay: true,

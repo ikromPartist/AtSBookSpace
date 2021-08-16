@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePresentationsTable extends Migration
+class CreateActivitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreatePresentationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('presentations', function (Blueprint $table) {
+        Schema::create('activities', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
-            $table->string('book_id');
-            $table->date('date');
+            $table->string('moderator');
+            $table->date('start');
+            $table->date('end');
             $table->string('audience');
-            $table->integer('participants_quantity');
             $table->text('description');
-            $table->string('presentation');
-            $table->boolean('presented')->default(false);
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreatePresentationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('presentations');
+        Schema::dropIfExists('activities');
     }
 }

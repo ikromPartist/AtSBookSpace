@@ -51,5 +51,4 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::post('/profile/update_userinfo', [ProfileController::class, 'userinfoUpdate'])->name('userinfo.update');
    Route::get('/profile/update_password', [ProfileController::class, 'passwordUpdate']);
    Route::get('/profile/fetch_data', [ProfileController::class, 'fetchData']);
-   Route::get('/profile/member', [ProfileController::class, 'member'])->name('profile.member');
 });

@@ -46,7 +46,7 @@ class UsersSeeder extends Seeder
                 'name' => $faker->firstName,
                 'surname' => $faker->lastName,
                 'last_name' => $faker->firstName . 'вич',
-                'role' => 'user',
+                'role' => 'user', 
                 'login' => 'login' . $v,
                 'email' => $faker->unique()->email,
                 'password' => bcrypt($password),

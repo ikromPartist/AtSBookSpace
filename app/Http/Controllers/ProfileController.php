@@ -10,15 +10,33 @@ class ProfileController extends Controller
 {
     public function index()
     {
+        $id = session()->get('loggedUser');
+        $user = User::find($id);
+        // Find user's position in rating
+        $users = User::select('id','read_pages')
+                        ->orderBy('read_pages', 'desc')
+                        ->get();
+
+        $usersCount = count($users);
+        $userPosition = 0;
+        for ($i=0; $i < $usersCount; $i++) { 
+            if ($users[$i]->id == $user->id)
+            {
+                $userPosition = $i;
+            }
+        }
+        // Emoji construct
+        $userRating = 100 - (($userPosition * 100) / $usersCount);
+
         $membersCount = User::get()->count();
-        return view('profile.index', compact('membersCount'));
+        return view('profile.index', compact('membersCount', 'userRating', 'userPosition', 'usersCount'));
     }    
 
     public function single($id)
     {
         $user = User::find($id);
 
-        
+        return view('profile.single', compact('user'));
     }
 
     public function avatarUpdate(Request $request)
@@ -105,7 +123,24 @@ class ProfileController extends Controller
 
             if ($type == 'profile')
             {
-                return view('profile.data.profile');
+                $id = session()->get('loggedUser');
+                $user = User::find($id);
+                // Find user's position in rating
+                $users = User::select('id', 'read_pages')
+                    ->orderBy('read_pages', 'desc')
+                    ->get();
+
+                $usersCount = count($users);
+                $userPosition = 0;
+                for ($i = 0; $i < $usersCount; $i++) {
+                    if ($users[$i]->id == $user->id) {
+                        $userPosition = $i;
+                    }
+                }
+                // Emoji construct
+                $userRating = 100 - (($userPosition * 100) / $usersCount);
+
+                return view('profile.data.profile', compact('userRating', 'userPosition', 'usersCount'));
             }
             else if ($type == 'members')
             {
@@ -138,19 +173,6 @@ class ProfileController extends Controller
             {
                 return view('profile.data.settings');
             }
-        }
-    }
-
-    public function member(Request $request)
-    {
-        if ($request->ajax())
-        {
-            $id = $request->get('id');
-            $user = User::withCount('taken_books')
-                            ->withCount('presentation')
-                            ->find($id);
-
-            return view('profile.data.member', compact('user'));
         }
     }
 }

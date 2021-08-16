@@ -11,9 +11,10 @@ class RatingController extends Controller
 {
     public function index()
     {
-        $mstActRdrs = User::withCount('taken_books')
-                                    ->orderBy('read_pages', 'desc')
-                                    ->paginate(12);
+        $mstActRdrs = User::select('id', 'company_id','name', 'surname', 'read_pages')
+                            ->withCount('taken_books')
+                            ->orderBy('read_pages', 'desc')
+                            ->paginate(12);
 
         $mstRdngCmpnys = null;
         $mstDscplndRdrs = null;
@@ -32,7 +33,8 @@ class RatingController extends Controller
             // The most popular reader
             if ($type == 'most_active_reader') 
             {
-                $mstActRdrs = User::withCount('taken_books')
+                $mstActRdrs = User::select('id', 'company_id', 'name', 'surname', 'read_pages')
+                                    ->withCount('taken_books')
                                     ->orderBy('read_pages', 'desc')
                                     ->paginate(12);
 
@@ -53,9 +55,10 @@ class RatingController extends Controller
             {
                 $mstActRdrs = null;
                 
-                $mstRdngCmpnys = Company::withCount('employees')
-                                ->orderBy('read_pages', 'desc')
-                                ->paginate(12);
+                $mstRdngCmpnys = Company::select('id', 'name', 'read_pages', 'read_books')
+                                            ->withCount('employees')
+                                            ->orderBy('read_pages', 'desc')
+                                            ->paginate(12);
 
                 $mstDscplndRdrs = null;
                 $mstPplrBooks = null;
@@ -70,7 +73,8 @@ class RatingController extends Controller
                 $mstActRdrs = null;
                 $mstRdngCmpnys = null;
 
-                $mstDscplndRdrs = User::orderBy('blacklist_value', 'asc')
+                $mstDscplndRdrs = User::select('id', 'company_id', 'name', 'surname', 'blacklist_value', 'renewed_deadlines')
+                                        ->orderBy('blacklist_value', 'asc')
                                         ->orderBy('renewed_deadlines', 'asc')
                                         ->paginate(12);
 
@@ -87,7 +91,8 @@ class RatingController extends Controller
                 $mstRdngCmpnys = null;
                 $mstDscplndRdrs = null;
 
-                $mstPplrBooks = Book::withCount('likes')
+                $mstPplrBooks = Book::select('id', 'title', 'author')
+                                        ->withCount('likes')
                                         ->withCount('comments')
                                         ->orderBy('likes_count', 'desc')
                                         ->orderBy('comments_count', 'desc')
@@ -106,7 +111,12 @@ class RatingController extends Controller
                 $mstDscplndRdrs = null;
                 $mstPplrBooks = null;
 
-                $mstPrctvMmbrs = User::paginate(12);
+                $mstPrctvMmbrs = User::select('id', 'company_id', 'name', 'surname')
+                                        ->withCount('presentations')
+                                        ->withCount('participations')
+                                        ->orderBy('presentations_count', 'desc')
+                                        ->orderBy('participations_count', 'desc')    
+                                        ->paginate(12);
 
                 $rank = $mstPrctvMmbrs->firstItem();
 

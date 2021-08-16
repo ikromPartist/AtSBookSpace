@@ -15,7 +15,39 @@
             </label>
             <input class="avatar-form__input visually-hidden" id="avatar" type="file" name="avatar" accept="image/*">
          </p>
-
+         <div class="user-rating__wrapper">
+            <p class="user-rating__text company">
+               {{$loggedUser->company->name}}
+            </p>
+            <p class="user-rating__text">
+               {{__('Место по рейтингу')}}:
+               {{$userPosition}}/{{$usersCount}} 
+               @if ($userRating < 30)
+                  <span>☹️</span>
+               @endif
+               @if ($userRating > 30 && $userRating < 60)
+                  <span>😐</span>
+               @endif
+               @if ($userRating > 60 && $userRating < 80)
+                  <span>🙂</span>
+               @endif
+               @if ($userRating > 80)
+                  <span>💪</span>
+               @endif
+            </p>
+            <p class="user-rating__text">
+               {{__('Книг прочитано')}}:
+               {{$loggedUser->taken_books_count}}
+            </p>
+            <p class="user-rating__text">
+               {{__('Страниц прочитано')}}:
+               {{$loggedUser->read_pages}}
+            </p>
+            <p class="user-rating__text">
+               {{__('Нарушений')}}:
+               {{$loggedUser->blacklist_value}}
+            </p>
+         </div>
          <div class="modal hidden" data-id="avatar-modal">
             <div class="modal__msg-wrapper">
                <p class="modal__msg">
@@ -120,43 +152,6 @@
             </label>
             <input class="form__input" id="phone" type="text" name="phone_numbers" value="{{old('phone_numbers') ? old('phone_numbers') : $loggedUser->phone_numbers}}">
          </p>
-         <p class="form__item">
-            <label class="form__label" for="company">
-               {{__('Компания')}}
-               <span class="material-icons form__icon">
-                  store
-               </span>
-            </label>
-            <input class="form__input" id="company" type="text" value="{{$loggedUser->company->name}}" readonly>
-         </p>
-         <p class="form__item">
-            <label class="form__label" for="books">
-               {{__('Количество прочитанных книг')}}
-               <span class="material-icons form__icon">
-                  auto_stories
-               </span>
-            </label>
-            <input class="form__input" id="books" type="number" value="{{$loggedUser->taken_books_count}}" readonly>
-         </p>
-         <p class="form__item">
-            <label class="form__label" for="pages">
-               {{__('Количество прочитанных страниц')}}
-               <span class="material-icons form__icon">
-                  pages
-               </span>
-            </label>
-            <input class="form__input" id="pages" type="tel" value="{{$loggedUser->read_pages}}" readonly>
-         </p>
-         <p class="form__item">
-            <label class="form__label" for="violations">
-               {{__('Нарушений')}}
-               <span class="material-icons form__icon">
-                  gpp_maybe
-               </span>
-            </label>
-            <input class="form__input" id="violations" type="number" value="{{$loggedUser->blacklist_value}}" readonly>
-         </p>
-
          <div class="form__btn-wrapper">
             <button class="button" type="submit">
                {{__('Сохранить')}}

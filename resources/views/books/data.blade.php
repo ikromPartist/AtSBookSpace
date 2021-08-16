@@ -70,7 +70,7 @@
 
                   @if (!$book->user)
 
-                     <p class="books-card__status books-card__status--available">{{__('Доступна')}}</p>
+                     <p class="books-card__status books-card__status--available">{{__('Доступно')}}</p>
 
                   @else
 
@@ -130,7 +130,7 @@
 
                @if (!$book->user_id)
 
-                  <p class="books-list__available">{{__('Доступна')}}</p>
+                  <p class="books-list__available">{{__('Доступно')}}</p>
 
                @else
 

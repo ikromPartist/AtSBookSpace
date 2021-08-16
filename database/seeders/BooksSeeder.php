@@ -20,28 +20,54 @@ class BooksSeeder extends Seeder
         $faker = Faker::create('ru_RU');
 
         foreach (range(1, 220) as $v) {
-            if ($v < 20) {
-                $cat = 'all';
-            } else if ($v < 40) {
-                $cat = 'Soft Skills';
-            } else if ($v < 60) {
-                $cat = 'Hard Skills';
-            } else if ($v < 80) {
-                $cat = 'Маркетинг';
-            } else if ($v < 100) {
-                $cat = 'Менеджмент';
-            } else if ($v < 120) {
-                $cat = 'Финансы';
-            } else if ($v < 140) {
-                $cat = 'Staff менеджмент';
-            } else if ($v < 160) {
-                $cat = 'Продажи и переговоры';
-            } else if ($v < 180) {
-                $cat = 'Сервис';
-            } else if ($v < 200) {
-                $cat = 'ИТ';
-            } else if ($v < 220) {
-                $cat = 'Художественная литература';
+            switch ($v) {
+                case ($v < 20):
+                    $cat = 'all';
+                    break;
+
+                case ($v < 40):
+                    $cat = 'Soft Skills';
+                    break;
+
+                case ($v < 60):
+                    $cat = 'Hard Skills';
+                    break;
+
+                case ($v < 80):
+                    $cat = 'Маркетинг';
+                    break;
+
+                case ($v < 100):
+                    $cat = 'Менеджмент';
+                    break;
+
+                case ($v < 120):
+                    $cat = 'Финансы';
+                    break;
+
+                case ($v < 140):
+                    $cat = 'Staff менеджмент';
+                    break;
+
+                case ($v < 160):
+                    $cat = 'Продажи и переговоры';
+                    break;
+
+                case ($v < 180):
+                    $cat = 'Сервис';
+                    break;
+
+                case ($v < 200):
+                    $cat = 'ИТ';
+                    break;
+
+                case ($v < 220):
+                    $cat = 'Художественная литература';
+                    break;
+
+                default:
+                    $cat = 'all';
+                    break;
             }
             $img = $faker->numberBetween($min = 1, $max = 5);
             $days = $faker->numberBetween($min = 15, $max = 30);

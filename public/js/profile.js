@@ -165,19 +165,6 @@ if (sidebarEl) {
          const type = request.type;
          fetch_data(page, type);
       }
-      else if (e.target.dataset.id == 'member_link') {
-         e.preventDefault();
-
-         const id = e.target.dataset.memberId;
-         $.ajax({
-            url: "/profile/member?id=" + id,
-
-            success: function (response) {
-               profileContentEl.innerHTML = response;
-               window.scroll(0, 310);
-            }
-         })
-      }
    });
 }
 //! Navigation end

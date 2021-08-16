@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             LikesSeeder::class,
             DislikesSeeder::class,
             PresentationsSeeder::class,
+            ActivitiesSeeder::class,
         ]);
     }
 }

@@ -15,15 +15,11 @@
          <ul class="breadcrumbs">
             <li class="breadcrumbs__item">
                <a class="breadcrumbs__link breadcrumbs__link--home" href="{{route('home.index')}}" aria-label="{{__('Главная')}}">
-                  <span class="material-icons-outlined breadcrumbs__icon--home">
-                     home
-                  </span>
+                  <span class="material-icons-outlined breadcrumbs__icon--home">home</span>
                </a>
             </li>
             <li class="breadcrumbs__item">
-               <span class="material-icons-outlined breadcrumbs__icon">
-                  arrow_forward_ios
-               </span>
+               <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
                <a class="breadcrumbs__link" tabindex="0">
                   {{__('Рейтинг')}}
                </a>
@@ -34,53 +30,42 @@
             {{__('Рейтинг')}}
          </h1>
 
-         <div class="rating__content-wrapper">
+         <div class="p-wrapper">
 
-            <aside class="rating__types" data-id="rating-types">
-               <div class="ratings__wrapper">
-                  <ul class="ratings">
-                     <li class="ratings__item">
-                        <a class="ratings__link active" data-id="most-active-reader" data-name="rating-link" href="#">
+            <aside class="p-sidebar" data-id="rating-types">
+               <nav class="p-navigation">
+                  <ul class="p-navigation__list">
+                     <li class="p-navigation__item">
+                        <a class="p-navigation__link active" data-id="most-active-reader" data-type="rating-link" href="#">
                            {{__('Самый активный читатель')}}
                         </a>
                      </li>
-                     <li class="ratings__item">
-                        <a class="ratings__link" data-id="most-reading-company" data-name="rating-link" href="#">
+                     <li class="p-navigation__item">
+                        <a class="p-navigation__link" data-id="most-reading-company" data-type="rating-link" href="#">
                            {{__('Самая читающая компания')}}
                         </a>
                      </li>
-                     <li class="ratings__item">
-                        <a class="ratings__link" data-id="most-disciplined-reader" data-name="rating-link" href="#">
+                     <li class="p-navigation__item">
+                        <a class="p-navigation__link" data-id="most-disciplined-reader" data-type="rating-link" href="#">
                            {{__('Самый дисциплинированный читатель')}}
                         </a>
                      </li>
-                     <li class="ratings__item">
-                        <a class="ratings__link" data-id="most-popular-book" data-name="rating-link" href="#">
+                     <li class="p-navigation__item">
+                        <a class="p-navigation__link" data-id="most-popular-book" data-type="rating-link" href="#">
                            {{__('Самая популярная книга')}}
                         </a>
                      </li>
-                     <li class="ratings__item">
-                        <a class="ratings__link" data-id="most-proactive-member" data-name="rating-link" href="#">
+                     <li class="p-navigation__item">
+                        <a class="p-navigation__link" data-id="most-proactive-member" data-type="rating-link" href="#">
                            {{__('Самый проактивный член клуба')}}
                         </a>
                      </li>
                   </ul>
-                  <div class="active-link" data-id="active-link">
-                     <div class="active-link__top"></div>
-                     <div class="active-link__middle">
-                        <div class="active-link__inner"></div>
-                     </div>
-                     <div class="active-link__bottom"></div>
-                  </div>
-               </div>
+               </nav>
             </aside>
-
-            <section class="rating-view" data-id="rating-view">
-
+            <section class="p-content" data-id="p-content">
                @include('rating.data')
-            
             </section>
-
          </div>{{-- rating page's content wrapper end --}}
             
       </div>{{-- container end --}} 

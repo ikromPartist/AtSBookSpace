@@ -9,12 +9,13 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $popularBooks = Book::withCount('comments')
+        $popularBooks = Book::select('id', 'title', 'img', 'author', 'pages')
                                 ->withCount('likes')
                                 ->orderBy('likes_count', 'desc')
                                 ->paginate(32);
 
-        $newBooks = Book::withcount('comments')
+        $newBooks = Book::select('id', 'user_id', 'img', 'title', 'author', 'pages', 'rating', 'available_date')
+                            ->withcount('comments')
                             ->withCount('ratings')
                             ->latest()
                             ->paginate(48);

@@ -2,14 +2,36 @@
 
 @section('styles')
 
-   <link rel="stylesheet" href="{{asset('css/home.css')}}">
    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+   <link rel="stylesheet" href="{{asset('css/home.css')}}">
 
 @endsection
 
 @section('content')
 
    <main class="home__page">
+
+      <div class="owl-carousel owl-news">
+         <figure class="news__item">
+            <img class="news__img" src="{{asset('img/news/news1.jpg')}}" alt="{{'Новости'}}">
+            <figcaption class="news__description">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda dicta voluptatem animi.
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda dicta voluptatem animi.
+            </figcaption>
+         </figure>
+         <figure class="news__item">
+            <img class="news__img" src="{{asset('img/news/news2.jpg')}}" alt="{{'Новости'}}">
+            <figcaption class="news__description">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda dicta voluptatem animi.
+            </figcaption>
+         </figure>
+         <figure class="news__item">
+            <img class="news__img" src="{{asset('img/news/news3.jpg')}}" alt="{{'Новости'}}">
+            <figcaption class="news__description">
+               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda dicta voluptatem animi.
+            </figcaption>
+         </figure>
+      </div>
 
       <div class="banner" data-id="banner">
          <img class="banner__image" src="{{asset('img/banner.png')}}" alt="{{__('Библиотека')}}">
@@ -115,7 +137,7 @@
                </a>
             </div>
 
-            <div class="owl-carousel">
+            <div class="owl-carousel owl-books">
 
                @foreach ($popularBooks as $book)
 
@@ -160,7 +182,7 @@
                </a>
             </div>
 
-            <div class="owl-carousel">
+            <div class="owl-carousel owl-books">
 
                @foreach ($newBooks as $book)
 
