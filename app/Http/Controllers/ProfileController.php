@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
+use App\Models\Book;
+use App\Models\TakenBook;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -27,8 +30,8 @@ class ProfileController extends Controller
         }
         // Emoji construct
         $userRating = 100 - (($userPosition * 100) / $usersCount);
-
         $membersCount = User::get()->count();
+        
         return view('profile.index', compact('membersCount', 'userRating', 'userPosition', 'usersCount'));
     }    
 
@@ -144,22 +147,45 @@ class ProfileController extends Controller
             }
             else if ($type == 'members')
             {
-                $members = User::orderBy('surname', 'asc')
-                                ->paginate(9);
+                $members = User::select('id', 'company_id', 'name', 'surname', 'read_pages')
+                                ->withCount('taken_books')
+                                ->orderBy('name', 'asc')
+                                ->paginate(12);
 
-                return view('profile.data.members', compact('members'))->render();
+                $rank = $members->firstItem();
+
+                return view('profile.data.members', compact('members', 'rank'))->render();
             } 
             else if ($type == 'read_books') 
             {
-                return view('profile.data.read_books');
+                $id = session()->get('loggedUser');
+                
+                $readBooks = TakenBook::select('taken_books.id', 'taken_books.user_id', 'taken_books.book_id')
+                                        ->where('taken_books.user_id', $id)
+                                        ->join('books', 'taken_books.book_id', '=', 'books.id')
+                                        ->orderBy('books.title')
+                                        ->paginate(12);
+
+                $rank = $readBooks->firstItem();
+
+                return view('profile.data.read_books', compact('readBooks', 'rank'));
             }
             else if ($type == 'activities')
             {
-                return view('profile.data.activities');
+                $id = session()->get('loggedUser');
+                $user = User::find($id);
+
+                $activities = $user->actions;
+
+                return view('profile.data.activities', compact('activities'));
             } 
             else if ($type == 'presentation') 
             {
-                return view('profile.data.presentation');
+                $books = Book::select('id', 'title', 'code') 
+                                ->orderBy('title')   
+                                ->get();
+
+                return view('profile.data.presentation', compact('books'));
             } 
             else if ($type == 'booked_books') 
             {

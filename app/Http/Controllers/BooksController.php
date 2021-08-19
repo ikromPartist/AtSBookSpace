@@ -25,8 +25,9 @@ class BooksController extends Controller
                             ->paginate(12);
     
             $category = 'available';
+            $rank = $books->firstItem();
 
-            return view('books.index', compact('books', 'category'));
+            return view('books.index', compact('books', 'category', 'rank'));
         } 
         else if ($request->category == 'all' || $request->category == null) 
         {
@@ -38,8 +39,9 @@ class BooksController extends Controller
                             ->paginate(12);
     
             $category = 'all';
+            $rank = $books->firstItem();
 
-            return view('books.index', compact('books', 'category'));
+            return view('books.index', compact('books', 'category', 'rank'));
         } 
         else 
         {
@@ -52,8 +54,9 @@ class BooksController extends Controller
                             ->paginate(12);
     
             $category = $request->category;
+            $rank = $books->firstItem();
 
-            return view('books.index', compact('books', 'category'));
+            return view('books.index', compact('books', 'category', 'rank'));
         }
 
     }
@@ -91,8 +94,10 @@ class BooksController extends Controller
                                 ->where('user_id', null)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
+
+                $rank = $books->firstItem();
         
-                return view('books.data', compact('books'))->render();
+                return view('books.data', compact('books', 'rank'))->render();
 
             } 
             else if ($category == 'all') 
@@ -103,8 +108,10 @@ class BooksController extends Controller
                                 ->withCount('ratings')
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
+
+                $rank = $books->firstItem();
         
-                return view('books.data', compact('books'))->render();
+                return view('books.data', compact('books', 'rank'))->render();
             } 
             else 
             {
@@ -115,8 +122,10 @@ class BooksController extends Controller
                                 ->where('category', $category)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
-        
-                return view('books.data', compact('books'))->render();
+
+                $rank = $books->firstItem();
+
+                return view('books.data', compact('books', 'rank'))->render();
             } 
         }
     }

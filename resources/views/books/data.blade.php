@@ -115,7 +115,7 @@
          <li class="books-list__item">
             <a class="books-list__links" href="{{route('books.single', $book->id)}}">
                <h3 class="books-list__title">
-                  {{$book->title}}
+                  {{$rank++}}. {{$book->title}}
                </h3>
                <p class="books-list__author">
                   {{$book->author}}

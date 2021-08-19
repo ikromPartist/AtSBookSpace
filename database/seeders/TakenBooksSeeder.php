@@ -24,11 +24,7 @@ class TakenBooksSeeder extends Seeder
             $book = Book::find($i);
             TakenBook::insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 91),
-                'title' => $book->title,
-                'author' => $book->author,
-                'pages' => $book->pages,
-                'code' => $book->code,
-                'description' => $book->description,
+                'book_id' => $faker->numberBetween($min = 1, $max = 220),
                 'taken_date' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
                 'deadline' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
                 'returned_date' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),

@@ -14,7 +14,7 @@
             {{__('Пользователь')}}
          @endif
       </p>
-      </div>
+      </div> 
    </form>
    <div class="modal hidden" data-id="avatar-modal">
       <div class="modal__msg-wrapper">

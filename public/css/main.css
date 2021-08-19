@@ -1187,6 +1187,14 @@ img {
    color: var(--blue-scheme);
    cursor: pointer;
 }
+.form__label--file {
+   position: relative;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+   height: 74px;
+   z-index: 1;
+}
 .form__icon {
    display: flex;
    justify-content: center;
@@ -1200,6 +1208,7 @@ img {
    color: #9a8a6d;
    background-color: #e8e1d4;
    cursor: pointer;
+   z-index: 1;
 }
 .form__input {
    display: flex;
@@ -1214,9 +1223,21 @@ img {
    width: 100%;
 }
 .form__input:focus {
-   background-color: #fff;
    outline: none;
+   background-color: #fff;
    box-shadow: none;
+}
+.form__input--file {
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   top: 24px;
+}
+.form__file-view {
+   position: absolute;
+   left: 0px;
+   top: 24px;
+   overflow: hidden;
 }
 .form__btn-wrapper {
    display: flex;
@@ -1244,6 +1265,68 @@ img {
    color: red;
    font-weight: bold;
 }
+.form__textarea {
+   display: flex;
+   align-items: center;
+   border: none;
+   color: rgb(154, 138, 109);
+   background-color: var(--milk-scheme);
+   box-shadow: black 0px 0px 1px;
+   height: 200px;
+   font-size: 20px;
+   padding: 10px 60px;
+   width: 100%;
+   font-family: inherit;
+   resize: none;
+}
+.form__textarea:focus {
+   outline: none;
+   background-color: #fff;
+   box-shadow: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+   /* display: none; <- Crashes Chrome on hover */
+   -webkit-appearance: none;
+   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+.form .error-msg {
+   color: red;
+   font-size: 20px;
+   display: none;
+}
+.form__input.invalid + span,
+.form__select.invalid + span,
+.form__textarea.invalid + span {
+   display: inline-block;
+}
+.form__select {
+   border: none;
+   display: flex;
+   align-items: center;
+   padding: 0px 60px;
+   height: 50px;
+   font-size: 21px;
+   color: #757575;
+   font-family: inherit;
+   width: 100%;
+   background-color: #f7f3ec;
+   box-shadow: 0px 0px 1px black;
+}
+.form__select:focus {
+   outline: none;
+   background-color: #fff;
+   box-shadow: none;
+}
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   text-indent: 1px;
+   text-overflow: '';
+}  
 /** Form end */
 /*! Global style end */
 
@@ -1263,6 +1346,9 @@ img {
 .p-navigation__list {
    list-style: none;
    margin-top: var(--p-small);
+   position: sticky;
+   top: 110px;
+   left: 0px;
 }
 .p-navigation__item:not(:last-child) {
    margin-bottom: 5px;
@@ -1341,6 +1427,14 @@ img {
    cursor: pointer;
    transform: scale(1.01);
    background-color: rgba(0, 0, 0, 0.1);
+}
+.list__link {
+   display: block;
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   top: 0px;
+   left: 0px;
 }
 /** Content end */
 /*! Typical page end */

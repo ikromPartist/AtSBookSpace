@@ -10,9 +10,84 @@ function fetch_data(page, type) {
 
       success: function (response) {
          profileContentEl.innerHTML = response;
-         window.scroll(0, 310);
+         window.scroll(0, 270);
+         if (type == 'presentation') {
+            $('#picker').dateTimePicker({
+               dateFormat: "YYYY-MM-DD HH:mm",
+               locale: 'ru',
+               showTime: true,
+               selectData: "now",
+               positionShift: { top: 20, left: 0 },
+               title: "Select Date and Time",
+               buttonTitle: "Select"
+            });
+            const fileInputEl = profileContentEl.querySelector('#presentation');
+            const fileViewEl = profileContentEl.querySelector('[data-id="presentation"]');
+            fileInputEl.onchange = () => {
+               fileViewEl.value = fileInputEl.value;               
+            }
+            presentation();
+         }
       }
    })
+}
+
+function presentation() {
+   const presentationFormEl = profileContentEl.querySelector('[data-id="presentation_form"]');
+   presentationFormEl.addEventListener('click', e => {
+      if (e.target.dataset.id == 'submit_btn') {
+         e.preventDefault();
+         // Form validation
+         const fieldEls = presentationFormEl.querySelectorAll('[data-type="field"]');
+         let valid = true;
+
+         fieldEls.forEach(field => {
+            if (field.value == '' || field.value == 'Не выбрано') {
+               field.classList.add('invalid');
+               valid = false;
+            } else {
+               field.classList.remove('invalid');
+            }
+         });
+
+         if (!valid) {
+            window.scroll(0, 450);
+            return;
+         }
+
+         $.ajax({
+            type: 'POST',
+            enctype: 'multipart/form-data',
+            url: '/presentation/store',
+            data: new FormData(presentationFormEl),
+            processData: false,
+            contentType: false,
+            cache: false,
+            timeout: 600000,
+
+            success:function(response) {
+               if (response == 'success') {
+                  const successModalEl = profileContentEl.querySelector('[data-id="presentation__success-modal"]');
+                  successModalEl.classList.remove('hidden');
+                  successModalEl.addEventListener('click', e => {
+                     if (e.target.dataset.id == 'presentation-success__ok-btn' || e.target.dataset.id == 'presentation-success__close-btn') {
+                        successModalEl.classList.add('hidden');
+                        presentationFormEl.reset();
+                     }
+                  });
+               } else {
+                  const failModalEl = profileContentEl.querySelector('[data-id="presentation__fail-modal"]');
+                  failModalEl.classList.remove('hidden');
+                  failModalEl.addEventListener('click', e => {
+                     if (e.target.dataset.id == 'presentation-fail__ok-btn' || e.target.dataset.id == 'presentation-fail__close-btn') {
+                        failModalEl.classList.add('hidden');
+                     }
+                  });
+               }  
+            }
+         });
+      }
+   });
 }
 
 const sidebarEl = document.querySelector('[data-id="profile-sidebar"]');

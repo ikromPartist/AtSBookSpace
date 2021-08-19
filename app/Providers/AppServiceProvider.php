@@ -34,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
                                     ->withCount('presentations')
                                     ->withCount('participations')
                                     ->withCount('likes')
+                                    ->withCount('actions')
                                     ->where('id', session()->get('loggedUser'))->first();
                 return $view->with('loggedUser', $loggedUser);
             }

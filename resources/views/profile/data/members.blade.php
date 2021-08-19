@@ -1,40 +1,25 @@
-<h1 class="title profile-content__title">{{__('Читатели')}}</h1>
-
-   <ul class="members">
-
-      @foreach ($members as $member)
-         
-         <li class="members__item">
-            <img class="members__avatar" src="{{'img/users/' . $member->avatar}}" alt="{{$member->name}}">
-            <div>
-               <p class="members__name">
-                  {{$member->surname}}
-                  {{$member->name}}
-                  {{$member->last_name}}
-               </p>
-               <p class="members__company">
-                  {{__('Сотрудник компании')}}
-                  {{$member->company->name}}
-               </p>
-               <p class="members__login">
-                  {{$member->login}}
-               </p>
-            </div>
-            <div class="members__link-wrapper">
-               <span class="material-icons-outlined">
-                  visibility
-               </span>
-               <p class="members__more-link">
-                  {{__('Посмотреть')}}
-               </p>
-            </div>
+<h2 class="title p-content__title">{{__('Читатели')}}</h2>
+<div class="list__wrapper">
+   <div class="list__head">
+      <b class="width-30">{{__('Имя и фамилия')}}</b>
+      <b class="width-30">{{__('Компания')}}</b>
+      <b class="width-20 txt-center">{{__('Страниц')}}<small>{{__(' (прочитано)')}}</small></b>
+      <b class="width-20 txt-center">{{__('Книг')}}<small>{{__(' (прочитано)')}}</small></b>
+   </div>
+   <ul class="list">
+      @foreach ($members as $reader)
+         <li class="list__item">
+            <span class="width-30">{{$rank++}}. {{$reader->name}} {{$reader->surname}}</span>
+            <span class="width-30">{{$reader->company->name}}</span>
+            <span class="width-20 txt-center">{{$reader->read_pages}}</span>
+            <span class="width-20 txt-center">{{$reader->taken_books_count}}</span>
+            <a class="list__link" href="{{route('profile.single', $reader->id)}}"></a>
          </li>
-
       @endforeach
-
    </ul>
+   {{$members->links()}} 
+</div>
 
-   {{$members->links()}}
    
    
    

@@ -1,3 +1,10 @@
+//! Ajax request setup start
+$.ajaxSetup({
+   headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+   }
+});
+//! Ajax request setup end
 //! Scroll top btn start
 const scrollTopBtnEl = document.querySelector('[data-id="scroll-top-btn"]');
 window.addEventListener('scroll', () => {

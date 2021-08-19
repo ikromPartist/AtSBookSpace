@@ -22,7 +22,8 @@ class CreatePresentationsTable extends Migration
             $table->integer('participants_quantity');
             $table->text('description');
             $table->string('presentation');
-            $table->boolean('presented')->default(false);
+            $table->boolean('accepted')->default(false);
+            $table->boolean('denied')->default(false);
             $table->timestamps();
         });
     }

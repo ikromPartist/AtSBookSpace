@@ -84,4 +84,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Presentation::class);
     }
+
+    public function actions()
+    {
+        return $this->belongsToMany(Activity::class);
+    }
 }

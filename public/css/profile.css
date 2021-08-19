@@ -79,4 +79,96 @@
 .form__password-title {
    margin-top: var(--p-normal);
 }
+/** DateTime picker start */
+.datetime-wrapper {
+   position: relative;
+   top: 0px;
+   left: 0px;
+}
+.dtp_main {
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   z-index: 1;
+   border: none;
+   height: 100%;
+   width: 100%;
+   color: transparent;
+   background-color: transparent;
+}
+.dtp_modal-content {
+   border-radius: 0px;
+   display: flex;
+   align-items: center;
+   padding: 15px 0px;
+   box-shadow: 0 0 10px grey;
+}
+.dtp_modal-title {
+   display: none;
+}
+.dtp_modal-cell-date {
+   margin: 0px;
+}
+.dtp_modal-cell-date {
+   order: 1;
+}
+.dtp_modal-cell-time {
+   display: flex;
+   flex-direction: column;
+}
+.dtp_modal-time-line {
+   padding: 0px;
+   height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: var(--green-scheme_light);
+   font-weight: bold;
+}
+.dtp_modal-months {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 0px;
+   height: 40px;
+   color: var(--blue-scheme);
+}
+.dpt_modal-button {
+   border: none;
+   margin: 0px var(--p-normal);
+   box-shadow: none;
+   height: 40px;
+   position: relative;
+   top: 0px;
+   left: 0px;
+}
+.dpt_modal-button::after {
+   content: 'Выбрать';
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   background-color: var(--green-scheme);
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.dtp_modal-time-mechanic {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.dtp_modal-append,
+.dtp_modal-digits {
+   display: flex;
+   padding: 0px;
+   align-items: center;
+   justify-content: center;
+}
+.dtp_modal-cell-selected {
+   background-color: var(--yellow-scheme);
+}
+/** DateTime picker end */
 /*! Profile content end */

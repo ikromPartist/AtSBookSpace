@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTakenBooksTable extends Migration
+class CreateActivityUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateTakenBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('taken_books', function (Blueprint $table) {
+        Schema::create('activity_user', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('activity_id');
             $table->bigInteger('user_id');
-            $table->string('book_id');
-            $table->date('taken_date');
-            $table->date('deadline');
-            $table->date('returned_date');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateTakenBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taken_books');
+        Schema::dropIfExists('activity_user');
     }
 }

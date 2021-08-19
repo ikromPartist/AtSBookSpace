@@ -10,12 +10,4 @@
 .list__item span:not(:last-child) {
    padding-right: 10px;
 }
-.list__link {
-   display: block;
-   height: 100%;
-   width: 100%;
-   position: absolute;
-   top: 0px;
-   left: 0px;
-}
 /*! rating view (section) end */

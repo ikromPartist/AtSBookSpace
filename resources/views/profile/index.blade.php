@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('styles')
+   {{-- Datetime picker --}}
+   <link rel="stylesheet" href="{{asset('css/datetimepicker.css')}}"> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
    <link rel="stylesheet" href="{{asset('css/profile.css')}}">
 @endsection
 
@@ -25,7 +29,7 @@
 
          <div class="p-wrapper">
 
-            <aside class="p-sidebar" data-id="rating-types">
+            <aside class="p-sidebar" data-id="profile-sidebar">
                <nav class="p-navigation">
                   <ul class="p-navigation__list">
                      <li class="p-navigation__item">
@@ -45,7 +49,7 @@
                      </li>
                      <li class="p-navigation__item">
                         <a class="p-navigation__link" href="#" data-id="activities" data-type="link">
-                           {{__('Участие в мероприятиях')}}
+                           {{__('Участие в мероприятиях')}} ({{$loggedUser->actions_count}})
                         </a>
                      </li>
                      <li class="p-navigation__item">
@@ -61,11 +65,6 @@
                      <li class="p-navigation__item">
                         <a class="p-navigation__link" href="#" data-id="liked_books" data-type="link">
                            {{__('Понравившиеся книги')}}
-                        </a>
-                     </li>
-                     <li class="p-navigation__item">
-                        <a class="p-navigation__link" href="#" data-id="settings" data-type="link">
-                           {{__('Настройки')}}
                         </a>
                      </li>
                      <li class="p-navigation__item">
@@ -85,5 +84,9 @@
 @endsection
 
 @section('scripts')
+   {{-- Datetime picker --}}
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
+   <script type="text/javascript" src="{{asset('js/datetimepicker.js')}}"></script>
+
    <script src="{{asset('js/profile.js')}}"></script>
 @endsection
