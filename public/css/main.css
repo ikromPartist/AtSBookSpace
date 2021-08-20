@@ -1428,6 +1428,17 @@ select {
    transform: scale(1.01);
    background-color: rgba(0, 0, 0, 0.1);
 }
+.list__item span {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; 
+   -webkit-box-orient: vertical;
+   cursor: pointer;
+}
+.list__item span:not(:last-child) {
+   padding-right: 10px;
+}
 .list__link {
    display: block;
    height: 100%;

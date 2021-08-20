@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\BookedBook;
 use App\Models\Like;
 use App\Models\Dislike;
 use App\Models\Comment;
 use App\Models\Rating;
+use App\Models\User;
 use Carbon\Carbon;
 
 class BooksController extends Controller
@@ -244,5 +246,27 @@ class BooksController extends Controller
         $book->save();
 
         return 'rate saved';
+    }
+
+    public function booking(Request $request)
+    {
+        $user_id = session()->get('loggedUser');
+        $book_id = $request->get('book');
+
+        $user = User::find($user_id);
+
+        if (count($user->booked_book) <= 2) 
+        {
+            $bookedBook = new BookedBook;
+            $bookedBook->user_id = $user_id;
+            $bookedBook->book_id = $book_id;
+            $bookedBook->save();
+
+            return 'success';
+        }
+        else 
+        {
+            return 'failed';
+        }
     }
 }

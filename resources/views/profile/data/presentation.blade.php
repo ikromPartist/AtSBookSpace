@@ -35,14 +35,14 @@
       <input class="form__input" id="participants" data-type="field" type="number" name="participants" value="{{old('participants')}}" placeholder="{{'40'}}">
       <span class="error-msg">{{__('Это поле обязательно для заполнения')}}</span>
    </p>
-   <p class="form__item">
+   <p class="form__item"> 
       <label class="form__label" for="description">{{__('Послание спикера слушателям - отзыв о книге')}}<span class="material-icons-outlined form__icon">message</span></label>
       <textarea class="form__textarea" id="description" data-type="field" type="text" name="description" value="{{old('description')}}" placeholder="{{'Сообщение'}}"></textarea>
       <span class="error-msg">{{__('Это поле обязательно для заполнения')}}</span>
    </p>
    <div class="form__item">
       <label class="form__label form__label--file" for="presentation">
-         {{__('Прикрепить презентацию')}}
+         {{__('Прикрепить презентацию')}} 
          <span class="material-icons-outlined form__icon">insert_drive_file</span>
       </label>
       <input class="form__input form__input--file" id="presentation" data-type="field" type="file" name="presentation">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Activity;
 use App\Models\Book;
+use App\Models\BookedBook;
 use App\Models\TakenBook;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -120,14 +121,15 @@ class ProfileController extends Controller
 
     public function fetchData(Request $request)
     {
+        $id = session()->get('loggedUser');
+        $user = User::find($id);
+
         if ($request->ajax())
         {
             $type = $request->get('type');
 
             if ($type == 'profile')
             {
-                $id = session()->get('loggedUser');
-                $user = User::find($id);
                 // Find user's position in rating
                 $users = User::select('id', 'read_pages')
                     ->orderBy('read_pages', 'desc')
@@ -158,8 +160,6 @@ class ProfileController extends Controller
             } 
             else if ($type == 'read_books') 
             {
-                $id = session()->get('loggedUser');
-                
                 $readBooks = TakenBook::select('taken_books.id', 'taken_books.user_id', 'taken_books.book_id')
                                         ->where('taken_books.user_id', $id)
                                         ->join('books', 'taken_books.book_id', '=', 'books.id')
@@ -172,9 +172,6 @@ class ProfileController extends Controller
             }
             else if ($type == 'activities')
             {
-                $id = session()->get('loggedUser');
-                $user = User::find($id);
-
                 $activities = $user->actions;
 
                 return view('profile.data.activities', compact('activities'));
@@ -189,16 +186,15 @@ class ProfileController extends Controller
             } 
             else if ($type == 'booked_books') 
             {
-                return view('profile.data.booked_books');
+                $bookedBooks = BookedBook::where('user_id', $id)
+                                            ->get();
+                
+                return view('profile.data.booked_books', compact('bookedBooks'));
             } 
             else if ($type == 'liked_books') 
             {
                 return view('profile.data.liked_books');
             } 
-            else if ($type == 'settings') 
-            {
-                return view('profile.data.settings');
-            }
         }
     }
 }

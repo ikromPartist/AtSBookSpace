@@ -109,7 +109,7 @@ if (sidebarEl) {
          // Send ajax
          const type = e.target.dataset.id;
          request.type = type;
-         const page = request.page;
+         const page = 1;
          fetch_data(page, type);
       }
       else if (e.target.dataset.id == 'members') {
@@ -126,7 +126,7 @@ if (sidebarEl) {
          // Send ajax
          const type = e.target.dataset.id;
          request.type = type;
-         const page = request.page;
+         const page = 1;
          fetch_data(page, type);
       }
       else if (e.target.dataset.id == 'read_books') {
@@ -143,7 +143,7 @@ if (sidebarEl) {
          // Send ajax
          const type = e.target.dataset.id;
          request.type = type;
-         const page = request.page;
+         const page = 1;
          fetch_data(page, type);
       }
       else if (e.target.dataset.id == 'activities') {
@@ -160,7 +160,7 @@ if (sidebarEl) {
          // Send ajax
          const type = e.target.dataset.id;
          request.type = type;
-         const page = request.page;
+         const page = 1;
          fetch_data(page, type);
       }
       else if (e.target.dataset.id == 'presentation') {
@@ -177,7 +177,7 @@ if (sidebarEl) {
          // Send ajax
          const type = e.target.dataset.id;
          request.type = type;
-         const page = request.page;
+         const page = 1;
          fetch_data(page, type);
       }
       else if (e.target.dataset.id == 'booked_books') {
@@ -194,7 +194,7 @@ if (sidebarEl) {
          // Send ajax
          const type = e.target.dataset.id;
          request.type = type;
-         const page = request.page;
+         const page = 1;
          fetch_data(page, type);
       }
       else if (e.target.dataset.id == 'liked_books') {
@@ -211,24 +211,7 @@ if (sidebarEl) {
          // Send ajax
          const type = e.target.dataset.id;
          request.type = type;
-         const page = request.page;
-         fetch_data(page, type);
-      }
-      else if (e.target.dataset.id == 'settings') {
-         e.preventDefault();
-         // Remove active
-         linkEls.forEach(linkEl => {
-            if (linkEl.classList.contains('active')) {
-               linkEl.classList.remove('active');
-               return;
-            }
-         });
-         // Add active
-         e.target.classList.add('active');
-         // Send ajax
-         const type = e.target.dataset.id;
-         request.type = type;
-         const page = request.page;
+         const page = 1;
          fetch_data(page, type);
       }
    });
