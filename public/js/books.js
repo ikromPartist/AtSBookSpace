@@ -12,7 +12,7 @@ if (booksViewEl) {
    
          const view = 'standart';
          $.ajax({
-            url: "/books/view_type?show=" + view,
+            url: `/books/view_type?show=${view}`,
    
             success: function (response) {
                console.log(response);
@@ -27,7 +27,7 @@ if (booksViewEl) {
    
          const view = 'list';
          $.ajax({
-            url: "/books/view_type?show=" + view,
+            url: `/books/view_type?show=${view}`,
    
             success: function (response) {
                console.log(response);
@@ -49,7 +49,7 @@ const booksSort = document.querySelector('[data-id="books-navbar__sort"]');
 
 function fetch_data(page, orderBy, orderType, category) {
    $.ajax({
-      url: "/books/fetch_data?page="+page+"&orderby="+orderBy+"&ordertype="+orderType+"&category="+category,
+      url: `/books/fetch_data?page=${page}&orderby=${orderBy}&ordertype=${orderType}&category=${category}`,
 
       success:function(response) {
          document.querySelector('.books').innerHTML = response;
@@ -143,7 +143,6 @@ if (bookPreviewEl) {
       }
    })
 }
-
 //* cursor
 const cursorEl = document.querySelector('#cursor');
 document.addEventListener('mousemove', (e) => {

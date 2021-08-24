@@ -22,6 +22,7 @@ class BooksController extends Controller
                             ->withCount('likes')
                             ->withCount('dislikes')
                             ->withCount('ratings')
+                            ->withCount('queues')
                             ->where('user_id', null)
                             ->orderBy('title', 'asc')
                             ->paginate(12);
@@ -37,6 +38,7 @@ class BooksController extends Controller
                             ->withCount('likes')
                             ->withCount('dislikes')
                             ->withCount('ratings')
+                            ->withCount('queues')
                             ->orderBy('title', 'asc')
                             ->paginate(12);
     
@@ -51,6 +53,7 @@ class BooksController extends Controller
                             ->withCount('likes')
                             ->withCount('dislikes')
                             ->withCount('ratings')
+                            ->withCount('queues')
                             ->where('category', $request->category)
                             ->orderBy('title', 'asc')
                             ->paginate(12);
@@ -69,6 +72,7 @@ class BooksController extends Controller
                         ->withCount('likes')
                         ->withCount('dislikes')
                         ->withCount('ratings')
+                        ->withCount('queues')
                         ->where('id', $id)
                         ->first();
             
@@ -93,6 +97,7 @@ class BooksController extends Controller
                                 ->withCount('likes')
                                 ->withCount('dislikes')
                                 ->withCount('ratings')
+                                ->withCount('queues')
                                 ->where('user_id', null)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
@@ -108,6 +113,7 @@ class BooksController extends Controller
                                 ->withCount('likes')
                                 ->withCount('dislikes')
                                 ->withCount('ratings')
+                                ->withCount('queues')
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
 
@@ -121,6 +127,7 @@ class BooksController extends Controller
                                 ->withCount('likes')
                                 ->withCount('dislikes')
                                 ->withCount('ratings')
+                                ->withCount('queues')
                                 ->where('category', $category)
                                 ->orderBy($orderBy, $orderType)
                                 ->paginate(12);
@@ -250,23 +257,38 @@ class BooksController extends Controller
 
     public function booking(Request $request)
     {
-        $user_id = session()->get('loggedUser');
-        $book_id = $request->get('book');
+        // Get book
+        $book = Book::select('id', 'user_id', 'return_date')
+                        ->withCount('queues')
+                        ->find($request->get('book'));
+        // Get logged user
+        $user = User::select('id')
+                        ->withCount('booked_books')
+                        ->find(session()->get('loggedUser'));
 
-        $user = User::find($user_id);
-
-        if (count($user->booked_book) <= 2) 
+        if ($user->booked_books_count == 2)
         {
-            $bookedBook = new BookedBook;
-            $bookedBook->user_id = $user_id;
-            $bookedBook->book_id = $book_id;
-            $bookedBook->save();
-
-            return 'success';
+            return 'failed';
         }
         else 
         {
-            return 'failed';
+            $bookedBook = new BookedBook;
+            $bookedBook->user_id = $user->id;
+            $bookedBook->book_id = $book->id;
+            $bookedBook->save();
+
+            $date = null;
+            if ($book->return_date)
+            {
+                $returnDate = Carbon::parse($book->return_date);
+                $date = $returnDate->addDays(30 * ($book->queues_count + 1));
+            }
+            else 
+            {
+                $date = Carbon::now()->addDays(30 * ($book->queues_count + 1));
+            }
+
+            return $date->format('d/m');
         }
     }
 }

@@ -1,17 +1,12 @@
 @extends('layouts.master')
 
 @section('styles')
-
    <link rel="stylesheet" href="{{asset('css/books.css')}}">
-
 @endsection
 
 @section('content')
-
    <main class="books__page">
-
       <div class="container">
-
          <ul class="breadcrumbs">
             <li class="breadcrumbs__item">
                <a href="{{route('home.index')}}" class="breadcrumbs__link breadcrumbs__link--home" aria-label="{{__('Главная')}}">
@@ -28,30 +23,20 @@
                   {{__('Книги')}}
                </a>
             </li>
-
             @if ($category != 'all')
-
                <li class="breadcrumbs__item">
                   <span class="material-icons-outlined breadcrumbs__icon">
                      arrow_forward_ios
                   </span>
                   <a class="breadcrumbs__link" tabindex="0">
-
                      @if ($category == 'available')
-
                         {{__('Доступные книги')}}
-
                      @else
-
                         {{__($category)}}
-
                      @endif
-
                   </a>
                </li>
-
             @endif
-
          </ul>{{-- breadcrumbs end --}}
          
          <h1 class="page-title">

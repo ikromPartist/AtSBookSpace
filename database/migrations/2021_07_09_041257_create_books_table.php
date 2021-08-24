@@ -30,7 +30,6 @@ class CreateBooksTable extends Migration
             $table->string('category');
             $table->bigInteger('code')->unique();
             $table->text('description');
-            $table->date('available_date')->nullable();
             $table->timestamps();
         });
     }

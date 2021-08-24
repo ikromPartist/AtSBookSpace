@@ -149,16 +149,47 @@ if (timesLeftEl) {
 //* Countdown time end 
 //! Header end
 //! Global scripts start
-//* Rating stars fill start
-const ratingIconEls = document.querySelectorAll('[data-id="rating-icon"]');
-if (ratingIconEls) {
-   ratingIconEls.forEach(icon => {
-      if (icon.classList.contains('filled')) {
-         icon.textContent = 'star';
+//* Booking start
+const bookingLinkEls = document.querySelectorAll('[data-type="booking"]');
+const successModalEl = document.querySelector('[data-id="booking-success"]');
+const failModalEl = document.querySelector('[data-id="booking-fail"]');
+if (bookingLinkEls) {
+   document.querySelector('body').addEventListener('click', e => {
+      if (e.target.dataset.type == 'booking') {
+         e.preventDefault();
+         const book = e.target.dataset.book;
+         $.ajax({
+            url: "/books/booking?book=" + book,
+      
+            success: function (response) {
+               if (response == 'failed') {
+                  failModalEl.classList.remove('hidden');
+               } else {
+                  document.querySelector(`[data-book-status="${book}"]`).innerHTML = `
+                     <p class="books-card__status books-card__status--unavailable">
+                        Занято примерно до: ${response}
+                     </p>
+                  `;
+                  successModalEl.classList.remove('hidden');
+               }
+            }
+         })
+      } else if (e.target.dataset.id == 'booking-success__ok-btn' || e.target.dataset.id == 'booking-success__close-btn') {
+         successModalEl.classList.add('hidden');   
+      } else if (e.target.dataset.id == 'booking-fail__ok-btn' || e.target.dataset.id == 'booking-fail__close-btn') {
+         failModalEl.classList.add('hidden');
       }
    });
+   bookingLinkEls.forEach(link => {
+      link.addEventListener('mouseover', e => {
+         e.target.textContent = `Ваше количество в очереди: ${e.target.dataset.queue}`;
+      });
+      link.addEventListener('mouseleave', e => {
+         e.target.textContent = 'Забронировать';
+      });
+   });
 }
-//* Rating stars fill end
+//* Booking end
 //! Global scripts end
 
 

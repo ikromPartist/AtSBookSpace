@@ -14,9 +14,10 @@ class HomeController extends Controller
                                 ->orderBy('likes_count', 'desc')
                                 ->paginate(32);
 
-        $newBooks = Book::select('id', 'user_id', 'img', 'title', 'author', 'pages', 'rating', 'available_date')
+        $newBooks = Book::select('id', 'user_id', 'img', 'title', 'author', 'pages', 'rating', 'return_date')
                             ->withcount('comments')
                             ->withCount('ratings')
+                            ->withCount('queues')
                             ->latest()
                             ->paginate(48);
 

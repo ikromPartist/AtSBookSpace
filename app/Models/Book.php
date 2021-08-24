@@ -46,7 +46,7 @@ class Book extends Model
         return $this->hasMany(TakenBook::class);
     }
 
-    public function queue()
+    public function queues()
     {
         return $this->hasMany(BookedBook::class);
     }

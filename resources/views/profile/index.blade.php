@@ -33,38 +33,38 @@
                <nav class="p-navigation">
                   <ul class="p-navigation__list">
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link active" href="#" data-id="profile" data-type="link">
+                        <a class="p-navigation__link {{session('profile_link') == 'profile' ? 'active' : ''}}" href="#" data-id="profile" data-type="link">
                            {{__('Профиль')}}
                         </a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" href="#" data-id="members" data-type="link">
-                           {{__('Читатели')}} ({{$membersCount}})
+                        <a class="p-navigation__link {{session('profile_link') == 'members' ? 'active' : ''}}" href="#" data-id="members" data-type="link">
+                           {{__('Читатели')}} ({{App\Models\User::select('id')->get()->count()}})
                         </a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" href="#" data-id="read_books" data-type="link">
+                        <a class="p-navigation__link {{session('profile_link') == 'read_books' ? 'active' : ''}}" href="#" data-id="read_books" data-type="link">
                            {{__('Прочитанные книги')}} ({{$loggedUser->taken_books_count}})
                         </a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" href="#" data-id="activities" data-type="link">
+                        <a class="p-navigation__link {{session('profile_link') == 'activities' ? 'active' : ''}}" href="#" data-id="activities" data-type="link">
                            {{__('Участие в мероприятиях')}} ({{$loggedUser->actions_count}})
                         </a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" href="#" data-id="presentation" data-type="link">
+                        <a class="p-navigation__link {{session('profile_link') == 'presentation' ? 'active' : ''}}" href="#" data-id="presentation" data-type="link">
                            {{__('Презентация книг')}}
                         </a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" href="#" data-id="booked_books" data-type="link">
-                           {{__('Забронированные книги')}}
+                        <a class="p-navigation__link {{session('profile_link') == 'booked_books' ? 'active' : ''}}" href="#" data-id="booked_books" data-type="link">
+                           {{__('Забронированные книги')}} ({{$loggedUser->booked_books->count()}})
                         </a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" href="#" data-id="liked_books" data-type="link">
-                           {{__('Понравившиеся книги')}}
+                        <a class="p-navigation__link {{session('profile_link') == 'liked_books' ? 'active' : ''}}" href="#" data-id="liked_books" data-type="link">
+                           {{__('Понравившиеся книги')}} ({{$loggedUser->likes->count()}})
                         </a>
                      </li>
                      <li class="p-navigation__item">
@@ -76,7 +76,7 @@
                </nav>
             </aside>
             <section class="p-content" data-id="profile-content">
-               @include('profile.data.profile')
+               @include('profile.data.' . session('profile_link'))
             </section>
          </div>{{-- profile page's content wrapper end --}}
       </div>{{-- container end --}}      

@@ -184,4 +184,12 @@
    opacity: 0.5;
    margin: 20px;
 }
+.booked-books {
+   list-style: none;
+   display: flex;
+   flex-wrap: wrap;
+}
+.booked-books__item:not(:last-child) {
+   margin-right: var(--p-small);
+}
 /*! Profile content end */

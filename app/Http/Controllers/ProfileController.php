@@ -16,24 +16,93 @@ class ProfileController extends Controller
     {
         $id = session()->get('loggedUser');
         $user = User::find($id);
-        // Find user's position in rating
-        $users = User::select('id','read_pages')
-                        ->orderBy('read_pages', 'desc')
-                        ->get();
 
-        $usersCount = count($users);
-        $userPosition = 0;
-        for ($i=0; $i < $usersCount; $i++) { 
-            if ($users[$i]->id == $user->id)
-            {
-                $userPosition = $i;
-            }
+        $type = session('profile_link');
+        if (!$type) {
+            $type = 'profile';
         }
-        // Emoji construct
-        $userRating = 100 - (($userPosition * 100) / $usersCount);
-        $membersCount = User::get()->count();
-        
-        return view('profile.index', compact('membersCount', 'userRating', 'userPosition', 'usersCount'));
+
+        switch ($type) {
+            case 'members':
+
+                $members = User::select('id', 'company_id', 'name', 'surname', 'read_pages')
+                                    ->withCount('taken_books')
+                                    ->orderBy('name', 'asc')
+                                    ->paginate(12);
+
+                $rank = $members->firstItem();
+
+                return view('profile.index', compact('members', 'rank'))->render();
+
+                break;
+
+            case 'read_books':
+
+                $readBooks = TakenBook::select('taken_books.id', 'taken_books.user_id', 'taken_books.book_id')
+                                        ->where('taken_books.user_id', $id)
+                                        ->join('books', 'taken_books.book_id', '=', 'books.id')
+                                        ->orderBy('books.title')
+                                        ->paginate(12);
+
+                $rank = $readBooks->firstItem();
+
+                return view('profile.index', compact('readBooks', 'rank'));
+
+                break;
+
+            case 'activities':
+
+                $activities = $user->actions;
+
+                return view('profile.index', compact('activities'));
+
+                break;
+
+            case 'presentation':
+
+                $books = Book::select('id', 'title', 'code')
+                                ->orderBy('title')
+                                ->get();
+
+                return view('profile.index', compact('books'));
+
+                break;
+
+            case 'booked_books':
+
+                $bookedBooks = BookedBook::where('user_id', $id)
+                                            ->get();
+
+                return view('profile.index', compact('bookedBooks'));
+
+                break;
+
+            case 'liked_books':
+
+                return view('profile.index');
+
+                break;
+
+            default:
+                // Find user's position in rating
+                $users = User::select('id', 'read_pages')
+                                ->orderBy('read_pages', 'desc')
+                                ->get();
+
+                $usersCount = count($users);
+                $userPosition = 0;
+                for ($i = 0; $i < $usersCount; $i++) {
+                    if ($users[$i]->id == $user->id) {
+                        $userPosition = $i;
+                    }
+                }
+                // Emoji construct
+                $userRating = 100 - (($userPosition * 100) / $usersCount);
+
+                return view('profile.index', compact('userRating', 'userPosition', 'usersCount'));
+
+                break;
+        }
     }    
 
     public function single($id)
@@ -123,78 +192,93 @@ class ProfileController extends Controller
     {
         $id = session()->get('loggedUser');
         $user = User::find($id);
+        $type = $request->get('type');
+
+        session(['profile_link' => $type]);
 
         if ($request->ajax())
         {
-            $type = $request->get('type');
+            switch ($type) {
+                case 'members':
 
-            if ($type == 'profile')
-            {
-                // Find user's position in rating
-                $users = User::select('id', 'read_pages')
+                    $members = User::select('id', 'company_id', 'name', 'surname', 'read_pages')
+                                        ->withCount('taken_books')
+                                        ->orderBy('name', 'asc')
+                                        ->paginate(12);
+
+                    $rank = $members->firstItem();
+
+                    return view('profile.data.members', compact('members', 'rank'))->render();
+
+                    break;
+
+                case 'read_books':
+
+                    $readBooks = TakenBook::select('taken_books.id', 'taken_books.user_id', 'taken_books.book_id')
+                                            ->where('taken_books.user_id', $id)
+                                            ->join('books', 'taken_books.book_id', '=', 'books.id')
+                                            ->orderBy('books.title')
+                                            ->paginate(12);
+
+                    $rank = $readBooks->firstItem();
+
+                    return view('profile.data.read_books', compact('readBooks', 'rank'));
+
+                    break;
+
+                case 'activities':
+
+                    $activities = $user->actions;
+
+                    return view('profile.data.activities', compact('activities'));
+
+                    break;
+
+                case 'presentation':
+
+                    $books = Book::select('id', 'title', 'code')
+                                    ->orderBy('title')
+                                    ->get();
+
+                    return view('profile.data.presentation', compact('books'));
+
+                    break;
+
+                case 'booked_books':
+
+                    $bookedBooks = BookedBook::where('user_id', $id)
+                                                ->get();
+
+                    return view('profile.data.booked_books', compact('bookedBooks'));
+
+                    break;
+
+                case 'liked_books':
+
+                    return view('profile.data.liked_books');
+
+                    break;
+                
+                default:
+                    // Find user's position in rating
+                    $users = User::select('id', 'read_pages')
                     ->orderBy('read_pages', 'desc')
                     ->get();
 
-                $usersCount = count($users);
-                $userPosition = 0;
-                for ($i = 0; $i < $usersCount; $i++) {
-                    if ($users[$i]->id == $user->id) {
-                        $userPosition = $i;
+                    $usersCount = count($users);
+                    $userPosition = 0;
+                    for ($i = 0; $i < $usersCount; $i++) {
+                        if ($users[$i]->id == $user->id) {
+                            $userPosition = $i;
+                        }
                     }
-                }
-                // Emoji construct
-                $userRating = 100 - (($userPosition * 100) / $usersCount);
+                    // Emoji construct
+                    $userRating = 100 - (($userPosition * 100) / $usersCount);
 
-                return view('profile.data.profile', compact('userRating', 'userPosition', 'usersCount'));
+                    return view('profile.data.profile', compact('userRating', 'userPosition', 'usersCount'));
+
+                    break;
             }
-            else if ($type == 'members')
-            {
-                $members = User::select('id', 'company_id', 'name', 'surname', 'read_pages')
-                                ->withCount('taken_books')
-                                ->orderBy('name', 'asc')
-                                ->paginate(12);
-
-                $rank = $members->firstItem();
-
-                return view('profile.data.members', compact('members', 'rank'))->render();
-            } 
-            else if ($type == 'read_books') 
-            {
-                $readBooks = TakenBook::select('taken_books.id', 'taken_books.user_id', 'taken_books.book_id')
-                                        ->where('taken_books.user_id', $id)
-                                        ->join('books', 'taken_books.book_id', '=', 'books.id')
-                                        ->orderBy('books.title')
-                                        ->paginate(12);
-
-                $rank = $readBooks->firstItem();
-
-                return view('profile.data.read_books', compact('readBooks', 'rank'));
-            }
-            else if ($type == 'activities')
-            {
-                $activities = $user->actions;
-
-                return view('profile.data.activities', compact('activities'));
-            } 
-            else if ($type == 'presentation') 
-            {
-                $books = Book::select('id', 'title', 'code') 
-                                ->orderBy('title')   
-                                ->get();
-
-                return view('profile.data.presentation', compact('books'));
-            } 
-            else if ($type == 'booked_books') 
-            {
-                $bookedBooks = BookedBook::where('user_id', $id)
-                                            ->get();
-                
-                return view('profile.data.booked_books', compact('bookedBooks'));
-            } 
-            else if ($type == 'liked_books') 
-            {
-                return view('profile.data.liked_books');
-            } 
         }
     }
 }

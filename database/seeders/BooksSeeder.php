@@ -102,11 +102,6 @@ class BooksSeeder extends Seeder
                 $book->category = $cat;
                 $book->code = $faker->unique()->numberBetween($min = 50000, $max = 99999);
                 $book->description = $faker->realText($maxNbChars = 400);
-            if ($v < 51) {
-                $book->available_date = Carbon::now()->subDays($day); 
-            } else {
-                $book->available_date = null; 
-            }
                 $book->created_at = $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null);
                 $book->updated_at = $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null);
                 $book->save();
