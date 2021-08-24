@@ -1328,6 +1328,47 @@ select {
    text-overflow: '';
 }  
 /** Form end */
+/** Information list start */
+.info {
+   list-style: none;
+   width: 100%;
+}
+.info__item:not(:last-child) {
+   margin-bottom: var(--p-small);
+}
+.info__label {
+   font-size: 20px;
+   height: 24px;
+   color: var(--blue-scheme);
+}
+.info__value {
+   display: flex;
+   align-items: center;
+   color: #9a8a6d;
+   background-color: var(--milk-scheme);
+   box-shadow: 0px 0px 1px black;
+   min-height: 50px;
+   font-size: 20px;
+   padding: 10px 60px;
+   width: 100%;
+   position: relative;
+   top: 0px;
+   left: 0px;
+}
+.info__icon {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   height: 100%;
+   width: 50px;
+   font-size: 28px;
+   color: #9a8a6d;
+   background-color: #e8e1d4;
+}
+/** Information list end */
 /*! Global style end */
 
 /*! Typical page start */

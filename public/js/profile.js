@@ -1,8 +1,28 @@
 //! Navigation start
+const sidebarEl = document.querySelector('[data-id="profile-sidebar"]');
+const profileContentEl = document.querySelector('[data-id="profile-content"]');
 let request = {
    page: 1,
    type: 'profile',
 };
+$('#picker').dateTimePicker({
+   dateFormat: "YYYY-MM-DD HH:mm",
+   locale: 'ru',
+   showTime: true,
+   selectData: "now",
+   positionShift: { top: 20, left: 0 },
+   title: "Select Date and Time",
+   buttonTitle: "Select"
+});
+
+const fileInputEl = profileContentEl.querySelector('#presentation');
+const fileViewEl = profileContentEl.querySelector('[data-id="presentation"]');
+if (fileInputEl) {
+   fileInputEl.onchange = () => {
+      fileViewEl.value = fileInputEl.value;
+   }
+   presentation();
+}
 
 function fetch_data(page, type) {
    $.ajax({
@@ -90,8 +110,6 @@ function presentation() {
    });
 }
 
-const sidebarEl = document.querySelector('[data-id="profile-sidebar"]');
-const profileContentEl = document.querySelector('[data-id="profile-content"]');
 if (sidebarEl) {
    const linkEls = sidebarEl.querySelectorAll('[data-type="link"]');
    sidebarEl.addEventListener('click', e => {

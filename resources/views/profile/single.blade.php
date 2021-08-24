@@ -15,6 +15,12 @@
             </li>
             <li class="breadcrumbs__item">
                <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
+               <a class="breadcrumbs__link" href="{{route('profile.index')}}">
+                  {{__('Читатели')}}
+               </a>
+            </li>
+            <li class="breadcrumbs__item">
+               <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
                <a class="breadcrumbs__link" tabindex="0">
                   {{__($user->surname)}} {{__($user->name)}} {{__($user->last_name)}}
                </a>
@@ -82,42 +88,42 @@
                <h2 class="form__title member__form-title">{{__('Основная информация')}}</h2>
                <ul class="member-info">
                   <li class="member-info__item">
-                     <dl class="member-info__label">{{__('Фамилия')}}</dl>
+                     <dt class="member-info__label">{{__('Фамилия')}}</dt>
                      <dd class="member-info__value">
                         <span class="material-icons-outlined member-info__icon">badge</span>
                         {{$user->surname}}
                      </dd>
                   </li>
                   <li class="member-info__item">
-                     <dl class="member-info__label">{{__('Имя')}}</dl>
+                     <dt class="member-info__label">{{__('Имя')}}</dt>
                      <dd class="member-info__value">
                         <span class="material-icons-outlined member-info__icon">badge</span>
                         {{$user->name}}
                      </dd>
                   </li>
                   <li class="member-info__item">
-                     <dl class="member-info__label">{{__('Отчество')}}</dl>
+                     <dt class="member-info__label">{{__('Отчество')}}</dt>
                      <dd class="member-info__value">
                         <span class="material-icons-outlined member-info__icon">badge</span>
                         {{$user->last_name}}
                      </dd>
                   </li>
                   <li class="member-info__item">
-                     <dl class="member-info__label">{{__('Логин')}}</dl>
+                     <dt class="member-info__label">{{__('Логин')}}</dt>
                      <dd class="member-info__value">
                         <span class="material-icons-outlined member-info__icon">login</span>
                         {{$user->login}}
                      </dd>
                   </li>
                   <li class="member-info__item">
-                     <dl class="member-info__label">{{__('E-mail')}}</dl>
+                     <dt class="member-info__label">{{__('E-mail')}}</dt>
                      <dd class="member-info__value">
                         <span class="material-icons-outlined member-info__icon">email</span>
                         {{$user->email}}
                      </dd>
                   </li>
                   <li class="member-info__item">
-                     <dl class="member-info__label">{{__('Телефон')}}</dl>
+                     <dt class="member-info__label">{{__('Телефон')}}</dt>
                      <dd class="member-info__value">
                         <span class="material-icons member-info__icon">phone</span>
                         {{$user->phone_numbers}}

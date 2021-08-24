@@ -98,7 +98,7 @@
    @if ($errors->all())
       <ul class="form__error-list" data-id="error_list">
          @foreach ($errors->all() as $error)
-            <li class="form__error-item">{{ $error }}</li>
+         <li class="form__error-item">{{ $error }}</li>
          @endforeach
       </ul>
    @endif

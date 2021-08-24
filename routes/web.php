@@ -11,6 +11,7 @@ use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Presentation;
 
 Route::post('/auth/store', [AuthController::class, 'store'])->name('auth.store');
 Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
@@ -41,6 +42,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/presentation', [PresentationController::class, 'index'])->name('presentation.index');
    Route::get('/presetation/single/{id}')->name('presentation.single');
    Route::post('/presentation/store', [PresentationController::class, 'store']);
+   Route::get('presentation/participation', [PresentationController::class, 'participation']);
    //! Activities routes
    Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities.index');
    Route::get('/activities/single/{id}')->name('activities.single');

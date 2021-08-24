@@ -113,35 +113,37 @@ if (booksEl) {
 }
 //! books ordering end
 //! books single page start
-const bookPreviewEl = document.querySelector('[data-id="book-preview"]');
-if (bookPreviewEl) {
-   bookPreviewEl.addEventListener('click', (e) => {
-      // book-photos
-      if (e.target.dataset.name == 'book-photos') {
-         const allPhotosEl = bookPreviewEl.querySelectorAll('[data-name="book-photos"]');
-         allPhotosEl.forEach(element => {
-            if (element.classList.contains('big')) {
-               element.classList.remove('big');
-               e.target.classList.add('big');
+const bookPreviewEls = document.querySelectorAll('[data-id="book-preview"]');
+if (bookPreviewEls) {
+   bookPreviewEls.forEach(bookPreviewEl => {
+      bookPreviewEl.addEventListener('click', (e) => {
+         // book-photos
+         if (e.target.dataset.name == 'book-photos') {
+            const allPhotosEl = bookPreviewEl.querySelectorAll('[data-name="book-photos"]');
+            allPhotosEl.forEach(element => {
+               if (element.classList.contains('big')) {
+                  element.classList.remove('big');
+                  e.target.classList.add('big');
+               }
+            });
+            const photosEl = bookPreviewEl.querySelectorAll('[data-name="book-photos-img"]');
+            photosEl.forEach(element => {
+               if (element.classList.contains('active')) {
+                  element.classList.remove('active');
+               }
+            });
+            if (e.target.dataset.id == 'main') {
+               bookPreviewEl.querySelector('[data-id="main-img"]').classList.add('active');
+            } else if (e.target.dataset.id == 'front') {
+               bookPreviewEl.querySelector('[data-id="front-img"]').classList.add('active');
+            } else if (e.target.dataset.id == 'back') {
+               bookPreviewEl.querySelector('[data-id="back-img"]').classList.add('active');
+            } else if (e.target.dataset.id == 'side') {
+               bookPreviewEl.querySelector('[data-id="side-img"]').classList.add('active');
             }
-         });
-         const photosEl = bookPreviewEl.querySelectorAll('[data-name="book-photos-img"]');
-         photosEl.forEach(element => {
-            if (element.classList.contains('active')) {
-               element.classList.remove('active');
-            }
-         });
-         if (e.target.dataset.id == 'main') {
-            bookPreviewEl.querySelector('[data-id="main-img"]').classList.add('active');
-         } else if (e.target.dataset.id == 'front') {
-            bookPreviewEl.querySelector('[data-id="front-img"]').classList.add('active');
-         } else if (e.target.dataset.id == 'back') {
-            bookPreviewEl.querySelector('[data-id="back-img"]').classList.add('active');
-         } else if (e.target.dataset.id == 'side') {
-            bookPreviewEl.querySelector('[data-id="side-img"]').classList.add('active');
          }
-      }
-   })
+      })
+   });
 }
 //* cursor
 const cursorEl = document.querySelector('#cursor');

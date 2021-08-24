@@ -19,7 +19,6 @@ class PresentationsSeeder extends Seeder
         $faker = Faker::create('ru_RU');
 
         foreach (range(1, 100) as $v) {
-            $date = Carbon::parse($faker->dateTimeBetween($startDate = '-2 years', $endDate = '+2 years', $timezone = null));
 
             $accepted = $faker->numberBetween($min = 0, $max = 1);
             $denied = 0;
@@ -31,7 +30,7 @@ class PresentationsSeeder extends Seeder
             $presentation = Presentation::create([
                 'user_id' => $faker->numberBetween($min = 1, $max = 91),
                 'book_id' => $faker->numberBetween($min = 1, $max = 220),
-                'date' => $date,
+                'date' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = '+2 years', $timezone = null),
                 'audience' => $faker->company,
                 'participants_quantity' => $quantity,
                 'description' => $faker->realText($maxNbChars = 400),

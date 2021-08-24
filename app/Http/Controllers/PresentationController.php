@@ -3,13 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Presentation;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PresentationController extends Controller
 {
     public function index()
     {
-        return view('presentation.index');
+        $current_date = Carbon::now();
+
+        $presentations = Presentation::whereDate('date', '>', $current_date)
+                                        ->where('accepted', true)
+                                        ->orderBy('date', 'asc')
+                                        ->paginate(3);
+
+        return view('presentation.index', compact('presentations'));
     }
 
     public function store(Request $request)
@@ -38,5 +47,23 @@ class PresentationController extends Controller
         else {
             return 'failed';
         }
+    }
+
+    public function participation(Request $request)
+    {
+        $user = User::find(session('loggedUser'));
+
+        $presentation = Presentation::find($request->presentation);
+
+        foreach ($presentation->participants as $participant) {
+            if ($participant->id == $user->id) 
+            {
+                return 'participant';
+            }
+        }
+
+        $presentation->participants()->attach($user->id);
+
+        return 'success';
     }
 }

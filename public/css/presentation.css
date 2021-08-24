@@ -1,0 +1,31 @@
+.presentation {
+   margin: var(--p-small) 0px var(--p-big) 0px;
+   display: flex;
+   align-items: center;
+   gap: var(--p-normal);
+   flex-wrap: wrap;
+}
+.presentation__title {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.presentation-info {
+   display: flex;
+   flex-grow: 1;
+   width: 710px;
+   padding: 0px 15px;
+}
+.presentation__btn {
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   height: 100%;
+}
+.presentation__btn:disabled {
+   background-color: #c5c5c5;
+   border-color: #a7a7a7;
+}
+.presentation__even-preview {
+   order: 1;
+}

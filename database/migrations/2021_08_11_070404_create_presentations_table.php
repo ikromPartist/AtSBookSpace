@@ -17,7 +17,7 @@ class CreatePresentationsTable extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->string('book_id');
-            $table->date('date');
+            $table->timestamp('date');
             $table->string('audience');
             $table->integer('participants_quantity');
             $table->text('description');

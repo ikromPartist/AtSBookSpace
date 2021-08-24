@@ -1,13 +1,10 @@
 @extends('layouts.master')
 
 @section('styles')
-
    <link rel="stylesheet" href="css/rating.css">
-
 @endsection
 
 @section('content')
-
    <main class="rating__page">
 
       <div class="container">
