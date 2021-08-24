@@ -109,7 +109,24 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
 
-        return view('profile.single', compact('user'));
+        // Find user's position in rating
+        $users = User::select('id', 'read_pages')
+                        ->orderBy('read_pages', 'desc')
+                        ->get();
+
+        $usersCount = count($users);
+        $userPosition = 0;
+        for ($i = 0; $i < $usersCount; $i++) {
+            if ($users[$i]->id == $user->id) {
+                $userPosition = $i;
+            }
+        }
+        // Emoji construct
+        $userRating = 100 - (($userPosition * 100) / $usersCount);
+        // Emoji construct
+        $userRating = 100 - (($userPosition * 100) / $usersCount);
+
+        return view('profile.single', compact('user', 'userRating', 'userPosition', 'usersCount'));
     }
 
     public function avatarUpdate(Request $request)
@@ -262,8 +279,8 @@ class ProfileController extends Controller
                 default:
                     // Find user's position in rating
                     $users = User::select('id', 'read_pages')
-                    ->orderBy('read_pages', 'desc')
-                    ->get();
+                                    ->orderBy('read_pages', 'desc')
+                                    ->get();
 
                     $usersCount = count($users);
                     $userPosition = 0;

@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             DislikesSeeder::class,
             PresentationsSeeder::class,
             ActivitiesSeeder::class,
+            BookedBooksSeeder::class,
         ]);
     }
 }

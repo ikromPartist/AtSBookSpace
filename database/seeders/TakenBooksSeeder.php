@@ -21,7 +21,6 @@ class TakenBooksSeeder extends Seeder
         
         foreach (range(1, 2000) as $value) {
             $i = $faker->numberBetween($min = 1, $max = 220);
-            $book = Book::find($i);
             TakenBook::insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 91),
                 'book_id' => $faker->numberBetween($min = 1, $max = 220),

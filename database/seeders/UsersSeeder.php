@@ -3,9 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use App\Models\Company;
 use App\Models\TakenBook;
 use Faker\Factory as Faker;
 
@@ -28,9 +26,9 @@ class UsersSeeder extends Seeder
 
             $takenBooks = TakenBook::where('user_id', $v)->get();
             $pages = 0; 
-            if ($takenBooks) {
+            if ($takenBooks->count() != 0) {
                 foreach ($takenBooks as $book) {
-                    $pages = $pages + $book->pages;
+                    $pages = $pages + $book->book->pages;
                 }
             }
 

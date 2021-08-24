@@ -85,7 +85,7 @@
             {{__('Продленные дедлайны')}}
          </li>
          <li class="profile-info__item">
-            <b>1</b>
+            <b>{{$loggedUser->booked_books->count()}}</b>
             {{__('Забронированные книги')}}
          </li>
       </ul>
