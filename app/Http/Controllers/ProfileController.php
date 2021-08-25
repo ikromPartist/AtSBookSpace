@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Activity;
 use App\Models\Book;
 use App\Models\BookedBook;
 use App\Models\TakenBook;
@@ -19,6 +18,7 @@ class ProfileController extends Controller
 
         $type = session('profile_link');
         if (!$type) {
+            session(['profile_link' => 'profile']);
             $type = 'profile';
         }
 

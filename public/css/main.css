@@ -821,6 +821,20 @@ img {
    text-transform: uppercase;
    background-color: var(--grey-scheme);
 }
+.no-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: grey;
+   font-size: 20px;
+   text-shadow: 0 0 5px grey;
+   margin: var(--p-normal) 0px var(--p-big) 0px;
+}
+.no-content__icon {
+   font-size: 100px;
+   opacity: 0.5;
+   margin: 20px;
+}
 .width-10 {
    width: 10%;
 }

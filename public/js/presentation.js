@@ -3,7 +3,7 @@ const presentationSuccessEl = document.querySelector('[data-id="presentation-suc
 const presentaionFailEl = document.querySelector('[data-id="presentation-fail"]');
 
 presentationSuccessEl.addEventListener('click', e => {
-   if (e.target.dataset.id == 'presentation-success__ok-btn' || e.target.dataset.id == 'presentation-sccess__close-btn') {
+   if (e.target.dataset.id == 'presentation-success__ok-btn' || e.target.dataset.id == 'presentation-success__close-btn') {
       presentationSuccessEl.classList.add('hidden');
    }
 });

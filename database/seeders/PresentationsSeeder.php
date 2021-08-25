@@ -41,7 +41,9 @@ class PresentationsSeeder extends Seeder
                 'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
             ]);
 
-            foreach (range(1, $quantity) as $v) 
+            $participants = $quantity - ($faker->numberBetween($min = 0, $max = 9));
+
+            foreach (range(1, $participants) as $v) 
             {
                 $id = $faker->numberBetween($min = 1, $max = 91);
 

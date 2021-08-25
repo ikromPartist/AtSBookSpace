@@ -15,8 +15,8 @@ $('#picker').dateTimePicker({
    buttonTitle: "Select"
 });
 
-const fileInputEl = profileContentEl.querySelector('#presentation');
-const fileViewEl = profileContentEl.querySelector('[data-id="presentation"]');
+const fileInputEl = document.querySelector('#presentation');
+const fileViewEl = document.querySelector('[data-id="presentation"]');
 if (fileInputEl) {
    fileInputEl.onchange = () => {
       fileViewEl.value = fileInputEl.value;

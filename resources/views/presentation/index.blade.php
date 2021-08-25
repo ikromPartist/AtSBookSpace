@@ -22,219 +22,87 @@
 
          <h1 class="page-title">{{__('Презентация книг')}}</h1>
 
-         <section class="presentation">
-            <h2 class="title presentation__title">{{$presentations[0]->book->title}}</h2>
-            <div class="book-preview" data-id="book-preview">
-               <ul class="book-photos">
-                  <li class="book-photos__item active">
-                     <img class="book-photos__image active" data-name="book-photos-img" data-id="main-img" src="{{asset('img/books/' . $presentations[0]->book->img)}}" alt="Главное фото">
-                     <img class="book-photos__image big" data-name="book-photos" data-id="main" src="{{asset('img/books/' . $presentations[0]->book->img)}}" alt="Главное фото">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos-img" data-id="front-img" src="{{asset('img/books/' . $presentations[0]->book->img_front)}}" alt="Фото фронтальной части">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos" data-id="front" src="{{asset('img/books/' . $presentations[0]->book->img_front)}}" alt="Фото фронтальной части">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos-img" data-id="back-img" src="{{asset('img/books/' . $presentations[0]->book->img_back)}}" alt="Фото задней части">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos" data-id="back" src="{{asset('img/books/' . $presentations[0]->book->img_back)}}" alt="Фото задней части">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos-img" data-id="side-img" src="{{asset('img/books/' . $presentations[0]->book->img_side)}}" alt="Фото боковой части">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos" data-id="side" src="{{asset('img/books/' . $presentations[0]->book->img_side)}}" alt="Фото боковой части">
-                  </li>
-               </ul>
-            </div>{{-- book preview end --}}
-            <div class="presentation-info">
-               <ul class="info">
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Спикер')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">campaign</span>
-                        {{$presentations[0]->user->name}} {{$presentations[0]->user->surname}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Книга')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">menu_book</span>
-                        {{$presentations[0]->book->title}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Дата и время презентации')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">schedule</span>
-                        {{$presentations[0]->date}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Аудитория')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">meeting_room</span>
-                        {{$presentations[0]->audience}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Количество участников')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">group</span>
-                        {{$presentations[0]->participants_quantity}} / <output data-participants-quantity="{{$presentations[0]->id}}">{{$presentations[0]->participants->count()}}</output>
-                        <button class="button presentation__btn" data-type="participate" data-presentation="{{$presentations[0]->id}}" type="button" {{$presentations[0]->participants_quantity == $presentations[0]->participants->count() ? 'disabled' : ''}}>{{__(('Я хочу участвовать'))}}!</button>
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Послание Спикера слушателям – отзыв о книге')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">description</span>
-                        {{$presentations[0]->description}} 
-                     </dd>
-                  </li>
-               </ul>
-            </div>{{-- presentation info end --}}
-         </section>
-
-         <section class="presentation">
-            <h2 class="title presentation__title">{{$presentations[1]->book->title}}</h2>
-            <div class="book-preview presentation__even-preview" data-id="book-preview">
-               <ul class="book-photos">
-                  <li class="book-photos__item active">
-                     <img class="book-photos__image active" data-name="book-photos-img" data-id="main-img" src="{{asset('img/books/' . $presentations[1]->book->img)}}" alt="Главное фото">
-                     <img class="book-photos__image big" data-name="book-photos" data-id="main" src="{{asset('img/books/' . $presentations[1]->book->img)}}" alt="Главное фото">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos-img" data-id="front-img" src="{{asset('img/books/' . $presentations[1]->book->img_front)}}" alt="Фото фронтальной части">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos" data-id="front" src="{{asset('img/books/' . $presentations[1]->book->img_front)}}" alt="Фото фронтальной части">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos-img" data-id="back-img" src="{{asset('img/books/' . $presentations[1]->book->img_back)}}" alt="Фото задней части">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos" data-id="back" src="{{asset('img/books/' . $presentations[1]->book->img_back)}}" alt="Фото задней части">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos-img" data-id="side-img" src="{{asset('img/books/' . $presentations[1]->book->img_side)}}" alt="Фото боковой части">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos" data-id="side" src="{{asset('img/books/' . $presentations[1]->book->img_side)}}" alt="Фото боковой части">
-                  </li>
-               </ul>
-            </div>{{-- book preview end --}}
-            <div class="presentation-info">
-               <ul class="info">
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Спикер')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">campaign</span>
-                        {{$presentations[1]->user->name}} {{$presentations[1]->user->surname}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Книга')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">menu_book</span>
-                        {{$presentations[1]->book->title}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Дата и время презентации')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">schedule</span>
-                        {{$presentations[1]->date}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Аудитория')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">meeting_room</span>
-                        {{$presentations[1]->audience}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Количество участников')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">group</span>
-                        {{$presentations[1]->participants_quantity}} / <output data-participants-quantity="{{$presentations[1]->id}}">{{$presentations[1]->participants->count()}}</output>
-                        <button class="button presentation__btn" data-type="participate" data-presentation="{{$presentations[1]->id}}" type="button" {{$presentations[1]->participants_quantity == $presentations[1]->participants->count() ? 'disabled' : ''}}>{{__(('Я хочу участвовать'))}}!</button>
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Послание Спикера слушателям – отзыв о книге')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">description</span>
-                        {{$presentations[1]->description}} 
-                     </dd>
-                  </li>
-               </ul>
-            </div>{{-- presentation info end --}}
-         </section>
-
-         <section class="presentation">
-            <h2 class="title presentation__title">{{$presentations[2]->book->title}}</h2>
-            <div class="book-preview" data-id="book-preview">
-               <ul class="book-photos">
-                  <li class="book-photos__item active">
-                     <img class="book-photos__image active" data-name="book-photos-img" data-id="main-img" src="{{asset('img/books/' . $presentations[2]->book->img)}}" alt="Главное фото">
-                     <img class="book-photos__image big" data-name="book-photos" data-id="main" src="{{asset('img/books/' . $presentations[2]->book->img)}}" alt="Главное фото">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos-img" data-id="front-img" src="{{asset('img/books/' . $presentations[2]->book->img_front)}}" alt="Фото фронтальной части">
-                     <img class="book-photos__image book-photos__image--front" data-name="book-photos" data-id="front" src="{{asset('img/books/' . $presentations[2]->book->img_front)}}" alt="Фото фронтальной части">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos-img" data-id="back-img" src="{{asset('img/books/' . $presentations[2]->book->img_back)}}" alt="Фото задней части">
-                     <img class="book-photos__image book-photos__image--back" data-name="book-photos" data-id="back" src="{{asset('img/books/' . $presentations[2]->book->img_back)}}" alt="Фото задней части">
-                  </li>
-                  <li class="book-photos__item">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos-img" data-id="side-img" src="{{asset('img/books/' . $presentations[2]->book->img_side)}}" alt="Фото боковой части">
-                     <img class="book-photos__image book-photos__image--side" data-name="book-photos" data-id="side" src="{{asset('img/books/' . $presentations[2]->book->img_side)}}" alt="Фото боковой части">
-                  </li>
-               </ul>
-            </div>{{-- book preview end --}}
-            <div class="presentation-info">
-               <ul class="info">
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Спикер')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">campaign</span>
-                        {{$presentations[2]->user->name}} {{$presentations[0]->user->surname}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Книга')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">menu_book</span>
-                        {{$presentations[2]->book->title}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Дата и время презентации')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">schedule</span>
-                        {{$presentations[2]->date}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Аудитория')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">meeting_room</span>
-                        {{$presentations[2]->audience}}
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Количество участников')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">group</span>
-                        {{$presentations[2]->participants_quantity}} / <output data-participants-quantity="{{$presentations[2]->id}}">{{$presentations[2]->participants->count()}}</output>
-                        <button class="button presentation__btn" data-type="participate" data-presentation="{{$presentations[2]->id}}" type="button" {{$presentations[2]->participants_quantity == $presentations[2]->participants->count() ? 'disabled' : ''}}>{{__(('Я хочу участвовать'))}}!</button>
-                     </dd>
-                  </li>
-                  <li class="info__item">
-                     <dt class="info__label">{{__('Послание Спикера слушателям – отзыв о книге')}}</dt>
-                     <dd class="info__value">
-                        <span class="material-icons info__icon">description</span>
-                        {{$presentations[2]->description}} 
-                     </dd>
-                  </li>
-               </ul>
-            </div>{{-- presentation info end --}}
-         </section>
-
+         @if ($presentations->count() == 0)
+            <p class="no-content">
+               <span class="material-icons no-content__icon">sentiment_very_dissatisfied</span>
+               {{{__('К сожалению, на ближайшее время презентаций не запланировано')}}}.
+            </p>  
+         @else
+            @foreach ($presentations as $key => $presentation)
+            <section class="presentation">
+               <h2 class="title presentation__title">{{$presentation->book->title}}</h2>
+               <div class="book-preview {{($key % 2) != 0 ? 'presentation__even-preview' : ''}}" data-id="book-preview">
+                  <ul class="book-photos">
+                     <li class="book-photos__item active">
+                        <img class="book-photos__image active" data-name="book-photos-img" data-id="main-img" src="{{asset('img/books/' . $presentation->book->img)}}" alt="Главное фото">
+                        <img class="book-photos__image big" data-name="book-photos" data-id="main" src="{{asset('img/books/' . $presentation->book->img)}}" alt="Главное фото">
+                     </li>
+                     <li class="book-photos__item">
+                        <img class="book-photos__image book-photos__image--front" data-name="book-photos-img" data-id="front-img" src="{{asset('img/books/' . $presentation->book->img_front)}}" alt="Фото фронтальной части">
+                        <img class="book-photos__image book-photos__image--front" data-name="book-photos" data-id="front" src="{{asset('img/books/' . $presentation->book->img_front)}}" alt="Фото фронтальной части">
+                     </li>
+                     <li class="book-photos__item">
+                        <img class="book-photos__image book-photos__image--back" data-name="book-photos-img" data-id="back-img" src="{{asset('img/books/' . $presentation->book->img_back)}}" alt="Фото задней части">
+                        <img class="book-photos__image book-photos__image--back" data-name="book-photos" data-id="back" src="{{asset('img/books/' . $presentation->book->img_back)}}" alt="Фото задней части">
+                     </li>
+                     <li class="book-photos__item">
+                        <img class="book-photos__image book-photos__image--side" data-name="book-photos-img" data-id="side-img" src="{{asset('img/books/' . $presentation->book->img_side)}}" alt="Фото боковой части">
+                        <img class="book-photos__image book-photos__image--side" data-name="book-photos" data-id="side" src="{{asset('img/books/' . $presentation->book->img_side)}}" alt="Фото боковой части">
+                     </li>
+                  </ul>
+               </div>{{-- book preview end --}}
+               <div class="presentation-info">
+                  <ul class="info">
+                     <li class="info__item">
+                        <dt class="info__label">{{__('Спикер')}}</dt>
+                        <dd class="info__value">
+                           <span class="material-icons info__icon">campaign</span>
+                           {{$presentation->user->name}} {{$presentation->user->surname}}
+                           <a class="button presentation__btn" href="{{route('profile.single', $presentation->user->id)}}" type="button">{{__(('Посмотреть профиль'))}}</a>
+                        </dd>
+                     </li>
+                     <li class="info__item">
+                        <dt class="info__label">{{__('Книга')}}</dt>
+                        <dd class="info__value">
+                           <span class="material-icons info__icon">menu_book</span>
+                           {{$presentation->book->title}}
+                           <a class="button presentation__btn" href="{{route('books.single', $presentation->book->id)}}" type="button">{{__(('Посмотреть'))}}</a>
+                        </dd>
+                     </li>
+                     <li class="info__item">
+                        <dt class="info__label">{{__('Дата и время презентации')}}</dt>
+                        <dd class="info__value">
+                           <span class="material-icons info__icon">schedule</span>
+                           {{$presentation->date}}
+                        </dd>
+                     </li>
+                     <li class="info__item">
+                        <dt class="info__label">{{__('Аудитория')}}</dt>
+                        <dd class="info__value">
+                           <span class="material-icons info__icon">meeting_room</span>
+                           {{$presentation->audience}}
+                        </dd>
+                     </li>
+                     <li class="info__item">
+                        <dt class="info__label">{{__('Количество участников')}}</dt>
+                        <dd class="info__value">
+                           <span class="material-icons info__icon">group</span>
+                           {{$presentation->participants_quantity}} / <output data-participants-quantity="{{$presentation->id}}">{{$presentation->participants->count()}}</output>
+                           <button class="button presentation__btn" data-type="participate" data-presentation="{{$presentation->id}}" type="button" {{$presentation->participants_quantity == $presentation->participants->count() ? 'disabled' : ''}}>{{__(('Я хочу участвовать'))}}!</button>
+                        </dd>
+                     </li>
+                     <li class="info__item">
+                        <dt class="info__label">{{__('Послание Спикера слушателям – отзыв о книге')}}</dt>
+                        <dd class="info__value">
+                           <span class="material-icons info__icon">description</span>
+                           {{$presentation->description}} 
+                        </dd>
+                     </li>
+                  </ul>
+               </div>{{-- presentation info end --}}
+            </section>
+            @endforeach
+         @endif
       </div>
    </main> 
 

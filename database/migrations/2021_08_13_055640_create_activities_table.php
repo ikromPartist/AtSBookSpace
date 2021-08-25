@@ -17,8 +17,8 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('moderator');
-            $table->date('start');
-            $table->date('end');
+            $table->timestamp('start');
+            $table->timestamp('end');
             $table->string('audience');
             $table->integer('participants_quantity');
             $table->text('description');

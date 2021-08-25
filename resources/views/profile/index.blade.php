@@ -1,10 +1,6 @@
 @extends('layouts.master')
 
 @section('styles')
-   {{-- Datetime picker --}}
-   <link rel="stylesheet" href="{{asset('css/datetimepicker.css')}}"> 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
    <link rel="stylesheet" href="{{asset('css/profile.css')}}">
 @endsection
 
@@ -84,9 +80,5 @@
 @endsection
 
 @section('scripts')
-   {{-- Datetime picker --}}
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
-   <script type="text/javascript" src="{{asset('js/datetimepicker.js')}}"></script>
-
    <script src="{{asset('js/profile.js')}}"></script>
 @endsection

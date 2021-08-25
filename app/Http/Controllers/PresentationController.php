@@ -11,14 +11,21 @@ class PresentationController extends Controller
 {
     public function index()
     {
-        $current_date = Carbon::now();
+        $currentDate = Carbon::now();
 
-        $presentations = Presentation::whereDate('date', '>', $current_date)
+        $presentations = Presentation::whereDate('date', '>', $currentDate)
                                         ->where('accepted', true)
                                         ->orderBy('date', 'asc')
                                         ->paginate(3);
 
         return view('presentation.index', compact('presentations'));
+    }
+
+    public function single($id)
+    {
+        $presentation = Presentation::find($id);
+
+        return view('presentation.single', compact('presentation'));
     }
 
     public function store(Request $request)

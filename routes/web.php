@@ -40,12 +40,13 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/rating/fetch_data', [RatingController::class, 'fetchData']);
    //! Presentation routes
    Route::get('/presentation', [PresentationController::class, 'index'])->name('presentation.index');
-   Route::get('/presetation/single/{id}')->name('presentation.single');
+   Route::get('/presentation/single/{id}', [PresentationController::class, 'single'])->name('presentation.single');
    Route::post('/presentation/store', [PresentationController::class, 'store']);
    Route::get('presentation/participation', [PresentationController::class, 'participation']);
    //! Activities routes
    Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities.index');
-   Route::get('/activities/single/{id}')->name('activities.single');
+   Route::get('/activities/single/{id}', [ActivitiesController::class, 'single'])->name('activities.single');
+   Route::get('activities/participation', [ActivitiesController::class, 'participation']);
    //! Rules routes
    Route::get('/rules', [RulesController::class, 'index'])->name('rules.index');
    //! Feedback routes
