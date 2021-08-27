@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\Presentation;
 use App\Models\User;
 use Carbon\Carbon;
@@ -46,6 +47,17 @@ class PresentationController extends Controller
         $presentation->description = $request->description;
         $presentation->presentation = $fileName;
         $save = $presentation->save();
+        // Make notification for admin 
+        $notification = new Notification;
+        $notification->type = 'presentation';
+        $notification->type_id = $presentation->id;
+        $notification->save();
+
+        $admins = User::where('role', 'admin')->get();
+        foreach ($admins as $admin) 
+        {
+            $admin->notifications()->attach($notification->id);
+        }
         // Show success when user is stored
         if ($save) {
             return 'success';

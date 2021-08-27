@@ -1,4 +1,4 @@
-//! Owl carousel start
+//! Owl carousel
 $(document).ready(function () {
    $(".owl-news").owlCarousel({
       loop: true,
@@ -31,8 +31,7 @@ $(document).ready(function () {
       }
    });
 });
-//! Owl carousel end
-//! Modal map start
+//! Modal map 
 const showMapEl = document.querySelector('[data-id="show-map"]');
 const modalMapEl = document.querySelector('[data-id="modal-map"]');
 const closeMapEl = modalMapEl.querySelector('[data-id="close-map"]');
@@ -44,4 +43,3 @@ closeMapEl.onclick = (e) => {
    e.preventDefault();
    modalMapEl.classList.add('hidden');
 }
-//! Modal map end

@@ -167,7 +167,6 @@ class BooksController extends Controller
         {
             $book->deadline_renewed = true;
             $book->return_date = Carbon::parse($book->return_date)->addDays(15);
-            $book->available_date = Carbon::parse($book->available_date)->addDays(15);
             $book->save();
              
             return false;

@@ -11,19 +11,17 @@ use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Presentation;
 
 Route::post('/auth/store', [AuthController::class, 'store'])->name('auth.store');
 Route::post('/auth/check', [AuthController::class, 'check'])->name('auth.check');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::group(['middleware'=>['AuthCheck']], function(){
-   
    Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
    Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
    //! Home routes
    Route::get('/', [HomeController::class, 'index'])->name('home.index');
-   //! Books routes 
+   //! Book routes 
    Route::get('/books', [BooksController::class, 'index'])->name('books.index');
    Route::get('/books/single/{id}', [BooksController::class, 'single'])->name('books.single');
    Route::get('/books/fetch_data', [BooksController::class, 'fetchData']);
@@ -43,14 +41,14 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/presentation/single/{id}', [PresentationController::class, 'single'])->name('presentation.single');
    Route::post('/presentation/store', [PresentationController::class, 'store']);
    Route::get('presentation/participation', [PresentationController::class, 'participation']);
-   //! Activities routes
+   //! Activity routes
    Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities.index');
    Route::get('/activities/single/{id}', [ActivitiesController::class, 'single'])->name('activities.single');
-   Route::get('activities/participation', [ActivitiesController::class, 'participation']);
+   Route::get('/activities/participation', [ActivitiesController::class, 'participation']);
    //! Rules routes
    Route::get('/rules', [RulesController::class, 'index'])->name('rules.index');
    //! Feedback routes
-   Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+   Route::post('/feedback/send', [FeedbackController::class, 'send']);
    //! Profile routes
    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
    Route::get('/profile/single/{id}', [ProfileController::class, 'single'])->name('profile.single');

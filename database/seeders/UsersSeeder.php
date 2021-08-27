@@ -60,5 +60,24 @@ class UsersSeeder extends Seeder
             ]);
         }
 
+        User::insert([
+            'avatar' => 'avatar1.jpg',
+            'name' => 'Admin',
+            'surname' => 'Adminov',
+            'last_name' => 'Adminovich',
+            'role' => 'admin',
+            'login' => 'admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin'),
+            'phone_numbers' => '992000200290',
+            'read_pages' => 0,
+            'company_id' => 1,
+            'renewed_deadlines' => 0,
+            'blacklist' => 0,
+            'blacklist_value' => 0,
+            'description' => 'I am an admin and I know it',
+            'created_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+            'updated_at' => $faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = null),
+        ]);
     }
 }

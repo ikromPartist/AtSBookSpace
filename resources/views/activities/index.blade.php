@@ -24,7 +24,7 @@
       @if ($activities->count() == 0)
          <p class="no-content">
             <span class="material-icons no-content__icon">sentiment_very_dissatisfied</span>
-            {{{__('К сожалению, на ближайшее время мероприятий не запланировано')}}}.
+            {{__('К сожалению, на ближайшее время мероприятий не запланировано')}}.
          </p>  
       @else
          @foreach ($activities as $key => $activity)

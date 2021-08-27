@@ -4,39 +4,61 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <meta name="csrf-token" content="{{ csrf_token() }}">
+      <meta name="csrf-token" content="{{csrf_token()}}">
       <title>AtS Book Space</title>
-      {{-- material icons --}}
+      {{-- Material icons --}}
       <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
       {{-- Datetime picker --}}
       <link rel="stylesheet" href="{{asset('css/datetimepicker.css')}}"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      {{-- main styles --}}
+      {{-- Main styles --}}
       <link rel="stylesheet" href="{{asset('css/main.css')}}">
-      {{-- page styles --}}
+      {{-- Page styles --}}
       @yield('styles')
    </head>
    <body>
+      
       @include('layouts.header')
-      
+
       @yield('content')
-      
+
       @include('layouts.footer')
-      
-      <x-scroll_button/>
-      
-      <div class="cursor-wrapper">
-         <div id="cursor"></div>
+
+      <section class="feedback hidden" id="feedback">
+         <form class="feedback-form" id="feedback-form">
+            @csrf
+            <label class="title feedback__title" for="feedback-msg">
+               {{__('Написать нам')}}
+               <button class="button button--red feedback__button--red" id="feedback-reset" type="reset">{{__('Очистить')}}</button>
+            </label>
+            <textarea class="feedback__textarea" id="feedback-msg" name="message" placeholder="{{__('Ваш вопрос или сообщение *')}}"></textarea>
+            <button class="button feedback__btn" id="feedback-submit" type="submit">{{__('Отправить')}}</button>
+         </form>
+      </section>
+      <div class="modal hidden" id="feedback-success-modal">
+         <div class="modal__msg-wrapper">
+            <p class="modal__msg">{{__('Ваше сообщение доставлено')}}!</p>
+         </div>
+         <div class="modal__btn-wrapper">
+            <button class="button" id="feedback-success-modal__ok-btn" type="button">{{__('OK')}}</button>
+         </div>
+         <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+            <span class="material-icons modal__close-icon" id="feedback-success-modal__close-btn">close</span>
+         </button>
       </div>
+
+      <button class="scroll-top-btn" id="scroll-top-btn" type="button">
+         <span class="material-icons scroll-top-btn__icon">arrow_upward</span>
+      </button>
       {{-- JQuery 3.6 --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
       {{-- Datetime picker --}}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
       <script type="text/javascript" src="{{asset('js/datetimepicker.js')}}"></script>
-      {{-- main scripts --}}
+      {{-- Main scripts --}}
       <script src="{{asset('js/main.js')}}"></script>
-      {{-- page scripts --}}
+      {{-- Page scripts --}}
       @yield('scripts')
    </body>
 </html>

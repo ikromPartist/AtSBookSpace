@@ -4,7 +4,7 @@ const ratingViewEl = document.querySelector('[data-id="p-content"]');
 let request = {
    type: 'most_active_reader'
 };
-//! Fetch rating list start
+
 function fetch_data(page, type) {
    $.ajax({
       url: "/rating/fetch_data?page=" + page + "&type=" + type,
@@ -104,4 +104,3 @@ ratingViewEl.addEventListener('click', (e) => {
       fetch_data(page, type);
    }
 })
-//! Fetch rating list end

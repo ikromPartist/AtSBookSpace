@@ -1,4 +1,4 @@
-/*! about (section) start */
+/*! About section */
 .about {
    width: 100%;
    display: flex;
@@ -39,8 +39,7 @@
 .about__image {
    display: block;
 }
-/*! about (section) end */
-/*! plan (section) start */
+/*! Plan section */
 .plan {
    display: flex;
    flex-wrap: wrap;
@@ -80,8 +79,7 @@
    margin-right: var(--p-small);
    align-items: center;
 }
-/*! plan (section) end */
-/*! training (section) start */
+/*! Training section */
 .training {
    background-color: var(--grey-scheme);
    padding: var(--p-normal) 0px var(--p-big) 0px;
@@ -108,4 +106,3 @@
 .training__image {
    display: block;
 }
-/*! training (section) start */

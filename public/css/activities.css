@@ -28,7 +28,3 @@
    right: 0px;
    height: 100%;
 }
-.activity__btn:disabled {
-   background-color: #c5c5c5;
-   border-color: #a7a7a7;
-}

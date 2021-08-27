@@ -94,4 +94,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(BookedBook::class);
     }    
+
+    public function feedbacks()
+    {
+        return $this->hasMany(Feedback::class);
+    }
+
+    public function notifications()
+    {
+        return $this->belongsToMany(Notification::class);
+    }
 }

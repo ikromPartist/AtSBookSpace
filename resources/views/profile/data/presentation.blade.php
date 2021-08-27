@@ -13,12 +13,7 @@
          </select>
          <span class="error-msg">{{__('Это поле обязательно для заполнения')}}</span>
       </div>
-   </div>               
-   <p class="form__item">
-      <label class="form__label" for="author">{{__('Автор')}}<span class="material-icons-outlined form__icon">badge</span></label>
-      <input class="form__input" id="author" data-type="field" type="text" name="author" value="{{old('author')}}" placeholder="{{__('Михаил Булгаков')}}">
-      <span class="error-msg">{{__('Это поле обязательно для заполнения')}}</span>
-   </p>
+   </div>      
    <div class="form__item">
       <label class="form__label">{{__('Дата и время презентации')}}<span class="material-icons form__icon">schedule</span></label>
       <div id="picker"></div>

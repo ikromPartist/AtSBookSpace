@@ -145,26 +145,6 @@ if (bookPreviewEls) {
       })
    });
 }
-//* cursor
-const cursorEl = document.querySelector('#cursor');
-document.addEventListener('mousemove', (e) => {
-   const x = e.clientX;
-   const y = e.clientY;
-   cursorEl.style.left = x + 'px';
-   cursorEl.style.top = y + 'px';
-   if (e.target.dataset.id == 'like-button') {
-      cursorEl.textContent = '😍';
-      e.target.addEventListener('mouseleave', () => {
-         cursorEl.textContent = '';
-      })
-   }
-   if (e.target.dataset.id == 'dislike-button') {
-      cursorEl.textContent = '😡';
-      e.target.addEventListener('mouseleave', () => {
-         cursorEl.textContent = '';
-      })
-   }
-})
 //* comment textarea
 const commentInputEl = document.querySelector('[data-id="comment-text"]');
 // textarea

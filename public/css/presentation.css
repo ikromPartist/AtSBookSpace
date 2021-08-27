@@ -22,10 +22,6 @@
    right: 0px;
    height: 100%;
 }
-.presentation__btn:disabled {
-   background-color: #c5c5c5;
-   border-color: #a7a7a7;
-}
 .presentation__even-preview {
    order: 1;
 }
