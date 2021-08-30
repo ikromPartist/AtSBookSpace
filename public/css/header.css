@@ -1,3 +1,15 @@
+@keyframes notification {
+   0% {
+      opacity: 0;
+   }
+   50% {
+      opacity: 1;
+   }
+   100% {
+      opacity: 0;
+   }
+}
+
 .header {
    position: sticky;
    top: -215px;
@@ -174,6 +186,15 @@
    color: inherit;
    font-size: 35px;
    display: block;
+}
+.notification-link__icon--active {
+   position: absolute;
+   top: 6px;
+   left: 6px;
+   color: red;
+   animation: notification;
+   animation-duration: 3s;
+   animation-iteration-count: infinite;
 }
 .notification-count {
    position: absolute;

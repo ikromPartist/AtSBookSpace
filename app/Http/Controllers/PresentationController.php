@@ -85,4 +85,62 @@ class PresentationController extends Controller
 
         return 'success';
     }
+
+    public function download(Presentation $presentation)
+    {
+        $file = public_path() . '/presentations/' . $presentation->presentation;
+
+        $extension = pathinfo($file, PATHINFO_EXTENSION);
+        
+        $headers = array(
+            'Content-Type: application/' . $extension,
+        );
+        
+        return response()->download($file, $presentation->presentation, $headers);
+    }
+
+    public function acception(Request $request)
+    {
+        $presentationId = $request->presentationid;
+        $acception = $request->acception;
+
+        $presentation = Presentation::select('id', 'user_id', 'accepted', 'denied')
+                                        ->find($presentationId);
+
+        if ($acception == 'accepted') {
+            $presentation->accepted = true;
+            $presentation->denied = false;
+            $presentation->save();
+
+            $notification = new Notification;
+            $notification->type = 'presentation_accepted';
+            $notification->type_id = $presentation->id;
+            $notification->save();
+
+            $userId = $presentation->user->id;
+            $user = User::find($userId);
+            $user->notifications()->attach($notification->id);
+
+            return back();
+
+        } 
+        if ($acception == 'denied')
+        {
+            $presentation->denied = true;
+            $presentation->accepted = false;
+            $presentation->save();
+
+            $notification = new Notification;
+            $notification->type = 'presentation_denied';
+            $notification->type_id = $presentation->id;
+            $notification->save();
+
+            $userId = $presentation->user->id;
+            $user = User::find($userId);
+            $user->notifications()->attach($notification->id);
+
+            return back();
+        }
+
+    }
 }

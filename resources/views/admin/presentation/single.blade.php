@@ -92,19 +92,31 @@
                      </dd>
                   </li>
                   <li class="info__item">
+                     <dt class="info__label">{{__('Презентация')}}</dt>
+                     <dd class="info__value">
+                        <span class="material-icons info__icon">description</span>
+                        {{$presentation->presentation}} 
+                        <a class="button presentation__btn" href="{{route('presentation.download', $presentation->id)}}">{{__(('Посмотреть'))}}<span class="material-icons presentation-download__icon">download</span></a>
+                     </dd>
+                  </li>
+                  <li class="info__item">
                      <dt class="info__label">{{__('Подтверждение')}}</dt>
                      <dd class="info__value">
                         @if (!$presentation->accepted && !$presentation->denied)
                         <span class="material-icons info__icon">checklist</span>
                         {{__('Не подтверждено')}}
+                        <a class="button presentation__btn presentation__btn--accept" href="{{route('presentation.acception')}}?presentationid={{$presentation->id}}&acception=accepted">{{__(('Подтвердить'))}}</a>
+                        <a class="button button--red presentation__btn" href="{{route('presentation.acception')}}?presentationid={{$presentation->id}}&acception=denied">{{__(('Отклонить'))}}</a>
                         @endif
                         @if ($presentation->accepted)
                         <span class="material-icons info__icon">edit_note</span>
                         {{__('Подтверждено')}}
+                        <a class="button button--red presentation__btn" href="{{route('presentation.acception')}}?presentationid={{$presentation->id}}&acception=denied">{{__(('Отклонить'))}}</a>
                         @endif
                         @if ($presentation->denied)
                         <span class="material-icons info__icon">close</span>
                         {{__('Отклонено')}}
+                        <a class="button presentation__btn" href="{{route('presentation.acception')}}?presentationid={{$presentation->id}}&acception=accepted">{{__(('Подтвердить'))}}</a>
                         @endif
                      </dd>
                   </li>

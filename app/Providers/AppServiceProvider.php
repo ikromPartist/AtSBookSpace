@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use App\Models\User;
 
-
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -36,10 +35,18 @@ class AppServiceProvider extends ServiceProvider
                                     ->withCount('likes')
                                     ->withCount('actions')
                                     ->where('id', session()->get('loggedUser'))->first();
-                return $view->with('loggedUser', $loggedUser);
+
+                $notes = User::find($loggedUser->id)
+                                        ->notifications()
+                                        ->where('new', true)
+                                        ->get();
+
+                return $view->with('loggedUser', $loggedUser)
+                                ->with('notes', $notes);
             }
         });
         view()->composer('*', function($view){
+            
             return $view->with('route', \Route::currentRouteName());
         });
     }

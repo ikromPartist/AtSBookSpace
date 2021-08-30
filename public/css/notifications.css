@@ -1,0 +1,21 @@
+.notifications {
+   margin: var(--p-small) 0px var(--p-big) 0px;
+}
+.feedback__link {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+   width: 500px;
+   line-height: 30px;
+}
+.feedback-single__title {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+   line-height: 90px;
+   padding: 0px var(--p-normal);
+}

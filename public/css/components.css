@@ -701,7 +701,7 @@ select {
    -webkit-box-orient: vertical;
    cursor: pointer;
 }
-.list__item span:not(:last-child) {
+.list__item span:not(:last-of-type) {
    padding-right: 10px;
 }
 .list__link {

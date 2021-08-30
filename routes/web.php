@@ -10,6 +10,7 @@ use App\Http\Controllers\PresentationController;
 use App\Http\Controllers\ActivitiesController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\NotificationsController;
 use App\Http\Controllers\ProfileController;
 
 Route::post('/auth/store', [AuthController::class, 'store'])->name('auth.store');
@@ -40,7 +41,9 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::get('/presentation', [PresentationController::class, 'index'])->name('presentation.index');
    Route::get('/presentation/single/{id}', [PresentationController::class, 'single'])->name('presentation.single');
    Route::post('/presentation/store', [PresentationController::class, 'store']);
-   Route::get('presentation/participation', [PresentationController::class, 'participation']);
+   Route::get('/presentation/participation', [PresentationController::class, 'participation']);
+   Route::get('/presentation/download/{presentation}', [PresentationController::class, 'download'])->name('presentation.download');
+   Route::get('/presentation/acception', [PresentationController::class, 'acception'])->name('presentation.acception');
    //! Activity routes
    Route::get('/activities', [ActivitiesController::class, 'index'])->name('activities.index');
    Route::get('/activities/single/{id}', [ActivitiesController::class, 'single'])->name('activities.single');
@@ -56,4 +59,7 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    Route::post('/profile/update_userinfo', [ProfileController::class, 'userinfoUpdate'])->name('userinfo.update');
    Route::get('/profile/update_password', [ProfileController::class, 'passwordUpdate']);
    Route::get('/profile/fetch_data', [ProfileController::class, 'fetchData']);
+   //! Notification routes
+   Route::get('notifications', [NotificationsController::class, 'index'])->name('notifications.index');
+   Route::get('notifications/single/{notification}', [NotificationsController::class, 'single'])->name('notifications.single');
 });

@@ -33,8 +33,11 @@
                <span class="material-icons-outlined search__icon" id="show-hide-icon">search</span>
             </button>
          </div>
-         <a class="notification-link" href="#">
+         <a class="notification-link" href="{{route('notifications.index')}}">
             <span class="material-icons notification-link__icon">notifications</span>
+            @if ($notes->count() != 0) 
+               <span class="material-icons notification-link__icon notification-link__icon--active">notifications_active</span>
+            @endif
          </a>
          <a class="viber-link" href="#">
             <img class="viber-link__icon" src="{{asset('img/viber.png')}}" alt="{{__('Вайбер')}}">

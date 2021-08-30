@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->string('type');
             $table->bigInteger('type_id');
             $table->boolean('new')->default(true);
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }
