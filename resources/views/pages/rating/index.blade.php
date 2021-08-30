@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="css/rating.css">
-@endsection
-
 @section('content')
    <main class="rating__page">
       <div class="container">
@@ -50,8 +46,4 @@
       </div>{{-- container end --}} 
    </main> 
 
-@endsection
-
-@section('scripts')
-   <script src="js/rating.js"></script>
 @endsection

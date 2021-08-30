@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/notifications.css')}}">
-@endsection
-
 @section('content')
    <main class="home__page">
       <div class="container">
@@ -92,8 +88,4 @@
          </section>
       </div>
    </main>
-@endsection
-
-@section('scripts')
-   <script src="{{asset('js/notifications.js')}}"></script>
 @endsection

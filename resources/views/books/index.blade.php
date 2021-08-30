@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/books.css')}}">
-@endsection
-
 @section('content')
    <main class="books__page">
       <div class="container">
@@ -140,11 +136,5 @@
       </section>{{-- about books end --}}
    
    </main>
-
-@endsection
-
-@section('scripts')
-
-   <script src="{{asset('js/books.js')}}"></script>
 
 @endsection

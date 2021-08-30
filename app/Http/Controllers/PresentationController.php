@@ -19,14 +19,14 @@ class PresentationController extends Controller
                                         ->orderBy('date', 'asc')
                                         ->paginate(3);
 
-        return view('presentation.index', compact('presentations'));
+        return view('pages.presentation.index', compact('presentations'));
     }
 
     public function single($id)
     {
         $presentation = Presentation::find($id);
 
-        return view('presentation.single', compact('presentation'));
+        return view('pages.presentation.single', compact('presentation'));
     }
 
     public function store(Request $request)

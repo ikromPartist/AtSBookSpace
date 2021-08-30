@@ -1,10 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/books.css')}}">
-   <link rel="stylesheet" href="{{asset('css/presentation.css')}}">
-@endsection
-
 @section('content')
    <main class="presentation__page">
       <div class="container">
@@ -113,9 +108,4 @@
          </section>
       </div>
    </main> 
-@endsection
-
-@section('scripts')
-   <script src="{{asset('js/books.js')}}"></script>
-   <script src="{{asset('js/presentation.js')}}"></script>
 @endsection

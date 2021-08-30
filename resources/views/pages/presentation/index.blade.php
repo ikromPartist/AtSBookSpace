@@ -1,10 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/books.css')}}">
-   <link rel="stylesheet" href="{{asset('css/presentation.css')}}">
-@endsection
-
 @section('content')
    <main class="presentation__page" data-id="presentations">
       <div class="container">
@@ -20,7 +15,7 @@
             </li>
          </ul>
 
-         <h1 class="page-title">{{__('Презентация книг')}}</h1>
+         <h1 class="heading">{{__('Презентация книг')}}</h1>
 
          @if ($presentations->count() == 0)
             <p class="no-content">
@@ -131,9 +126,4 @@
          </button>
       </div>
    </section>
-@endsection
-
-@section('scripts')
-   <script src="{{asset('js/books.js')}}"></script>
-   <script src="{{asset('js/presentation.js')}}"></script>
 @endsection

@@ -1,11 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-
-   <link rel="stylesheet" href="css/rules.css">
-
-@endsection
-
 @section('content')
 
    <main class="rules__page">
@@ -30,10 +24,4 @@
 
    </main> 
 
-@endsection
-
-@section('scripts')
-
-   <script src="js/rules.js"></script>
-   
 @endsection

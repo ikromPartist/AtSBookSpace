@@ -8,14 +8,13 @@
       <title>AtS Book Space</title>
       {{-- Material icons --}}
       <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
       {{-- Datetime picker --}}
       <link rel="stylesheet" href="{{asset('css/datetimepicker.css')}}"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      {{-- Main styles --}}
-      <link rel="stylesheet" href="{{asset('css/main.css')}}">
-      {{-- Page styles --}}
-      @yield('styles')
+      {{-- Owl carousel --}}
+      <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+      {{-- Styles --}}
+      <link rel="stylesheet" href="{{mix('/css/styles.css')}}">
    </head>
    <body>
       
@@ -49,16 +48,16 @@
       </div>
 
       <button class="scroll-top-btn" id="scroll-top-btn" type="button">
-         <span class="material-icons scroll-top-btn__icon">arrow_upward</span>
+         <img src="{{asset('img/scroll-to-top.png')}}">
       </button>
       {{-- JQuery 3.6 --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
       {{-- Datetime picker --}}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
       <script type="text/javascript" src="{{asset('js/datetimepicker.js')}}"></script>
-      {{-- Main scripts --}}
-      <script src="{{asset('js/main.js')}}"></script>
-      {{-- Page scripts --}}
-      @yield('scripts')
+      {{-- Owl carousel --}}
+      <script src="{{asset('js/owl.carousel.min.js')}}"></script>
+      {{-- Scripts --}}
+      <script src="{{mix('/js/scripts.js')}}"></script>
    </body>
 </html>

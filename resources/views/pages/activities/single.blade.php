@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/activities.css')}}">
-@endsection
-
 @section('content')
    <main class="activities__page" data-id="activities">
       <div class="container">
@@ -113,8 +109,4 @@
          </button>
       </div>
    </section>
-@endsection
-
-@section('scripts')
-   <script src="{{asset('js/activities.js')}}"></script>
 @endsection

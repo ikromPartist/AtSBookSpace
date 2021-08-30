@@ -17,14 +17,14 @@ class ActivitiesController extends Controller
                                 ->orderBy('start', 'asc')
                                 ->paginate(3);
 
-        return view('activities.index', compact('activities'));
+        return view('pages.activities.index', compact('activities'));
     }
 
     public function single($id)
     {
         $activity = Activity::find($id);
 
-        return view('activities.single', compact('activity'));
+        return view('pages.activities.single', compact('activity'));
     }
 
     public function participation(Request $request)

@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Cuprum:wght@400;700&display=swap");
+*, *::before, *::after {
+   box-sizing: border-box;
+   margin: 0px;
+   padding: 0px;
+}
+html {
+   --blue: #293449;
+   --blue-light: #32425c;
+   --red: #ee3643;
+   --red-light: #ff5562;
+   --red-dark: #c1121f;
+   --green: #63a63e;
+   --green-light: #5fbb2d;
+   --green-dark: #518534;
+   --yellow: #f3c600;
+   --grey: #f2f6f8;
+   --milk: #f7f3ec;
+   --p1: 10px;
+   --p2: 20px;
+   --p3: 30px;
+   --fs1: 18px;
+   --fs2: 20px;
+   --fs3: 22px;
+   --fs4: 24px;
+   --h1: 40px;
+   --h2: 50px;
+   --h3: 60px;
+}
+body {
+   margin: 0px;
+   font-family: "Cuprum", sans-serif;
+   font-size: 18px;
+}
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   white-space: nowrap;
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+}
+.container {
+   width: 1400px;
+   padding: 0px var(--p3);
+   margin: 0 auto;
+}
+.main-logo {
+   display: inline-block;
+   width: 36px;
+   height: 36px;
+}
+.koinot-logo {
+   display: inline-block;
+   height: 36px;
+}
+ul {
+   list-style: none;
+}
+.heading {
+   height: var(--h3);
+   background-color: var(--grey);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   text-transform: uppercase;
+   font-weight: bold;
+   padding: 0 var(--p2);
+   width: 100%;
+}
+.title {
+   height: var(--h2);
+   background-color: var(--milk);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   text-transform: uppercase;
+   font-weight: bold;
+   padding: 0 var(--p2);
+   width: 100%;
+}
+.no-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   color: grey;
+   font-size: 20px;
+   text-shadow: 0 0 5px grey;
+   margin: var(--p2) 0px var(--p3) 0px;
+}
+.no-content__icon {
+   font-size: 100px;
+   opacity: 0.5;
+   margin: 20px;
+}
+.width-10 {
+   width: 10%;
+}
+.width-20 {
+   width: 20%;
+}
+.width-30 {
+   width: 30%;
+}
+.width-40 {
+   width: 40%;
+}
+.width-50 {
+   width: 50%;
+}
+.width-60 {
+   width: 60%;
+}
+.width-70 {
+   width: 70%;
+}
+.width-80 {
+   width: 80%;
+}
+.width-90 {
+   width: 90%;
+}
+.txt-center {
+   text-align: center;
+}

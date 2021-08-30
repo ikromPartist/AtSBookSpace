@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="css/about.css">
-@endsection
-
 @section('content')
    <main class="about__page">
       <div class="container">
@@ -19,7 +15,7 @@
             </li>
          </ul>
 
-         <h1 class="page-title about-title">{{__('О клубе')}}</h1>   
+         <h1 class="heading about-title">{{__('О клубе')}}</h1>   
 
          <section class="about">
             <h2 class="visually-hidden">AtS Book Space</h2>
@@ -111,8 +107,4 @@
       </section>{{-- training end --}}
    </main> 
 
-@endsection
-
-@section('scripts')
-   <script src="js/about.js"></script>
 @endsection

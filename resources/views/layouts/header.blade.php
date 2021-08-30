@@ -4,33 +4,33 @@
          <a class="ats-link" href="https://ats.tj/" target="_blank">
             <img class="main-logo" src="{{asset('img/main-logo.png')}}" alt="AtS Book Space">
          </a>
-         <a class="koinot-link">
+         <a class="koinot-link" href="https://project2019.koinotinav.com/" target="_blank">
             <img class="koinot-logo" src="{{asset('img/koinot-logo.png')}}" alt="Коиноти Нав">
          </a>
          <div class="catalog">
             <button class="catalog__button" id="catalog-btn" type="button">
-               {{__('Каталог')}}
-               <span class="material-icons-outlined catalog__dropdown-icon" id="catalog-icon">arrow_drop_down</span>
+               Каталог
+               <span class="material-icons catalog__dropdown-icon" id="catalog-icon">arrow_drop_down</span>
             </button>
             <ul class="catalog__list hidden" id="catalog-list">
                <li class="catalog__items">
-                  <a class="catalog__links" href="{{route('books.index')}}">{{__('Все')}}</a>
+                  <a class="catalog__links" href="{{route('books.index')}}">Все</a>
                </li>
                <li class="catalog__items">
-                  <a class="catalog__links" href="{{route('books.index')}}?category=available">{{__('Доступные')}}</a>
+                  <a class="catalog__links" href="{{route('books.index')}}?category=available">Доступные</a>
                </li>
             </ul>
          </div>
          <div class="search__wrapper">
             <form class="search hidden" id="search">
                @csrf
-               <input class="search__input" type="search" name="keyword" placeholder="{{__('Поиск')}}:">
+               <input class="search__input" type="search" name="keyword" placeholder="Поиск...">
                <button class="search__submit-btn" type="submit">
-                  <span class="material-icons-outlined search__icon">search</span>
+                  <span class="material-icons search__icon">search</span>
                </button>
             </form>
             <button class="search__button" id="show-hide-search-btn" type="button">
-               <span class="material-icons-outlined search__icon" id="show-hide-icon">search</span>
+               <span class="material-icons search__icon" id="show-hide-icon">search</span>
             </button>
          </div>
          <a class="notification-link" href="{{route('notifications.index')}}">
@@ -44,10 +44,10 @@
          </a>
          <dl class="taken-book">
             @if ($loggedUser->book)
-               <dt class="taken-book__title" title="{{__('Взятая книга')}}">
+               <dt class="taken-book__title" title="Взятая книга">
                   <a class="taken-book__link" href="{{route('books.single', $loggedUser->book->id)}}">
                      {{$loggedUser->book->title}}
-                     <p class="taken-book__see-txt">{{__('Посмотреть')}}</p>
+                     <p class="taken-book__see-txt">Посмотреть</p>
                   </a>
                </dt>
                <dd class="taken-book__deadline">
@@ -61,12 +61,12 @@
                      <span data-id="minutes"></span><b>:</b>
                      <span class="taken-book__seconds" data-id="seconds"></span>
                      @if(Carbon\Carbon::now() < $loggedUser->book->return_date)
-                     <p class="taken-book__renew">{{__('Продлить')}}</p>
+                     <p class="taken-book__renew">Продлить</p>
                      @endif
                   </a>
                </dd>
             @else
-               <p class="taken-book__message">{{__('Вы не читаете книг')}}</p>
+               <p class="taken-book__message">Вы не читаете книг</p>
             @endif
          </dl>
       </div>{{-- container end --}}
@@ -75,9 +75,9 @@
    <div class="header-bottom">
       <div class="container header-bottom__container">
          <blockquote class="quote">
-            <span>{{__('Быть')}}</span> 
-            {{__('умным модно!!')}}<br>
-            {{__('Профессионалом своего дела-гордо!!!')}} 
+            <span>Быть</span> 
+            умным модно!!<br>
+            Профессионалом своего дела-гордо!!! 
          </blockquote>
          <address class="company">
             <p class="company__phone">
@@ -94,78 +94,105 @@
                   <span class="material-icons logout-link__icon">logout</span>
                </a>
             </div>
-            <a class="profile-link" href="{{route('profile.index')}}">{{__('Управление профилем')}}</a>
+            <a class="profile-link" href="{{route('profile.index')}}">Управление профилем</a>
          </div>
       </div>{{-- container end --}} 
       <nav class="main-navigation header__main-navigation">
          <div class="container">
             <ul class="site-navigation">
                <li class="site-navigation__item {{$route == 'home.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" @if($route != 'home.index')href="{{route('home.index')}}"@endif>{{__('Главная')}}</a>
+                  <a class="site-navigation__link" @if($route != 'home.index')href="{{route('home.index')}}"@endif>Главная</a>
                </li>
                <li class="site-navigation__item {{$route == 'about.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" @if($route != 'about.index')href="{{route('about.index')}}"@endif>{{__('О клубе')}}</a>
+                  <a class="site-navigation__link" @if($route != 'about.index')href="{{route('about.index')}}"@endif>О клубе</a>
                </li>
                <li class="site-navigation__item {{$route == 'rating.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" @if($route != 'rating.index')href="{{route('rating.index')}}"@endif>{{__('Рейтинги')}}</a>
+                  <a class="site-navigation__link" @if($route != 'rating.index')href="{{route('rating.index')}}"@endif>Рейтинги</a>
                </li>
                <li class="site-navigation__item {{$route == 'presentation.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" @if($route != 'presentation.index')href="{{route('presentation.index')}}"@endif>{{__('Презентация книг')}}</a>
+                  <a class="site-navigation__link" @if($route != 'presentation.index')href="{{route('presentation.index')}}"@endif>Презентация книг</a>
                </li>
                <li class="site-navigation__item {{$route == 'activities.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" @if($route != 'activities.index')href="{{route('activities.index')}}"@endif>{{__('Мероприятия клуба')}}</a>
+                  <a class="site-navigation__link" @if($route != 'activities.index')href="{{route('activities.index')}}"@endif>Мероприятия клуба</a>
                </li>
                <li class="site-navigation__item {{$route == 'rules.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" @if($route != 'rules.index')href="{{route('rules.index')}}"@endif>{{__('Правила пользования библиотекой')}}</a>
+                  <a class="site-navigation__link" @if($route != 'rules.index')href="{{route('rules.index')}}"@endif>Правила пользования библиотекой</a>
                </li>
                <li class="site-navigation__item {{$route == 'feedback.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" data-link="feedback_link" href="#">{{__('Обратная связь')}}</a>
+                  <a class="site-navigation__link" data-link="feedback_link" href="#">Обратная связь</a>
                </li>   
             </ul> 
          </div>{{-- container end --}}
       </nav>
    </div>{{-- header bottom end --}}
+   <section class="modal hidden">
+      <div class="modal__container">
+         <p class="modal__text">Вы уверены что хотите продлить дедлайн?</p>
+         <div class="modal__btn-wrapper">
+            <button class="button" type="button">Продлить</button>
+            <button class="button button--red" type="button">Отмена</button>
+         </div>
+         <button class="modal__close-btn" type="button">
+            <span class="material-icons modal__close-icon">close</span>
+         </button>
+      </div>
+   </section>
+   <section class="modal">
+      <div class="modal__container modal__container--success">
+         <p class="modal__text">Ваш дедлайн успешно продлен ещё на 15 дней!</p>
+         <div class="modal__btn-wrapper">
+            <button class="button" type="button">OK</button>
+         </div>
+         <button class="modal__close-btn" type="button">
+            <span class="material-icons modal__close-icon modal__close-icon--success">close</span>
+         </button>
+      </div>
+   </section>
+
+   
+
+
+   <section class="modals">
+      <div class="modal hidden" data-id="confirm-modal">
+         <div class="modal__msg-wrapper">
+            <p class="modal__msg">{{__('Вы уверены что хотите продлить дедлайн')}}?</p>
+         </div>
+         <div class="modal__btn-wrapper">
+            <button class="button" data-id="confirm-modal__confirm-btn" type="button">{{__('')}}</button>
+            <button class="button button--red" data-id="confirm-modal__cancel-btn" type="button">{{__('')}}</button>
+         </div>
+         <button class="modal__close-btn" aria-label="{{__('Закрыть')}}">
+            <span class="material-icons modal__close-icon" data-id="confirm-modal__close-btn">close</span>
+         </button>
+      </div>
+      <div class="modal hidden" data-id="success-modal">
+         <div class="modal__msg-wrapper">
+            <p class="modal__msg">{{__('')}}!</p>
+         </div>
+         <div class="modal__btn-wrapper">
+            <button class="button" data-id="success-modal__ok-btn" type="button">{{__('')}}</button>
+         </div>
+         <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+            <span class="material-icons modal__close-icon" data-id="success-modal__close-btn">close</span>
+         </button>
+      </div>
+      <div class="modal hidden" data-id="fail-modal">
+         <div class="modal__msg-wrapper">
+            <p class="modal__msg modal__msg--red">
+               {{'Операция невозможна'}}!
+               @if ($loggedUser->book && $loggedUser->book->deadline_renewed)
+               {{__('Вы уже продлили дедлайн')}}.
+               @endif
+            </p>
+         </div>
+         <div class="modal__btn-wrapper">
+            <button class="button" data-id="fail-modal__ok-btn" type="button">{{__('OK')}}</button>
+         </div>
+         <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+            <span class="material-icons modal__close-icon" data-id="fail-modal__close-btn">close</span>
+         </button>
+      </div>
+   </section>
 </header>
 
-<section class="modals">
-   <div class="modal hidden" data-id="confirm-modal">
-      <div class="modal__msg-wrapper">
-         <p class="modal__msg">{{__('Вы уверены что хотите продлить дедлайн')}}?</p>
-      </div>
-      <div class="modal__btn-wrapper">
-         <button class="button" data-id="confirm-modal__confirm-btn" type="button">{{__('Продлить')}}</button>
-         <button class="button button--red" data-id="confirm-modal__cancel-btn" type="button">{{__('Отмена')}}</button>
-      </div>
-      <button class="modal__close-btn" aria-label="{{__('Закрыть')}}">
-         <span class="material-icons modal__close-icon" data-id="confirm-modal__close-btn">close</span>
-      </button>
-   </div>
-   <div class="modal hidden" data-id="success-modal">
-      <div class="modal__msg-wrapper">
-         <p class="modal__msg">{{__('Ваш дедлайн успешно продлен ещё на 15 дней')}}!</p>
-      </div>
-      <div class="modal__btn-wrapper">
-         <button class="button" data-id="success-modal__ok-btn" type="button">{{__('OK')}}</button>
-      </div>
-      <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
-         <span class="material-icons modal__close-icon" data-id="success-modal__close-btn">close</span>
-      </button>
-   </div>
-   <div class="modal hidden" data-id="fail-modal">
-      <div class="modal__msg-wrapper">
-         <p class="modal__msg modal__msg--red">
-            {{'Операция невозможна'}}!
-            @if ($loggedUser->book && $loggedUser->book->deadline_renewed)
-            {{__('Вы уже продлили дедлайн')}}.
-            @endif
-         </p>
-      </div>
-      <div class="modal__btn-wrapper">
-         <button class="button" data-id="fail-modal__ok-btn" type="button">{{__('OK')}}</button>
-      </div>
-      <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
-         <span class="material-icons modal__close-icon" data-id="fail-modal__close-btn">close</span>
-      </button>
-   </div>
-</section>
 

@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/profile.css')}}">
-@endsection
-
 @section('content')
    <main class="profile__page">
       <div class="container">
@@ -77,8 +73,4 @@
          </div>{{-- profile page's content wrapper end --}}
       </div>{{-- container end --}}      
    </main>
-@endsection
-
-@section('scripts')
-   <script src="{{asset('js/profile.js')}}"></script>
 @endsection

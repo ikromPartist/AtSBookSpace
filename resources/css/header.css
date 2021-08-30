@@ -1,22 +1,10 @@
-@keyframes notification {
-   0% {
-      opacity: 0;
-   }
-   50% {
-      opacity: 1;
-   }
-   100% {
-      opacity: 0;
-   }
-}
-
 .header {
    position: sticky;
-   top: -215px;
+   top: -190px;
    z-index: 2;
 }
 .header-top {
-   background-color: var(--blue-scheme);
+   background-color: var(--blue);
    width: 100%;
    position: sticky;
    top: 0px;
@@ -24,22 +12,20 @@
 }
 .header-top__container {
    display: flex;
-   flex-wrap: wrap;
    color: #fff;
-   font-size: 22px;
+   font-size: var(--fs2);
+   height: var(--h1);  
 }
-.ats-link,
+.ats-link {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 .koinot-link {
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: var(--grey-scheme);
-   padding: 5px;
-}
-.ats-link:hover,
-.ats-link:focus {
-   outline: none;
-   background-color: #b3b3b3;
+   margin-left: 5px;
 }
 .catalog {
    display: flex;
@@ -48,13 +34,14 @@
 .catalog__button {
    border: none;
    color: #fff;
-   background-color: var(--blue-scheme);
+   background-color: var(--blue);
    font-family: inherit;
    font-size: inherit;
    display: flex;
    align-items: center;
    cursor: pointer;
-   padding: 0 0 0 var(--p-small);
+   padding: 0 0 0 var(--p1);
+   width: 110px;
 }
 .catalog__button:hover,
 .catalog__button:focus,
@@ -62,15 +49,15 @@
 .catalog__links:focus {
    outline: none;
    background-color: #fff;
-   color: var(--blue-scheme);
+   color: var(--blue);
 }
 .catalog__dropdown-icon {
-   font-size: 30px;
+   font-size: var(--fs4);
    padding-left: 4px;
 }
 .catalog__list {
    position: absolute;
-   top: 50px;
+   top: 40px;
    right: 0px;
 }
 .catalog__items {
@@ -80,18 +67,18 @@
    display: flex;
    justify-content: start;
    align-items: center;
-   width: 115px;
+   width: 110px;
    text-decoration: none;
    color: #fff;
-   font-size: 20px;
-   background-color: var(--blue-scheme);
-   padding: 0px var(--p-small);
-   height: 40px;
+   font-size: var(--fs2);
+   background-color: var(--blue);
+   padding: 0px var(--p1);
+   height: var(--h1);
    overflow: hidden;
    transition: 0.2s;
 }
 .catalog__list.hidden .catalog__links:focus {
-   height: 40px;
+   height: var(--h1);
 }
 .catalog__list.hidden .catalog__links {
    height: 0px;
@@ -115,15 +102,15 @@
    border: none;
    background-color: transparent;
    display: flex;
-   height: 50px;
+   height: var(--h1);
    align-items: center;
-   color: var(--red-scheme);
-   padding: 10px;
+   color: var(--red);
+   padding: var(--p1) 5px;
    cursor: pointer;
 }
 .search__submit-btn:focus {
    outline: 0px;
-   background-color: var(--blue-scheme);
+   background-color: var(--blue);
    color: #fff;
 }
 .search__button {
@@ -131,11 +118,11 @@
 }
 .search__button:hover {
    background-color: #fff;
-   color: var(--red-scheme);
+   color: var(--red);
 }
 .search__button.close {
    background-color: #fff;
-   color: var(--red-scheme);
+   color: var(--red);
 }
 .search__icon {
    display: block;
@@ -146,8 +133,8 @@
    border: none;
    background-color: transparent;
    width: 100%;
-   padding-left: 10px;
-   color: var(--blue-scheme);
+   padding-left: var(--p1);
+   color: var(--blue);
    font-size: inherit;
    font-family: inherit;
    font-weight: bold;
@@ -159,7 +146,7 @@
 .search__input:focus,
 .search__input:active {
    outline: none;
-   color: var(--blue-scheme);
+   color: var(--blue);
    font-weight: bold;
 }
 .notification-link {
@@ -168,14 +155,14 @@
    text-decoration: none;
    justify-content: center;
    align-items: center;
-   padding: 2px 6px 6px 6px;
    color: #fff;
+   width: var(--h1);
 }
 .notification-link:hover,
 .notification-link:focus {
    outline: none;
    background-color: #fff;
-   color: var(--blue-scheme);
+   color: var(--blue);
 }
 .viber-link:hover,
 .viber-link:focus {
@@ -184,38 +171,19 @@
 }
 .notification-link__icon {
    color: inherit;
-   font-size: 35px;
+   font-size: 30px;
    display: block;
-}
-.notification-link__icon--active {
-   position: absolute;
-   top: 6px;
-   left: 6px;
-   color: red;
-   animation: notification;
-   animation-duration: 3s;
-   animation-iteration-count: infinite;
-}
-.notification-count {
-   position: absolute;
-   top: 2px;
-   right: 5px;
-   font-family: sans-serif;
-   color: red;
-   font-weight: 900;
-   font-size: 14px;
-   text-shadow: 0 0 6px #fff;
 }
 .viber-link {
    display: flex;
    text-decoration: none;
    justify-content: center;
    align-items: center;
-   padding: 5px 8px;
+   width: var(--h1);
 }
 .viber-link__icon {
    display: block;
-   width: 36px;
+   width: 30px;
 }
 .taken-book {
    display: flex;
@@ -228,8 +196,8 @@
 .taken-book__message {
    display: flex;
    align-items: center;
-   padding: 10px;
-   background-color: var(--green-scheme);
+   padding: var(--p1);
+   background-color: var(--green);
    text-decoration: none;
    color: #fff;
    position: relative;
@@ -238,13 +206,13 @@
    position: absolute;
    top: 0px;
    left: 0px;
-   background-color: var(--green-scheme);
+   background-color: var(--green);
    width: 100%;
    height: 100%;
    display: flex;
    justify-content: center;
    align-items: center;
-   font-size: 30px;
+   font-size: var(--fs2);
    min-width: 150px;
    transition: 0.2s;
    opacity: 0;
@@ -256,31 +224,28 @@
    opacity: 1;
 }
 .taken-book__link:active {
-   background-color: var(--green-scheme_dark);
+   background-color: var(--green-dark);
 }
 .taken-book__deadline {
    display: flex;
 }
 .taken-book__deadline-link {
-   background-color: var(--red-scheme);
-   font-size: 30px;
+   background-color: var(--red);
+   font-size: var(--fs4);
    display: flex;
    gap: 3px;
    justify-content: center;
    align-items: center;
-   padding: 0px 10px;
+   padding: 0px var(--p1);
    cursor: pointer;
-   min-width: 184px;
+   min-width: 150px;
 }
 .taken-book__deadline-link small {
    position: relative;
-   font-size: 22px;
+   font-size: var(--fs1);
    bottom: -4px;
    font-weight: bold;
    margin-right: 5px;
-}
-.taken-book__seconds {
-   min-width: 30px;
 }
 .taken-book__renew {
    position: absolute;
@@ -291,36 +256,37 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: var(--red-scheme);
+   background-color: var(--red);
    opacity: 0;
    transition: 0.2s;
+   font-size: var(--fs2);
 }
 .taken-book__deadline-link:hover .taken-book__renew,
 .taken-book__deadline-link:focus .taken-book__renew {
    opacity: 1;
 }
 .taken-book__deadline-link:active {
-   background-color: var(--red-scheme);
+   background-color: var(--red);
 }
 .taken-book__message {
-   background-color: var(--red-scheme);
+   background-color: var(--red);
    cursor: default;
 }
 .header-bottom {
-   background-color: var(--grey-scheme);
-   height: 270px;
+   background-color: var(--grey);
+   height: 230px;
 }
 .header-bottom__container {
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
-   min-height: 160px;
+   min-height: 150px;
 }
 .quote {
    display: flex;
    align-items: center;
    font-family: serif;
-   color: var(--red-scheme);
+   color: var(--red);
    font-weight: bold;
    font-size: 18px;
    line-height: 25px;
@@ -343,27 +309,31 @@
    justify-content: center;
    max-width: 500px;
    align-items: center;
+   gap: var(--p1);
 }
 .company__phone {
    width: 250px;
    display: flex;
    align-items: center;
-   height: 45px;
-   border: 3px solid #fff;
+   height: var(--h1);
+   border: 2px solid #fff;
    font-weight: bold;
-   color: var(--red-scheme);
-   font-size: 20px;
+   color: var( --red);
+   font-size: var(--fs2);
    position: relative;
    justify-content: center;
 }
 .company__phone-icon {
    color: #b7bfc8;
-   font-size: 26px;
+   font-size: var(--fs4);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: var(--h1);
+   width: var(--h1);
    position: absolute;
-   left: 0;
-   top: 50%;
-   margin-top: -13px;
-   margin-left: 5px;
+   top: calc(50% - 20px);
+   left: 0px;
 }
 .company-name {
    text-align: center;
@@ -376,22 +346,25 @@
    flex-direction: column;
    justify-content: center;
    position: relative;
+   gap: var(--p1);
 }
 .user-wrapper {
    display: flex;
    justify-content: space-between;
-   height: 45px;
+   height: var(--h1);
    background-color: #fff;
-   font-size: 22px;
+   font-size: var(--fs2);
    font-weight: bold;
-   min-width: 230px;
+   min-width: 250px;
 }
 .user-icon {
    display: flex;
+   justify-content: center;
    align-items: center;
-   padding: 6px;
    color: #b7bfc8;
-   font-size: 26px;
+   font-size: var(--fs4);
+   height: 100%;
+   width: var(--h1);
 }
 .user-name {
    display: flex;
@@ -399,10 +372,14 @@
    padding: 6px;
 }
 .logout-link {
-   display: flex;
-   align-items: center;
-   padding: 6px;
    text-decoration: none;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #b7bfc8;
+   font-size: var(--fs4);
+   height: 100%;
+   width: var(--h1);
 }
 .logout-link:hover,
 .logout-link:focus {
@@ -412,7 +389,6 @@
 .logout-link__icon {
    display: block;
    color: #b7bfc8;
-   font-size: 26px;
    font-weight: bold;
 }
 .logout-link:hover .logout-link__icon,
@@ -423,7 +399,6 @@
    text-align: center;
    color: #32425c;
    font-weight: bold;
-   margin-top: 5px;
 }
 .profile-link:hover,
 .profile-link:focus {
@@ -433,9 +408,9 @@
 }
 .main-navigation {
    position: sticky;
-   top: 50px;
-   background-color: var(--yellow-scheme);
-   border-bottom: 5px solid #cca600;
+   top: var(--h1);
+   background-color: var(--yellow);
+   box-shadow: 0px 3px 3px #a0a0a0;
 }
 .site-navigation {
    width: 100%;
@@ -453,10 +428,10 @@
    justify-content: center;
    align-items: center;
    text-decoration: none;
-   color: var(--blue-scheme);
+   color: var(--blue);
    font-weight: bold;
-   padding: 12px;
-   font-size: 22px;
+   height: var(--h1);
+   font-size: var(--fs2);
    width: 100%;
 }
 .site-navigation__link:hover,
@@ -468,19 +443,4 @@
    background-color: #cca600;
    color: #fff;
    user-select: none;
-}
-.close-btn {
-   position: absolute;
-   top: 0;
-   right: 0;
-   border: none;
-   background-color: transparent;
-   margin: var(--p-small) var(--p-normal) 0 0;
-   cursor: pointer;
-}
-.close-icon {
-   color: #fff;
-   display: block;
-   font-weight: bold;
-   font-size: 30px;
 }

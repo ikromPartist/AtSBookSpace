@@ -1,10 +1,5 @@
 @extends('layouts.master')
 
-@section('styles')
-   <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-   <link rel="stylesheet" href="{{asset('css/home.css')}}">
-@endsection
-
 @section('content')
    <main class="home__page">
       <div class="owl-carousel owl-news">
@@ -219,9 +214,4 @@
          </section>{{-- map end --}}
       </div>{{-- container end --}}
    </main>
-@endsection
-
-@section('scripts')
-   <script src="{{asset('js/home.js')}}"></script>
-   <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 @endsection
