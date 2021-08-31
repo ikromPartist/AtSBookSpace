@@ -25,7 +25,7 @@ class BooksController extends Controller
                             ->withCount('queues')
                             ->where('user_id', null)
                             ->orderBy('title', 'asc')
-                            ->paginate(12);
+                            ->paginate(15);
     
             $category = 'available';
             $rank = $books->firstItem();
@@ -40,7 +40,7 @@ class BooksController extends Controller
                             ->withCount('ratings')
                             ->withCount('queues')
                             ->orderBy('title', 'asc')
-                            ->paginate(12);
+                            ->paginate(15);
     
             $category = 'all';
             $rank = $books->firstItem();
@@ -56,7 +56,7 @@ class BooksController extends Controller
                             ->withCount('queues')
                             ->where('category', $request->category)
                             ->orderBy('title', 'asc')
-                            ->paginate(12);
+                            ->paginate(15);
     
             $category = $request->category;
             $rank = $books->firstItem();
@@ -100,7 +100,7 @@ class BooksController extends Controller
                                 ->withCount('queues')
                                 ->where('user_id', null)
                                 ->orderBy($orderBy, $orderType)
-                                ->paginate(12);
+                                ->paginate(15);
 
                 $rank = $books->firstItem();
         
@@ -115,7 +115,7 @@ class BooksController extends Controller
                                 ->withCount('ratings')
                                 ->withCount('queues')
                                 ->orderBy($orderBy, $orderType)
-                                ->paginate(12);
+                                ->paginate(15);
 
                 $rank = $books->firstItem();
         
@@ -130,7 +130,7 @@ class BooksController extends Controller
                                 ->withCount('queues')
                                 ->where('category', $category)
                                 ->orderBy($orderBy, $orderType)
-                                ->paginate(12);
+                                ->paginate(15);
 
                 $rank = $books->firstItem();
 

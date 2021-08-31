@@ -19,10 +19,12 @@ html {
    --p1: 10px;
    --p2: 20px;
    --p3: 30px;
+   --fs: 16px;
    --fs1: 18px;
    --fs2: 20px;
    --fs3: 22px;
    --fs4: 24px;
+   --h: 30px;
    --h1: 40px;
    --h2: 50px;
    --h3: 60px;
@@ -30,7 +32,7 @@ html {
 body {
    margin: 0px;
    font-family: "Cuprum", sans-serif;
-   font-size: 18px;
+   font-size: var(--fs1);
 }
 .visually-hidden:not(:focus):not(:active),
 input[type="checkbox"].visually-hidden,
@@ -73,6 +75,7 @@ ul {
    font-weight: bold;
    padding: 0 var(--p2);
    width: 100%;
+   font-size: var(--fs4);
 }
 .title {
    height: var(--h2);
@@ -83,7 +86,7 @@ ul {
    text-transform: uppercase;
    font-weight: bold;
    padding: 0 var(--p2);
-   width: 100%;
+   font-size: var(--fs3);
 }
 .no-content {
    display: flex;
@@ -128,4 +131,10 @@ ul {
 }
 .txt-center {
    text-align: center;
+}
+.green {
+   color: #63a63e;
+}
+.red {
+   color: #ee3643;
 }

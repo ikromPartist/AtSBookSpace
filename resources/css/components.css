@@ -59,30 +59,30 @@
    display: flex;
    justify-content: center;
    align-items: flex-start;
-   background-image: url("../img/scroll-top-bg.png");
-   background-repeat: no-repeat;
-   background-position: center bottom;
    overflow: hidden;
    transition: 0.2s;
 }
 .scroll-top-btn.active {
    pointer-events: auto;
-   height: 150px;
+   height: 120px;
    animation-name: scroll;
    animation-iteration-count: infinite;
    animation-duration: 1s;
 }
 /*! Link styles */
 .link {
-   display: inline-block;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    color: #fff;
    text-decoration: none;
    background-color: var(--red);
-   padding: 8px 20px;
-   font-size: 18px;
-   border-radius: 3px;
+   font-size: var(--fs);
+   border-radius: 2px;
    text-shadow: 0 1px 5px black;
    text-transform: uppercase;
+   height: var(--h);
+   padding: 0px var(--p2);
 }
 .link:hover,
 .link:focus {
@@ -93,10 +93,6 @@
    background-color: var(--red-dark);
 }
 /*! Modal styles */
-.modal.hidden {
-   opacity: 0;
-   z-index: -1;
-}
 .modal {
    position: fixed;
    top: 0px;
@@ -104,9 +100,14 @@
    z-index: 10;
    height: 100vh;
    width: 100vw;
-   backdrop-filter: blur(5px);
+   backdrop-filter: blur(3px);
    opacity: 1;
    transition: 0.5s;
+   visibility: visible;
+}
+.modal.hidden {
+   opacity: 0;
+   visibility: hidden;
 }
 .modal__container {
    background-color: #fff;
@@ -122,8 +123,11 @@
    left: calc(50% - 250px);
    box-shadow: 0px 10px 40px #616161;
 }
-.modal__container--success {
+.modal--success .modal__container {
    border-color: #63a63e;
+}
+.modal--fail .modal__container {
+   border-color: #ee3643;
 }
 .modal__text {
    display: flex;
@@ -158,35 +162,38 @@
    color: var(--yellow);
    text-shadow: 1px 1px 2px #484848;
 }  
-.modal__close-icon--success {
+.modal--success .modal__close-icon {
    color: #63a63e;
+}
+.modal--fail .modal__close-icon {
+   color: #ee3643;
 }
 .modal__close-icon:hover {
    text-shadow: none;
 }
 /*! Breadcrumbs styles */
 .breadcrumbs {
-   list-style: none;
-   display: flex;
-   flex-wrap: wrap;
    padding: var(--p1) 0px;
-   gap: var(--p1);
+}
+.breadcrumbs__list {
+   display: flex;
+    gap: var(--p1);
 }
 .breadcrumbs__item {
    display: flex;
+   align-items: center;
 }
 .breadcrumbs__item:first-child {
    padding: 0px;
 }
 .breadcrumbs__link {
-   display: flex;
+   display: block;
    text-decoration: none;
    color: black;
-   font-weight: bold;
    text-transform: uppercase;
    letter-spacing: 1px;
-   align-items: center;
    cursor: pointer;
+   font-weight: bold;
 }
 .breadcrumbs__link:focus {
    outline: none;
@@ -194,10 +201,10 @@
 }
 
 .breadcrumbs__link--home {
-   display: flex;
    text-decoration: none;
-   color: #c1c6ce;
-   font-weight: bold;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .breadcrumbs__link--home:hover,
 .breadcrumbs__link--home:focus {
@@ -205,40 +212,39 @@
    color: var(--blue);
 }
 .breadcrumbs__icon {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   display: block;
    color: #c1c6ce;
-   padding-right: var(--p1);
+   padding-right: 5px;
+   font-size: var(--fs);
 }
 .breadcrumbs__icon--home {
-   display: flex;
-   font-size: 30px;
-   justify-content: center;
-   align-items: center;
+   display: block;
+   font-size: var(--fs4);
+   color: #c1c6ce;
 }
 /*! Book-card style */
 .books-card {
-   width: 310px;
-   border: 2px solid var(--milk);
-   width: 310px;
-   border: 2px solid var(--milk);
    display: flex;
    flex-direction: column;
    background-color: #fff;
    transition: 0.5s;
-   padding-bottom: 20px;
+   padding: var(--p1);
+   box-shadow: 0px 0px 2px #777;
+   position: relative;
+   width: 250px;
 }
 .books-card:hover {
-   box-shadow: 0 0 20px #ccced3;
    transform: scale(1.03);
 }
 .books-card__image-wrapper {
    position: relative;
 }
 .books-card__image {
-   width: 100%;
    object-fit: cover;
+   width: 250px !important;
+   position: relative;
+   top: -10px;
+   left: -10px;
 }
 .books-card__new-flag {
    width: 60px !important;
@@ -247,7 +253,7 @@
    position: absolute;
    top: 0;
    left: 0;
-   height: 100%;
+   height: 330px;
    width: 100%;
    background-color: rgba(255, 255, 255, 0.9);
    display: flex;
@@ -263,19 +269,20 @@
 }
 .books-card__links {
    display: flex;
-   width: 210px;
+   width: 200px;
    justify-content: center;
    align-items: center;
-   margin: 6px;
+   margin-top: var(--p1);
    text-decoration: none;
    text-transform: uppercase;
-   padding: 10px;
    cursor: pointer;
+   height: var(--h1);
+   font-size: var(--fs);
 }
 .books-card__links--more {
-   color: var(--blue-scheme);
-   border: 4px solid var(--green);
-   border-radius: 4px;
+   color: var(--blue);
+   border: 2px solid var(--green);
+   border-radius: 2px;
 }
 .books-card__links--more:hover,
 .books-card__links--more:focus {
@@ -286,11 +293,13 @@
    opacity: 0.5;
 }
 .books-card__links--order {
-   border-radius: 4px;
+   border-radius: 3px;
    background-color: var(--green);
    color: #fff;
-   border-top: 4px solid var(--green);
-   border-bottom: 4px solid var(--green-dark);
+   border-top: 3px solid var(--green);
+   border-bottom: 3px solid var(--green-dark);
+   text-transform: none;
+   font-size: var(--fs1);
 }
 .books-card__links--order:hover,
 .books-card__links--order:focus {
@@ -312,23 +321,27 @@
 }
 .books-card__title {
    text-align: center;
-   margin: 10px 20px;
    display: flex;
    flex-direction: column;
    flex-grow: 1;
+   font-size: var(--fs2);
 }
 .books-card__author {
    font-weight: normal;
+   font-size: var(--fs1);
 }
-
+.books-card__title b {
+   font-size: var(--fs1);
+}
 .books-card__rating-wrapper {
    display: flex;
    justify-content: center;
    align-items: center;
-   padding: 0 20px;
 }
 .books-card__rating-icons {
    color: var(--yellow);
+   font-size: var(--fs3);
+   margin-right: -4px;
 }
 .books-card__comments-quantity {
    display: flex;
@@ -339,58 +352,53 @@
    color: var(--blue);
    max-width: 125px;
 }
-.books-card__status-wrapper {
-   margin: 10px 20px 0px 20px;
-   display: flex;
-   justify-content: center;
-}
 .books-card__status {
    color: #fff;
-   padding: 10px 20px;
-   min-width: 180px;
-   text-align: center;
-   border-radius: 3px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: var(--h);
 }
 .books-card__status--available {
-   background-color: var(--green);
-}
+   background-color: #63a63e;
+   box-shadow: inset 0 0 10px var(--green-dark);
+   cursor: context-menu;
+} 
 .books-card__status--unavailable {
-   background-color: var(--red);
+   background-color: #ee3643;
+   box-shadow: inset 0 0 10px var(--red-dark);
+   cursor: context-menu;
 }
 /*! Pagination styles */
 .pagination {
-   list-style: none;
    display: flex;
    justify-content: center;
    gap: var(--p1);
    flex-wrap: wrap;
-   padding: 0px var(--p3);
-   margin-top: var(--p2);
 }
 .page-item {
-   border: 3px solid var(--milk);
-   border-radius: 3px;
+   border-radius: 2px;
+   box-shadow: 0px 0px 2px #777;
 }
 .page-item.active {
    cursor: pointer;
    color: #fff;
    background-color: var(--red);
-   border-color: var(--red);
 }
 .page-link {
    display: flex;
-   height: 36px;
-   width: 36px;
+   height: var(--h);
+   width: var(--h);
    justify-content: center;
    align-items: center;
    color: var(--blue);
    text-decoration: none;
    font-weight: bold;
-   font-size: 20px;
+   font-size: var(--fs);
 }
 .page-item:first-child .page-link,
 .page-item:last-child .page-link {
-   font-size: 28px;
+   font-size: 20px;
    margin-top: -1px;
 }
 .page-item.active .page-link {
@@ -687,31 +695,31 @@ select {
    margin-bottom: var(--p1);
 }
 .list__head {
-   height: 40px;
+   height: var(--h1);
    background: var(--grey);
    margin-bottom: 5px;
    display: flex;
    align-items: center;
-   padding: 0px 10px;
-   font-size: 19px;
+   padding: 0px var(--p1);
+   font-size: var(--fs);
    text-transform: uppercase;   
 }
 .list {
-   list-style: none;
+   margin-bottom: var(--p2);
 }
 .list__item {
-   min-height: 40px;
+   height: var(--h1);
    background: var(--milk);
    display: flex;
    align-items: center;
-   padding: 0px 10px;
-   font-size: 22px;
+   padding: 0px var(--p1);
+   font-size: var(--fs1);
    position: relative;
    top: 0px;
    left: 0px;
 }
 .list__item:not(:last-child) {
-   margin-bottom: 5px;
+   margin-bottom: 3px;
 }
 .list__item:hover {
    cursor: pointer;

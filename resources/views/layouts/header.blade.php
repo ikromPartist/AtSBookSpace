@@ -125,70 +125,41 @@
          </div>{{-- container end --}}
       </nav>
    </div>{{-- header bottom end --}}
-   <section class="modal hidden">
+   <section class="modal hidden" data-id="confirm-modal">
       <div class="modal__container">
          <p class="modal__text">Вы уверены что хотите продлить дедлайн?</p>
          <div class="modal__btn-wrapper">
-            <button class="button" type="button">Продлить</button>
-            <button class="button button--red" type="button">Отмена</button>
+            <button class="button" data-id="confirm-modal__confirm-btn" type="button">Продлить</button>
+            <button class="button button--red" data-id="confirm-modal__cancel-btn" type="button">Отмена</button>
          </div>
          <button class="modal__close-btn" type="button">
-            <span class="material-icons modal__close-icon">close</span>
-         </button>
-      </div>
-   </section>
-   <section class="modal">
-      <div class="modal__container modal__container--success">
-         <p class="modal__text">Ваш дедлайн успешно продлен ещё на 15 дней!</p>
-         <div class="modal__btn-wrapper">
-            <button class="button" type="button">OK</button>
-         </div>
-         <button class="modal__close-btn" type="button">
-            <span class="material-icons modal__close-icon modal__close-icon--success">close</span>
-         </button>
-      </div>
-   </section>
-
-   
-
-
-   <section class="modals">
-      <div class="modal hidden" data-id="confirm-modal">
-         <div class="modal__msg-wrapper">
-            <p class="modal__msg">{{__('Вы уверены что хотите продлить дедлайн')}}?</p>
-         </div>
-         <div class="modal__btn-wrapper">
-            <button class="button" data-id="confirm-modal__confirm-btn" type="button">{{__('')}}</button>
-            <button class="button button--red" data-id="confirm-modal__cancel-btn" type="button">{{__('')}}</button>
-         </div>
-         <button class="modal__close-btn" aria-label="{{__('Закрыть')}}">
             <span class="material-icons modal__close-icon" data-id="confirm-modal__close-btn">close</span>
          </button>
       </div>
-      <div class="modal hidden" data-id="success-modal">
-         <div class="modal__msg-wrapper">
-            <p class="modal__msg">{{__('')}}!</p>
-         </div>
+   </section>
+   <section class="modal modal--success hidden" data-id="success-modal">
+      <div class="modal__container">
+         <p class="modal__text">Ваш дедлайн успешно продлен ещё на 15 дней!</p>
          <div class="modal__btn-wrapper">
-            <button class="button" data-id="success-modal__ok-btn" type="button">{{__('')}}</button>
+            <button class="button" data-id="success-modal__ok-btn" type="button">OK</button>
          </div>
-         <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+         <button class="modal__close-btn" type="button">
             <span class="material-icons modal__close-icon" data-id="success-modal__close-btn">close</span>
          </button>
       </div>
-      <div class="modal hidden" data-id="fail-modal">
-         <div class="modal__msg-wrapper">
-            <p class="modal__msg modal__msg--red">
-               {{'Операция невозможна'}}!
-               @if ($loggedUser->book && $loggedUser->book->deadline_renewed)
-               {{__('Вы уже продлили дедлайн')}}.
-               @endif
-            </p>
-         </div>
+   </section>
+   <section class="modal modal--fail hidden" data-id="fail-modal">
+      <div class="modal__container">
+         <p class="modal__text">
+            Операция невозможна!
+            @if ($loggedUser->book && $loggedUser->book->deadline_renewed)
+            Вы уже продлили дедлайн.
+            @endif
+         </p>
          <div class="modal__btn-wrapper">
-            <button class="button" data-id="fail-modal__ok-btn" type="button">{{__('OK')}}</button>
+            <button class="button" data-id="fail-modal__ok-btn" type="button">OK</button>
          </div>
-         <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+         <button class="modal__close-btn" type="button">
             <span class="material-icons modal__close-icon" data-id="fail-modal__close-btn">close</span>
          </button>
       </div>

@@ -24,7 +24,7 @@
 
       @include('layouts.footer')
 
-      <section class="feedback hidden" id="feedback">
+      {{-- <section class="feedback hidden" id="feedback">
          <form class="feedback-form" id="feedback-form">
             @csrf
             <label class="title feedback__title" for="feedback-msg">
@@ -45,11 +45,9 @@
          <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
             <span class="material-icons modal__close-icon" id="feedback-success-modal__close-btn">close</span>
          </button>
-      </div>
+      </div> --}}
 
-      <button class="scroll-top-btn" id="scroll-top-btn" type="button">
-         <img src="{{asset('img/scroll-to-top.png')}}">
-      </button>
+      
       {{-- JQuery 3.6 --}}
       <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
       {{-- Datetime picker --}}

@@ -7,34 +7,26 @@
 }
 .about__wrapper {
    width: 790px;
-   padding: 0px var(--p-normal);
-}
-.about__title {
-   font-size: 30px;
-   text-transform: uppercase;
-}
-.about__text {
-   line-height: 1.4;
-   text-align: justify;
+   padding: 0px var(--p2);
 }
 .about__strategy {
    list-style: none;
-   margin-left: var(--p-small);
+   margin-left: var(--p1);
 }
 .about__strategy-item {
    display: flex;
    align-items: center;
    font-weight: bold;
-   font-size: 20px;
-   margin: 10px 0px;
-   gap: var(--p-small);
+   font-size: var(--fs1);
+   margin: var(--p1) 0px;
+   gap: var(--p1);
 }
 .about__strategy-icon {
-   color: var(--red-scheme);
+   color: var(--red);
 }
 .about__image-wrapper {
    width: 550px;
-   margin: var(--p-normal) 0px var(--p-big) 0px; 
+   margin: var(--p1) 0px var(--p3) 0px; 
 }
 .about__image {
    display: block;
@@ -49,21 +41,21 @@
    width: 100%;
 }
 .plan__image-wrapper {
-   margin: var(--p-normal) 0px var(--p-big) 0px; 
+   margin: var(--p1) 0px var(--p3) 0px; 
 }
 .plan__image {
    display: block;
 }
 .plans__wrapper {
    width: 790px;
-   padding: 0px var(--p-normal);
+   padding: 0px var(--p2);
 }
 .plans {
    list-style: none;
 }
 .plans__item {
    display: flex;
-   margin: var(--p-small) 0px;
+   margin: var(--p1) 0px;
    align-items: center;
    text-align: justify;
 }
@@ -75,14 +67,14 @@
 }
 .plans__icon {
    display: flex;
-   color: var(--red-scheme);
-   margin-right: var(--p-small);
+   color: var(--red);
+   margin-right: var(--p1);
    align-items: center;
 }
 /*! Training section */
 .training {
-   background-color: var(--grey-scheme);
-   padding: var(--p-normal) 0px var(--p-big) 0px;
+   background-color: var(--grey);
+   padding: var(--p2) 0px var(--p3) 0px;
 }
 .training__container {
    display: flex;
@@ -91,16 +83,16 @@
 }
 .training__wrapper {
    width: 790px;
-   padding: 0px var(--p-normal) 0px 0px;
+   padding: 0px var(--p2) 0px 0px;
 }
 .training__quote {
-   color: var(--blue-scheme_light);
+   color: var(--blue-light);
    font-weight: bold;
    text-transform: uppercase;
-   font-size: 25px;
+   font-size: var(--fs3);
 }
 .training__text {
-   margin: var(--p-small) 0px;
+   margin: var(--p1) 0px;
    text-align: justify;
 }
 .training__image {

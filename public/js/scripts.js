@@ -396,25 +396,28 @@ $(document).ready(function () {
         items: 3
       },
       1000: {
-        items: 4
+        items: 5
       }
     }
   });
 }); //! Modal map 
 
 var showMapEl = document.querySelector('[data-id="show-map"]');
-var modalMapEl = document.querySelector('[data-id="modal-map"]');
-var closeMapEl = modalMapEl.querySelector('[data-id="close-map"]');
 
-showMapEl.onclick = function (e) {
-  e.preventDefault();
-  modalMapEl.classList.remove('hidden');
-};
+if (showMapEl) {
+  var modalMapEl = document.querySelector('[data-id="modal-map"]');
+  var closeMapEl = modalMapEl.querySelector('[data-id="close-map"]');
 
-closeMapEl.onclick = function (e) {
-  e.preventDefault();
-  modalMapEl.classList.add('hidden');
-};
+  showMapEl.onclick = function (e) {
+    e.preventDefault();
+    modalMapEl.classList.remove('hidden');
+  };
+
+  closeMapEl.onclick = function (e) {
+    e.preventDefault();
+    modalMapEl.classList.add('hidden');
+  };
+}
 })();
 
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
@@ -568,65 +571,58 @@ if (timesLeftEl) {
     }
   });
 } //! Feedback 
+// const feedbackLinkEls = document.querySelectorAll('[data-link="feedback_link"]');
+// const feedbackEl = document.querySelector('#feedback');
+// const feedbackMsgEl = feedbackEl.querySelector('#feedback-msg');
+// const feedbackSubmitEl = feedbackEl.querySelector('#feedback-submit');
+// const feedbackSuccessModalEl = document.querySelector('#feedback-success-modal');
+// if (feedbackLinkEls) {
+//    feedbackLinkEls.forEach(link => {
+//       link.onclick = e => {
+//          e.preventDefault();
+//          feedbackEl.classList.remove('hidden');
+//          if (feedbackMsgEl.value.length < 3) {
+//             feedbackSubmitEl.setAttribute('disabled', 'disabled');
+//          }
+//       }
+//    });
+// }
+// feedbackEl.addEventListener('click', e => {
+//    if (e.target.id == 'feedback') {
+//       feedbackEl.classList.add('hidden');
+//    } else if (e.target.id == 'feedback-reset') {
+//       feedbackSubmitEl.setAttribute('disabled', 'disabled');
+//    } else if (e.target.id == 'feedback-submit') {
+//       e.preventDefault();
+//       const message = feedbackMsgEl.value;
+//       $.ajax({
+//          type: 'POST',
+//          url: '/feedback/send',
+//          data: { message: message },
+//          success: function (response) {
+//             if (response == 'success') {
+//                feedbackEl.classList.add('hidden');
+//                feedbackMsgEl.value = '';
+//                feedbackSuccessModalEl.classList.remove('hidden');
+//             }
+//          }
+//       });
+//    }
+// });
+// feedbackMsgEl.onkeydown = (e) => {
+//    if (feedbackMsgEl.value.length > 3) {
+//       feedbackSubmitEl.removeAttribute('disabled');
+//    } else {
+//       feedbackSubmitEl.setAttribute('disabled', 'disabled');
+//    }
+// }
+// feedbackSuccessModalEl.addEventListener('click', e => {
+//    if (e.target.id == 'feedback-success-modal__ok-btn' || e.target.id == 'feedback-success-modal__close-btn') {
+//       feedbackSuccessModalEl.classList.add('hidden');
+//    }
+// });
+//! Booking books
 
-
-var feedbackLinkEls = document.querySelectorAll('[data-link="feedback_link"]');
-var feedbackEl = document.querySelector('#feedback');
-var feedbackMsgEl = feedbackEl.querySelector('#feedback-msg');
-var feedbackSubmitEl = feedbackEl.querySelector('#feedback-submit');
-var feedbackSuccessModalEl = document.querySelector('#feedback-success-modal');
-
-if (feedbackLinkEls) {
-  feedbackLinkEls.forEach(function (link) {
-    link.onclick = function (e) {
-      e.preventDefault();
-      feedbackEl.classList.remove('hidden');
-
-      if (feedbackMsgEl.value.length < 3) {
-        feedbackSubmitEl.setAttribute('disabled', 'disabled');
-      }
-    };
-  });
-}
-
-feedbackEl.addEventListener('click', function (e) {
-  if (e.target.id == 'feedback') {
-    feedbackEl.classList.add('hidden');
-  } else if (e.target.id == 'feedback-reset') {
-    feedbackSubmitEl.setAttribute('disabled', 'disabled');
-  } else if (e.target.id == 'feedback-submit') {
-    e.preventDefault();
-    var message = feedbackMsgEl.value;
-    $.ajax({
-      type: 'POST',
-      url: '/feedback/send',
-      data: {
-        message: message
-      },
-      success: function success(response) {
-        if (response == 'success') {
-          feedbackEl.classList.add('hidden');
-          feedbackMsgEl.value = '';
-          feedbackSuccessModalEl.classList.remove('hidden');
-        }
-      }
-    });
-  }
-});
-
-feedbackMsgEl.onkeydown = function (e) {
-  if (feedbackMsgEl.value.length > 3) {
-    feedbackSubmitEl.removeAttribute('disabled');
-  } else {
-    feedbackSubmitEl.setAttribute('disabled', 'disabled');
-  }
-};
-
-feedbackSuccessModalEl.addEventListener('click', function (e) {
-  if (e.target.id == 'feedback-success-modal__ok-btn' || e.target.id == 'feedback-success-modal__close-btn') {
-    feedbackSuccessModalEl.classList.add('hidden');
-  }
-}); //! Booking books
 
 var bookingLinkEls = document.querySelectorAll('[data-type="booking"]');
 var successModalEl = document.querySelector('[data-id="booking-success"]');
@@ -656,7 +652,7 @@ if (bookingLinkEls) {
   });
   bookingLinkEls.forEach(function (link) {
     link.addEventListener('mouseover', function (e) {
-      e.target.textContent = "\u0412\u0430\u0448\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E \u0432 \u043E\u0447\u0435\u0440\u0435\u0434\u0438: ".concat(e.target.dataset.queue);
+      e.target.textContent = "\u0412\u0430\u0448\u0430 \u043E\u0447\u0435\u0440\u0435\u0434\u044C: ".concat(e.target.dataset.queue);
     });
     link.addEventListener('mouseleave', function (e) {
       e.target.textContent = 'Забронировать';

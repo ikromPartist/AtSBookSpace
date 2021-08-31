@@ -140,57 +140,57 @@ if (timesLeftEl) {
 
 }
 //! Feedback 
-const feedbackLinkEls = document.querySelectorAll('[data-link="feedback_link"]');
-const feedbackEl = document.querySelector('#feedback');
-const feedbackMsgEl = feedbackEl.querySelector('#feedback-msg');
-const feedbackSubmitEl = feedbackEl.querySelector('#feedback-submit');
-const feedbackSuccessModalEl = document.querySelector('#feedback-success-modal');
-if (feedbackLinkEls) {
-   feedbackLinkEls.forEach(link => {
-      link.onclick = e => {
-         e.preventDefault();
-         feedbackEl.classList.remove('hidden');
-         if (feedbackMsgEl.value.length < 3) {
-            feedbackSubmitEl.setAttribute('disabled', 'disabled');
-         }
-      }
-   });
-}
-feedbackEl.addEventListener('click', e => {
-   if (e.target.id == 'feedback') {
-      feedbackEl.classList.add('hidden');
-   } else if (e.target.id == 'feedback-reset') {
-      feedbackSubmitEl.setAttribute('disabled', 'disabled');
-   } else if (e.target.id == 'feedback-submit') {
-      e.preventDefault();
-      const message = feedbackMsgEl.value;
-      $.ajax({
-         type: 'POST',
-         url: '/feedback/send',
-         data: { message: message },
+// const feedbackLinkEls = document.querySelectorAll('[data-link="feedback_link"]');
+// const feedbackEl = document.querySelector('#feedback');
+// const feedbackMsgEl = feedbackEl.querySelector('#feedback-msg');
+// const feedbackSubmitEl = feedbackEl.querySelector('#feedback-submit');
+// const feedbackSuccessModalEl = document.querySelector('#feedback-success-modal');
+// if (feedbackLinkEls) {
+//    feedbackLinkEls.forEach(link => {
+//       link.onclick = e => {
+//          e.preventDefault();
+//          feedbackEl.classList.remove('hidden');
+//          if (feedbackMsgEl.value.length < 3) {
+//             feedbackSubmitEl.setAttribute('disabled', 'disabled');
+//          }
+//       }
+//    });
+// }
+// feedbackEl.addEventListener('click', e => {
+//    if (e.target.id == 'feedback') {
+//       feedbackEl.classList.add('hidden');
+//    } else if (e.target.id == 'feedback-reset') {
+//       feedbackSubmitEl.setAttribute('disabled', 'disabled');
+//    } else if (e.target.id == 'feedback-submit') {
+//       e.preventDefault();
+//       const message = feedbackMsgEl.value;
+//       $.ajax({
+//          type: 'POST',
+//          url: '/feedback/send',
+//          data: { message: message },
 
-         success: function (response) {
-            if (response == 'success') {
-               feedbackEl.classList.add('hidden');
-               feedbackMsgEl.value = '';
-               feedbackSuccessModalEl.classList.remove('hidden');
-            }
-         }
-      });
-   }
-});
-feedbackMsgEl.onkeydown = (e) => {
-   if (feedbackMsgEl.value.length > 3) {
-      feedbackSubmitEl.removeAttribute('disabled');
-   } else {
-      feedbackSubmitEl.setAttribute('disabled', 'disabled');
-   }
-}
-feedbackSuccessModalEl.addEventListener('click', e => {
-   if (e.target.id == 'feedback-success-modal__ok-btn' || e.target.id == 'feedback-success-modal__close-btn') {
-      feedbackSuccessModalEl.classList.add('hidden');
-   }
-});
+//          success: function (response) {
+//             if (response == 'success') {
+//                feedbackEl.classList.add('hidden');
+//                feedbackMsgEl.value = '';
+//                feedbackSuccessModalEl.classList.remove('hidden');
+//             }
+//          }
+//       });
+//    }
+// });
+// feedbackMsgEl.onkeydown = (e) => {
+//    if (feedbackMsgEl.value.length > 3) {
+//       feedbackSubmitEl.removeAttribute('disabled');
+//    } else {
+//       feedbackSubmitEl.setAttribute('disabled', 'disabled');
+//    }
+// }
+// feedbackSuccessModalEl.addEventListener('click', e => {
+//    if (e.target.id == 'feedback-success-modal__ok-btn' || e.target.id == 'feedback-success-modal__close-btn') {
+//       feedbackSuccessModalEl.classList.add('hidden');
+//    }
+// });
 //! Booking books
 const bookingLinkEls = document.querySelectorAll('[data-type="booking"]');
 const successModalEl = document.querySelector('[data-id="booking-success"]');
@@ -224,7 +224,7 @@ if (bookingLinkEls) {
    });
    bookingLinkEls.forEach(link => {
       link.addEventListener('mouseover', e => {
-         e.target.textContent = `Ваше количество в очереди: ${e.target.dataset.queue}`;
+         e.target.textContent = `Ваша очередь: ${e.target.dataset.queue}`;
       });
       link.addEventListener('mouseleave', e => {
          e.target.textContent = 'Забронировать';

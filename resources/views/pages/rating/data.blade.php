@@ -18,7 +18,7 @@
             </li>
          @endforeach
       </ul>
-      {{$mstActRdrs->links()}} 
+      {{$mstActRdrs->links()}}  
    </div>
 @endif
 
