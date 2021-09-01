@@ -14,7 +14,7 @@
                <a class="breadcrumbs__link" href="{{route('profile.index')}}">
                   {{__('Читатели')}}
                </a>
-            </li>
+            </li> 
             <li class="breadcrumbs__item">
                <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
                <a class="breadcrumbs__link" tabindex="0">

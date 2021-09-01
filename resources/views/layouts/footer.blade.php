@@ -26,7 +26,7 @@
                <a class="footer-navigation__link" @if($route != 'rules.index')href="{{route('rules.index')}}"@endif>Правила пользования библиотекой</a>
             </li>
             <li class="footer-navigation__item">
-               <a class="footer-navigation__link" data-link="feedback_link" href="#">Обратная связь</a>
+               <a class="footer-navigation__link" data-link="feedback_link" @if($route != 'feedback.index')href="{{route('feedback.index')}}"@endif>Обратная связь</a>
             </li>
          </ul>
          <ul class="category-navigation">

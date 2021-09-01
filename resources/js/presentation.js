@@ -1,8 +1,8 @@
 const presentationsEl = document.querySelector('[data-id="presentations"]');
+if (presentationsEl) {
 const presentationSuccessEl = document.querySelector('[data-id="presentation-success"]');
 const presentaionFailEl = document.querySelector('[data-id="presentation-fail"]');
 
-if (presentationsEl) {
    presentationSuccessEl.addEventListener('click', e => {
       if (e.target.dataset.id == 'presentation-success__ok-btn' || e.target.dataset.id == 'presentation-success__close-btn') {
          presentationSuccessEl.classList.add('hidden');

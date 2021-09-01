@@ -5,11 +5,9 @@ if (ratingTypesEl) {
    let request = {
       type: 'most_active_reader'
    };
-
    function fetch_data(page, type) {
       $.ajax({
          url: "/rating/fetch_data?page=" + page + "&type=" + type,
-   
          success: function (response) {
             const ratingViewEl = document.querySelector('[data-id="p-content"]');
             ratingViewEl.innerHTML = response;

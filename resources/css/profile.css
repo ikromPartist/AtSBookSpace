@@ -2,7 +2,7 @@
 .profile__top-wrapper {
    display: flex;
    align-items: flex-start;
-   gap: var(--p-normal);
+   gap: var(--p2);
 }
 .avatar-form {
    display: flex;
@@ -14,16 +14,12 @@
    max-width: 260px;
    max-height: 260px;
    object-fit: cover;
-   margin-bottom: var(--p-small);
-   border-radius: 10px;
+   margin-bottom: var(--p1);
 }
 .avatar-form__item {
    position: relative;
    top: 0px;
    left: 0px;
-}
-.avatar-form__label {
-   margin-bottom: 5px;
 }
 .avatar-form__input {
    position: absolute;
@@ -34,13 +30,12 @@
 .avatar-form__role {
    display: flex;
    justify-content: center;
-   height: 40px;
+   height: var(--h1);
    align-items: center;
-   font-size: 26px;
-   color: var(--green-scheme);
+   font-size: var(--fs2);
+   color: var(--green);
    font-weight: bold;
-   text-shadow: 0 0 2px;
-   margin-bottom: var(--p-small);
+   text-shadow: 0 0 1px;
 }
 .profile-info__wrapper {
    display: flex;
@@ -62,22 +57,23 @@
    align-items: center;
    padding: 5px;
    box-shadow: 0px 0px 1px;
-   background-color: var(--milk-scheme);
+   background-color: var(--milk);
+   font-size: var(--fs);
 }
 .profile-info__item:first-child {
    grid-column-start: 1;
    grid-column-end: 4;
-   font-size: 30px; 
+   font-size: var(--fs4); 
 }
 .profile-info__item:hover {
    transform: scale(1.01);
    background-color: rgba(0, 0, 0, 0.1);
 }
 .profile-info__item b {
-   font-size: 30px;
+   font-size: var(--fs4);  
 }
 .form__password-title {
-   margin-top: var(--p-normal);
+   margin-top: var(--p2);
 }
 /** DateTime picker start */
 .datetime-wrapper {
@@ -122,7 +118,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   color: var(--green-scheme_light);
+   color: var(--green-light);
    font-weight: bold;
 }
 .dtp_modal-months {
@@ -131,11 +127,11 @@
    align-items: center;
    padding: 0px;
    height: 40px;
-   color: var(--blue-scheme);
+   color: var(--blue);
 }
 .dpt_modal-button {
    border: none;
-   margin: 0px var(--p-normal);
+   margin: 0px var(--p2);
    box-shadow: none;
    height: 40px;
    position: relative;
@@ -147,7 +143,7 @@
    position: absolute;
    top: 0px;
    left: 0px;
-   background-color: var(--green-scheme);
+   background-color: var(--green);
    height: 100%;
    width: 100%;
    display: flex;
@@ -168,7 +164,7 @@
    justify-content: center;
 }
 .dtp_modal-cell-selected {
-   background-color: var(--yellow-scheme);
+   background-color: var(--yellow);
 }
 /** DateTime picker end */
 .booked-books {
@@ -177,14 +173,15 @@
    flex-wrap: wrap;
 }
 .booked-books__item:not(:last-child) {
-   margin-right: var(--p-small);
+   margin-right: var(--p1);
+   display: flex;
 }
 /*! Profile content end */
 /*! Profile single start */
 .member {
    display: flex;
-   margin: var(--p-normal) 0px var(--p-big) 0px;
-   gap: var(--p-normal);
+   margin: var(--p2) 0px var(--p3) 0px;
+   gap: var(--p2);
 }
 .member__left {
    width: 260px;
@@ -198,13 +195,13 @@
    flex-grow: 1;
 }
 .member__form-title {
-   margin-top: var(--p-normal);
+   margin-top: var(--p2);
 }
 .member-info {
    list-style: none;
    display: flex;
    flex-direction: column;
-   gap: var(--p-normal);
+   gap: var(--p2);
 }
 .member-info__item {
    display: flex;
@@ -223,7 +220,7 @@
    padding-left: 60px;
    font-size: 22px;
    width: 65%;
-   background-color: var(--milk-scheme);
+   background-color: var(--milk);
    box-shadow: 0px 0px 1px black;
    color: #9a8a6d;   
 }

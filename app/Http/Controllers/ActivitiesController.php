@@ -15,7 +15,7 @@ class ActivitiesController extends Controller
 
         $activities = Activity::whereDate('start', '>', $currentDate)
                                 ->orderBy('start', 'asc')
-                                ->paginate(3);
+                                ->paginate(4);
 
         return view('pages.activities.index', compact('activities'));
     }

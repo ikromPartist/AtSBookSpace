@@ -1,8 +1,8 @@
 .presentation {
-   margin: var(--p-small) 0px var(--p-big) 0px;
+   margin: var(--p1) 0px var(--p3) 0px;
    display: flex;
    align-items: center;
-   gap: var(--p-normal);
+   gap: var(--p1);
    flex-wrap: wrap;
 }
 .presentation__title {
@@ -13,20 +13,23 @@
 .presentation-info {
    display: flex;
    flex-grow: 1;
-   width: 710px;
-   padding: 0px 15px;
+   width: 700px;
 }
 .presentation__btn {
    position: absolute;
    top: 0px;
    right: 0px;
    height: 100%;
-}
-.presentation__btn--accept {
-   right: 134px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: var(--fs1);
 }
 .presentation__even-preview {
    order: 1;
+}
+/* .presentation__btn--accept {
+   right: 134px;
 }
 .presentation-download__icon {
    display: inline-block;
@@ -35,4 +38,4 @@
    position: relative;
    top: 4px;
    left: 6px;
-}
+} */

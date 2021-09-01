@@ -185,7 +185,7 @@
                <button class="about-ats__map-btn" data-id="show-map" type="button">
                   <img class="about-ats__map-img" src="{{asset('img/map.png')}}" alt="г. Душанбе, ул. А. Каххоров, д. 19/8">
                </button>
-               <a class="link about-ats__link" href="#">Заблудились? Напишите нам!</a>
+               <a class="link about-ats__link" href="{{route('feedback.index')}}">Заблудились? Напишите нам!</a>
             </section>{{-- contacts end --}}
          </div>
       </article>

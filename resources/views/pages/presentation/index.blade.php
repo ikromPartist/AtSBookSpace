@@ -1,26 +1,28 @@
 @extends('layouts.master')
 
 @section('content')
-   <main class="presentation__page" data-id="presentations">
-      <div class="container">
-         <ul class="breadcrumbs">
-            <li class="breadcrumbs__item">
-               <a class="breadcrumbs__link breadcrumbs__link--home" href="{{route('home.index')}}" aria-label="{{__('Главная')}}">
-                  <span class="material-icons-outlined breadcrumbs__icon--home">home</span>
+   <main class="presentation-page" data-id="presentations">
+      <section class="breadcrumbs">
+         <div class="container">
+            <ul class="breadcrumbs__list">
+               <li class="breadcrumbs__item">
+               <a class="breadcrumbs__link breadcrumbs__link--home" href="{{route('home.index')}}" aria-label="Главная">
+                  <span class="material-icons breadcrumbs__icon--home">home</span>
                </a>
             </li>
             <li class="breadcrumbs__item">
-               <span class="material-icons-outlined breadcrumbs__icon">arrow_forward_ios</span>
-               <a class="breadcrumbs__link" tabindex="0">{{__('Презентация книг')}}</a>
+               <span class="material-icons breadcrumbs__icon">arrow_forward_ios</span>
+               <a class="breadcrumbs__link" tabindex="0">Презентация книг</a>
             </li>
-         </ul>
-
-         <h1 class="heading">{{__('Презентация книг')}}</h1>
-
+            </ul>
+         </div>
+      </section>
+      <div class="container">
+         <h1 class="heading">Презентация книг</h1>
          @if ($presentations->count() == 0)
             <p class="no-content">
                <span class="material-icons no-content__icon">sentiment_very_dissatisfied</span>
-               {{{__('К сожалению, на ближайшее время презентаций не запланировано')}}}.
+               К сожалению, на ближайшее время презентаций не запланировано.
             </p>  
          @else
             @foreach ($presentations as $key => $presentation)
@@ -49,46 +51,46 @@
                <div class="presentation-info">
                   <ul class="info">
                      <li class="info__item">
-                        <dt class="info__label">{{__('Спикер')}}</dt>
-                        <dd class="info__value">
+                        <dt class="info__label">Спикер</dt>
+                        <dd class="info__input">
                            <span class="material-icons info__icon">campaign</span>
                            {{$presentation->user->name}} {{$presentation->user->surname}}
-                           <a class="button presentation__btn" href="{{route('profile.single', $presentation->user->id)}}" type="button">{{__(('Посмотреть профиль'))}}</a>
+                           <a class="button presentation__btn" href="{{route('profile.single', $presentation->user->id)}}" type="button">Посмотреть профиль</a>
                         </dd>
                      </li>
                      <li class="info__item">
-                        <dt class="info__label">{{__('Книга')}}</dt>
-                        <dd class="info__value">
+                        <dt class="info__label">Книга</dt>
+                        <dd class="info__input">
                            <span class="material-icons info__icon">menu_book</span>
                            {{$presentation->book->title}}
-                           <a class="button presentation__btn" href="{{route('books.single', $presentation->book->id)}}" type="button">{{__(('Посмотреть'))}}</a>
+                           <a class="button presentation__btn" href="{{route('books.single', $presentation->book->id)}}" type="button">Посмотреть</a>
                         </dd>
                      </li>
                      <li class="info__item">
-                        <dt class="info__label">{{__('Дата и время презентации')}}</dt>
-                        <dd class="info__value">
+                        <dt class="info__label">Дата и время презентации</dt>
+                        <dd class="info__input">
                            <span class="material-icons info__icon">schedule</span>
                            {{$presentation->date}}
                         </dd>
                      </li>
                      <li class="info__item">
-                        <dt class="info__label">{{__('Аудитория')}}</dt>
-                        <dd class="info__value">
+                        <dt class="info__label">Аудитория</dt>
+                        <dd class="info__input">
                            <span class="material-icons info__icon">meeting_room</span>
                            {{$presentation->audience}}
                         </dd>
                      </li>
                      <li class="info__item">
-                        <dt class="info__label">{{__('Количество участников')}}</dt>
-                        <dd class="info__value">
+                        <dt class="info__label">Количество участников</dt>
+                        <dd class="info__input">
                            <span class="material-icons info__icon">group</span>
                            {{$presentation->participants_quantity}} / <output data-participants-quantity="{{$presentation->id}}">{{$presentation->participants->count()}}</output>
-                           <button class="button presentation__btn" data-type="participate" data-presentation="{{$presentation->id}}" type="button" {{$presentation->participants_quantity == $presentation->participants->count() ? 'disabled' : ''}}>{{__(('Я хочу участвовать'))}}!</button>
+                           <button class="button presentation__btn" data-type="participate" data-presentation="{{$presentation->id}}" type="button" {{$presentation->participants_quantity == $presentation->participants->count() ? 'disabled' : ''}}>Я хочу участвовать!</button>
                         </dd>
                      </li>
                      <li class="info__item">
-                        <dt class="info__label">{{__('Послание Спикера слушателям – отзыв о книге')}}</dt>
-                        <dd class="info__value">
+                        <dt class="info__label">Послание Спикера слушателям – отзыв о книге</dt>
+                        <dd class="info__text">
                            <span class="material-icons info__icon">description</span>
                            {{$presentation->description}} 
                         </dd>
@@ -101,27 +103,24 @@
       </div>
    </main> 
 
-   <section class="modals">
-      <div class="modal hidden" data-id="presentation-success">
-         <div class="modal__msg-wrapper">
-            <p class="modal__msg">{{__('Вы успешно добавлены в список участников')}}!</p>
-         </div>
+   <section class="modal modal--success hidden" data-id="presentation-success">
+      <div class="modal__container">
+         <p class="modal__text">Вы успешно добавлены в список участников!</p>
          <div class="modal__btn-wrapper">
-            <button class="button" data-id="presentation-success__ok-btn" type="button">{{__('OK')}}</button>
+            <button class="button" data-id="presentation-success__ok-btn" type="button">OK</button>
          </div>
-         <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+         <button class="modal__close-btn" type="button">
             <span class="material-icons modal__close-icon" data-id="presentation-success__close-btn">close</span>
          </button>
       </div>
-
-      <div class="modal hidden" data-id="presentation-fail">
-         <div class="modal__msg-wrapper">
-            <p class="modal__msg modal__msg--red">{{__('Вы уже являетесь участником')}}!</p>
-         </div>
+   </section>
+   <section class="modal modal--fail hidden" data-id="presentation-fail">
+      <div class="modal__container">
+         <p class="modal__text">Вы уже являетесь участником!</p>
          <div class="modal__btn-wrapper">
-            <button class="button" data-id="presentation-fail__ok-btn" type="button">{{__('OK')}}</button>
+            <button class="button" data-id="presentation-fail__ok-btn" type="button">OK</button>
          </div>
-         <button class="modal__close-btn" type="button" aria-label="{{__('Закрыть')}}">
+         <button class="modal__close-btn" type="button">
             <span class="material-icons modal__close-icon" data-id="presentation-fail__close-btn">close</span>
          </button>
       </div>

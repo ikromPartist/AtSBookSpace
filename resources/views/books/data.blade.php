@@ -49,7 +49,7 @@
                @endphp
                <time datetime="{{$date}}">{{$date->format('d/m')}}</time>
             </p>
-            @endif
+            @endif 
          </div>{{-- status wrapeer end --}}
       </figure>
    </li>

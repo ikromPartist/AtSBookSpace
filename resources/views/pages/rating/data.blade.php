@@ -1,11 +1,11 @@
 @if ($mstActRdrs != null)
-   <h2 class="title p-content__title">{{__('Самый активный читатель')}}</h2>
+   <h2 class="title p-content__title">Самый активный читатель</h2>
    <div class="list__wrapper">
       <div class="list__head">
-         <b class="width-30">{{__('Имя и фамилия')}}</b>
-         <b class="width-30">{{__('Компания')}}</b>
-         <b class="width-20 txt-center">{{__('Страниц')}}<small>{{__(' (прочитано)')}}</small></b>
-         <b class="width-20 txt-center">{{__('Книг')}}<small>{{__(' (прочитано)')}}</small></b>
+         <b class="width-30">Имя и фамилия</b>
+         <b class="width-30">Компания</b>
+         <b class="width-20 txt-center">Страниц<small> (прочитано)</small></b>
+         <b class="width-20 txt-center">Книг<small> (прочитано)</small></b>
       </div>
       <ul class="list">
          @foreach ($mstActRdrs as $reader)
@@ -23,13 +23,13 @@
 @endif
 
 @if ($mstRdngCmpnys != null)
-   <h2 class="title p-content__title">{{__('Самая читающая компания')}}</h2>
+   <h2 class="title p-content__title">Самая читающая компания</h2>
    <div class="list__wrapper">
       <div class="list__head">
-         <b class="width-40">{{__('Название компании')}}</b>
-         <b class="width-20 txt-center">{{__('Страниц')}}<small>{{__(' (прочитано)')}}</small></b>
-         <b class="width-20 txt-center">{{__('Книг')}}<small>{{__(' (прочитано)')}}</small></b>
-         <b class="width-20 txt-center">{{__('Сотрудники')}}<small>{{__(' (читающие)')}}</small></b>
+         <b class="width-40">Название компании</b>
+         <b class="width-20 txt-center">Страниц<small> (прочитано)</small></b>
+         <b class="width-20 txt-center">Книг<small> (прочитано)</small></b>
+         <b class="width-20 txt-center">Сотрудники<small> (читающие)</small></b>
       </div>
       <ul class="list">
          @foreach ($mstRdngCmpnys as $company)
@@ -46,13 +46,13 @@
 @endif
 
 @if ($mstDscplndRdrs != null)
-   <h2 class="title p-content__title">{{__('Самый дисциплинированный читатель')}}</h2>
+   <h2 class="title p-content__title">Самый дисциплинированный читатель</h2>
    <div class="list__wrapper">
       <div class="list__head">
-         <b class="width-30">{{__('Имя и фамилия')}}</b>
-         <b class="width-30">{{__('Компания')}}</b>
-         <b class="width-20 txt-center">{{__('К-во нарушений')}}</b>
-         <b class="width-20 txt-center">{{__('Дедлайны')}}<small>{{__(' (продленные)')}}</small></b>
+         <b class="width-30">Имя и фамилия</b>
+         <b class="width-30">Компания</b>
+         <b class="width-20 txt-center">К-во нарушений</b>
+         <b class="width-20 txt-center">Дедлайны<small> (продленные)</small></b>
       </div>
       <ul class="list">
          @foreach ($mstDscplndRdrs as $reader)
@@ -70,13 +70,13 @@
 @endif
 
 @if ($mstPplrBooks != null)
-   <h2 class="title p-content__title">{{__('Самая популярная книга')}}</h2>
+   <h2 class="title p-content__title">Самая популярная книга</h2>
    <div class="list__wrapper">
       <div class="list__head">
-         <b class="width-30">{{__('Название книги')}}</b>
-         <b class="width-30">{{__('Автор')}}</b>
-         <b class="width-20 txt-center">{{__('К-во лайков')}}</b>
-         <b class="width-20 txt-center">{{__('К-во отзывов')}}</b>
+         <b class="width-30">Название книги</b>
+         <b class="width-30">Автор</b>
+         <b class="width-20 txt-center">К-во лайков</b>
+         <b class="width-20 txt-center">К-во отзывов</b>
       </div>
       <ul class="list">
          @foreach ($mstPplrBooks as $book)
@@ -94,13 +94,13 @@
 @endif
 
 @if ($mstPrctvMmbrs != null)
-   <h2 class="title p-content__title">{{__('Самый проактивный член клуба')}}</h2>
+   <h2 class="title p-content__title">Самый проактивный член клуба</h2>
    <div class="list__wrapper">
       <div class="list__head">
-         <b class="width-30">{{__('Имя и фамилия')}}</b>
-         <b class="width-30">{{__('Компания')}}</b>
-         <b class="width-20 txt-center">{{__('К-во презентаций')}}</b>
-         <b class="width-20 txt-center">{{__('Активность')}}</b>
+         <b class="width-30">Имя и фамилия</b>
+         <b class="width-30">Компания</b>
+         <b class="width-20 txt-center">К-во презентаций</b>
+         <b class="width-20 txt-center">Активность</b>
       </div>
       <ul class="list">
          @foreach ($mstPrctvMmbrs as $member)

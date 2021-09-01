@@ -1,10 +1,10 @@
-<h2 class="title p-content__title">{{__('Читатели')}}</h2>
+<h2 class="title p-content__title">Читатели</h2>
 <div class="list__wrapper">
    <div class="list__head">
-      <b class="width-30">{{__('Имя и фамилия')}}</b>
-      <b class="width-30">{{__('Компания')}}</b>
-      <b class="width-20 txt-center">{{__('Страниц')}}<small>{{__(' (прочитано)')}}</small></b>
-      <b class="width-20 txt-center">{{__('Книг')}}<small>{{__(' (прочитано)')}}</small></b>
+      <b class="width-30">Имя и фамилия</b>
+      <b class="width-30">Компания</b>
+      <b class="width-20 txt-center">Страниц<small> (прочитано)</small></b>
+      <b class="width-20 txt-center">Книг<small> (прочитано)</small></b>
    </div>
    <ul class="list">
       @foreach ($members as $reader)

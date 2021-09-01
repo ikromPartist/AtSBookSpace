@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-   <main class="rating__page">
+   <main class="rating-page">
       <section class="breadcrumbs">
          <div class="container">
             <ul class="breadcrumbs__list">
@@ -14,7 +14,7 @@
                <span class="material-icons breadcrumbs__icon">arrow_forward_ios</span>
                <a class="breadcrumbs__link" tabindex="0">Рейтинг</a>
             </li>
-            </ul>{{-- breadcrumbs end --}}
+            </ul>
          </div>
       </section>
       <div class="container">
@@ -26,19 +26,19 @@
                <nav class="p-navigation">
                   <ul class="p-navigation__list">
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link active" data-id="most-active-reader" data-type="rating-link" href="#">{{__('Самый активный читатель')}}</a>
+                        <a class="p-navigation__link active" data-id="most-active-reader" data-type="rating-link" href="#">Самый активный читатель</a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" data-id="most-reading-company" data-type="rating-link" href="#">{{__('Самая читающая компания')}}</a>
+                        <a class="p-navigation__link" data-id="most-reading-company" data-type="rating-link" href="#">Самая читающая компания</a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" data-id="most-disciplined-reader" data-type="rating-link" href="#">{{__('Самый дисциплинированный читатель')}}</a>
+                        <a class="p-navigation__link" data-id="most-disciplined-reader" data-type="rating-link" href="#">Самый дисциплинированный читатель</a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" data-id="most-popular-book" data-type="rating-link" href="#">{{__('Самая популярная книга')}}</a>
+                        <a class="p-navigation__link" data-id="most-popular-book" data-type="rating-link" href="#">Самая популярная книга</a>
                      </li>
                      <li class="p-navigation__item">
-                        <a class="p-navigation__link" data-id="most-proactive-member" data-type="rating-link" href="#">{{__('Самый проактивный член клуба')}}</a>
+                        <a class="p-navigation__link" data-id="most-proactive-member" data-type="rating-link" href="#">Самый проактивный член клуба</a>
                      </li>
                   </ul>
                </nav>

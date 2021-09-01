@@ -1,11 +1,11 @@
-<h2 class="title p-content__title">{{__('Самая популярная книга')}}</h2>
+<h2 class="title p-content__title">Самая популярная книга</h2>
 @if (count($readBooks) != 0)
    <div class="list__wrapper">
       <div class="list__head">
-         <b class="width-30">{{__('Название книги')}}</b>
-         <b class="width-30">{{__('Автор')}}</b>
-         <b class="width-20 txt-center">{{__('К-во страниц')}}</b>
-         <b class="width-20 txt-center">{{__('Рейтинг')}}</b>
+         <b class="width-30">Название книги</b>
+         <b class="width-30">Автор</b>
+         <b class="width-20 txt-center">К-во страниц</b>
+         <b class="width-20 txt-center">Рейтинг</b>
       </div>
       <ul class="list">
          @foreach ($readBooks as $readBook)
@@ -23,6 +23,6 @@
 @else
    <p class="no-content">
       <span class="material-icons no-content__icon">sentiment_very_dissatisfied</span>
-      {{{__('У Вас на данный момент нет забронированных книг')}}}
+      У Вас на данный момент нет забронированных книг
    </p>    
 @endif

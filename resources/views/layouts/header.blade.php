@@ -109,17 +109,17 @@
                <li class="site-navigation__item {{$route == 'rating.index' ? 'active' : ''}}">
                   <a class="site-navigation__link" @if($route != 'rating.index')href="{{route('rating.index')}}"@endif>Рейтинги</a>
                </li>
-               <li class="site-navigation__item {{$route == 'presentation.index' ? 'active' : ''}}">
+               <li class="site-navigation__item {{$route == 'presentation.index' || $route == 'presentation.single' ? 'active' : ''}}">
                   <a class="site-navigation__link" @if($route != 'presentation.index')href="{{route('presentation.index')}}"@endif>Презентация книг</a>
                </li>
-               <li class="site-navigation__item {{$route == 'activities.index' ? 'active' : ''}}">
+               <li class="site-navigation__item {{$route == 'activities.index' || $route == 'activities.single' ? 'active' : ''}}">
                   <a class="site-navigation__link" @if($route != 'activities.index')href="{{route('activities.index')}}"@endif>Мероприятия клуба</a>
                </li>
                <li class="site-navigation__item {{$route == 'rules.index' ? 'active' : ''}}">
                   <a class="site-navigation__link" @if($route != 'rules.index')href="{{route('rules.index')}}"@endif>Правила пользования библиотекой</a>
                </li>
-               <li class="site-navigation__item {{$route == 'feedback.index' ? 'active' : ''}}">
-                  <a class="site-navigation__link" data-link="feedback_link" href="#">Обратная связь</a>
+               <li class="site-navigation__item {{$route == 'feedback.index' || $route == 'feedback.single' ? 'active' : ''}}">
+                  <a class="site-navigation__link" data-link="feedback_link" @if($route != 'feedback.index')href="{{route('feedback.index')}}"@endif>Обратная связь</a>
                </li>   
             </ul> 
          </div>{{-- container end --}}

@@ -51,7 +51,8 @@ Route::group(['middleware'=>['AuthCheck']], function(){
    //! Rules routes
    Route::get('/rules', [RulesController::class, 'index'])->name('rules.index');
    //! Feedback routes
-   Route::post('/feedback/send', [FeedbackController::class, 'send']);
+   Route::get('/feedback', [FeedbackController::class, 'index'])->name('feedback.index');
+   Route::get('/feedback/single/{$id}', [FeedbackController::class, 'single'])->name('feedback.single');
    //! Profile routes
    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
    Route::get('/profile/single/{id}', [ProfileController::class, 'single'])->name('profile.single');

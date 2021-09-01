@@ -52,9 +52,14 @@ class ProfileController extends Controller
 
             case 'activities':
 
-                $activities = $user->actions;
+                $activities = User::find($user->id)
+                                    ->actions()
+                                    ->orderBy('end', 'desc')
+                                    ->paginate(12);
 
-                return view('profile.index', compact('activities'));
+                $rank = $activities->firstItem();
+
+                return view('profile.index', compact('activities', 'rank'));
 
                 break;
 
@@ -245,9 +250,14 @@ class ProfileController extends Controller
 
                 case 'activities':
 
-                    $activities = $user->actions;
+                    $activities = User::find($user->id)
+                                        ->actions()
+                                        ->orderBy('end', 'desc')
+                                        ->paginate(12);
 
-                    return view('profile.data.activities', compact('activities'));
+                    $rank = $activities->firstItem();
+
+                    return view('profile.data.activities', compact('activities', 'rank'));
 
                     break;
 

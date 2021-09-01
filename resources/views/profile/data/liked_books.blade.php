@@ -1,11 +1,11 @@
-<h1 class="title p-content__title">{{__('Понравившиеся книги')}}</h1>
+<h1 class="title p-content__title">Понравившиеся книги</h1>
 @if ($loggedUser->likes->count() != 0)
    <div class="list__wrapper">
       <div class="list__head">
-         <b class="width-30">{{__('Название книги')}}</b>
-         <b class="width-30">{{__('Автор')}}</b>
-         <b class="width-20 txt-center">{{__('К-во страниц')}}</b>
-         <b class="width-20 txt-center">{{__('Рейтинг')}}</b>
+         <b class="width-30">Название книги</b>
+         <b class="width-30">Автор</b>
+         <b class="width-20 txt-center">К-во страниц</b>
+         <b class="width-20 txt-center">Рейтинг</b>
       </div>
       <ul class="list">
          @php
@@ -25,6 +25,6 @@
 @else
    <p class="no-content">
       <span class="material-icons no-content__icon">sentiment_very_dissatisfied</span>
-      {{{__('Список пуст')}}}
+      Список пуст
    </p>    
 @endif

@@ -35,7 +35,7 @@
                @if ($category == 'all')
                   Все книги
                @else 
-                  Доступные книги
+                  Доступные книги 
                @endif
             @else 
                {{$category}}

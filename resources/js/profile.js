@@ -42,7 +42,8 @@ function fetch_data(page, type) {
                buttonTitle: "Select"
             });
             const fileInputEl = profileContentEl.querySelector('#presentation');
-            const fileViewEl = profileContentEl.querySelector('[data-id="presentation"]');
+            const fileViewEl = profileContentEl.querySelector('[data-view="presentation"]');
+            console.log(fileInputEl);
             fileInputEl.onchange = () => {
                fileViewEl.value = fileInputEl.value;               
             }
@@ -276,8 +277,8 @@ if (passwordFormEl) {
    const passwordEl = passwordFormEl.querySelector('#password');
    const newPasswordEl = passwordFormEl.querySelector('#new-password');
    const confirmPasswordEl = passwordFormEl.querySelector('#confirm-password');
-   const passwordSuccessEl = passwordFormEl.querySelector('[data-id="password-success"]');
-   passwordFormEl.addEventListener('click', e => {
+   const passwordSuccessEl = document.querySelector('[data-id="password-success"]');
+   document.addEventListener('click', e => {
       if (e.target.dataset.id == 'password-icon') {
          if (e.target.textContent == 'visibility') {
             e.target.textContent = 'visibility_off';
@@ -307,7 +308,6 @@ if (passwordFormEl) {
       }
       else if (e.target.dataset.id == 'password-submit-btn') {
          e.preventDefault();
-
          const password = passwordEl.value;
          const passwordError = passwordFormEl.querySelector('[data-id="password-error"]');
          const newPassword = newPasswordEl.value;

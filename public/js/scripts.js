@@ -14,37 +14,40 @@ var __webpack_exports__ = {};
   !*** ./resources/js/activities.js ***!
   \************************************/
 var activitiesEl = document.querySelector('[data-id="activities"]');
-var activitySuccessEl = document.querySelector('[data-id="activity-success"]');
-var activityFailEl = document.querySelector('[data-id="activity-fail"]');
 
 if (activitiesEl) {
-  activitySuccessEl.addEventListener('click', function (e) {
-    if (e.target.dataset.id == 'activity-success__ok-btn' || e.target.dataset.id == 'activity-success__close-btn') {
-      activitySuccessEl.classList.add('hidden');
-    }
-  });
-  activityFailEl.addEventListener('click', function (e) {
-    if (e.target.dataset.id == 'activity-fail__ok-btn' || e.target.dataset.id == 'activity-fail__close-btn') {
-      activityFailEl.classList.add('hidden');
-    }
-  });
-  activitiesEl.addEventListener('click', function (e) {
-    if (e.target.dataset.type == 'participate') {
-      e.preventDefault();
-      $.ajax({
-        url: "/activities/participation?activity=".concat(e.target.dataset.activity),
-        success: function success(response) {
-          if (response == 'success') {
-            activitySuccessEl.classList.remove('hidden');
-            var participantsQuantityEl = activitiesEl.querySelector("[data-participants-quantity=\"".concat(e.target.dataset.activity, "\"]"));
-            participantsQuantityEl.textContent = +participantsQuantityEl.textContent + 1;
-          } else {
-            activityFailEl.classList.remove('hidden');
+  var activitySuccessEl = document.querySelector('[data-id="activity-success"]');
+  var activityFailEl = document.querySelector('[data-id="activity-fail"]');
+
+  if (activitySuccessEl) {
+    activitySuccessEl.addEventListener('click', function (e) {
+      if (e.target.dataset.id == 'activity-success__ok-btn' || e.target.dataset.id == 'activity-success__close-btn') {
+        activitySuccessEl.classList.add('hidden');
+      }
+    });
+    activityFailEl.addEventListener('click', function (e) {
+      if (e.target.dataset.id == 'activity-fail__ok-btn' || e.target.dataset.id == 'activity-fail__close-btn') {
+        activityFailEl.classList.add('hidden');
+      }
+    });
+    activitiesEl.addEventListener('click', function (e) {
+      if (e.target.dataset.type == 'participate') {
+        e.preventDefault();
+        $.ajax({
+          url: "/activities/participation?activity=".concat(e.target.dataset.activity),
+          success: function success(response) {
+            if (response == 'success') {
+              activitySuccessEl.classList.remove('hidden');
+              var participantsQuantityEl = activitiesEl.querySelector("[data-participants-quantity=\"".concat(e.target.dataset.activity, "\"]"));
+              participantsQuantityEl.textContent = +participantsQuantityEl.textContent + 1;
+            } else {
+              activityFailEl.classList.remove('hidden');
+            }
           }
-        }
-      });
-    }
-  });
+        });
+      }
+    });
+  }
 }
 })();
 
@@ -675,10 +678,10 @@ if (bookingLinkEls) {
   !*** ./resources/js/presentation.js ***!
   \**************************************/
 var presentationsEl = document.querySelector('[data-id="presentations"]');
-var presentationSuccessEl = document.querySelector('[data-id="presentation-success"]');
-var presentaionFailEl = document.querySelector('[data-id="presentation-fail"]');
 
 if (presentationsEl) {
+  var presentationSuccessEl = document.querySelector('[data-id="presentation-success"]');
+  var presentaionFailEl = document.querySelector('[data-id="presentation-fail"]');
   presentationSuccessEl.addEventListener('click', function (e) {
     if (e.target.dataset.id == 'presentation-success__ok-btn' || e.target.dataset.id == 'presentation-success__close-btn') {
       presentationSuccessEl.classList.add('hidden');
@@ -767,7 +770,9 @@ function fetch_data(page, type) {
 
         var _fileInputEl = profileContentEl.querySelector('#presentation');
 
-        var _fileViewEl = profileContentEl.querySelector('[data-id="presentation"]');
+        var _fileViewEl = profileContentEl.querySelector('[data-view="presentation"]');
+
+        console.log(_fileInputEl);
 
         _fileInputEl.onchange = function () {
           _fileViewEl.value = _fileInputEl.value;
@@ -1001,8 +1006,8 @@ if (passwordFormEl) {
   var passwordEl = passwordFormEl.querySelector('#password');
   var newPasswordEl = passwordFormEl.querySelector('#new-password');
   var confirmPasswordEl = passwordFormEl.querySelector('#confirm-password');
-  var passwordSuccessEl = passwordFormEl.querySelector('[data-id="password-success"]');
-  passwordFormEl.addEventListener('click', function (e) {
+  var passwordSuccessEl = document.querySelector('[data-id="password-success"]');
+  document.addEventListener('click', function (e) {
     if (e.target.dataset.id == 'password-icon') {
       if (e.target.textContent == 'visibility') {
         e.target.textContent = 'visibility_off';

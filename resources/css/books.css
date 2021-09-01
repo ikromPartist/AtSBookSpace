@@ -80,11 +80,11 @@
    display: flex;
    margin-bottom: var(--p2);
 }
-.list__wrapper {
+.books-list {
    margin-top: var(--p1);
    display: none;
 }
-.list__wrapper.show {
+.books-list.show {
    display: block;
 }
 /** books section end */
@@ -169,8 +169,11 @@
 /** book-info start */
 .book-info {
    position: relative;
-   min-height: 600px;
-   padding: 40px 20px 0px 40px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   gap: var(--p2);
+   margin-top: 90px;
 }
 .book-info__status-wrapper {
    display: flex;
@@ -179,31 +182,32 @@
 }
 .book-info__status {
    text-transform: uppercase;
-   font-weight: bold;
    color: #fff;
-   padding: 8px 40px;
-   font-size: 22px;
    cursor: context-menu;
+   background-color: #63a63e;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: var(--h);
+   padding: 0px var(--p3);
 }
-
+.books-info__status--unavailable {
+   background-color: #ee3643;
+}
 .book-info__article {
-   font-size: 22px;
    font-weight: bold;
    color: #fff;
    text-transform: uppercase;
    text-shadow: 0 0 10px var(--blue);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: var(--h);
 }
 .book-info__description {
-   margin: var(--p-normal) var(--p1);
-   font-size: 24px;
-   overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 8;
-   -webkit-box-orient: vertical;
+   margin: 0px var(--p3);
 }
 .book-info__list {
-   list-style: none;
    display: flex;
    justify-content: space-between;
    flex-wrap: wrap;
@@ -217,16 +221,15 @@
    align-items: center;
    font-weight: bold;
    text-transform: uppercase;
+   font-size: var(--fs);
 }
 .book-info__dd {
    display: flex;
    align-items: center;
-   font-size: 20px;
-   margin-top: -2px;
 }
 .book-info__arrow-icon {
    display: block;
-   font-size: 16px;
+   font-size: var(--fs);
    margin: 0px 10px 0px 9px;
    font-weight: bold;
 }
@@ -234,8 +237,6 @@
    display: flex;
    justify-content: center;
    align-items: center;
-   min-height: 100px;
-   margin-bottom: 20px;
 }
 .book-info__stars-wrapper {
    display: flex;
@@ -247,7 +248,7 @@
 .book-info__rating-icons {
    display: block;
    color: var(--yellow);
-   font-size: 65px;
+   font-size: 60px;
    cursor: pointer;
 }
 .book-info__rating-icons.grey {
@@ -258,24 +259,19 @@
    text-shadow: 0px 1px 4px black;
 }
 .book-info__rating-link {
-   display: block;
-   text-decoration: none;
-   font-size: 22px;
    background-color: var(--yellow);
-   padding: 5px 25px;
-   border-radius: 3px;
-   color: #fff;
-   margin: 0 0 0 var(--p2);
-   border: none;
-   cursor: pointer;
+   padding: 0px var(--p2);
+   margin-left: var(--p2);
+   box-shadow: 0px 0px 4px #777;
+   text-shadow: 1px 1px 2px #777;
 }
 .book-info__rating-link:hover,
 .book-info__rating-link:focus {
    outline: none;
-   opacity: 0.5;
+   background-color: #e2c028;
 }
 .book-info__rating-link:active {
-   opacity: 1;
+   background-color: #ffe77e;
 }
 /* likes-container start */
 .likes-container {
@@ -298,10 +294,15 @@
    cursor: pointer;
 }
 .likes-icon {
-   font-size: 35px;
+   font-size: 30px;
    color: var(--blue-light);
-   margin: 10px 5px 10px 0px;
+   margin: 5px;
    z-index: -1;
+   text-shadow: 0px 0px 3px black;
+}
+.likes-icon--empty {
+   color: #fff;
+   text-shadow: 0px 0px 3px black;
 }
 .likes-button output {
    position: relative;
@@ -317,11 +318,12 @@
 /** book-info end */
 /** comment start */
 .comment {
-   background-color: var(--grey-);
+   background-color: var(--grey);
    padding: var(--p1) var(--p2);
 }
 .comment__title {
    font-weight: normal;
+   font-size: var(--fs4);
 }
 .comment-form {
    display: flex;
@@ -337,9 +339,9 @@
 .comment__user-avatar {
    background-color: var(--yellow);
    display: block;
-   height: 70px;
-   width: 70px;
-   border-radius: 50px;
+   height: var(--h3);
+   width: var(--h3);
+   border-radius: 50%;
    object-fit: cover;
 }
 .comment__text {
@@ -368,25 +370,24 @@
    transition: 1s;
 }
 .comments {
-   list-style: none;
-   margin-bottom: 80px;
+   margin-bottom: var(--p3);
 }
 .comments__item {
    display: flex;
    justify-content: space-between;
 }
 .comments__item:not(:last-child) {
-   margin-bottom: var(--p2);
+   margin-bottom: var(--p3);
 }
 .comments__link {
    display: flex;
 }
 .comments__avatar {
    display: block;
-   width: 60px;
-   height: 60px;
+   width: var(--h2);
+   height: var(--h2);
    background-color: var(--yellow);
-   border-radius: 50px;
+   border-radius: 50%;
 }
 .comments__wrapper {
    display: flex;
@@ -395,14 +396,13 @@
 }
 .comments__title {
    font-weight: bold;
-   font-size: 20px;
-   margin-top: 10px;
+   font-size: var(--fs2);
 }
 .comments__title time {
    font-weight: normal;
 }
 .comments__text {
-   padding-top: 10px;
+   padding-top: 5px;
 }
 /** comment end */
 /** rating modals start */

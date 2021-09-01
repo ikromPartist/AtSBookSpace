@@ -24,7 +24,8 @@ mix.styles(['resources/css/app.css',
             'resources/css/profile.css',
             'resources/css/rating.css',
             'resources/css/rules.css',
-            'resources/css/about.css'], 'public/css/styles.css')
+            'resources/css/about.css',
+            'resources/css/auth.css'], 'public/css/styles.css')
 
     .js(['resources/js/about.js',
         'resources/js/activities.js',

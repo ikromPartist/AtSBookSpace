@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-   <main class="about__page">
+   <main class="about-page">
       <section class="breadcrumbs">
          <div class="container">
             <ul class="breadcrumbs__list">
@@ -14,7 +14,7 @@
                   <span class="material-icons breadcrumbs__icon">arrow_forward_ios</span>
                   <a class="breadcrumbs__link" tabindex="0">О клубе</a>
                </li>
-            </ul>{{-- breadcrumbs end --}}
+            </ul>
          </div>
       </section>
       <div class="container">
